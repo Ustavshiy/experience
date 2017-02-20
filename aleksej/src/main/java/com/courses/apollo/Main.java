@@ -3,8 +3,15 @@ package com.courses.apollo;
 /**
  * Created by User on 20.02.2017.
  */
-public class Main {
-    public static void main(String[] args) {
+public final class Main {
+    private Main() {
+    }
 
+    /**
+     * This is main method.
+     *
+     * @param args strings array
+     */
+    public static void main(String[] args) {
     }
 }
