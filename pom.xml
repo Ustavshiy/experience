@@ -17,6 +17,7 @@
         <module>aleksej</module>
         <module>dmytroc</module>
         <module>bogdand</module>
+        <module>ihorp</module>
     </modules>
 
     <dependencies>
