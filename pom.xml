@@ -11,6 +11,8 @@
     <modules>
         <module>bogdang</module>
         <module>example</module>
+
+        <module>dmytroc</module>
     </modules>
 
     <dependencies>
