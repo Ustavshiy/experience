@@ -15,6 +15,9 @@
 
         <module>dmytroc</module>
     </modules>
+    <modules>
+        <module>bogdand</module>
+    </modules>
 
     <dependencies>
         <dependency>
