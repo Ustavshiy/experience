@@ -9,11 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-<<<<<<< HEAD
         <module>vladimirk</module>
-=======
         <module>bogdang</module>
->>>>>>> master
         <module>example</module>
     </modules>
 
