@@ -33,7 +33,7 @@ public final class Main {
         final int divideFirst = 5;
         final int divideSecond = 7;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % divideFirst == 0 & arr[i] % divideSecond == 0) {
+            if (arr[i] % divideFirst == 0 && arr[i] % divideSecond == 0) {
                 System.out.print(arr[i] + " ");
             }
         }
