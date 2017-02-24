@@ -1,12 +1,14 @@
 package com.courses.apollo;
+
+/**
+ * Created by User on 24.02.2017.
+ */
 public final class Main {
-    private Main(){
-    }
+    private Main() {}
 
     /**
      * This is main method.
-     * *
-     * @param args  strings array
+     * @param args strings array
      */
     public static void main(String[] args) {
     }
