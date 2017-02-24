@@ -1,11 +1,29 @@
 package com.courses.apollo;
 
+import java.util.Set;
+
 /**
  * Created by User on 20.02.2017.
  */
 public final class Main {
-    private Main() {
-    }
+
+    /**
+     * Test constant array "ARRAY" declared and initialized.
+     * Declared and initialized constant MODULO_ONE and MODULO_TWO.
+     */
+    private static final Integer[] ARRAY = {140, 3, 35, 14, 35, 87, 70, 57, 105, 106, 10};
+
+    /**
+     * Declared and initialized constant MODULO_ONE.
+     */
+    public static final int MODULO_ONE = 5;
+
+    /**
+     * Declared and initialized constant MODULO_TWO.
+     */
+    public static final int MODULO_TWO = 7;
+
+    private Main() {}
 
     /**
      * This is main method.
@@ -15,28 +33,15 @@ public final class Main {
     public static void main(String[] args) {
 
         /**
-         * Test array "array" declared and initialized.
+         * Achieve numbers to Set.
          */
-        final int[] array = {3, 35, 14, 87, 70, 57, 105, 106, 10, 140};
+        Set<Integer> approvedNumbers = ModuloUtils.printModuloByTwoNumbers(ARRAY, MODULO_ONE, MODULO_TWO);
 
         /**
-         * Call method "moduleSevenAndFive" with test array "array".
-         */
-
-        Main.printModuloByTwoNumbers(array);
-    }
-
-    /**
-     * This method "moduleSevenAndFive" print in console all integers in array,
-     * that can be divided by 5 and 7.
-     */
-    static void printModuloByTwoNumbers(int[] arr) {
-        final int moduloOne = 5;
-        final int moduloTwo = 7;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % moduloOne == 0 && arr[i] % moduloTwo == 0) {
-                System.out.print(arr[i] + " ");
-            }
+         * Print numbers to console.
+          */
+        for (Integer e: approvedNumbers) {
+            System.out.print(e + " ");
         }
     }
 }
