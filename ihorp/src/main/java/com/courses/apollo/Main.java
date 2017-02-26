@@ -10,6 +10,7 @@ public final class Main {
     /**
      * This is main method.
      * @param args strings array
+     * Test commit to push
      */
     public static void main(String[] args) {
 
