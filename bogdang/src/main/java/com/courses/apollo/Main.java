@@ -20,7 +20,12 @@ public final class Main {
 
     }
 
-    // This method sorts the array by comparing modules his elements
+    /**
+     * This method sorts the array by comparing modules his elements.
+     *
+     * @param mass is input array.
+     * @return sorted array.
+     */
 
     static int[] sort(int[] mass) {
         for (int i = mass.length - 1; i >= 0; i--) {
