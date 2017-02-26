@@ -24,6 +24,13 @@ public final class Main {
      */
     public static void main(String[] args) {
 
+        Main main = new Main();
+        main.isPrime();
+    }
+
+     /** Method of determining the prime numbers of the numbers from an array.*/
+     public void isPrime() {
+
         /** Loop to iterate over the array of numbers. */
         for (int num = 0; num < INARRAY.length; num++) {
 
@@ -33,7 +40,7 @@ public final class Main {
              * The second else if statement filters out even numbers except the deuce to speed up applications
              * (since they are complex numbers).
              * The third else if statement determine the primes by brute force potential dividers of numbers array. */
-            if (INARRAY[num] <= 0) {
+            if (INARRAY[num] <= 1) {
                 flagIsPrime = false;
             } else if ((INARRAY[num] % 2 == 0) && INARRAY[num] != 2) {
                 flagIsPrime = false;
