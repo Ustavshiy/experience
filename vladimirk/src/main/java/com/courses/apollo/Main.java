@@ -25,14 +25,15 @@ public final class Main {
     public static void main(String[] args) {
 
         Main main = new Main();
-        main.findPrime();
+        main.findPrime(INARRAY);
     }
 
-     /** Method of determining the prime numbers of the numbers from an array.*/
-     public void findPrime() {
+     /** Method of determining the prime numbers of the numbers from an array.
+      * @param arr is the array of input values */
+     public void findPrime(Integer[] arr) {
 
         /** Loop to iterate over the array of numbers. */
-        for (int num = 0; num < INARRAY.length; num++) {
+        for (int num = 0; num < arr.length; num++) {
 
             boolean flagIsPrime = true;
             /** Sorting numbers loop that defines primes.
@@ -40,19 +41,19 @@ public final class Main {
              * The second else if statement filters out even numbers except the deuce to speed up applications
              * (since they are complex numbers).
              * The third else if statement determine the primes by brute force potential dividers of numbers array. */
-            if (INARRAY[num] <= 1) {
+            if (arr[num] <= 1) {
                 flagIsPrime = false;
-            } else if ((INARRAY[num] % 2 == 0) && INARRAY[num] != 2) {
+            } else if ((arr[num] % 2 == 0) && arr[num] != 2) {
                 flagIsPrime = false;
             } else {
                 /** Loop-busting potential dividers of numbers.
                  * The value of the divisor is limited to the square root of number. */
-                for (int divisor = 2; divisor <= Math.sqrt(INARRAY[num]); divisor++) {
+                for (int divisor = 2; divisor <= Math.sqrt(arr[num]); divisor++) {
                     /** This loop cycle defining primes dividing the number of the array on its potential divide
                      * and stops checking on the first case, the division without a trace.
                      * (assigning the appropriate value of Boolean variable). */
 
-                    if (INARRAY[num] % divisor == 0) {
+                    if (arr[num] % divisor == 0) {
                         flagIsPrime = false;
                         break;
                     }
@@ -61,7 +62,7 @@ public final class Main {
 
             /** This loop print primes to the console.*/
             if (flagIsPrime) {
-                System.out.println(INARRAY[num]);
+                System.out.println(arr[num]);
             }
         }
     }
