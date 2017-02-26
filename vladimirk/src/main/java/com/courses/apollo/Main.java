@@ -52,7 +52,7 @@ public final class Main {
                 }
             }
 
-            /** This loop print primes to the console. */
+            /** This loop print primes to the console.*/
             if (flagIsPrime) {
                 System.out.println(INARRAY[num]);
             }
