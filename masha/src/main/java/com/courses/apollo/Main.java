@@ -1,7 +1,7 @@
 package com.courses.apollo;
 
 /**
- * Created by Masha on 20.02.2017.It's test
+ * It's a test.
  */
 public final class Main {
 
@@ -14,23 +14,23 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
-        int[] array = {2, 100, 50 , 1,7, -10};
+        int[] array = {2, 100, 50, 1, 7, -10};
         System.out.println(min(array));
         System.out.println(max(array));
     }
 
-     private static int min (int[] array) {
-      int min = array[0];
-      for (int i = 1; i < array.length; i++) {
-          if (min > array[i]) {
-              min = array[i];
-          }
-      }
+    private static int min(int[] array) {
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
 
-    return min;
+        return min;
     }
 
-    private static int max (int[] array) {
+    private static int max(int[] array) {
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (max < array[i]) {
