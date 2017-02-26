@@ -2,7 +2,7 @@ package com.courses.apollo;
 
 /**
  * Created by Ihor on 26.02.2017.
- * Programm sort an array of integer and input ascending order and descending order
+ * Programm sort an array of integer and input ascending order and descending order.
  */
 
 public class Main {
