@@ -18,9 +18,6 @@ public final class Main {
 
         sort(mass);
 
-        for (Integer n : mass) {
-            System.out.print(n + ",");
-        }
     }
 
     static int[] sort(int[] mass) {
@@ -32,6 +29,9 @@ public final class Main {
                     mass[j + 1] = t;
                 }
             }
+        }
+        for (Integer n : mass) {
+            System.out.print(n + ",");
         }
         return mass;
     }
