@@ -14,7 +14,8 @@ public final class Main {
      * This decision is based on the properties of prime numbers.
      * (https://en.wikipedia.org/wiki/Prime_number)
      */
-    private Main() {}
+    private Main() {
+    }
 
     /**
      * This is main method.
