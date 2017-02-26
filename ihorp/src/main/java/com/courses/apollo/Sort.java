@@ -9,6 +9,7 @@ public class Sort {
     }
     //Bubble sort UP
     static int[] SortUpArray (int array[], int n) {
+        // int i is a counter permutations in a bubble sort.
         int i;
         do {
             i = 0;
@@ -27,6 +28,7 @@ public class Sort {
 
     //Bubble sort DOWN
     static int[] SortDownArray (int array[], int n) {
+        // int i is a counter permutations in a bubble sort.
         int i;
         do {
             i = 0;
