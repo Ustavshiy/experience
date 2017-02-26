@@ -3,11 +3,17 @@ package com.courses.apollo;
 /**
  * It's a test.
  */
+
 public final class Main {
+
+    /**
+     * Test constant array "ARRAY" declared and initialized.
+     */
+    private static final int[] ARRAY = {2, 100, 50, 1, 7, -10};
 
     private Main() {
     }
-    private static final int[] array = {2, 100, 50, 1, 7, -10};
+
     /**
      * This is main method.
      *
@@ -15,8 +21,8 @@ public final class Main {
      */
     public static void main(String[] args) {
 
-        System.out.println(min(array));
-        System.out.println(max(array));
+        System.out.println(min(ARRAY));
+        System.out.println(max(ARRAY));
     }
 
     private static int min(int[] array) {
