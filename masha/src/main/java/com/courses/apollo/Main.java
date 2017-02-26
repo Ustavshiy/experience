@@ -7,7 +7,7 @@ package com.courses.apollo;
 public final class Main {
 
     /**
-     * Test constant array "ARRAY" declared and initialized.
+     * ARRAY is a constant for testing.
      */
     private static final int[] ARRAY = {2, 100, 50, 1, 7, -10};
 
