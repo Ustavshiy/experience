@@ -7,14 +7,14 @@ public final class Main {
 
     private Main() {
     }
-
+    private static final int[] array = {2, 100, 50, 1, 7, -10};
     /**
      * This is main method.
      *
      * @param args strings array
      */
     public static void main(String[] args) {
-        int[] array = {2, 100, 50, 1, 7, -10};
+
         System.out.println(min(array));
         System.out.println(max(array));
     }
