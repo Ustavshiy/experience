@@ -25,11 +25,11 @@ public final class Main {
     public static void main(String[] args) {
 
         Main main = new Main();
-        main.isPrime();
+        main.findPrime();
     }
 
      /** Method of determining the prime numbers of the numbers from an array.*/
-     public void isPrime() {
+     public void findPrime() {
 
         /** Loop to iterate over the array of numbers. */
         for (int num = 0; num < INARRAY.length; num++) {
