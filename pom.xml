@@ -18,6 +18,7 @@
         <module>dmytroc</module>
         <module>bogdand</module>
         <module>ihorp</module>
+        <module>alank</module>
     </modules>
 
     <dependencies>
