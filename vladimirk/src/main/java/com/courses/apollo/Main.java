@@ -22,7 +22,6 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
-
         findPrime(INARRAY);
     }
 
@@ -32,34 +31,21 @@ public final class Main {
      * @param arr is the array of input values
      */
     public static void findPrime(Integer[] arr) {
-
-        /** Loop to iterate over the array of numbers. */
         for (int num = 0; num < arr.length; num++) {
-
             boolean flagIsPrime = true;
-
-            /** Loop that defines primes:
-             * 1st if statement weed out negative numbers and zero.
-             * 2nd else if statement filters out even numbers except the 2.
-             * 3rd else if statement determine the primes by brute force potential dividers. */
+            /** Loop that defines primes, weed out negative numbers and zero, filters out even numbers (except 2).*/
             if (arr[num] <= 1) {
                 flagIsPrime = false;
             } else if ((arr[num] % 2 == 0) && arr[num] != 2) {
                 flagIsPrime = false;
             } else {
-
-                /** Loop-busting potential dividers of numbers.*/
                 for (int divisor = 2; divisor <= Math.sqrt(arr[num]); divisor++) {
-
-                    /** This loop cycle defining primes dividing the number of the array on its potential divide*/
                     if (arr[num] % divisor == 0) {
                         flagIsPrime = false;
                         break;
                     }
                 }
             }
-
-            /** This loop print primes to the console.*/
             if (flagIsPrime) {
                 System.out.println(arr[num]);
             }
