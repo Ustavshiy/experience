@@ -33,7 +33,9 @@ public final class Main {
     public static void findPrime(Integer[] arr) {
         for (int num = 0; num < arr.length; num++) {
             boolean flagIsPrime = true;
-            /** Loop that defines primes, weed out negative numbers and zero, filters out even numbers (except 2).*/
+            /**
+             * Loop that defines primes, weed out negative numbers and zero, filters out even numbers (except 2).
+             */
             if (arr[num] <= 1) {
                 flagIsPrime = false;
             } else if ((arr[num] % 2 == 0) && arr[num] != 2) {
