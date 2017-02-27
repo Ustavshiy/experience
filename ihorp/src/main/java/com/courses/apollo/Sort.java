@@ -1,16 +1,16 @@
 package com.courses.apollo;
 
-import static com.courses.apollo.Main.array;
-
 /**
  * Created by User on 26.02.2017.
  * This method sorts the array in ascending and descending order
  */
-public class Sort {
+public final class Sort {
+
     private Sort() {
     }
+
     //Bubble sort UP
-    static int[] SortUpArray (int array[]) {
+    static int[] sortUpArray(int[] array) {
         // int i is a counter permutations in a bubble sort.
         int i;
         do {
@@ -31,7 +31,7 @@ public class Sort {
     }
 
     //Bubble sort DOWN
-    static int[] SortDownArray (int array[]) {
+    static int[] sortDownArray(int[] array) {
         // int i is a counter permutations in a bubble sort.
         int i;
         do {
