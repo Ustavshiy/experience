@@ -24,13 +24,12 @@ public final class Main {
      */
     public static void main(String[] args) {
 
-        Main main = new Main();
-        main.findPrime(INARRAY);
+        Main.findPrime(INARRAY);
     }
 
      /** Method of determining the prime numbers of the numbers from an array.
       * @param arr is the array of input values */
-     public void findPrime(Integer[] arr) {
+     public static void findPrime(Integer[] arr) {
 
         /** Loop to iterate over the array of numbers. */
         for (int num = 0; num < arr.length; num++) {
