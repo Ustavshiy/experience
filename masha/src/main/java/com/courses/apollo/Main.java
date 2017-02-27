@@ -20,7 +20,6 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
-
         System.out.println(min(ARRAY));
         System.out.println(max(ARRAY));
     }
@@ -32,7 +31,6 @@ public final class Main {
                 min = array[i];
             }
         }
-
         return min;
     }
 
@@ -43,11 +41,8 @@ public final class Main {
                 max = array[i];
             }
         }
-
         return max;
     }
-
-
 }
 
 
