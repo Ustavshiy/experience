@@ -6,11 +6,14 @@ package com.courses.apollo;
  *
  */
 
-public static class Main {
+public final class Main {
+
+    private Main() {}
+
     /**
      * Create a array. I am here to write something longer than one sentence
      */
-    static final int[] ARRAY = {34, -56, 3456, 1, 0, 43, -2345, 84, -23, -1};
+    private static final int[] ARRAY = {34, -56, 3456, 1, 0, 43, -2345, 84, -23, -1};
 
     /**
      * Create a main method. I am here to write something longer than one sentence
