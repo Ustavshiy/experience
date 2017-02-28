@@ -11,12 +11,12 @@ public final class Main {
     private Main() {}
 
     /**
-     * Create a array. I am here to write something longer than one sentence
+     * Create a array.
      */
     private static final int[] ARRAY = {34, -56, 3456, 1, 0, 43, -2345, 84, -23, -1};
 
     /**
-     * Create a main method. I am here to write something longer than one sentence
+     * Create a main method.
      * @param args NULL
      */
     public static void main(String[] args) {
