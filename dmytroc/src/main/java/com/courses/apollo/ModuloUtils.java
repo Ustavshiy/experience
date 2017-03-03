@@ -5,9 +5,6 @@ package com.courses.apollo;
  */
 final class ModuloUtils {
 
-    private ModuloUtils() {
-    }
-
     /**
      * This static method "printModuloByTwoNumbers" returns Integers in array,
      * that can be divided by moduloOne and moduloTwo.
@@ -17,7 +14,7 @@ final class ModuloUtils {
      * @param moduloTwo second integer for module check.
      * @return return array of integers that contains approved numbers.
      */
-    static int[] printModuloByTwoNumbers(int[] arr, int moduloOne, int moduloTwo) {
+    public int[] printModuloByTwoNumbers(int[] arr, int moduloOne, int moduloTwo) {
 
         int counter = 0;
         int[] transitionalArray = new int[arr.length];
