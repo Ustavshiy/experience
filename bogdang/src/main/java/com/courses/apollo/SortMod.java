@@ -1,21 +1,12 @@
 package com.courses.apollo;
 
 /**
- * Created by User on 20.02.2017.
+ * Created by Богдан on 03.03.2017.
  */
-public final class Main {
+    public class SortMod {
 
-    private Main() {
+    private SortMod() {
     }
-
-    /**
-     * This is main method.
-     *
-     * @param args strings array
-     */
-    public static void main(String[] args) {
-
-}
 
     /**
      * This method sorts the array by comparing modules his elements.

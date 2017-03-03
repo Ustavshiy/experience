@@ -9,8 +9,8 @@ import java.util.Set;
 final class ModuloUtils {
 
     private ModuloUtils() {
-    }
 
+}
     /**
      * This static method "printModuloByTwoNumbers" returns Integers in array,
      * that can be divided by moduloOne and moduloTwo.
