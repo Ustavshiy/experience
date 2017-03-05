@@ -6,52 +6,49 @@ package com.courses.apollo;
  */
 public final class Sort {
 
-    private Sort() {
-    }
-
-    /*
-     * Method return sort array in ascending order
+    /**
+     *Method return sort array in ascending order.
+     * @param array array
+     * @return array
      */
-    static int[] sortUpArray(int[] array) {
+    public int[] sortUpArray(int[] array) {
         // int i is a counter permutations in a bubble sort.
-        boolean i;
+        int i;
         do {
-            i = true;
+            i = 0;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] > array[a]) {
                     int b = array[a - 1];
                     array[a - 1] = array[a];
                     array[a] = b;
-                    i = false;
+                    i++;
                 }
             }
         }
-        /* i = 0 and the loop is end when the loop is repeated "arrey.lenght" times
-        and the condition in line 19 never return "TRUE"*/
-        while (!i);
+        while (i > 0);
         return array;
     }
 
-    /*
-     * Method return sort array in descending order
+    /**
+     * Method return sort array in descending order.
+     * @param array array
+     * @return array
      */
-    static int[] sortDownArray(int[] array) {
+    public int[] sortDownArray(int[] array) {
         // int i is a counter permutations in a bubble sort.
-        boolean i;
+        int i;
         do {
-            i = true;
+            i = 0;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] < array[a]) {
                     int b = array[a - 1];
                     array[a - 1] = array[a];
                     array[a] = b;
-                    i = false;
+                    i++;
                 }
             }
         }
-        /* i = 0 and the loop is end when the loop is repeated "arrey.lenght" times
-        and the condition in line 19 never return "TRUE"*/
-        while (!i);
+        while (i > 0);
         return array;
     }
 }
