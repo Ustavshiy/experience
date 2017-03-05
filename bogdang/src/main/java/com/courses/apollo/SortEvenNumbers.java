@@ -19,20 +19,22 @@ public class SortEvenNumbers {
      */
     static int[] sortEven(int[] arr) {
         int mod;
-        int[] resultArr = new int[arr.length];
         int k =0;
         for (int i = 0; i <arr.length; i++) {
             mod = arr[i]%2;
                 if (mod == 0) {
-                    resultArr[k] = arr[i];
+                    arr[k] = arr[i];
                     k++;
             }
+        }
+        int[] resultArr = new int[k];
+        for (int i =0; i<resultArr.length; i++){
+            resultArr[i]= arr[i];
         }
         return resultArr;
     }
 
+    static int[] sortOddEven(int[] resultArr){
+
+    }
 }
-
-
-
-
