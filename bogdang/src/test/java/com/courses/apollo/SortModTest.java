@@ -15,9 +15,5 @@ public class SortModTest {
         final int[] afterMethodRun = SortMod.sort(arrayUnSorted);
         Assert.assertArrayEquals(sortedArray,afterMethodRun);
 
-
-
-
-
     }
 }
