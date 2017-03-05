@@ -7,7 +7,7 @@ package com.courses.apollo;
 
 public class SortEvenNumbers {
 
-    private SortEvenNumbers(){
+    private SortEvenNumbers() {
 
     }
 
@@ -18,23 +18,16 @@ public class SortEvenNumbers {
      * @return sorted array.
      */
     static int[] sortEven(int[] arr) {
-        int mod;
-        int k =0;
-        for (int i = 0; i <arr.length; i++) {
-            mod = arr[i]%2;
-                if (mod == 0) {
-                    arr[k] = arr[i];
-                    k++;
+        int k = 0;
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] % 2 == 0) {
+                arr[k] = arr[i];
+                k++;
             }
-        }
-        int[] resultArr = new int[k];
-        for (int i =0; i<resultArr.length; i++){
-            resultArr[i]= arr[i];
-        }
-        return resultArr;
-    }
-
-    static int[] sortOddEven(int[] resultArr){
-
+        int[] result = new int[k];
+        System.arraycopy(arr, 0, result, 0, k);
+        return result;
     }
 }
+
+
