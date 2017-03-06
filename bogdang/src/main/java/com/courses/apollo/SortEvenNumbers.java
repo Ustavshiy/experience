@@ -3,32 +3,30 @@ package com.courses.apollo;
 /**
  * Created by User on 05.03.2017.
  */
-
-
-public class SortEvenNumbers {
+final class SortEvenNumbers {
 
     private SortEvenNumbers() {
 
     }
 
     /**
-     * This method sorts the array by comparing modules his elements.
+     * This method sorts and selects the even number.
      *
      * @param arr is input array.
-     * @return sorted array.
+     * @return result array.
      */
     static int[] sortEven(int[] arr) {
         int k = 0;
-        for (int i = 0; i < arr.length; i++)
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
                 arr[k] = arr[i];
                 k++;
             }
+        }
         int[] result = new int[k];
         System.arraycopy(arr, 0, result, 0, k);
         return result;
     }
-
 
     static int[] sortOddEven(int[] result) {
         int odd = 0;
