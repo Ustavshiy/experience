@@ -53,7 +53,7 @@ public class FindFirstNumberVariousDigits {
     }
 
     /**
-     * Method that count different digits in String(if it number) 06.03.2017.
+     * Method that count different digits in String(if it number), 06.03.2017.
      */
     private int countDifDigits(char[] digitsOfNum) {
         int difDigCounter = 1;
