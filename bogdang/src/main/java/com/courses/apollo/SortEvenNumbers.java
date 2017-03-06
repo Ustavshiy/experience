@@ -49,8 +49,6 @@ public class SortEvenNumbers {
         int[] massOddEven = new int[k];
         System.arraycopy(result, 0, massOddEven, 0, k);
         return massOddEven;
-
-
         }
     }
 

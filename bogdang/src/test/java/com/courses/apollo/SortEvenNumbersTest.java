@@ -19,8 +19,8 @@ public class SortEvenNumbersTest {
 
     @Test
     public void sortOddEvenTest() {
-        final int[] arrayUnSorted = {5678};
-        final int[] sortedArray = {5678};
+        final int[] arrayUnSorted = {5678, 32, 44};
+        final int[] sortedArray = {5678, 32};
         final int[] afterMethodRun = SortEvenNumbers.sortOddEven(arrayUnSorted);
         Assert.assertArrayEquals(sortedArray, afterMethodRun);
 
