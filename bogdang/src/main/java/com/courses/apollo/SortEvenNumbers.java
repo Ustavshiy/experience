@@ -1,7 +1,7 @@
 package com.courses.apollo;
 
 /**
- * Created by User on 05.03.2017.
+ * Choose from an array of even number equal to the number of even and odd digits.
  */
 public class SortEvenNumbers {
 
