@@ -31,17 +31,17 @@ public class SortEvenNumbers {
 
 
     static int[] sortOddEven(int[] result){
-        int odd =0, even =0, k=0, num, number;
+        int odd =0, even =0, k=0, num =1, number;
 
         for (int i = 0; i <result.length; i++) {
-            number = result[i];
-            do {
-                num = number % 10;
-                if (num % 2 == 0){
+            number = result[i]; //65
+            while (number > 0){
+                num = number % 10;   //65%10=5 / 6%10=6
+                number = number / 10; //65/10=6 / 6/10=0
+                if (num % 2 == 0){ //  /even =1
                     even++;
-                } else { odd++;}
-                number = number / 10;
-            } while (num > 0);
+                } else { odd++;} //odd =1 /
+            }
             if (even==odd){
                 result[k]=result[i];
                 k++;}
