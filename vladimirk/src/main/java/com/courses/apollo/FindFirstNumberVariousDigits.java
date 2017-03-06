@@ -34,7 +34,7 @@ public class FindFirstNumberVariousDigits {
     }
 
     /**
-     *  Method that determines whether the number of String 06.03.2017.
+     *  Method that determines whether the number of String, 06.03.2017.
      */
     private boolean checkIsNumber(String stringFromArray) {
         int digitsCounter = 0;
