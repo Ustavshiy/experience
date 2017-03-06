@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.model;
 
 /**
  * Created by User on 20.02.2017.

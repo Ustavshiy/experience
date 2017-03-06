@@ -5,9 +5,6 @@ package com.courses.apollo;
      */
    final class SortMod {
 
-    private SortMod() {
-    }
-
     /**
      * This method sorts the array by comparing modules his elements.
      *
@@ -15,7 +12,7 @@ package com.courses.apollo;
      * @return sorted array.
      */
 
-    static int[] sort(int[] mass) {
+    public int[] sort(int[] mass) {
         for (int i = mass.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (Math.abs(mass[j]) < Math.abs(mass[j + 1])) {
