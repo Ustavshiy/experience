@@ -12,13 +12,13 @@ public class ArrayMinMaxFinder {
      * @return min number
      */
     public int min(int[] array) {
-        int minNumber = array[0];
+        int min = array[0];
         for (int i = 1; i < array.length; i++) {
-            if (minNumber > array[i]) {
-                minNumber = array[i];
+            if (min > array[i]) {
+                min = array[i];
             }
         }
-        return minNumber;
+        return min;
     }
 
     /**
@@ -28,12 +28,12 @@ public class ArrayMinMaxFinder {
      * @return max number
      */
     public int max(int[] array) {
-        int maxNumber = array[0];
+        int max = array[0];
         for (int i = 1; i < array.length; i++) {
-            if (maxNumber < array[i]) {
-                maxNumber = array[i];
+            if (max < array[i]) {
+                max = array[i];
             }
         }
-        return maxNumber;
+        return max;
     }
 }
