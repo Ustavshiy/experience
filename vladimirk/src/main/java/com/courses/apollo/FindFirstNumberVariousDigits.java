@@ -36,7 +36,7 @@ public class FindFirstNumberVariousDigits {
     /**
      *  Method that determines whether the number of String 06.03.2017.
      */
-    static boolean checkIsNumber(String stringFromArray) {
+    private boolean checkIsNumber(String stringFromArray) {
         int digitsCounter = 0;
         boolean isNumber;
         for (int n = 0; n < stringFromArray.length(); n++) {
@@ -55,7 +55,7 @@ public class FindFirstNumberVariousDigits {
     /**
      * Method that count different digits in String(if it number) 06.03.2017.
      */
-    static int countDifDigits(char[] digitsOfNum) {
+    private int countDifDigits(char[] digitsOfNum) {
         int difDigCounter = 1;
         boolean isDif = false;
 
