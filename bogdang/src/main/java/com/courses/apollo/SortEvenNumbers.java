@@ -6,7 +6,7 @@ package com.courses.apollo;
 public class SortEvenNumbers {
 
     /**
-     * This method sorts and selects the even number.
+     * Sorts and selects the even number.
      *
      * @param arr is input array.
      * @return result array.
@@ -25,6 +25,8 @@ public class SortEvenNumbers {
     }
 
     /**
+     * Returns numbers with an equal number of even and odd digits.
+     *
      * @param result in input.
      * @return massOddEven array.
      */

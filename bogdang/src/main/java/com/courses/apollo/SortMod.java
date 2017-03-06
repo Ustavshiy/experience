@@ -1,12 +1,12 @@
 package com.courses.apollo;
 
    /**
-     * Created by Bogdan.
+     * Created class that sorts the massive according to modules.
      */
-   final class SortMod {
+   public class SortMod {
 
     /**
-     * This method sorts the array by comparing modules his elements.
+     * Sorts the array by comparing modules his elements.
      *
      * @param mass is input array.
      * @return sorted array.

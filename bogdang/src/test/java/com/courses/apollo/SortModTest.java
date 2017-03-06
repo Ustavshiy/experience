@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by Богдан on 03.03.2017.
+ * Verify the correctness of class SortMod, method sort.
  */
 public class SortModTest {
 

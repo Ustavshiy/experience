@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by Богдан on 05
+ * Verify the correctness of class SortEvenNumbers, methods sortEven, sortOddEven.
  */
 public class SortEvenNumbersTest {
 
