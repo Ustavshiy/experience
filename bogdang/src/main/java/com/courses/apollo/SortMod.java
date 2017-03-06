@@ -1,9 +1,9 @@
 package com.courses.apollo;
 
-/**
- * Created by Богдан on 03.03.2017.
- */
-    public class SortMod {
+   /**
+     * Created by Bogdan.
+     */
+   final class SortMod {
 
     private SortMod() {
     }

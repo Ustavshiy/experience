@@ -32,11 +32,12 @@ final class SortEvenNumbers {
         int odd = 0;
         int even = 0;
         int k = 0;
+        final int ten = 10;
         for (int i = 0; i < result.length; i++) {
-            int number = result[i]; //65
+            int number = result[i];
             while (number > 0) {
-                int num = number % 10;
-                number = number / 10;
+                int num = number % ten;
+                number = number / ten;
                 if (num % 2 == 0) {
                     even++;
                 } else {
