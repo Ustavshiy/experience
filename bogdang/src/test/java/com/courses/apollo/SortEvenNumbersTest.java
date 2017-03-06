@@ -12,16 +12,16 @@ public class SortEvenNumbersTest {
     public void sortEvenTest() {
         final int[] arrayUnSorted = {12, 53, 5678, 24, 43, 32, 10};
         final int[] sortedArray = {12, 5678, 24, 32, 10};
-        final int[] afterMethodRun = SortEvenNumbers.sortEven(arrayUnSorted);
+        final int[] afterMethodRun = new SortEvenNumbers().sortEven(arrayUnSorted);
         Assert.assertArrayEquals(sortedArray, afterMethodRun);
 
     }
 
     @Test
-    public  sortOddEvenTest() {
+    public void sortOddEvenTest() {
         final int[] arrayUnSorted = {12, 5678, 24, 32, 10};
         final int[] sortedArray = {12, 5678, 32, 10};
-        final int[] afterMethodRun = SortEvenNumbers(sortOddEven(arrayUnSorted));
+        final int[] afterMethodRun = new  SortEvenNumbers().sortOddEven(arrayUnSorted);
         Assert.assertArrayEquals(sortedArray, afterMethodRun);
 
     }
