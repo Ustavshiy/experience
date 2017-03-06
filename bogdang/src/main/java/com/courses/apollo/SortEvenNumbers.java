@@ -3,7 +3,7 @@ package com.courses.apollo;
 /**
  * Created by User on 05.03.2017.
  */
-final class SortEvenNumbers {
+public class SortEvenNumbers {
 
     /**
      * This method sorts and selects the even number.
