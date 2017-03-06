@@ -12,7 +12,6 @@ public final class PalindromeNumber {
     * @param array array
     * @return palindrome
     */
-
     public int palindromeNumberFinder(int[] array) {
 
         // Variable for palindrome

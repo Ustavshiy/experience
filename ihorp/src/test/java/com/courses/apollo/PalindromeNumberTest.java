@@ -16,12 +16,12 @@ public class PalindromeNumberTest {
     PalindromeNumber PalindromeNumber = new PalindromeNumber();
 
     @Test
-            public void palindromeNumberTest1 () {
+    public void palindromeNumberTest1() {
         Assert.assertEquals(arrayOnePalindromeAnswer, PalindromeNumber.palindromeNumberFinder(arrayOnePalindrome));
-        }
+    }
 
     @Test
-            public void palindromeNumberTest2 () {
+    public void palindromeNumberTest2() {
         Assert.assertEquals(arrayThreePalindromesAnswer, PalindromeNumber.palindromeNumberFinder(arrayThreePalindromes));
-        }
+    }
 }
