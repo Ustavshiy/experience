@@ -18,10 +18,10 @@ public class SortEvenNumbersTest {
     }
 
     @Test
-    public void sortOddEvenTest() {
+    public  sortOddEvenTest() {
         final int[] arrayUnSorted = {12, 5678, 24, 32, 10};
         final int[] sortedArray = {12, 5678, 32, 10};
-        final int[] afterMethodRun = SortEvenNumbers.sortOddEven(arrayUnSorted);
+        final int[] afterMethodRun = SortEvenNumbers(sortOddEven(arrayUnSorted));
         Assert.assertArrayEquals(sortedArray, afterMethodRun);
 
     }

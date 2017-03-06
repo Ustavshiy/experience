@@ -19,9 +19,9 @@ package com.courses.apollo;
         for (int i = mass.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (Math.abs(mass[j]) < Math.abs(mass[j + 1])) {
-                    int t = mass[j];
+                    int variable = mass[j];
                     mass[j] = mass[j + 1];
-                    mass[j + 1] = t;
+                    mass[j + 1] = variable;
                 }
             }
         }

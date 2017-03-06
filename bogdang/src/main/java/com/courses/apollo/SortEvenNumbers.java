@@ -15,23 +15,30 @@ final class SortEvenNumbers {
      * @param arr is input array.
      * @return result array.
      */
-    static int[] sortEven(int[] arr) {
-        int k = 0;
+    public int[] sortEven(int[] arr) {
+        int numberOfSuitable = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
-                arr[k] = arr[i];
-                k++;
+                arr[numberOfSuitable] = arr[i];
+                numberOfSuitable++;
             }
         }
-        int[] result = new int[k];
-        System.arraycopy(arr, 0, result, 0, k);
+        int[] result = new int[numberOfSuitable];
+        System.arraycopy(arr, 0, result, 0, numberOfSuitable);
         return result;
     }
 
-    static int[] sortOddEven(int[] result) {
+    /**
+     * This method returns an array of numbers that have an equal number of odd and even numbers.
+     *
+     * @param result in input.
+     * @return array massOddEven.
+     */
+
+    public int[] sortOddEven(int[] result) {
         int odd = 0;
         int even = 0;
-        int k = 0;
+        int  numberOfSuitable = 0;
         final int ten = 10;
         for (int i = 0; i < result.length; i++) {
             int number = result[i];
@@ -45,14 +52,14 @@ final class SortEvenNumbers {
                 }
             }
             if (even == odd) {
-                result[k] = result[i];
-                k++;
+                result[numberOfSuitable] = result[i];
+                numberOfSuitable++;
             }
             odd = 0;
             even = 0;
         }
-        int[] massOddEven = new int[k];
-        System.arraycopy(result, 0, massOddEven, 0, k);
+        int[] massOddEven = new int[numberOfSuitable];
+        System.arraycopy(result, 0, massOddEven, 0, numberOfSuitable);
         return massOddEven;
     }
 
