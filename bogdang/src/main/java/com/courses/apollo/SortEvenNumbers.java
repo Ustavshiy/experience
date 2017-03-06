@@ -30,25 +30,32 @@ public class SortEvenNumbers {
     }
 
 
-    static int[] sortOddEven(int[] result){
-        int odd =0, even =0, k=0, num =1, number;
-
-        for (int i = 0; i <result.length; i++) {
-            number = result[i]; //65
-            while (number > 0){
-                num = number % 10;   //65%10=5 / 6%10=6
-                number = number / 10; //65/10=6 / 6/10=0
-                if (num % 2 == 0){ //  /even =1
+    static int[] sortOddEven(int[] result) {
+        int odd = 0;
+        int even = 0;
+        int k = 0;
+        for (int i = 0; i < result.length; i++) {
+            int number = result[i]; //65
+            while (number > 0) {
+                int num = number % 10;
+                number = number / 10;
+                if (num % 2 == 0) {
                     even++;
-                } else { odd++;} //odd =1 /
+                } else {
+                    odd++;
+                }
             }
-            if (even==odd){
-                result[k]=result[i];
-                k++;}
+            if (even == odd) {
+                result[k] = result[i];
+                k++;
+            }
+            odd = 0;
+            even = 0;
         }
         int[] massOddEven = new int[k];
         System.arraycopy(result, 0, massOddEven, 0, k);
         return massOddEven;
-        }
     }
+
+}
 
