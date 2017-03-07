@@ -24,18 +24,21 @@ public class House {
 
     public String lifeTime;
 
-    public House(Integer Id, Integer num, String homeArea,
-                 Integer homeflor) {
-    houseId = Id;
-    nummer = num;
-    area = homeArea;
-    floor = homeflor;
-
-
+    public House(){
 
     }
 
-
+    public House(Integer Id, Integer num, String area,
+                 Integer floor, Integer numRooms, String street, String bildType, String lifeTime) {
+        houseId = Id;
+        nummer = num;
+        this.area = area;
+        this.floor = floor;
+        this.numRooms = numRooms;
+        this.street = street;
+        this.bildType = bildType;
+        this.lifeTime = lifeTime;
+    }
 }
 
 
