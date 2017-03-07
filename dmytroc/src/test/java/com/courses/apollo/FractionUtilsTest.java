@@ -12,7 +12,7 @@ public class FractionUtilsTest {
     int testArrayLength = 5;
     int[] testNumerator = {12, 345, 1, 34, 25};
     int[] testDenominator = {1, 35, 17, 24, 12};
-//    FractionUtils testFractionArray = new FractionUtils();
+   FractionUtils testFractionUtils = new FractionUtils();
 
     Fraction[] expectedresultCreator = {new Fraction(12,1),
             new Fraction(345,35),
@@ -22,30 +22,6 @@ public class FractionUtilsTest {
     Fraction[] expectedresultAddOdd = {new Fraction(357,36),
             new Fraction(35,41),
             new Fraction(25,12)};
-
-    /**
-     * Method add values fo Fraction array with Odd indexes
-     * to values fo Fraction array with Even indexes.
-     *
-     * @param inputArray for Fraction[] array.
-     * @return calculated Fraction array.
-     */
-    public Fraction[] addOddIndexToEven(Fraction[] inputArray) {
-        int counter = 0;
-        Fraction[] resultArray = new Fraction[(inputArray.length + 1) / 2];
-        for (int i = 0; i < inputArray.length; i++) {
-            if (i % 2 == 0 && i != inputArray.length - 1) {
-                resultArray[counter] = new Fraction(inputArray[i].getNumerator() + inputArray[i + 1].getNumerator(),
-                        inputArray[i].getDenominator() + inputArray[i + 1].getDenominator());
-                counter++;
-            } else if (i == inputArray.length - 1) {
-                resultArray[counter] = new Fraction(inputArray[i].getNumerator(),
-                        inputArray[i].getDenominator());
-                counter++;
-            }
-        }
-        return resultArray;
-    }
 
     /**
      * Fraction[] array creator.
@@ -66,7 +42,7 @@ public class FractionUtilsTest {
     @Test
     public void addOddIndexToEvenTest() {
         Fraction[] testArray = fractionsArrayCreator(testArrayLength, testNumerator, testDenominator);
-        Fraction[] addedArray = addOddIndexToEven(testArray);
+        Fraction[] addedArray = testFractionUtils.addOddIndexToEven(testArray);
         for (int i = 0; i < addedArray.length; i++) {
             Assert.assertEquals(expectedresultAddOdd[i].toString(),addedArray[i].toString());
         }
