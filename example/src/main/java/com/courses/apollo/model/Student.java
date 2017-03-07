@@ -4,29 +4,54 @@ package com.courses.apollo.model;
  * Student cake.
  */
 public class Student {
-
+    /**
+     * Student id.
+     */
     private Integer studentId;
 
+    /**
+     * Student second name.
+     */
     private String secondName;
 
+    /**
+     * Student name.
+     */
     private String name;
 
-    private boolean isMarried;
-
+    /**
+     * Student patronymic name.
+     */
     private String patronymicName;
 
-    //TODO Date, Calendar, DateTimeZone
+    /**
+     * Student birth day.
+     */
     private String birthDay;
 
-    //TODO maybe should be split by city,street,house, postal code
+    /**
+     * Student address.
+     */
     private String address;
-    //TODO it could be plus at start,brackets,hyphen
+
+    /**
+     * String phone number.
+     */
     private String phoneNumber;
-    //TODO it could have number, code, abbreviation
+
+    /**
+     * String faculty.
+     */
     private String faculty;
 
+    /**
+     * String course.
+     */
     private String course;
 
+    /**
+     * String group.
+     */
     private String group;
 
     public Student(String name,
@@ -63,6 +88,77 @@ public class Student {
         this.studentId = studentId;
     }
 
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPatronymicName() {
+        return patronymicName;
+    }
+
+    public void setPatronymicName(String patronymicName) {
+        this.patronymicName = patronymicName;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
 
     public String toString() {
         return studentId + " " + name + " " + secondName + " " + course + " " + phoneNumber;
