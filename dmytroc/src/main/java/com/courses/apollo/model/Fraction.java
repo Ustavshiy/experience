@@ -4,10 +4,7 @@ package com.courses.apollo.model;
  * Class Fraction include numerator, denominator and index for arrays.
  */
 public class Fraction {
-    /**
-     * Index for Fraction[] array.
-     */
-    private int index;
+
     /**
      * Numerator value.
      */
@@ -17,8 +14,9 @@ public class Fraction {
      */
     private int denominator;
 
-    public Fraction(int index, int numerator, int denominator) {
-        this.index = index;
+    public Fraction() {}
+
+    public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -41,6 +39,6 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return "Fraction " + index + ": " + numerator + " / " + denominator;
+        return "Fraction " + ": " + numerator + " / " + denominator;
     }
 }
