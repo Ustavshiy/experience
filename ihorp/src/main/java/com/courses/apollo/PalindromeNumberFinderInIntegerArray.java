@@ -34,7 +34,7 @@ public final class PalindromeNumberFinderInIntegerArray {
      * This method can identify is an integer is palindrome. Return boolean.
      *
      * @param arrayInt is integer
-     * @return true of false
+     * @return true or false
      */
     public boolean isIntegerIsPalindrome(int arrayInt) {
 
