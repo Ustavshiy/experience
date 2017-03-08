@@ -1,5 +1,7 @@
 package com.courses.apollo;
 
+import com.courses.apollo.model.House;
+
 /**
  * Contains methods that provides some logic working with House
  * @see House

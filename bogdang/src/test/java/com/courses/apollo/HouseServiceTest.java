@@ -1,5 +1,6 @@
 package com.courses.apollo;
 
+import com.courses.apollo.model.House;
 import org.junit.Test;
 
 public class HouseServiceTest {
@@ -9,6 +10,6 @@ public class HouseServiceTest {
     @Test
     public void testPrintHouseFields() {
         House[] houses = HouseTestData.getHouses();
-        houseServiceTest.printHouseFields(houses[0]);
+        houseServiceTest.printHouseFields(houses[1]);
     }
 }

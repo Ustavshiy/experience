@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.model;
 
 import org.junit.Test;
 
@@ -8,23 +8,23 @@ import org.junit.Test;
 
 public class House {
 
-    public Integer houseId;
+    private Integer houseId;
 
-    public Integer nummer;
+    private Integer nummer;
 
-    public String area;
+    private String area;
 
-    public Integer floor;
+    private Integer floor;
 
-    public Integer numRooms;
+    private Integer numRooms;
 
-    public String street;
+    private String street;
 
-    public String bildType;
+    private String bildType;
 
-    public String lifeTime;
+    private String lifeTime;
 
-    public House(){
+    private House(){
 
     }
 
@@ -38,6 +38,12 @@ public class House {
         this.street = street;
         this.bildType = bildType;
         this.lifeTime = lifeTime;
+    }
+
+    public String toString() {
+        return houseId+ " "+ nummer +" "+ area+ " "+ floor +" " +numRooms+
+                " "+street+" "+bildType+ " "+lifeTime;
+
     }
 }
 
