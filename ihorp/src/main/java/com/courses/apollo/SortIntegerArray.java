@@ -8,22 +8,17 @@ public final class SortIntegerArray {
 
     /**
      *Method return sort array in ascending order.
-     * @param array array
+     * @param array non sort array
      * @return array
      */
     public int[] sortUpArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            boolean n = false;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] > array[a]) {
-                    int b = array[a - 1];
+                    int tmp = array[a - 1];
                     array[a - 1] = array[a];
-                    array[a] = b;
-                    n = true;
+                    array[a] = tmp;
                 }
-            }
-            if (!n) {
-                break;
             }
         }
         return array;
@@ -31,22 +26,17 @@ public final class SortIntegerArray {
 
     /**
      * Method return sort array in descending order.
-     * @param array array
+     * @param array non sort array
      * @return array
      */
     public int[] sortDownArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            boolean n = false;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] < array[a]) {
-                    int b = array[a - 1];
+                    int tmp = array[a - 1];
                     array[a - 1] = array[a];
-                    array[a] = b;
-                    n = true;
+                    array[a] = tmp;
                 }
-            }
-            if (!n) {
-                break;
             }
         }
         return array;
