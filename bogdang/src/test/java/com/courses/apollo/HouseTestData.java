@@ -10,5 +10,6 @@ public class HouseTestData {
         House houseTwo = new House(2,1, "55 Sq.M",1, 5, "Shevchenka",
                 "private house", "2 years");
         return new House[]{house, houseTwo};
+
     }
 }

@@ -11,5 +11,6 @@ public class HouseServiceTest {
     public void testPrintHouseFields() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseFields(houses[1]);
+        houses.
     }
 }
