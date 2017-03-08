@@ -1,10 +1,10 @@
 package com.courses.apollo;
 
 /**
- * Created by User on 26.02.2017.
+ * Created by Ihor Pronko.
 * This method sorts the array in ascending and descending order
 */
-public final class Sort {
+public final class SortIntegerArray {
 
     /**
      *Method return sort array in ascending order.
@@ -12,20 +12,20 @@ public final class Sort {
      * @return array
      */
     public int[] sortUpArray(int[] array) {
-        // int i is a counter permutations in a bubble sort.
-        boolean i;
-        do {
-            i = true;
+        for (int i = 0; i < array.length; i++) {
+            boolean n = false;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] > array[a]) {
                     int b = array[a - 1];
                     array[a - 1] = array[a];
                     array[a] = b;
-                    i = false;
+                    n = true;
                 }
             }
+            if (!n) {
+                break;
+            }
         }
-        while (!i);
         return array;
     }
 
@@ -35,20 +35,20 @@ public final class Sort {
      * @return array
      */
     public int[] sortDownArray(int[] array) {
-        // int i is a counter permutations in a bubble sort.
-        boolean i;
-        do {
-            i = true;
+        for (int i = 0; i < array.length; i++) {
+            boolean n = false;
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] < array[a]) {
                     int b = array[a - 1];
                     array[a - 1] = array[a];
                     array[a] = b;
-                    i = false;
+                    n = true;
                 }
             }
+            if (!n) {
+                break;
+            }
         }
-        while (!i);
         return array;
     }
 }
