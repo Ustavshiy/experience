@@ -18,8 +18,7 @@ class ArrayNumbersSorter {
      * @param number of int, any proper length.
      * @return digitsQuantity, the quantity of digits in number.
      */
-    public static int numbersLength(int number) {
-
+    public int numbersLength(int number) {
         int digitsQuantity = 1;
         int digitCounter = TEN;
         while ((double) Math.abs(number) / digitCounter > 1) {
@@ -35,8 +34,7 @@ class ArrayNumbersSorter {
      * @param array of integers.
      * @return array sorted by the quantity of numbers digits. BubbleSort for digits not for numbers.
      */
-    public static int[] digitSort(int[] array) {
-
+    public int[] digitSort(int[] array) {
         int counter = array.length;
         while (counter >= 1) {
             for (int i = 1; i < counter; i++) {
