@@ -6,12 +6,30 @@ import org.junit.Test;
 public class HouseServiceTest {
     private HouseService houseServiceTest = new HouseService();
     private final static Integer ROOMS_QUANTITY_TEST = 2;
+    private final static Integer AREA_TEST = 40;
+    private final static Integer FLOOR_AREA_TEST = 20;
+    private final static Integer FLOOR_MIN_TEST = 2;
+    private final static Integer FLOOR_MAX_TEST = 4;
 
 
     @Test
     public void testPrintHouseFields() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseFields(houses, ROOMS_QUANTITY_TEST);
+
+    }
+
+    @Test
+    public void testPrintHouseArea() {
+        House[] houses = HouseTestData.getHouses();
+        houseServiceTest.printHouseArea(houses, AREA_TEST);
+
+    }
+
+    @Test
+    public void testPrintHouseFieldsFloor() {
+        House[] houses = HouseTestData.getHouses();
+        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
 
     }
 }

@@ -10,7 +10,7 @@ public class House {
 
     private Integer number;
 
-    private String area;
+    private Integer area;
 
     private Integer floor;
 
@@ -26,7 +26,7 @@ public class House {
 
     }
 
-    public House(Integer Id, Integer num, String area,
+    public House(Integer Id, Integer num, Integer area,
                  Integer floor, Integer numRooms, String street, String bildType, String lifeTime) {
         houseId = Id;
         number = num;
@@ -54,11 +54,11 @@ public class House {
         this.number = number;
     }
 
-    public String getArea() {
+    public Integer getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(Integer area) {
         this.area = area;
     }
 
