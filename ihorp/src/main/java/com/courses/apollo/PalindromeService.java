@@ -4,7 +4,7 @@ package com.courses.apollo;
  * Created by Ihor Pronko.
  */
 
-public final class PalindromeNumberFinderInIntegerArray {
+public final class PalindromeService {
 
     /**
      * Method find palindrome in array and return it,
