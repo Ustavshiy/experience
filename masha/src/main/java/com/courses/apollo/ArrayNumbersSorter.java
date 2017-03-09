@@ -33,7 +33,7 @@ class ArrayNumbersSorter {
 
     /**
      * @param array of integers.
-     * @return array sorted by the quantity of numbers digits. it's an ordinary BubbleSort method, but for digits not for numbers.
+     * @return array sorted by the quantity of numbers digits. BubbleSort for digits not for numbers.
      */
     public static int[] digitSort(int[] array) {
 
@@ -47,9 +47,7 @@ class ArrayNumbersSorter {
                 }
             }
             counter--;
-
         }
-
         return array;
     }
 
