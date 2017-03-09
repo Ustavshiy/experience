@@ -29,6 +29,11 @@ public class ArrayNumbersSorter {
         return digitsQuantity;
     }
 
+    /**
+     *
+     * @param array
+     * @return array sorted by the quantity of numbers digits
+     */
 
     public static int[] digitSort (int[] array) {
 
