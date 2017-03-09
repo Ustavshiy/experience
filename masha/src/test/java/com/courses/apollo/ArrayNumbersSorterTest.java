@@ -1,4 +1,5 @@
 package com.courses.apollo;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,19 +18,18 @@ public class ArrayNumbersSorterTest {
     }
 
 
-
     @Test
-        public void testDigitSort() {
-            int[] array = {1234, 4, -25, 5, 2, 1828};
-            final int[] expectedArray = {4,5,2,-25,1234,1828};
+    public void testDigitSort() {
+        int[] array = {1234, 4, -25, 5, 2, 1828};
+        final int[] expectedArray = {4, 5, 2, -25, 1234, 1828};
 
         final int[] afterMethodRun = new ArrayNumbersSorter().digitSort(array);
-        Assert.assertArrayEquals(expectedArray,afterMethodRun);
-
-
-        }
+        Assert.assertArrayEquals(expectedArray, afterMethodRun);
 
 
     }
+
+
+}
 
 
