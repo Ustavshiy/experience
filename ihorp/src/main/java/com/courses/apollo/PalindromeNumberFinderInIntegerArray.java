@@ -13,13 +13,11 @@ public final class PalindromeNumberFinderInIntegerArray {
      * @param array array
      * @return palindrome
      */
-    public int palindromeNumberFinder(int[] array) {
-
+    public int findPalindrome(int[] array) {
         int palindrome = 0;
         int numberOfPalindromeInArray = 0;
-
         for (int i = 0; i < array.length; i++) {
-            if (isIntegerIsPalindrome(array[i])) {
+            if (detectPalindrome(array[i])) {
                 numberOfPalindromeInArray += 1;
                 palindrome = array[i];
             }
@@ -36,7 +34,7 @@ public final class PalindromeNumberFinderInIntegerArray {
      * @param arrayInt is integer
      * @return true or false
      */
-    public boolean isIntegerIsPalindrome(int arrayInt) {
+    public boolean detectPalindrome(int arrayInt) {
 
         Integer arrayCycle = arrayInt;
         String arrayString = arrayCycle.toString();

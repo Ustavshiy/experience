@@ -17,11 +17,11 @@ public class PalindromeNumberFinderInIntegerArrayTest {
 
     @Test
     public void palindromeNumberTest1() {
-        Assert.assertEquals(arrayOnePalindromeAnswer, PalindromeNumberFinderInIntegerArray.palindromeNumberFinder(arrayOnePalindrome));
+        Assert.assertEquals(arrayOnePalindromeAnswer, PalindromeNumberFinderInIntegerArray.findPalindrome(arrayOnePalindrome));
     }
 
     @Test
     public void palindromeNumberTest2() {
-        Assert.assertEquals(arrayThreePalindromesAnswer, PalindromeNumberFinderInIntegerArray.palindromeNumberFinder(arrayThreePalindromes));
+        Assert.assertEquals(arrayThreePalindromesAnswer, PalindromeNumberFinderInIntegerArray.findPalindrome(arrayThreePalindromes));
     }
 }

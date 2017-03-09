@@ -19,12 +19,12 @@ public class SortIntegerArrayTest {
 
     @Test
     public void sortUpArrayTest() {
-        Assert.assertArrayEquals (arrayUp, SortIntegerArray.sortUpArray(testArray));
+        Assert.assertArrayEquals (arrayUp, SortIntegerArray.sortAscending(testArray));
     }
 
     @Test
     public void sortDownArrayTest() {
-        Assert.assertArrayEquals(arrayDown, SortIntegerArray.sortDownArray(testArray));
+        Assert.assertArrayEquals(arrayDown, SortIntegerArray.sortDescending(testArray));
     }
 
 }

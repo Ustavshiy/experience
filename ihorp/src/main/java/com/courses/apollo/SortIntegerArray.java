@@ -11,7 +11,7 @@ public final class SortIntegerArray {
      * @param array non sort array
      * @return array
      */
-    public int[] sortUpArray(int[] array) {
+    public int[] sortAscending(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] > array[a]) {
@@ -29,7 +29,7 @@ public final class SortIntegerArray {
      * @param array non sort array
      * @return array
      */
-    public int[] sortDownArray(int[] array) {
+    public int[] sortDescending(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int a = 1; a < array.length; a++) {
                 if (array[a - 1] < array[a]) {
