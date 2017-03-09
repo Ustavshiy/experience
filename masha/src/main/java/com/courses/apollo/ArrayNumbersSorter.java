@@ -7,13 +7,16 @@ package com.courses.apollo;
  * 1. Find the length of any integer number
  * 2. Sort and return the sorted array according to its numbers' length
  */
-public class ArrayNumbersSorter {
+class ArrayNumbersSorter {
 
+    /**
+     * variable for counting digits.
+     */
     public static final int TEN = 10;
 
     /**
-     * @param number of int, any proper length
-     * @return digitsQuantity, the quantity of digits in number
+     * @param number of int, any proper length.
+     * @return digitsQuantity, the quantity of digits in number.
      */
      public static int numbersLength(int number) {
 
@@ -29,9 +32,9 @@ public class ArrayNumbersSorter {
     }
 
     /**
-     * @param array of integers
-     * @return array sorted by the quantity of numbers digits
-     * it's an ordinary BubbleSort method, but for digits not for numbrs
+     * @param array of integers.
+     * @return array sorted by the quantity of numbers digits.
+     * it's an ordinary BubbleSort method, but for digits not for numbers.
      */
     public static int[] digitSort(int[] array) {
 
