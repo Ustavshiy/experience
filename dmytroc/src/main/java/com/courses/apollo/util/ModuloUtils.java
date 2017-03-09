@@ -1,9 +1,9 @@
-package com.courses.apollo;
+package com.courses.apollo.util;
 
 /**
  * This class created for modulo functions.
  */
-final class ModuloUtils {
+public class ModuloUtils {
 
     /**
      * This static method "printModuloByTwoNumbers" returns Integers in array,

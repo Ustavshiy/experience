@@ -1,5 +1,6 @@
-package com.courses.apollo;
+package com.courses.apollo.util;
 
+import com.courses.apollo.util.IntegerArrayUtility;
 import org.junit.Assert;
 import org.junit.Test;
 

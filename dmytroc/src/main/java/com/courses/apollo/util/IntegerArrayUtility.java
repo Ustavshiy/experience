@@ -1,15 +1,11 @@
-package com.courses.apollo;
+package com.courses.apollo.util;
 
 /**
  * Created by Dmytro Chopenko.
  */
-final class IntegerArrayUtility {
+public class IntegerArrayUtility {
 
     public int minDifferentDigitsFinder(int[] array) {
-
-        /**
-         * Max Bound of digit capacity 10 digits + 1.
-         */
         final int maxDigits = 11;
         int countedDigits = maxDigits;
         int integerWithMinimumDifferentDigits = 0;
