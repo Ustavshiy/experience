@@ -19,6 +19,7 @@ class ArrayNumbersSorter {
      * @return digitsQuantity, the quantity of digits in number.
      */
     public int numbersLength(int number) {
+
         int digitsQuantity = 1;
         int digitCounter = TEN;
         while ((double) Math.abs(number) / digitCounter > 1) {
@@ -36,6 +37,7 @@ class ArrayNumbersSorter {
      */
     public int[] digitSort(int[] array) {
         int counter = array.length;
+
         while (counter >= 1) {
             for (int i = 1; i < counter; i++) {
                 if (numbersLength(array[i - 1]) > numbersLength(array[i])) {
@@ -48,6 +50,4 @@ class ArrayNumbersSorter {
         }
         return array;
     }
-
-
 }
