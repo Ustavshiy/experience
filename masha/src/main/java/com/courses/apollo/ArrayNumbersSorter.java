@@ -6,8 +6,6 @@ package com.courses.apollo;
  * I've got an Integer Array
  * 1. Find the length of any integer number
  * 2. Sort and return the sorted array according to its numbers' length
- * 2.1. In decrescent way
- * 2.2. In incresent way
  */
 public class ArrayNumbersSorter {
 
@@ -33,21 +31,28 @@ public class ArrayNumbersSorter {
      *
      * @param array
      * @return array sorted by the quantity of numbers digits
+     it's an ordinary BubbleSort method, but for digits not for numbrs
      */
 
-    public static int[] digitSort (int[] array) {
+   public static int[] digitSort2 (int[] array){
 
-            for (int i = array.length; i > 0; i--) {
-                for (int j = 0; j < i; j++) {
-                    if (numbersLength(array[j]) > numbersLength(array[j + 1])) {
-                        int tempVariable = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = tempVariable;
-                    }
+        int counter = array.length;
+
+        while (counter >= 1){
+            for (int i = 1; i < counter; i++) {
+                if (numbersLength(array[i-1]) > numbersLength(array[i]))
+                {
+                    int tempVariable = array[i-1];
+                    array[i-1] = array[i];
+                    array[i] = tempVariable;
                 }
             }
-            return array;
+            counter --;
+
         }
+
+        return array;
+    }
 
 
 
