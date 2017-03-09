@@ -34,7 +34,7 @@ public class ArrayNumbersSorter {
      it's an ordinary BubbleSort method, but for digits not for numbrs
      */
 
-   public static int[] digitSort2 (int[] array){
+   public static int[] digitSort (int[] array){
 
         int counter = array.length;
 
