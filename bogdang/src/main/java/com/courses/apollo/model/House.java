@@ -26,10 +26,6 @@ public class House {
 
     }
 
-
-
-
-
     public House(Integer Id, Integer num, Integer area,
                  Integer floor, Integer numRooms, String street, String bildType, String lifeTime) {
         houseId = Id;

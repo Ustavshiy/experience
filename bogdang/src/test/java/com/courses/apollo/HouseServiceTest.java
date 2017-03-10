@@ -13,10 +13,15 @@ public class HouseServiceTest {
 
 
     @Test
+    public void testPrint() {
+        House[] houses = HouseTestData.getHouses();
+        houseServiceTest.printHouse(houses[0]);
+    }
+
+    @Test
     public void testPrintHouseFields() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseFields(houses, ROOMS_QUANTITY_TEST);
-
     }
 
     @Test

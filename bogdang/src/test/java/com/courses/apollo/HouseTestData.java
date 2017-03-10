@@ -15,9 +15,7 @@ public class HouseTestData {
         House houseEight = new House(8,56,45,1, 3, "Franka","private house", "20 years");
         House houseNine= new House(9, 78,30,3, 2, "Sobka","Apartment", "18 years");
 
-
         return new House[]{house, houseTwo, houseThree, houseFour, houseFive, houseSix, houseSeven, houseEight, houseNine};
-
 
     }
 }

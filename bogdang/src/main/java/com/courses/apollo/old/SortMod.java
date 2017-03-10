@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.old;
 
    /**
      * Created class that sorts the massive according to modules.
