@@ -38,18 +38,13 @@ public class FindFirstNumberVariousDigits {
      */
     private boolean checkIsNumber(String stringFromArray) {
         int digitsCounter = 0;
-        boolean isNumber;
+
         for (int n = 0; n < stringFromArray.length(); n++) {
             if (Character.isDigit(stringFromArray.charAt(n))) {
                 digitsCounter++;
             }
         }
-        if (stringFromArray.length() == digitsCounter) {
-            isNumber = true;
-        } else {
-            isNumber = false;
-        }
-        return isNumber;
+        return stringFromArray.length() == digitsCounter;
     }
 
     /**
