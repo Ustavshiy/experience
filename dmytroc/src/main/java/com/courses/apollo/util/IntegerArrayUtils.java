@@ -1,10 +1,15 @@
 package com.courses.apollo.util;
 
 /**
- * Created by Dmytro Chopenko.
+ * Class for Integer Array logic.
  */
-public class IntegerArrayUtility {
+public class IntegerArrayUtils {
 
+    /**
+     * Method find number with minimum different digits in Array logic.
+     * @param array input Array.
+     * @return result integer.
+     */
     public int minDifferentDigitsFinder(int[] array) {
         final int maxDigits = 11;
         int countedDigits = maxDigits;
