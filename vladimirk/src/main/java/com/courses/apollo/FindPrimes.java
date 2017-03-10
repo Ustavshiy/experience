@@ -14,25 +14,10 @@ final class FindPrimes {
         int counter = 0;
         int[] tempArray = new int[arr.length];
         for (int num = 0; num < arr.length; num++) {
-            boolean flagIsPrimes = true;
-
-            /**
-             * Loop that defines primes, weed out negative numbers and zero, filters out even numbers (except 2).
-             */
-            if (arr[num] <= 1) {
-                flagIsPrimes = false;
-            } else if (arr[num] % 2 == 0 && arr[num] != 2) {
-                flagIsPrimes = false;
-            } else {
-                for (int divisor = 2; divisor <= Math.sqrt(arr[num]); divisor++) {
-                    if (arr[num] % divisor == 0) {
-                        flagIsPrimes = false;
-                        break;
-                    }
-                }
-            }
-            if (flagIsPrimes) {
-                tempArray[counter] = arr[num];
+            int numberFromArr = arr[num];
+            boolean isPrime = checkIsPrime(numberFromArr);
+            if (isPrime) {
+                tempArray[counter] = numberFromArr;
                 counter++;
             }
         }
@@ -41,5 +26,27 @@ final class FindPrimes {
             findedPrimes[k] = tempArray[k];
         }
         return findedPrimes;
+    }
+
+    /**
+     * Method added to avoid new checkstyle rule about 25 lines - return boolean flagIsPrime.
+     *
+     * @param numberFromArr is the array of input values
+     */
+    private boolean checkIsPrime(int numberFromArr) {
+        boolean flagIsPrimes = true;
+        if (numberFromArr <= 1) {
+            flagIsPrimes = false;
+        } else if (numberFromArr % 2 == 0 && numberFromArr != 2) {
+            flagIsPrimes = false;
+        } else {
+            for (int divisor = 2; divisor <= Math.sqrt(numberFromArr); divisor++) {
+                if (numberFromArr % divisor == 0) {
+                    flagIsPrimes = false;
+                    break;
+                }
+            }
+        }
+        return flagIsPrimes;
     }
 }
