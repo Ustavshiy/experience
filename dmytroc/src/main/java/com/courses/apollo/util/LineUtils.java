@@ -16,14 +16,15 @@ public class LineUtils {
     /**
      * Method find the slope parameter of Line. Formula m = (x1-x2)/(y1-y2).
      * Line A(Xa,Ya)(Xb,Yb) slope = (Xa-Xb)/(Ya-Yb).
+     *
      * @param line input Line.
      * @return slope coefficient.
      */
     public double slopeFinder(Line line) {
         double slope;
-        try {
+        if (line.getFraction().getDenominator() != 0) {
             slope = line.getFraction().getDenominator() / line.getFraction().getNumerator();
-        } catch (IllegalArgumentException e) {
+        } else {
             slope = Double.POSITIVE_INFINITY;
         }
         return slope;
@@ -33,6 +34,7 @@ public class LineUtils {
      * Method find where line cross Y axis (0,Y). Formula y = mx + b.
      * Ya = slope * Xa + yShift.
      * yShift = Ya - Xa*slope
+     *
      * @param line input Line.
      * @return coordinate Y.
      */
@@ -46,6 +48,7 @@ public class LineUtils {
      * Method find where line cross X axis (X,0). Formula y = m*(x-shift).
      * Ya = slope*(Xa-xShift).
      * xShift = Xa - Ya / slope.
+     *
      * @param line input Line.
      * @return coordinate X.
      */
@@ -58,7 +61,8 @@ public class LineUtils {
     /**
      * Method return array with lines which parallel to input line.
      * If slope equals - lines are parallel.
-     * @param line Main Line.
+     *
+     * @param line       Main Line.
      * @param pretenders Array of Lines.
      * @return array of Lines which parallel to main Line.
      */
@@ -81,6 +85,7 @@ public class LineUtils {
      * (xShift,0) - is coordinate where line intersects X axis.
      * If line is vertical - slope = Infinity. Intersection with X - (Xa,O), with Y - none.
      * If line is horizontal - slope = 0. Intersection with X - none, with Y - (0,Ya).
+     *
      * @param lines input array of Lines.
      * @return array of Fractions.
      */
@@ -115,6 +120,7 @@ public class LineUtils {
      * => slopeA*X + yShiftA = slopeB * X + yShiftB.
      * => X = (yShiftB - yShiftA)/(slopeA - slopeB).
      * => Y = slopeA * X + yShiftA.
+     *
      * @param lineA First Line
      * @param lineB Second Line.
      * @return crossing Point object A(X,Y).
@@ -126,8 +132,12 @@ public class LineUtils {
         double slopeB = slopeFinder(lineB);
         double yShiftA = yShiftFinder(lineA);
         double yShiftB = yShiftFinder(lineB);
-        crossCoordX = (yShiftB - yShiftA) / (slopeA - slopeB);
-        crossCoordY = slopeA * crossCoordX + yShiftA;
-        return new Point(crossCoordX, crossCoordY);
+        if (slopeA != slopeB) {
+            crossCoordX = (yShiftB - yShiftA) / (slopeA - slopeB);
+            crossCoordY = slopeA * crossCoordX + yShiftA;
+            return new Point(crossCoordX, crossCoordY);
+        } else {
+            return new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
+        }
     }
 }

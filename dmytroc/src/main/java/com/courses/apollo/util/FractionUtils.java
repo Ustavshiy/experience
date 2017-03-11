@@ -42,10 +42,10 @@ public class FractionUtils {
      * @return result double.
      */
     public double fractionCalculation(Fraction fraction) {
-        try {
+        if (fraction.getDenominator() != 0) {
             double fractionResult = fraction.getNumerator() / fraction.getDenominator();
             return fractionResult;
-        } catch (IllegalArgumentException e) {
+        } else {
             return 0;
         }
     }
