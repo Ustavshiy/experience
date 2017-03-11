@@ -22,7 +22,7 @@ public class LineUtils {
      */
     public double slopeFinder(Line line) {
         double slope;
-        if (line.getFraction().getDenominator() != 0) {
+        if (line.getFraction().getNumerator() != 0) {
             slope = line.getFraction().getDenominator() / line.getFraction().getNumerator();
         } else {
             slope = Double.POSITIVE_INFINITY;
