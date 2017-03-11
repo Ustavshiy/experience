@@ -34,4 +34,13 @@ public class FractionUtils {
         }
         return resultArray;
     }
+
+    public double fractionCalculatuion(Fraction fraction) {
+        try {
+            double fractionresult = fraction.getNumerator() / fraction.getDenominator();
+            return fractionresult;
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+    }
 }
