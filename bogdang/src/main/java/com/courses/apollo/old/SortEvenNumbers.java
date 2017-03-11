@@ -25,14 +25,23 @@ public class SortEvenNumbers {
     }
 
     /**
+     * Number of odd digits.
+     */
+
+    private int odd = 0;
+
+    /**
+     * Number of even digits.
+     */
+    private int even = 0;
+
+    /**
      * Returns numbers with an equal number of even and odd digits.
      *
      * @param result in input.
      * @return massOddEven array.
      */
     public int[] sortOddEven(int[] result) {
-        int odd = 0;
-        int even = 0;
         int  numberOfSuitable = 0;
         final int ten = 10;
         for (int i = 0; i < result.length; i++) {
@@ -57,6 +66,5 @@ public class SortEvenNumbers {
         System.arraycopy(result, 0, massOddEven, 0, numberOfSuitable);
         return massOddEven;
     }
-
 }
 

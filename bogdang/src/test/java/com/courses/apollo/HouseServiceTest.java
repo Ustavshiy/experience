@@ -13,28 +13,27 @@ public class HouseServiceTest {
 
 
     @Test
-    public void testPrint() {
-        House[] houses = HouseTestData.getHouses();
-        houseServiceTest.printHouse(houses[0]);
-    }
-
-    @Test
     public void testPrintHouseFields() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseFields(houses, ROOMS_QUANTITY_TEST);
+        
     }
 
     @Test
     public void testPrintHouseArea() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseArea(houses, AREA_TEST);
-
     }
 
     @Test
     public void testPrintHouseFieldsFloor() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+    }
 
+    @Test
+    public void testPrint() {
+        House[] houses = HouseTestData.getHouses();
+        houseServiceTest.printHouse(houses[0]);
     }
 }

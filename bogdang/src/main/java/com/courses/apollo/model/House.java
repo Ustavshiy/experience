@@ -1,24 +1,54 @@
 package com.courses.apollo.model;
 
 /**
- * House info
+ * This class - molds for baking houses.
  */
-
 public class House {
 
+    /**
+     * Here is stored the house ID.
+     */
     private Integer houseId;
+
+    /**
+     * Here is stored the house number.
+     */
 
     private Integer number;
 
+    /**
+     * Here is stored the house area.
+     */
+
     private Integer area;
+
+    /**
+     * Here is stored the house floor.
+     */
 
     private Integer floor;
 
+    /**
+     * Here is the quantity of rooms in the house.
+     */
+
     private Integer roomsQuantity;
+
+    /**
+     * Here is the street on which stands the house.
+     */
 
     private String street;
 
+    /**
+     * Here is the type of house.
+     */
+
     private String bildType;
+
+    /**
+     * Here is the age of the house.
+     */
 
     private String lifeTime;
 
@@ -26,9 +56,9 @@ public class House {
 
     }
 
-    public House(Integer Id, Integer num, Integer area,
+    public House(Integer houseId, Integer num, Integer area,
                  Integer floor, Integer numRooms, String street, String bildType, String lifeTime) {
-        houseId = Id;
+        this.houseId = houseId;
         number = num;
         this.area = area;
         this.floor = floor;
@@ -102,9 +132,9 @@ public class House {
         this.lifeTime = lifeTime;
     }
 
+    @Override
     public String toString() {
-        return houseId+ " "+ number +" "+ area+ " "+ floor +" " + roomsQuantity +
-                " "+street+" "+bildType+ " "+lifeTime;
-
+        return houseId + " " + number + " " + area + " " + floor + " " + roomsQuantity + " " + street + " " + bildType
+                + " " + lifeTime;
     }
 }

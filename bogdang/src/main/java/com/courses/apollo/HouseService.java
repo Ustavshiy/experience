@@ -1,24 +1,37 @@
 package com.courses.apollo;
 
 import com.courses.apollo.model.House;
-import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 
 /**
- * Contains methods that provides some logic working with House
+ * Contains methods that provides some logic working with House.
  *
  * @see House
  */
 public class HouseService {
 
+    /**
+     * Sorts of houses.
+     *
+     * @param house in input.
+     */
+
     public void printHouse(House house) {
         System.out.println(house);
     }
+
+    /**
+     * Sorts houses by the number of rooms.
+     *
+     * @param houses in input.
+     * @param roomsQty number of rooms.
+     * @return result array.
+     */
 
     public House[] printHouseFields(House[] houses, Integer roomsQty) {
         House[] houseQuantity = new House[houses.length];
         int count = 0;
         for (int i = 0; i < houses.length; i++) {
-            if(houses[i].getRoomsQuantity().equals(roomsQty)) {
+            if (houses[i].getRoomsQuantity().equals(roomsQty)) {
                 houseQuantity[count] = houses[i];
                 count++;
             }
@@ -28,12 +41,22 @@ public class HouseService {
         return result;
     }
 
+    /**
+     * Sorts houses by the number of rooms and floors.
+     *
+     * @param houses in input.
+     * @param roomsQty number of rooms.
+     * @param floorMin minimal floor.
+     * @param floorMax maximum floor.
+     * @return result array.
+     */
+
     public House[] printHouseFieldsFloor(House[] houses, Integer roomsQty, Integer floorMin, Integer floorMax) {
         House[] houseFieldsFloor = new House[houses.length];
         House[] houseFields = printHouseFields(houses, roomsQty);
         int count = 0;
         for (int i = 0; i <  houseFields.length; i++) {
-            if((houseFields[i].getFloor() >= floorMin) && (houseFields[i].getFloor() <= floorMax))  {
+            if ((houseFields[i].getFloor() >= floorMin) && (houseFields[i].getFloor() <= floorMax))  {
                 houseFieldsFloor[count] = houseFields[i];
                 count++;
             }
@@ -43,12 +66,19 @@ public class HouseService {
         return result;
     }
 
+    /**
+     * Sorts houses by the number area of rooms.
+     *
+     * @param houses in input.
+     * @param areaHouse set the area of the house.
+     * @return result array.
+     */
 
-    public House[] printHouseArea(House[] houses, Integer areaHouse){
+    public House[] printHouseArea(House[] houses, Integer areaHouse) {
         House[] houseArea = new House[houses.length];
         int count = 0;
         for (int i = 0; i < houses.length; i++) {
-            if(houses[i].getArea() > areaHouse) {
+            if (houses[i].getArea() > areaHouse) {
                 houseArea[count] = houses[i];
                 count++;
             }
@@ -58,14 +88,5 @@ public class HouseService {
         return result;
     }
 
-
-
 }
-/*House: id, Номер квартиры, Площадь, Этаж, Количество комнат,
-Улица, Тип здания, Срок эксплуатации.
-Создать массив объектов. Вывести:
-a) список квартир, имеющих заданное число комнат;
-b) список квартир, имеющих заданное число комнат и расположенных
- на этаже, который находится в заданном промежутке;
-c) список квартир, имеющих площадь, превосходящую заданную.
-*/
+
