@@ -1,7 +1,7 @@
 package com.courses.apollo.model;
 
 /**
- * Class point. Includes coordinates X and Y.
+ * Class point. Includes coordinates X and Y. Expression point A(X,Y).
  */
 public class Point {
     /**

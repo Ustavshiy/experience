@@ -8,10 +8,14 @@ import java.util.ArrayList;
 
 /**
  * Class for Straight Line logic.
+ * y = m*x + b
+ * Here: x = Xa or Xb, y = Ya or Yb.
+ * m = slope(angle coefficient) b = yShift (intersection with Y axis).
  */
 public class LineUtils {
     /**
-     * Metod find the slope parameter of Line.
+     * Method find the slope parameter of Line. Formula m = (x1-x2)/(y1-y2).
+     * Line A(Xa,Ya)(Xb,Yb) slope = (Xa-Xb)/(Ya-Yb).
      * @param line input Line.
      * @return slope coefficient.
      */
@@ -26,9 +30,11 @@ public class LineUtils {
     }
 
     /**
-     * Method find where line cross Y axis.
+     * Method find where line cross Y axis (0,Y). Formula y = mx + b.
+     * Ya = slope * Xa + yShift.
+     * yShift = Ya - Xa*slope
      * @param line input Line.
-     * @return coordinate X.
+     * @return coordinate Y.
      */
     public double yShiftFinder(Line line) {
         double yShift = line.getFraction().getPointA().getCoordY()
@@ -37,7 +43,9 @@ public class LineUtils {
     }
 
     /**
-     * Method find where line cross X axis.
+     * Method find where line cross X axis (X,0). Formula y = m*(x-shift).
+     * Ya = slope*(Xa-xShift).
+     * xShift = Xa - Ya / slope.
      * @param line input Line.
      * @return coordinate X.
      */
@@ -49,6 +57,7 @@ public class LineUtils {
 
     /**
      * Method return array with lines which parallel to input line.
+     * If slope equals - lines are parallel.
      * @param line Main Line.
      * @param pretenders Array of Lines.
      * @return array of Lines which parallel to main Line.
@@ -68,6 +77,10 @@ public class LineUtils {
     /**
      * Method returns array of Fraction defined with two points.
      * This points are coordinates where line cross X axis and where line cross Y axis.
+     * (0,yShift) - is coordinate where line intersects Y axis.
+     * (xShift,0) - is coordinate where line intersects X axis.
+     * If line is vertical - slope = Infinity. Intersection with X - (Xa,O), with Y - none.
+     * If line is horizontal - slope = 0. Intersection with X - none, with Y - (0,Ya).
      * @param lines input array of Lines.
      * @return array of Fractions.
      */
@@ -95,10 +108,16 @@ public class LineUtils {
     }
 
     /**
-     * Returns crossing point of two lines.
+     * Returns crossing point of two lines. Both must be true true y = m1*x + b1 and y=m2*x + b2.
+     * Where A(x,y) - interception point, m1 and m2 slopes of 2 lines, b1 and b2 - yShift(interception with Y axis)
+     * of two lines.
+     * Y = slopeA * X + yShiftA and Y = slopeB * X + yShiftB.
+     * => slopeA*X + yShiftA = slopeB * X + yShiftB.
+     * => X = (yShiftB - yShiftA)/(slopeA - slopeB).
+     * => Y = slopeA * X + yShiftA.
      * @param lineA First Line
      * @param lineB Second Line.
-     * @return crossing Point object.
+     * @return crossing Point object A(X,Y).
      */
     public Point crossPointFinder(Line lineA, Line lineB) {
         double crossCoordX;

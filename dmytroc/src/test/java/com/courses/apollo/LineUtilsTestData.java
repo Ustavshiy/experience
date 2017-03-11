@@ -5,7 +5,7 @@ import com.courses.apollo.model.Line;
 import com.courses.apollo.model.Point;
 
 /**
- * Created by chopenkod on 11.03.17.
+ * Tested 2 parallel lines, 1 line vertical, 1 line horizontal.
  */
 public class LineUtilsTestData {
 

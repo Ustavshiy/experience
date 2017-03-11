@@ -8,7 +8,7 @@ import com.courses.apollo.model.Polynomial;
 public class PolynomialUtils {
 
     /**
-     * Find sum of fraction array.
+     * Find sum of fraction array. FractionFirst(PolynomialFirst)+...+FractionLast(PolynomialLast).
      * @param polynomialArray input Fraction array.
      * @return calculated sum.
      */

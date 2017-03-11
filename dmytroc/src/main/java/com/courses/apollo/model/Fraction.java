@@ -1,23 +1,23 @@
 package com.courses.apollo.model;
 
 /**
- * Class Fraction include numerator, denominator Xa-Xb/Ya-Yb.
+ * Class Fraction include numerator, denominator. Fraction expression Xa-Xb/Ya-Yb.
  */
 public class Fraction {
     /**
-     * Point A for line definition.
+     * Point A for line definition A(Xa,Ya).
      */
     private Point pointA;
     /**
-     * Point B for line definition.
+     * Point B for line definition B(Xb,Yb).
      */
     private Point pointB;
     /**
-     * Numerator value.
+     * Numerator value. Calculated Xa - Xb.
      */
     private double numerator;
     /**
-     * Denominator value.
+     * Denominator value. Calculated Ya - Yb.
      */
     private double denominator;
 

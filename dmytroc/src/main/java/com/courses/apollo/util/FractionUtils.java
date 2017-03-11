@@ -37,6 +37,7 @@ public class FractionUtils {
 
     /**
      * Calculates fraction.returns numerator/denominator.
+     * Example A = n/m.
      * @param fraction input Fraction object.
      * @return result double.
      */

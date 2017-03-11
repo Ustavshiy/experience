@@ -1,7 +1,9 @@
 package com.courses.apollo.model;
 
 /**
- * Class Polynomial with Fraction coefficient.
+ * Class Polynomial with Fraction coefficient. Fraction * polynomial.
+ * Example A(x+y).
+ * Where A - polynomial coefficient. (x+y) polynomial.
  */
 public class Polynomial {
     /**
