@@ -5,21 +5,13 @@ package com.courses.apollo.model;
  */
 public class Fraction {
     /**
-     * Coordinate X of point A.
+     * Point A for line definition.
      */
-    private double coordXA;
+    private Point pointA;
     /**
-     * Coordinate X of point B.
+     * Point B for line definition.
      */
-    private double coordXB;
-    /**
-     * Coordinate Y of point A.
-     */
-    private double coordYA;
-    /**
-     * Coordinate Y of point B.
-     */
-    private double coordYB;
+    private Point pointB;
     /**
      * Numerator value.
      */
@@ -29,21 +21,36 @@ public class Fraction {
      */
     private double denominator;
 
-    public Fraction() {}
+    public Fraction() {
+    }
 
-    public Fraction(double coordXA, double coordXB, double coordYA, double coordYB) {
-        this.coordXA = coordXA;
-        this.coordXB = coordXB;
-        this.coordYA = coordYA;
-        this.coordYB = coordYB;
+    public Fraction(Point pointA, Point pointB) {
+        this.pointA = pointA;
+        this.pointB = pointB;
 
-        numerator = coordXA - coordXB;
-        denominator = coordYA - coordYB;
+        numerator = pointA.getCoordX() - pointB.getCoordX();
+        denominator = pointA.getCoordY() - pointB.getCoordY();
     }
 
     public Fraction(double numerator, double denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
+    }
+
+    public Point getPointA() {
+        return pointA;
+    }
+
+    public void setPointA(Point pointA) {
+        this.pointA = pointA;
+    }
+
+    public Point getPointB() {
+        return pointB;
+    }
+
+    public void setPointB(Point pointB) {
+        this.pointB = pointB;
     }
 
     public double getNumerator() {
@@ -62,41 +69,9 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    public double getCoordXA() {
-        return coordXA;
-    }
-
-    public void setCoordXA(double coordXA) {
-        this.coordXA = coordXA;
-    }
-
-    public double getCoordXB() {
-        return coordXB;
-    }
-
-    public void setCoordXB(double coordXB) {
-        this.coordXB = coordXB;
-    }
-
-    public double getCoordYA() {
-        return coordYA;
-    }
-
-    public void setCoordYA(double coordYA) {
-        this.coordYA = coordYA;
-    }
-
-    public double getCoordYB() {
-        return coordYB;
-    }
-
-    public void setCoordYB(double coordYB) {
-        this.coordYB = coordYB;
-    }
-
     @Override
     public String toString() {
-        return coordXA + " + " + coordXB
-                + " / " + coordYA + " + " + coordYB;
+        return numerator
+                + " / " + denominator;
     }
 }

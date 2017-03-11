@@ -7,34 +7,34 @@ public class Polynomial {
     /**
      * Polynomial value.
      */
-    private double polinomial;
+    private double polynomial;
     /**
      * Fraction coefficient object.
      */
     private Fraction fractionCoefficient;
 
-    public Polynomial(double polimonial) {
-        this.polinomial = polimonial;
+    public Polynomial(double polynomial) {
+        this.polynomial = polynomial;
     }
 
-    public Polynomial(Fraction fractionCoefficient, double polinomial) {
-        this.polinomial = polinomial;
+    public Polynomial(Fraction fractionCoefficient, double polynomial) {
+        this.polynomial = polynomial;
         this.fractionCoefficient = fractionCoefficient;
     }
 
-    public double getPolinomial() {
-        return polinomial;
+    public double getPolynomial() {
+        return polynomial;
     }
 
-    public void setPolinomial(double polimonial) {
-        this.polinomial = polimonial;
+    public void setPolynomial(double polymonial) {
+        this.polynomial = polymonial;
     }
 
     public Fraction getFractionCoefficient() {
         return fractionCoefficient;
     }
 
-    public void setFractionCoefficient(Fraction fractionCoefficient) {
+    public void setCoefficient(Fraction fractionCoefficient) {
         this.fractionCoefficient = fractionCoefficient;
     }
 }

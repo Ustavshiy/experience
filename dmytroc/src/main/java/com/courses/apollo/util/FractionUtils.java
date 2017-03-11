@@ -35,10 +35,15 @@ public class FractionUtils {
         return resultArray;
     }
 
-    public double fractionCalculatuion(Fraction fraction) {
+    /**
+     * Calculates fraction.returns numerator/denominator.
+     * @param fraction input Fraction object.
+     * @return result double.
+     */
+    public double fractionCalculation(Fraction fraction) {
         try {
-            double fractionresult = fraction.getNumerator() / fraction.getDenominator();
-            return fractionresult;
+            double fractionResult = fraction.getNumerator() / fraction.getDenominator();
+            return fractionResult;
         } catch (IllegalArgumentException e) {
             return 0;
         }

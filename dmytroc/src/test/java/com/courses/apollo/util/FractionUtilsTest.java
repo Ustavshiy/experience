@@ -11,6 +11,7 @@ public class FractionUtilsTest {
 
     @Test
     public void addOddIndexToEvenTest() {
+
         Fraction[] testArray = FractionUtilsTestData.getFractionsArray();
         Fraction[] expectedResult = FractionUtilsTestData.expectedResult();
         Fraction[] addedArray = fractionUtils.addOddIndexToEven(testArray);
