@@ -27,7 +27,7 @@ public final class Main {
     /**
      * This method sorted quantity numbers.
      *
-     * @param arrayUnique int array
+     * @param arrayUnique   int array
      * @param arrayQuantity int array
      */
     public static void sortByQuantityNumbers(int[] arrayUnique, int[] arrayQuantity) {
@@ -47,9 +47,10 @@ public final class Main {
 
     /**
      * This method added unique and quantity numbers.
-     * @param arrayUnique int array
+     *
+     * @param arrayUnique   int array
      * @param arrayQuantity int array
-     * @param array int array
+     * @param array         int array
      */
     public static void addedUniqueAndQuantityNumbers(int[] arrayUnique, int[] arrayQuantity, int[] array) {
         int uniqueCard = 1;
@@ -70,13 +71,13 @@ public final class Main {
 
     /**
      * This method main. Here task result is printed.
+     *
      * @param args String array
      */
     public static void main(String[] args) {
         final int[] array = {2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3};
+        System.out.print("Original array:");
         sort(array);
-        for (int i = 0; i < array.length; i++) {
-        }
         int tempOne = 1;
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] != array[i + 1]) {
@@ -88,8 +89,9 @@ public final class Main {
 
         addedUniqueAndQuantityNumbers(arrayUnique, arrayQuantity, array);
         sortByQuantityNumbers(arrayUnique, arrayQuantity);
-        for (int i = 0; i < arrayUnique.length; i++) {
-        }
+        System.out.println();
+        System.out.print("Result: ");
+
     }
 }
 
