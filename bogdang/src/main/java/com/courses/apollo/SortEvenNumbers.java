@@ -31,7 +31,7 @@ public class SortEvenNumbers {
     public int[] sortOddEven(int[] result) {
         int odd = 0;
         int even = 0;
-        int numberOfSuitable = 0;
+        int  numberOfSuitable = 0;
         final int ten = 10;
         for (int i = 0; i < result.length; i++) {
             int number = result[i];
@@ -58,8 +58,6 @@ public class SortEvenNumbers {
         System.arraycopy(result, 0, destination, 0, length);
         return destination;
     }
-
-
 
 }
 
