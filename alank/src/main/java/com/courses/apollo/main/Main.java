@@ -1,4 +1,4 @@
-package main;
+package com.courses.apollo.main;
 
 /**
  * This is class main.
