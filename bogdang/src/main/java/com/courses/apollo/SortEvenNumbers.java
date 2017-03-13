@@ -19,20 +19,8 @@ public class SortEvenNumbers {
                 numberOfSuitable++;
             }
         }
-        int[] result = new int[numberOfSuitable];
-        System.arraycopy(arr, 0, result, 0, numberOfSuitable);
-        return result;
+        return copyArray(arr, new int[numberOfSuitable], numberOfSuitable);
     }
-
-    /**
-     * Quantity of odd numbers.
-     */
-    private int odd = 0;
-
-    /**
-     * Quantity of even numbers.
-    */
-    private int even = 0;
 
     /**
      * Returns numbers with an equal number of even and odd digits.
@@ -41,6 +29,8 @@ public class SortEvenNumbers {
      * @return massOddEven array.
      */
     public int[] sortOddEven(int[] result) {
+        int odd = 0;
+        int even = 0;
         int  numberOfSuitable = 0;
         final int ten = 10;
         for (int i = 0; i < result.length; i++) {
@@ -61,10 +51,12 @@ public class SortEvenNumbers {
             odd = 0;
             even = 0;
         }
-        int[] massOddEven = new int[numberOfSuitable];
-        System.arraycopy(result, 0, massOddEven, 0, numberOfSuitable);
-        return massOddEven;
+        return copyArray(result, new int[numberOfSuitable], numberOfSuitable);
+    }
+
+    private int[] copyArray(int[] result, int[] destination, int length) {
+        System.arraycopy(result, 0, destination, 0, length);
+        return destination;
     }
 
 }
-
