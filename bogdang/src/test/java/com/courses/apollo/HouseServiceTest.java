@@ -1,6 +1,7 @@
 package com.courses.apollo;
 
 import com.courses.apollo.model.House;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class HouseServiceTest {
@@ -28,19 +29,25 @@ public class HouseServiceTest {
     @Test
     public void testPrintHouseFieldsFloor() {
         House[] houses = HouseTestData.getHouses();
-        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        House[] housesExpected =HouseTestData.getHouses4();
+        final House[] afterMethodRun = houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        Assert.assertArrayEquals(housesExpected,afterMethodRun);
     }
 
     @Test
     public void testPrintHouseFieldsFloorFirstCondition() {
         House[] houses = HouseTestData.getHouses1();
-        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        House[] housesExpected =HouseTestData.getHouses3();
+        final House[] afterMethodRun = houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        Assert.assertArrayEquals(housesExpected,afterMethodRun);
     }
 
     @Test
     public void testPrintHouseFieldsFloorSecondCondition() {
         House[] houses = HouseTestData.getHouses2();
-        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        House[] housesExpected =HouseTestData.getHouses3();
+        final House[] afterMethodRun = houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+        Assert.assertArrayEquals(housesExpected,afterMethodRun);
     }
 
     @Test

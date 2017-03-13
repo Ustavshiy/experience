@@ -37,6 +37,20 @@ public class HouseTestData {
         return new House[]{house, houseTwo, houseThree};
 
     }
+    public static House[] getHouses3() {
+
+        return new House[]{};
+
+    }
+
+    public static House[] getHouses4() {
+
+        House houseThree = new House(3, 2, 60, 4, 4, "Bobenka", "private house", "1 years");
+        House houseNine = new House(9, 78, 30, 3, 2, "Sobka", "Apartment", "18 years");
+
+        return new House[]{ houseThree,houseNine};
+
+    }
 
 
 }
