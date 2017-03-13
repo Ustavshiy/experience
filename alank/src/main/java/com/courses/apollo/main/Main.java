@@ -88,7 +88,6 @@ public final class Main {
 
         addedUniqueAndQuantityNumbers(arrayUnique, arrayQuantity, array);
         sortByQuantityNumbers(arrayUnique, arrayQuantity);
-
     }
 }
 
