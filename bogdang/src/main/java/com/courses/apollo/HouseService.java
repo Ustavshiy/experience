@@ -72,7 +72,6 @@ public class HouseService {
      * @param areaHouse set the area of the house.
      * @return result array.
      */
-
     public House[] printHouseArea(House[] houses, Integer areaHouse) {
         House[] houseArea = new House[houses.length];
         int count = 0;
