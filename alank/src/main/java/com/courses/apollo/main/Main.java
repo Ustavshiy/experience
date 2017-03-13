@@ -74,7 +74,6 @@ public final class Main {
      */
     public static void main(String[] args) {
         final int[] array = {2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3};
-        System.out.print("Original array:");
         sort(array);
         for (int i = 0; i < array.length; i++) {
         }
