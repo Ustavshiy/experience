@@ -1,6 +1,6 @@
 package com.courses.apollo;
 
-import com.courses.apollo.SortEvenNumbers;
+
 import org.junit.Assert;
 import org.junit.Test;
 

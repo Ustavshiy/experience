@@ -32,6 +32,19 @@ public class HouseServiceTest {
     }
 
     @Test
+    public void testPrintHouseFieldsFloorFirstCondition() {
+        House[] houses = HouseTestData.getHouses1();
+        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+    }
+
+    @Test
+    public void testPrintHouseFieldsFloorSecondCondition() {
+        House[] houses = HouseTestData.getHouses2();
+        houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
+    }
+
+
+    @Test
     public void testPrint() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouse(houses[0]);
