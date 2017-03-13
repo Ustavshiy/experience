@@ -14,7 +14,6 @@ public class HouseService {
      *
      * @param house in input.
      */
-
     public void printHouse(House house) {
         System.out.println(house);
     }
@@ -26,7 +25,6 @@ public class HouseService {
      * @param roomsQty number of rooms.
      * @return result array.
      */
-
     public House[] printHouseFields(House[] houses, Integer roomsQty) {
         House[] houseQuantity = new House[houses.length];
         int count = 0;
@@ -50,7 +48,6 @@ public class HouseService {
      * @param floorMax maximum floor.
      * @return result array.
      */
-
     public House[] printHouseFieldsFloor(House[] houses, Integer roomsQty, Integer floorMin, Integer floorMax) {
         House[] houseFields = printHouseFields(houses, roomsQty);
         int count = 0;
