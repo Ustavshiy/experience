@@ -14,7 +14,6 @@
         <module>vladimirk</module>
         <module>bogdang</module>
         <module>example</module>
-        <module>aleksej</module>
         <module>dmytroc</module>
         <module>bogdand</module>
         <module>ihorp</module>
@@ -273,68 +272,75 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-            <!--<groupId>org.jacoco</groupId>-->
-            <!--<artifactId>jacoco-maven-plugin</artifactId>-->
-            <!--<version>0.7.9</version>-->
-            <!--<configuration>-->
-            <!--<excludes>-->
-            <!--<exclude>**/model/**</exclude>-->
-            <!--<exclude>**/main/**</exclude>-->
-            <!--</excludes>-->
-            <!--</configuration>-->
-            <!--<executions>-->
-            <!--<execution>-->
-            <!--<id>default-prepare-agent</id>-->
-            <!--<goals>-->
-            <!--<goal>prepare-agent</goal>-->
-            <!--</goals>-->
-            <!--</execution>-->
-            <!--<execution>-->
-            <!--<id>default-report</id>-->
-            <!--<phase>prepare-package</phase>-->
-            <!--<goals>-->
-            <!--<goal>report</goal>-->
-            <!--</goals>-->
-            <!--</execution>-->
-            <!--<execution>-->
-            <!--<id>default-check</id>-->
-            <!--<goals>-->
-            <!--<goal>check</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.9</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/model/**</exclude>
+                        <exclude>**/main/**</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
 
-            <!--<rules>-->
-            <!--<rule>-->
-            <!--<element>BUNDLE</element>-->
-            <!--<limits>-->
-            <!--<limit>-->
-            <!--<counter>COMPLEXITY</counter>-->
-            <!--<value>COVEREDRATIO</value>-->
-            <!--<minimum>0.90</minimum>-->
-            <!--</limit>-->
-            <!--<limit >-->
-            <!--<counter>BRANCH</counter>-->
-            <!--<value>COVEREDRATIO</value>-->
-            <!--<minimum>0.90</minimum>-->
-            <!--</limit>-->
-            <!--<limit >-->
-            <!--<counter>LINE</counter>-->
-            <!--<value>COVEREDRATIO</value>-->
-            <!--<minimum>0.90</minimum>-->
-            <!--</limit>-->
-            <!--<limit >-->
-            <!--<counter>INSTRUCTION</counter>-->
-            <!--<value>COVEREDRATIO</value>-->
-            <!--<minimum>0.90</minimum>-->
-            <!--</limit>-->
-            <!--</limits>-->
-            <!--</rule>-->
-            <!--</rules>-->
-            <!--</configuration>-->
-            <!--</execution>-->
-            <!--</executions>-->
-            <!--</plugin>-->
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.90</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>BRANCH</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.90</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.90</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>INSTRUCTION</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.90</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.1</version>
+                <configuration>
+                    <argLine>-server -ea -XX:MaxPermSize=256m -Xmx2g -XX:-UseSplitVerifier ${argLine}</argLine>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
