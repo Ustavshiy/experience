@@ -13,43 +13,36 @@ public class House {
     /**
      * Here is stored the house number.
      */
-
     private Integer number;
 
     /**
      * Here is stored the house area.
      */
-
     private Integer area;
 
     /**
      * Here is stored the house floor.
      */
-
     private Integer floor;
 
     /**
      * Here is the quantity of rooms in the house.
      */
-
     private Integer roomsQuantity;
 
     /**
      * Here is the street on which stands the house.
      */
-
     private String street;
 
     /**
      * Here is the type of house.
      */
-
     private String bildType;
 
     /**
      * Here is the age of the house.
      */
-
     private String lifeTime;
 
     public House(){
