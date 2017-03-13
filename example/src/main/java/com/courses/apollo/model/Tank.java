@@ -1,12 +1,24 @@
 package com.courses.apollo.model;
 
 /**
- * Created by User on 13.03.2017.
+ * Tank model.
  */
 public class Tank {
+    /**
+     * Tank canon type.
+     */
     private String canon;
+    /**
+     * Total price.
+     */
     private Double price;
+    /**
+     * Max speed.
+     */
     private Integer speed;
+    /**
+     * Max weight.
+     */
     private Integer weight;
 
     public String getCanon() {

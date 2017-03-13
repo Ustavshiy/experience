@@ -41,6 +41,9 @@ public class Student {
      */
     private String phoneNumber;
 
+    /**
+     * University info.
+     */
     private UniversityInfo universityInfo;
 
     public Student(String name,
@@ -135,17 +138,26 @@ public class Student {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
-        return Objects.equals(studentId, student.studentId) &&
-                Objects.equals(secondName, student.secondName) &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(patronymicName, student.patronymicName) &&
-                Objects.equals(birthDay, student.birthDay) &&
-                Objects.equals(address, student.address) &&
-                Objects.equals(phoneNumber, student.phoneNumber) &&
-                Objects.equals(universityInfo, student.universityInfo);
+        return Objects.equals(studentId, student.studentId)
+                && Objects.equals(secondName, student.secondName)
+                && Objects.equals(name, student.name)
+                && Objects.equals(patronymicName, student.patronymicName)
+                && Objects.equals(birthDay, student.birthDay)
+                && Objects.equals(address, student.address)
+                && Objects.equals(phoneNumber, student.phoneNumber)
+                && Objects.equals(universityInfo, student.universityInfo);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, secondName, name, patronymicName, birthDay,
+                address, phoneNumber, universityInfo);
+    }
 }

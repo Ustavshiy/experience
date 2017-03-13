@@ -1,7 +1,7 @@
 package com.courses.apollo.model;
 
 /**
- * Created by User on 13.03.2017.
+ * UniversityInfo model.
  */
 public class UniversityInfo {
 

@@ -3,13 +3,20 @@ package com.courses.apollo.model;
 import java.util.ArrayList;
 
 /**
- * Created by User on 13.03.2017.
+ * Student information model.
  */
 public class University {
+    /**
+     * University name.
+     */
     private String universityName;
-
+    /**
+     * List of faculties.
+     */
     private ArrayList<String> faculties;
-
+    /**
+     * Students list.
+     */
     private ArrayList<Student> students;
 
     public String getUniversityName() {

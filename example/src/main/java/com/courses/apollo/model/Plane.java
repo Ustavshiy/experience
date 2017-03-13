@@ -1,12 +1,24 @@
 package com.courses.apollo.model;
 
 /**
- * Created by User on 13.03.2017.
+ * Plane model.
  */
 public class Plane {
+    /**
+     * Plane max altitude.
+     */
     private Long altitude;
+    /**
+     * Total price.
+     */
     private Double price;
+    /**
+     * Max speed.
+     */
     private Integer speed;
+    /**
+     * Max weight.
+     */
     private Integer weight;
 
     public Long getAltitude() {
