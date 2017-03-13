@@ -76,7 +76,6 @@ public final class Main {
      */
     public static void main(String[] args) {
         final int[] array = {2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3};
-        System.out.print("Original array:");
         sort(array);
         int tempOne = 1;
         for (int i = 0; i < array.length - 1; i++) {
@@ -89,8 +88,6 @@ public final class Main {
 
         addedUniqueAndQuantityNumbers(arrayUnique, arrayQuantity, array);
         sortByQuantityNumbers(arrayUnique, arrayQuantity);
-        System.out.println();
-        System.out.print("Result: ");
 
     }
 }
