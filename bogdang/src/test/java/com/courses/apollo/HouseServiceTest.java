@@ -43,7 +43,6 @@ public class HouseServiceTest {
         houseServiceTest.printHouseFieldsFloor(houses,FLOOR_AREA_TEST, FLOOR_MIN_TEST, FLOOR_MAX_TEST);
     }
 
-
     @Test
     public void testPrint() {
         House[] houses = HouseTestData.getHouses();
