@@ -52,12 +52,11 @@ public class HouseService {
      */
 
     public House[] printHouseFieldsFloor(House[] houses, Integer roomsQty, Integer floorMin, Integer floorMax) {
-        House[] houseFieldsFloor = new House[houses.length];
         House[] houseFields = printHouseFields(houses, roomsQty);
         int count = 0;
         for (int i = 0; i <  houseFields.length; i++) {
-            if ((houseFields[i].getFloor() >= floorMin) && (houseFields[i].getFloor() <= floorMax))  {
-                houseFieldsFloor[count] = houseFields[i];
+            if (houseFields[i].getFloor() > floorMin && houseFields[i].getFloor() < floorMax)  {
+                houseFields[count] = houseFields[i];
                 count++;
             }
         }

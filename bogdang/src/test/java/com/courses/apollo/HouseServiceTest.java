@@ -8,8 +8,8 @@ public class HouseServiceTest {
     private final static Integer ROOMS_QUANTITY_TEST = 2;
     private final static Integer AREA_TEST = 40;
     private final static Integer FLOOR_AREA_TEST = 20;
-    private final static Integer FLOOR_MIN_TEST = 2;
-    private final static Integer FLOOR_MAX_TEST = 4;
+    private final static Integer FLOOR_MIN_TEST = 1;
+    private final static Integer FLOOR_MAX_TEST = 5;
 
 
     @Test
