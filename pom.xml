@@ -10,12 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>masha</module>
-        <module>taras</module>
         <module>vladimirk</module>
         <module>bogdang</module>
         <module>example</module>
         <module>dmytroc</module>
-        <module>bogdand</module>
         <module>ihorp</module>
         <module>alank</module>
     </modules>
