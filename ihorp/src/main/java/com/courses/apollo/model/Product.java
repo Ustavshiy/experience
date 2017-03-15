@@ -41,7 +41,7 @@ public class Product {
     private Integer quantity;
 
     /**
-     * Create a constructor of a Product. Test sentence
+     * Create a constructor of a Product.
      */
     public Product(Integer productId, String name,
                    Integer upc, String creator,
@@ -56,6 +56,9 @@ public class Product {
         this.quantity = quantity;
     }
 
+    /**
+     * Create alternative constructor for Product.
+     */
     public Product(Integer productID, String name,
                     String creator, Double price) {
         this.productId = productID;

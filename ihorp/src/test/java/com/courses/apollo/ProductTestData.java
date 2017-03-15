@@ -5,7 +5,8 @@ import com.courses.apollo.model.Product;
 import java.util.ArrayList;
 
 public class ProductTestData {
-        public static ArrayList<Product> getProductArrayList() {
+
+    public static ArrayList<Product> getProducts() {
         ArrayList<Product> products = new ArrayList<>();
         products.add(productOne);
         products.add(productTwo);
