@@ -19,9 +19,7 @@ public class SortEvenNumbers {
                 numberOfSuitable++;
             }
         }
-        int[] result = new int[numberOfSuitable];
-        System.arraycopy(arr, 0, result, 0, numberOfSuitable);
-        return result;
+        return copyArray(arr, new int[numberOfSuitable], numberOfSuitable);
     }
 
     /**
@@ -53,10 +51,12 @@ public class SortEvenNumbers {
             odd = 0;
             even = 0;
         }
-        int[] massOddEven = new int[numberOfSuitable];
-        System.arraycopy(result, 0, massOddEven, 0, numberOfSuitable);
-        return massOddEven;
+        return copyArray(result, new int[numberOfSuitable], numberOfSuitable);
+    }
+
+    private int[] copyArray(int[] result, int[] destination, int length) {
+        System.arraycopy(result, 0, destination, 0, length);
+        return destination;
     }
 
 }
-
