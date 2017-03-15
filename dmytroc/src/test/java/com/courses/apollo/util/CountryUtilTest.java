@@ -3,12 +3,12 @@ package com.courses.apollo.util;
 import com.courses.apollo.CountryUtilTestData;
 import com.courses.apollo.model.state.City;
 import com.courses.apollo.model.state.Country;
-import com.courses.apollo.util.state.CountryUtil;
+import com.courses.apollo.util.state.CountryUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class CountryUtilTest {
-    CountryUtil countryUtil = new CountryUtil();
+    CountryUtils countryUtil = new CountryUtils();
     Country liechtenstein = CountryUtilTestData.getState();
 
     @Test
@@ -22,7 +22,7 @@ public class CountryUtilTest {
     public void getProvinceAreaTest() {
         Integer expectedResult = 34996;
         Integer provinceAreaTest = countryUtil.getProvinceArea(liechtenstein.getProvinces().get(1));
-        Assert.assertEquals(expectedResult,provinceAreaTest);
+        Assert.assertEquals(expectedResult, provinceAreaTest);
     }
 
     @Test

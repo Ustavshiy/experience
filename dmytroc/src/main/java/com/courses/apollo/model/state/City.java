@@ -15,7 +15,7 @@ public class City {
      */
     private boolean isProvinceCenter;
     /**
-     * true if capitalFinder.
+     * true if capital.
      */
     private boolean isCapital;
 

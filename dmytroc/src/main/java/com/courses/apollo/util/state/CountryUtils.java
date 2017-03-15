@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Class for country util.
  */
-public class CountryUtil {
+public class CountryUtils {
 
     /**
      * Sum of all provinces area in the country.
