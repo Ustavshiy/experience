@@ -15,7 +15,7 @@ public class Car {
     /**
      * Variable to indicate brand of the car.
      */
-    private   String carBrand;
+    private String carBrand;
 
     /**
      * Variable to indicate model of the car..
@@ -43,12 +43,12 @@ public class Car {
     private String carRegNmbr;
 
     public Car(int carId,
-                String carBrand,
-                String carModel,
-                int carYear,
-                String carColor,
-                int carPrice,
-                String carRegNmbr) {
+               String carBrand,
+               String carModel,
+               int carYear,
+               String carColor,
+               int carPrice,
+               String carRegNmbr) {
         this.carId = carId;
         this.carBrand = carBrand;
         this.carModel = carModel;

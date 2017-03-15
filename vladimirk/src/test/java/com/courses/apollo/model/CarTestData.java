@@ -2,13 +2,15 @@ package com.courses.apollo.model;
 
 import com.courses.apollo.model.Car;
 
+import java.util.ArrayList;
+
 /**
  * Include methods for using car data.
  * @see Car
  */
 public class CarTestData {
 
-    public static Car[] getCars() {
+    public static ArrayList<Car> getCarArrayList() {
         Car car = new Car(1,"Toyota","Auris",2009,"red",
                 1200000,"АІ4853АК");
         Car secondCar = new Car(2,"Land Rover","Freelander",2011,"black",
@@ -32,29 +34,51 @@ public class CarTestData {
         Car eleventhCar = new Car("Volvo", "CX90", 2016, 4500000);
         Car twelfthCar = new Car("Audi", "A100", 2016, 100000);
         Car thirteenthCar = new Car("Shkoda","Octavia", 2016, 2100000);
-        return new Car[]{car, secondCar, thirdCar, fourthCar, fifthCar, sixthCar, seventhCar, eightCar, ninthCar,
-                tenthCar, eleventhCar, twelfthCar, thirteenthCar};
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(car);
+        cars.add(secondCar);
+        cars.add(thirdCar);
+        cars.add(fourthCar);
+        cars.add(fifthCar);
+        cars.add(sixthCar);
+        cars.add(seventhCar);
+        cars.add(eightCar);
+        cars.add(ninthCar);
+        cars.add(tenthCar);
+        cars.add(eleventhCar);
+        cars.add(twelfthCar);
+        cars.add(thirteenthCar);
+        return cars;
     }
 
-    public static Car[] expectedCarsOfGivenBrand() {
+    public static ArrayList<Car> expectedCarsOfGivenBrand() {
         Car car = new Car(1,"Toyota","Auris",2009,"red",
                 1200000,"АІ4853АК");
         Car tenthCar = new Car(10,"Toyota","Rav4",2017,"blue",
                 2800000,"АА9597ИО");
-        return new Car[]{car, tenthCar};
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(car);
+        cars.add(tenthCar);
+        return cars;
     }
 
-    public static Car[] expectedCarsOfGivenModelOlderThan() {
+    public static ArrayList<Car> expectedCarsOfGivenModelOlderThan() {
         Car secondCar = new Car(2,"Land Rover","Freelander",2011,"black",
                 2200000,"AM2354АО");
-        return new Car[]{secondCar};
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(secondCar);
+        return cars;
     }
 
-    public static Car[] expectedCarsOfGivenYearMoreExpensiveThan() {
+    public static ArrayList<Car> expectedCarsOfGivenYearMoreExpensiveThan() {
         Car ninthCar = new Car(9,"Mitsubishi","Pajero",2016,"white",
                 4700000,"АМ4945АП");
         Car eleventhCar = new Car("Volvo", "CX90", 2016, 4500000);
         Car thirteenthCar = new Car("Shkoda","Octavia", 2016, 2100000);
-        return new Car[]{ninthCar, eleventhCar, thirteenthCar};
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(ninthCar);
+        cars.add(eleventhCar);
+        cars.add(thirteenthCar);
+        return cars;
     }
 }

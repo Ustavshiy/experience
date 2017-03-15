@@ -2,6 +2,7 @@ package com.courses.apollo.service;
 
 import com.courses.apollo.model.Car;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -14,18 +15,12 @@ public class CarService {
     /**
      * Method that return list of cars of the given Brand.
      */
-    public Car[] returnCarsOfGivenBrand(Car[] allCars, String givenBrand) {
-        Car[] tempArray = new Car[allCars.length];
-        int counter = 0;
-        for (int i = 0; i < allCars.length; i++) {
-            if (allCars[i].getCarBrand().equals(givenBrand)) {
-                tempArray[counter] = allCars[i];
-                counter++;
+    public ArrayList<Car> returnCarsOfGivenBrand(ArrayList<Car> cars, String givenBrand) {
+        ArrayList<Car> carsOfGivenBrand = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getCarBrand().equals(givenBrand)) {
+                carsOfGivenBrand.add(cars.get(i));
             }
-        }
-        Car[] carsOfGivenBrand = new Car[counter];
-        for (int k = 0; k < counter; k++) {
-            carsOfGivenBrand[k] = tempArray[k];
         }
         return carsOfGivenBrand;
     }
@@ -33,21 +28,15 @@ public class CarService {
     /**
      * Method that return list of cars of given Model older than n years.
      */
-    public Car[] returnCarsOfGivenModelOlderThan(Car[] allCars, String givenModel, int givenAge) {
-        Car[] tempArray = new Car[allCars.length];
-        int counter = 0;
-        for (int i = 0; i < allCars.length; i++) {
+    public ArrayList<Car> returnCarsOfGivenModelOlderThan(ArrayList<Car> cars, String givenModel, int givenAge) {
+        ArrayList<Car> carsOfGivenModelOlderThan = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
             GregorianCalendar gcalendar = new GregorianCalendar();
             int year = gcalendar.get(Calendar.YEAR);
-            int carAge = year - (allCars[i].getCarYear());
-            if (carAge > givenAge && allCars[i].getCarModel().equals(givenModel)) {
-                tempArray[counter] = allCars[i];
-                counter++;
+            int carAge = year - (cars.get(i).getCarYear());
+            if (carAge > givenAge && cars.get(i).getCarModel().equals(givenModel)) {
+                carsOfGivenModelOlderThan.add(cars.get(i));
             }
-        }
-        Car[] carsOfGivenModelOlderThan = new Car[counter];
-        for (int k = 0; k < counter; k++) {
-            carsOfGivenModelOlderThan[k] = tempArray[k];
         }
         return carsOfGivenModelOlderThan;
     }
@@ -55,18 +44,12 @@ public class CarService {
     /**
      * Method that return list of cars of the given Year and more expencive than given Price.
      */
-    public Car[] returnCarsOfGivenYearMoreExpensiveThan(Car[] allCars, int givenPrice, int givenYear) {
-        Car[] tempArray = new Car[allCars.length];
-        int counter = 0;
-        for (int i = 0; i < allCars.length; i++) {
-            if (allCars[i].getCarYear() == givenYear && allCars[i].getCarPrice() > givenPrice) {
-                tempArray[counter] = allCars[i];
-                counter++;
+    public ArrayList<Car> returnCarsOfGivenYearMoreExpensiveThan(ArrayList<Car> cars, int givenPrice, int givenYear) {
+        ArrayList<Car> carsOfGivenYearMoreExpensiveThan = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getCarYear() == givenYear && cars.get(i).getCarPrice() > givenPrice) {
+                carsOfGivenYearMoreExpensiveThan.add(cars.get(i));
             }
-        }
-        Car[] carsOfGivenYearMoreExpensiveThan = new Car[counter];
-        for (int k = 0; k < counter; k++) {
-            carsOfGivenYearMoreExpensiveThan[k] = tempArray[k];
         }
         return carsOfGivenYearMoreExpensiveThan;
     }
