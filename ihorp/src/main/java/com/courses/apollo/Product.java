@@ -1,11 +1,9 @@
 package com.courses.apollo;
 
 /**
- * Create a Product object.
+ * A Product class to create constructor for object Product.
  */
 public class Product {
-
-    public Product() {}
 
     /**
      * Create productId.
@@ -120,5 +118,10 @@ public class Product {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return productId + " " + name + " " + creator + " " + price + " " + shelfLife + " " + quantity;
     }
 }
