@@ -1,5 +1,7 @@
 package com.courses.apollo;
 
+import com.courses.apollo.model.Product;
+
 import java.util.ArrayList;
 
 public class ProductTestData {

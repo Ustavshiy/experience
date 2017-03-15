@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.model;
 
 /**
  * A Product class to create constructor for object Product.

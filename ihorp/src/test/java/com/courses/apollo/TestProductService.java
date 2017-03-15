@@ -1,6 +1,8 @@
 package com.courses.apollo;
 
 import java.util.ArrayList;
+
+import com.courses.apollo.model.Product;
 import org.junit.Test;
 
 public class TestProductService {
