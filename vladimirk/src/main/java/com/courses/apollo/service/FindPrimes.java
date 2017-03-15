@@ -3,7 +3,7 @@ package com.courses.apollo.service;
 /**
  * Class added for FindPrimes function.
  */
-final class FindPrimes {
+public final class FindPrimes {
 
     /**
      * Method of determining the prime numbers of the numbers from an array.
