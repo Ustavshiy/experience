@@ -26,9 +26,6 @@ public class CarServiceTest {
         Car[] expected = expectedCarsOfGivenBrand.toArray(new Car[expectedCarsOfGivenBrand.size()]);
         Car[] result = resultCarsOfGivenBrand.toArray(new Car[resultCarsOfGivenBrand.size()]);
         Assert.assertArrayEquals(expected, result);
-        for (int n = 0; n < resultCarsOfGivenBrand.size(); n++) {
-            System.out.println(resultCarsOfGivenBrand.get(n));
-        }
     }
 
     @Test
@@ -39,9 +36,6 @@ public class CarServiceTest {
         Car[] expected = expectedCarsOfGivenModelOlderThan.toArray(new Car[expectedCarsOfGivenModelOlderThan.size()]);
         Car[] result = resultCarsOfGivenModelOlderThan.toArray(new Car[resultCarsOfGivenModelOlderThan.size()]);
         Assert.assertArrayEquals(expected, result);
-        for (int k = 0; k < resultCarsOfGivenModelOlderThan.size(); k++) {
-            System.out.println(resultCarsOfGivenModelOlderThan.get(k));
-        }
     }
 
     @Test
@@ -52,8 +46,5 @@ public class CarServiceTest {
         Car[] expected = expectedCarsOfGivenYearMoreExpens.toArray(new Car[expectedCarsOfGivenYearMoreExpens.size()]);
         Car[] result = resultCarsOfGivenYearMoreExpensive.toArray(new Car[resultCarsOfGivenYearMoreExpensive.size()]);
         Assert.assertArrayEquals(expected, result);
-        for (int i = 0; i < resultCarsOfGivenYearMoreExpensive.size(); i++) {
-            System.out.println(resultCarsOfGivenYearMoreExpensive.get(i));
-        }
     }
 }
