@@ -1,6 +1,6 @@
 package com.courses.apollo.model.state;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -10,7 +10,7 @@ public class Province extends AdministrativeUnit {
     /**
      * List of cities.
      */
-    private ArrayList<City> provinceCities;
+    private List<City> provinceCities;
     /**
      * City of province center.
      */
@@ -19,7 +19,7 @@ public class Province extends AdministrativeUnit {
     public Province() {
     }
 
-    public Province(String name, Integer area, ArrayList<City> provinceCities) {
+    public Province(String name, Integer area, List<City> provinceCities) {
         setName(name);
         setArea(area);
         setProvinceCities(provinceCities);
@@ -33,7 +33,7 @@ public class Province extends AdministrativeUnit {
      * Get cities in province. Set province center city.
      * @param provinceCities input list of Cities.
      */
-    public void setProvinceCities(ArrayList<City> provinceCities) {
+    public void setProvinceCities(List<City> provinceCities) {
         for (City city : provinceCities) {
             if (city.isProvinceCenter()) {
                 provinceCenter = city;
@@ -43,7 +43,7 @@ public class Province extends AdministrativeUnit {
         this.provinceCities = provinceCities;
     }
 
-    public ArrayList<City> getProvinceCities() {
+    public List<City> getProvinceCities() {
         return provinceCities;
     }
 

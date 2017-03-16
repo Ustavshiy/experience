@@ -2,7 +2,7 @@ package com.courses.apollo.model.food;
 
 import com.courses.apollo.model.food.vegetable.Vegetable;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -13,7 +13,7 @@ public class Salad {
     /**
      * list of vegetables in salad.
      */
-    private ArrayList<Vegetable> vegetables;
+    private List<Vegetable> vegetables;
     /**
      * Name of specie.
      */
@@ -23,11 +23,11 @@ public class Salad {
      */
     private String fillUp;
 
-    public ArrayList<Vegetable> getVegetables() {
+    public List<Vegetable> getVegetables() {
         return vegetables;
     }
 
-    public void setVegetables(ArrayList<Vegetable> vegetables) {
+    public void setVegetables(List<Vegetable> vegetables) {
         this.vegetables = vegetables;
     }
 

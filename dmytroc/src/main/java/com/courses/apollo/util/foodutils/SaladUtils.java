@@ -5,6 +5,7 @@ import com.courses.apollo.model.food.vegetable.Vegetable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Class made for mixing a Salad from list of Vegetables.
@@ -21,7 +22,7 @@ public class SaladUtils {
      * @param species    String specie.
      * @return Whole salad.
      */
-    public Salad mixSalad(ArrayList<Vegetable> vegetables, String fillUp, String species) {
+    public Salad mixSalad(List<Vegetable> vegetables, String fillUp, String species) {
         Salad salad = new Salad();
         salad.setVegetables(vegetables);
         salad.setFillUp(fillUp);
@@ -38,9 +39,9 @@ public class SaladUtils {
      * @param diapasonTo   maximum calories.
      * @return ArrayList of approved ingredients.
      */
-    public ArrayList<Vegetable> caloriesDiapazoneFinder(Salad salad, int diapasonFrom, int diapasonTo) {
+    public List<Vegetable> caloriesDiapazoneFinder(Salad salad, int diapasonFrom, int diapasonTo) {
         final int toGrams = 100;
-        ArrayList<Vegetable> caloriesDiapazone = new ArrayList<>();
+        List<Vegetable> caloriesDiapazone = new ArrayList<>();
         for (Vegetable vegetable : salad.getVegetables()) {
             int calories = vegetable.getCharacteristics().getCalories();
             int weight = vegetable.getWeight();
@@ -58,7 +59,7 @@ public class SaladUtils {
      * @param salad input Salad object.
      * @return sorted ArrayList of vegetables.
      */
-    public ArrayList<Vegetable> vegetablesWeightSorter(Salad salad) {
+    public List<Vegetable> vegetablesWeightSorter(Salad salad) {
         Vegetable[] vegetables = new Vegetable[salad.getVegetables().size()];
         salad.getVegetables().toArray(vegetables);
         Vegetable temp;
@@ -72,7 +73,7 @@ public class SaladUtils {
 
             }
         }
-        ArrayList<Vegetable> vegs = new ArrayList<>(Arrays.asList(vegetables));
+        List<Vegetable> vegs = new ArrayList<>(Arrays.asList(vegetables));
         return vegs;
     }
 }

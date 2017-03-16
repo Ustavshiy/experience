@@ -6,12 +6,11 @@ import com.courses.apollo.model.food.vegetable.Vegetable;
 import com.courses.apollo.util.foodutils.SaladUtils;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class SaladUtilsTest {
     SaladUtils saladUtils = new SaladUtils();
-    ArrayList<Vegetable> testVegetables = SaladUtilsTestData.getVegetables();
+    List<Vegetable> testVegetables = SaladUtilsTestData.getVegetables();
     Salad testSalad = saladUtils.mixSalad(testVegetables, "olive oil", "basil");
 
     @Test
@@ -25,15 +24,15 @@ public class SaladUtilsTest {
 
     @Test
     public void vegetablesWeightSorterTest() {
-        ArrayList<Vegetable> sortedVegetablesTest = saladUtils.vegetablesWeightSorter(testSalad);
-        ArrayList<Vegetable> expectedresult = SaladUtilsTestData.getSortedByWeightVegetables();
+        List<Vegetable> sortedVegetablesTest = saladUtils.vegetablesWeightSorter(testSalad);
+        List<Vegetable> expectedresult = SaladUtilsTestData.getSortedByWeightVegetables();
         Assert.assertEquals(expectedresult, sortedVegetablesTest);
     }
 
     @Test
     public void caloriesDiapasonFinderTest() {
-        ArrayList<Vegetable> sortedVegetablesTest = saladUtils.caloriesDiapazoneFinder(testSalad, 16, 22);
-        ArrayList<Vegetable> expectedresult = SaladUtilsTestData.getCaloriesDiapasonFinderVegetables();
+        List<Vegetable> sortedVegetablesTest = saladUtils.caloriesDiapazoneFinder(testSalad, 16, 22);
+        List<Vegetable> expectedresult = SaladUtilsTestData.getCaloriesDiapasonFinderVegetables();
         Assert.assertEquals(expectedresult, sortedVegetablesTest);
     }
 }
