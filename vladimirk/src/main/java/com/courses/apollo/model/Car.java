@@ -8,40 +8,49 @@ import java.util.Objects;
 public class Car {
 
     /**
-     * Variable to indicate id of the car.
+     * @param carId variable to indicate id of the car.
      */
     private int carId;
 
     /**
-     * Variable to indicate brand of the car.
+     * @param carBrand to indicate brand of the car.
      */
     private String carBrand;
 
     /**
-     * Variable to indicate model of the car..
+     * @param carModel variable to indicate model of the car.
      */
     private String carModel;
 
     /**
-     * Variable to indicate the year of manufacture of the car.
+     * @param carYear variable to indicate the year of manufacture of the car.
      */
     private int carYear;
 
     /**
-     * Variable to indicate color of the car.
+     * @param carColor variable to indicate color of the car.
      */
     private String carColor;
 
     /**
-     * Variable to indicate price of the car in cents.
+     * @param carPrice variable to indicate price of the car in cents.
      */
     private int carPrice;
 
     /**
-     * Variable to indicate registration number of the car.
+     * @param carRegNmbr variable to indicate registration number of the car.
      */
     private String carRegNmbr;
 
+    /**
+     * @param carId to indicate id of the car.
+     * @param carBrand to indicate brand of the car.
+     * @param carModel to indicate model of the car.
+     * @param carYear to indicate the year of manufacture of the car.
+     * @param carColor to indicate color of the car in cents.
+     * @param carPrice to indicate price of the car in cents.
+     * @param carRegNmbr to indicate registration number of the car.
+     */
     public Car(int carId,
                String carBrand,
                String carModel,
@@ -58,6 +67,14 @@ public class Car {
         this.carRegNmbr = carRegNmbr;
     }
 
+    /**
+     * 16.03.2017.
+     * Constructor to create objects of Car class, with next fields.
+     * @param carBrand to indicate brand of the car
+     * @param carModel to indicate model of the car
+     * @param carYear to indicate the year of manufacture of the car
+     * @param carPrice to indicate price of the car in cents
+     */
     public Car(String carBrand,
                String carModel,
                int carYear,
