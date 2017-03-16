@@ -2,9 +2,8 @@ package com.courses.apollo.service;
 
 import com.courses.apollo.model.Car;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Include methods for using car data.
@@ -38,8 +37,7 @@ public class CarService {
     public ArrayList<Car> returnCarsOfGivenModelOlderThan(ArrayList<Car> cars, String givenModel, int givenAge) {
         ArrayList<Car> carsOfGivenModelOlderThan = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            GregorianCalendar gcalendar = new GregorianCalendar();
-            int year = gcalendar.get(Calendar.YEAR);
+            int year = LocalDate.now().getYear();
             int carAge = year - (cars.get(i).getCarYear());
             if (carAge > givenAge && cars.get(i).getCarModel().equals(givenModel)) {
                 carsOfGivenModelOlderThan.add(cars.get(i));
