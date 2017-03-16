@@ -1,17 +1,12 @@
 package com.courses.apollo;
 
 import com.courses.apollo.model.food.vegetable.*;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Dell on 15.03.2017.
- */
 public class SaladUtilsTestData {
 
-    @Test
     public static List<Vegetable> getVegetables() {
         Cabbage cabbage = new Cabbage();
         cabbage.setWeight(100);
@@ -29,7 +24,6 @@ public class SaladUtilsTestData {
         return vegetables;
     }
 
-    @Test
     public static List<Vegetable> getSortedByWeightVegetables() {
         Cabbage cabbage = new Cabbage();
         cabbage.setWeight(100);
@@ -47,7 +41,6 @@ public class SaladUtilsTestData {
         return vegetables;
     }
 
-    @Test
     public static List<Vegetable> getCaloriesDiapasonFinderVegetables() {
         Cabbage cabbage = new Cabbage();
         cabbage.setWeight(100);
