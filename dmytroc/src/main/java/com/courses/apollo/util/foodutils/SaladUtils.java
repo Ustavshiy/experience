@@ -4,7 +4,6 @@ import com.courses.apollo.model.food.Salad;
 import com.courses.apollo.model.food.vegetable.Vegetable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -41,16 +40,16 @@ public class SaladUtils {
      */
     public List<Vegetable> caloriesDiapazoneFinder(Salad salad, int diapasonFrom, int diapasonTo) {
         final int toGrams = 100;
-        List<Vegetable> caloriesDiapazone = new ArrayList<>();
+        List<Vegetable> caloriesDiapason = new ArrayList<>();
         for (Vegetable vegetable : salad.getVegetables()) {
             int calories = vegetable.getCharacteristics().getCalories();
             int weight = vegetable.getWeight();
             int totalCalories = calories * weight / toGrams;
             if (diapasonFrom <= totalCalories && totalCalories <= diapasonTo) {
-                caloriesDiapazone.add(vegetable);
+                caloriesDiapason.add(vegetable);
             }
         }
-        return caloriesDiapazone;
+        return caloriesDiapason;
     }
 
     /**
@@ -60,20 +59,18 @@ public class SaladUtils {
      * @return sorted ArrayList of vegetables.
      */
     public List<Vegetable> vegetablesWeightSorter(Salad salad) {
-        Vegetable[] vegetables = new Vegetable[salad.getVegetables().size()];
-        salad.getVegetables().toArray(vegetables);
+        List<Vegetable> vegetables = salad.getVegetables();
         Vegetable temp;
-        for (int i = 0; i < vegetables.length; i++) {
-            for (int j = 1; j < (vegetables.length - i); j++) {
-                if (vegetables[j - 1].getWeight() > vegetables[j].getWeight()) {
-                    temp = vegetables[j - 1];
-                    vegetables[j - 1] = vegetables[j];
-                    vegetables[j] = temp;
+        for (int i = 0; i < vegetables.size(); i++) {
+            for (int j = 1; j < (vegetables.size() - i); j++) {
+                if (vegetables.get(j - 1).getWeight() > vegetables.get(j).getWeight()) {
+                    temp = vegetables.get(j - 1);
+                    vegetables.set(j - 1, vegetables.get(j));
+                    vegetables.set(j, temp);
                 }
 
             }
         }
-        List<Vegetable> vegs = new ArrayList<>(Arrays.asList(vegetables));
-        return vegs;
+        return vegetables;
     }
 }
