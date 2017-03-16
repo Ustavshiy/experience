@@ -3,13 +3,9 @@ package com.courses.apollo.model.state;
 import java.util.Objects;
 
 /**
- * Class city in province. Include name and booleans capital and province center.
+ * Class city in province.Extends to AdministrativeUnit. Also include booleans capital and province center.
  */
-public class City {
-    /**
-     * City name.
-     */
-    private String cityName;
+public class City extends AdministrativeUnit {
     /**
      * True if province center.
      */
@@ -22,26 +18,11 @@ public class City {
     public City() {
     }
 
-    public City(String cityName, boolean isCapital, boolean isProvinceCenter) {
-        this.cityName = cityName;
+    public City(String cityName, Integer area, boolean isCapital, boolean isProvinceCenter) {
+        setArea(area);
+        setName(cityName);
         this.isCapital = isCapital;
         this.isProvinceCenter = isProvinceCenter;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public boolean isCapital() {
-        return isCapital;
-    }
-
-    public void setCapital(boolean capital) {
-        isCapital = capital;
     }
 
     public boolean isProvinceCenter() {
@@ -50,6 +31,14 @@ public class City {
 
     public void setProvinceCenter(boolean provinceCenter) {
         isProvinceCenter = provinceCenter;
+    }
+
+    public boolean isCapital() {
+        return isCapital;
+    }
+
+    public void setCapital(boolean capital) {
+        isCapital = capital;
     }
 
     @Override
@@ -62,21 +51,20 @@ public class City {
         }
         City city = (City) o;
         return isProvinceCenter == city.isProvinceCenter
-                && isCapital == city.isCapital
-                && Objects.equals(cityName, city.cityName);
+                && isCapital == city.isCapital;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cityName, isProvinceCenter, isCapital);
+        return Objects.hash(isProvinceCenter, isCapital);
     }
 
     @Override
     public String toString() {
         return "City{"
-                + "cityName='" + cityName + '\''
-                + ", isProvinceCenter=" + isProvinceCenter
-                + ", isCapital=" + isCapital
-                + '}';
+                + "name = " + getName()
+                + ", area = " + getArea()
+                + " sq. km , isProvinceCenter = " + isProvinceCenter
+                + ", isCapital = " + isCapital + '}';
     }
 }

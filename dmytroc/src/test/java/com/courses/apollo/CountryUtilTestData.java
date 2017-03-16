@@ -15,29 +15,29 @@ public class CountryUtilTestData {
 
     public static ArrayList<Province> getProvinces() {
         ArrayList<Province> provinces = new ArrayList<>();
-        provinces.add(new Province("Oberland", CountryUtilTestData.getOberlandCities(), 125478));
-        provinces.add(new Province("Unterland", CountryUtilTestData.getUnterlandCities(), 34996));
+        provinces.add(new Province("Oberland", 125478, CountryUtilTestData.getOberlandCities()));
+        provinces.add(new Province("Unterland", 34996, CountryUtilTestData.getUnterlandCities()));
         return provinces;
     }
 
     public static ArrayList<City> getOberlandCities() {
         ArrayList<City> cities = new ArrayList<>();
-        cities.add(new City("Balzers", true, false));
-        cities.add(new City("Vaduz", true, true));
-        cities.add(new City("Planken", false, false));
-        cities.add(new City("Triesen", false, false));
-        cities.add(new City("Triesenberg", false, false));
-        cities.add(new City("Schaan", false, false));
+        cities.add(new City("Balzers",12, true, false));
+        cities.add(new City("Vaduz",12, true, true));
+        cities.add(new City("Planken",12, false, false));
+        cities.add(new City("Triesen",12, false, false));
+        cities.add(new City("Triesenberg",12, false, false));
+        cities.add(new City("Schaan",12, false, false));
         return cities;
     }
 
     public static ArrayList<City> getUnterlandCities() {
         ArrayList<City> cities = new ArrayList<>();
-        cities.add(new City("Gamprin", false, false));
-        cities.add(new City("Mauren", false, false));
-        cities.add(new City("Ruggell", false, false));
-        cities.add(new City("Schellenberg", false, true));
-        cities.add(new City("Eschen", false, false));
+        cities.add(new City("Gamprin",12, false, false));
+        cities.add(new City("Mauren",12, false, false));
+        cities.add(new City("Ruggell",12, false, false));
+        cities.add(new City("Schellenberg",12, false, true));
+        cities.add(new City("Eschen",12, false, false));
         return cities;
     }
 }

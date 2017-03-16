@@ -4,8 +4,6 @@ import com.courses.apollo.model.state.City;
 import com.courses.apollo.model.state.Country;
 import com.courses.apollo.model.state.Province;
 
-import java.util.ArrayList;
-
 /**
  * Class for country util.
  */
@@ -18,12 +16,7 @@ public class CountryUtils {
      * @return Integer area value sq.km.
      */
     public Integer getCountryArea(Country country) {
-        Integer countryArea = 0;
-        ArrayList<Province> provinces = country.getProvinces();
-        for (Province province : provinces) {
-            countryArea += province.getProvinceArea();
-        }
-        return countryArea;
+        return country.getArea();
     }
 
     /**
@@ -33,7 +26,7 @@ public class CountryUtils {
      * @return Integer area value sq.km.
      */
     public Integer getProvinceArea(Province province) {
-        return province.getProvinceArea();
+        return province.getArea();
     }
 
     /**
@@ -54,15 +47,7 @@ public class CountryUtils {
      * @return capitalFinder City.
      */
     public City capitalFinder(Country country) {
-        City capital = null;
-        for (Province province : country.getProvinces()) {
-            for (City city : province.getProvinceCities()) {
-                if (city.isCapital()) {
-                    capital = city;
-                }
-            }
-        }
-        return capital;
+        return country.getCapital();
     }
 
     /**
@@ -72,12 +57,6 @@ public class CountryUtils {
      * @return province center City.
      */
     public City provinceCenterFinder(Province province) {
-        City provinceCenter = null;
-        for (City city : province.getProvinceCities()) {
-            if (city.isProvinceCenter()) {
-                provinceCenter = city;
-            }
-        }
-        return provinceCenter;
+        return province.getProvinceCenter();
     }
 }
