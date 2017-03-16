@@ -43,6 +43,8 @@ public class Car {
     private String carRegNmbr;
 
     /**
+     * 16.03.2017.
+     * Constructor to create objects of Car class, with next fields.
      * @param carId to indicate id of the car.
      * @param carBrand to indicate brand of the car.
      * @param carModel to indicate model of the car.
