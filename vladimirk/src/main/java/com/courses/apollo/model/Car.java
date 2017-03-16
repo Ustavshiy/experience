@@ -103,12 +103,8 @@ public class Car {
 
     @Override
     public String toString() {
-        if (carId == 0) {
-            return carBrand + " " + carModel + " " + carYear + " " + carPrice;
-        } else {
             return carId + " " + carBrand + " " + carModel + " " + carYear + " " + carColor + " " + carPrice + " "
                     + carRegNmbr;
-        }
     }
 
     @Override
