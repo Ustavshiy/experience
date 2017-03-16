@@ -16,7 +16,7 @@ public class Vegetable {
     /**
      * Class contains information about vegetables.
      */
-    private VegetableCharacteristics characteristics;
+    private FoodInfo characteristics;
 
     public Integer getWeight() {
         return weight;
@@ -26,11 +26,11 @@ public class Vegetable {
         this.weight = weight;
     }
 
-    public VegetableCharacteristics getCharacteristics() {
+    public FoodInfo getCharacteristics() {
         return characteristics;
     }
 
-    public void setCharacteristics(VegetableCharacteristics characteristics) {
+    public void setCharacteristics(FoodInfo characteristics) {
         this.characteristics = characteristics;
     }
 

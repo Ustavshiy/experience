@@ -6,7 +6,7 @@ import java.util.Objects;
  * Class Vegetable Characteristics
  * for characteristics about amount of fat, carbohydrate, protein and calories in 100 grams.
  */
-public class VegetableCharacteristics {
+public class FoodInfo {
 
     /**
      * fat value.
@@ -25,10 +25,10 @@ public class VegetableCharacteristics {
      */
     private Integer calories;
 
-    public VegetableCharacteristics() {
+    public FoodInfo() {
     }
 
-    public VegetableCharacteristics(Double fat, Double carbs, Double protein, Integer calories) {
+    public FoodInfo(Double fat, Double carbs, Double protein, Integer calories) {
         this.fat = fat;
         this.carbs = carbs;
         this.protein = protein;
@@ -75,7 +75,7 @@ public class VegetableCharacteristics {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        VegetableCharacteristics that = (VegetableCharacteristics) o;
+        FoodInfo that = (FoodInfo) o;
         return Objects.equals(fat, that.fat)
                 && Objects.equals(carbs, that.carbs)
                 && Objects.equals(protein, that.protein)
