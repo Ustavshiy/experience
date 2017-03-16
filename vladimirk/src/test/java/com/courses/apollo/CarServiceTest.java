@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarServiceTest {
 
@@ -21,8 +22,8 @@ public class CarServiceTest {
 
     @Test
     public void testPrintCarsOfGivenBrand() {
-        ArrayList<Car> expectedCarsOfGivenBrand = CarTestData.expectedCarsOfGivenBrand();
-        ArrayList<Car> resultCarsOfGivenBrand = carServiceTest.returnCarsOfGivenBrand(cars, GIVEN_CARS_BRAND);
+        List<Car> expectedCarsOfGivenBrand = CarTestData.expectedCarsOfGivenBrand();
+        List<Car> resultCarsOfGivenBrand = carServiceTest.returnCarsOfGivenBrand(cars, GIVEN_CARS_BRAND);
         Car[] expected = expectedCarsOfGivenBrand.toArray(new Car[expectedCarsOfGivenBrand.size()]);
         Car[] result = resultCarsOfGivenBrand.toArray(new Car[resultCarsOfGivenBrand.size()]);
         Assert.assertArrayEquals(expected, result);
@@ -30,8 +31,8 @@ public class CarServiceTest {
 
     @Test
     public void testPrintCarsOfGivenModelOlderThan() {
-        ArrayList<Car> expectedCarsOfGivenModelOlderThan = CarTestData.expectedCarsOfGivenModelOlderThan();
-        ArrayList<Car> resultCarsOfGivenModelOlderThan =
+        List<Car> expectedCarsOfGivenModelOlderThan = CarTestData.expectedCarsOfGivenModelOlderThan();
+        List<Car> resultCarsOfGivenModelOlderThan =
                 carServiceTest.returnCarsOfGivenModelOlderThan(cars, GIVEN_CARS_MODEL, GIVEN_CARS_AGE);
         Car[] expected = expectedCarsOfGivenModelOlderThan.toArray(new Car[expectedCarsOfGivenModelOlderThan.size()]);
         Car[] result = resultCarsOfGivenModelOlderThan.toArray(new Car[resultCarsOfGivenModelOlderThan.size()]);
@@ -40,8 +41,8 @@ public class CarServiceTest {
 
     @Test
     public void testPrintCarsOfGivenYearMoreExpensive() {
-        ArrayList<Car> expectedCarsOfGivenYearMoreExpens = CarTestData.expectedCarsOfGivenYearMoreExpensiveThan();
-        ArrayList<Car> resultCarsOfGivenYearMoreExpensive = carServiceTest.returnCarsOfGivenYearMoreExpensiveThan(cars,
+        List<Car> expectedCarsOfGivenYearMoreExpens = CarTestData.expectedCarsOfGivenYearMoreExpensiveThan();
+        List<Car> resultCarsOfGivenYearMoreExpensive = carServiceTest.returnCarsOfGivenYearMoreExpensiveThan(cars,
                 GIVEN_CARS_PRICE, GIVEN_CARS_YEAR);
         Car[] expected = expectedCarsOfGivenYearMoreExpens.toArray(new Car[expectedCarsOfGivenYearMoreExpens.size()]);
         Car[] result = resultCarsOfGivenYearMoreExpensive.toArray(new Car[resultCarsOfGivenYearMoreExpensive.size()]);

@@ -4,6 +4,7 @@ import com.courses.apollo.model.Car;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Include methods for using car data.
@@ -17,8 +18,8 @@ public class CarService {
      * @param givenBrand seted for compare car brand
      * @return carsOfGivenBrand output collection of objects with  result
      */
-    public ArrayList<Car> returnCarsOfGivenBrand(ArrayList<Car> cars, String givenBrand) {
-        ArrayList<Car> carsOfGivenBrand = new ArrayList<>();
+    public List<Car> returnCarsOfGivenBrand(ArrayList<Car> cars, String givenBrand) {
+        List<Car> carsOfGivenBrand = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getCarBrand().equals(givenBrand)) {
                 carsOfGivenBrand.add(cars.get(i));
@@ -34,8 +35,8 @@ public class CarService {
      * @param givenAge seted for compare age of the car
      * @return carsOfGivenModelOlderThan output collection of objects with  result
      */
-    public ArrayList<Car> returnCarsOfGivenModelOlderThan(ArrayList<Car> cars, String givenModel, int givenAge) {
-        ArrayList<Car> carsOfGivenModelOlderThan = new ArrayList<>();
+    public List<Car> returnCarsOfGivenModelOlderThan(ArrayList<Car> cars, String givenModel, int givenAge) {
+        List<Car> carsOfGivenModelOlderThan = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             int year = LocalDate.now().getYear();
             int carAge = year - (cars.get(i).getCarYear());
@@ -52,8 +53,8 @@ public class CarService {
      * @param givenPrice seted for compare car price
      * @return carsOfGivenYearMoreExpensiveThan output collection of objects with  result
      */
-    public ArrayList<Car> returnCarsOfGivenYearMoreExpensiveThan(ArrayList<Car> cars, int givenPrice, int givenYear) {
-        ArrayList<Car> carsOfGivenYearMoreExpensiveThan = new ArrayList<>();
+    public List<Car> returnCarsOfGivenYearMoreExpensiveThan(ArrayList<Car> cars, int givenPrice, int givenYear) {
+        List<Car> carsOfGivenYearMoreExpensiveThan = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getCarYear() == givenYear && cars.get(i).getCarPrice() > givenPrice) {
                 carsOfGivenYearMoreExpensiveThan.add(cars.get(i));
