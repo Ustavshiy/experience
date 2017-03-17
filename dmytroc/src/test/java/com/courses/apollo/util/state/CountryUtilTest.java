@@ -1,4 +1,4 @@
-package com.courses.apollo.util;
+package com.courses.apollo.util.state;
 
 import com.courses.apollo.CountryUtilTestData;
 import com.courses.apollo.model.state.City;

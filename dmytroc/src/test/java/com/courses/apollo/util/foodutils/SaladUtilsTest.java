@@ -1,4 +1,4 @@
-package com.courses.apollo.util;
+package com.courses.apollo.util.foodutils;
 
 import com.courses.apollo.SaladUtilsTestData;
 import com.courses.apollo.model.food.Salad;
