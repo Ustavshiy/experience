@@ -132,6 +132,7 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
+    @Override
     public String toString() {
         return studentId + " " + name + " " + secondName + " " + phoneNumber;
     }
@@ -141,7 +142,7 @@ public class Student {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Student)) {
             return false;
         }
         Student student = (Student) o;
@@ -157,7 +158,7 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId, secondName, name, patronymicName, birthDay,
-                address, phoneNumber, universityInfo);
+        return Objects.hash(studentId, secondName,
+                name, patronymicName, birthDay, address, phoneNumber, universityInfo);
     }
 }
