@@ -1,5 +1,7 @@
 package com.courses.apollo.model;
 
+import java.util.Objects;
+
 /**
  * Student cake.
  */
@@ -40,44 +42,38 @@ public class Student {
     private String phoneNumber;
 
     /**
-     * String faculty.
+     * University info.
      */
-    private String faculty;
-
-    /**
-     * String course.
-     */
-    private String course;
-
-    /**
-     * String group.
-     */
-    private String group;
+    private UniversityInfo universityInfo;
 
     public Student(String name,
                    String studentSecondName,
-                   Integer studId,
-                   String courseName) {
+                   Integer studId) {
         this.name = name;
         secondName = studentSecondName;
         studentId = studId;
-        course = courseName;
     }
 
     public Student(String studentName,
                    String studentSecondName,
                    Integer studId,
-                   String courseName,
                    String studentPhoneNumber) {
         name = studentName;
         secondName = studentSecondName;
         studentId = studId;
-        course = courseName;
         phoneNumber = studentPhoneNumber;
     }
 
     public Student() {
 
+    }
+
+    public UniversityInfo getUniversityInfo() {
+        return universityInfo;
+    }
+
+    public void setUniversityInfo(UniversityInfo universityInfo) {
+        this.universityInfo = universityInfo;
     }
 
     public Integer getStudentId() {
@@ -136,32 +132,32 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
     public String toString() {
-        return studentId + " " + name + " " + secondName + " " + course + " " + phoneNumber;
+        return studentId + " " + name + " " + secondName + " " + phoneNumber;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student student = (Student) o;
+        return Objects.equals(studentId, student.studentId)
+                && Objects.equals(secondName, student.secondName)
+                && Objects.equals(name, student.name)
+                && Objects.equals(patronymicName, student.patronymicName)
+                && Objects.equals(birthDay, student.birthDay)
+                && Objects.equals(address, student.address)
+                && Objects.equals(phoneNumber, student.phoneNumber)
+                && Objects.equals(universityInfo, student.universityInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, secondName, name, patronymicName, birthDay,
+                address, phoneNumber, universityInfo);
+    }
 }
