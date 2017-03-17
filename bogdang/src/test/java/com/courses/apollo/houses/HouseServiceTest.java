@@ -1,6 +1,6 @@
 package com.courses.apollo.houses;
 
-import com.courses.apollo.HouseTestData;
+import com.courses.apollo.model.HouseTestData;
 import com.courses.apollo.model.House;
 import org.junit.Assert;
 import org.junit.Test;

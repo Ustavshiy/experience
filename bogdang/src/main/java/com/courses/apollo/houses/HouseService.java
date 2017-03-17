@@ -54,7 +54,8 @@ public class HouseService {
      * @param floorMax maximum floor.
      * @return result array.
      */
-    public ArrayList<House> qtyRooms_IntervalFloor(ArrayList<House> houses, Integer roomsQty, Integer floorMin, Integer floorMax) {
+    public ArrayList<House> qtyRooms_IntervalFloor(ArrayList<House> houses, Integer roomsQty, Integer floorMin,
+                                                   Integer floorMax) {
         ArrayList<House> houseQuantity = quantityRooms(houses, roomsQty);
         ArrayList<House> intervalFloor = new ArrayList<>();
         for (int i = 0; i <  houseQuantity.size(); i++) {

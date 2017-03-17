@@ -69,7 +69,6 @@ public class House {
         this.lifeTime = lifeTime;
     }
 
-
     public Integer getArea() {
         return area;
     }
@@ -82,7 +81,6 @@ public class House {
         return roomsQuantity;
     }
 
-
     @Override
     public String toString() {
         return houseId + " " + number + " " + area + " " + floor + " " + roomsQuantity + " " + street + " " + bildType
@@ -90,7 +88,7 @@ public class House {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -111,6 +109,6 @@ public class House {
 
     @Override
     public int hashCode() {
-       return Objects.hash(houseId, number, area, floor, roomsQuantity, street, bildType,lifeTime);
+       return Objects.hash(houseId, number, area, floor, roomsQuantity, street, bildType, lifeTime);
     }
 }

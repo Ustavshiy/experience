@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.model;
 
 import com.courses.apollo.model.House;
 
