@@ -1,32 +1,32 @@
-package com.courses.apollo.util;
+package com.courses.apollo.util.math;
 
-import com.courses.apollo.model.Fraction;
+import com.courses.apollo.model.math.RationalFraction;
 
 /**
- * This class for Fraction logic.
+ * This class for RationalFraction logic.
  */
-public class FractionUtils {
+public class RationalFractionUtils {
 
     /**
-     * Method add values fo Fraction array with Odd indexes
-     * to values fo Fraction array with Even indexes.
+     * Method add values fo RationalFraction array with Odd indexes
+     * to values of RationalFraction array with Even indexes.
      *
-     * @param inputArray for Fraction[] array.
-     * @return calculated Fraction array.
+     * @param inputArray for RationalFraction[] array.
+     * @return calculated RationalFraction array.
      */
-    public Fraction[] addOddIndexToEven(Fraction[] inputArray) {
+    public RationalFraction[] addOddIndexToEven(RationalFraction[] inputArray) {
         int counter = 0;
-        Fraction[] resultArray = new Fraction[(inputArray.length + 1) / 2];
+        RationalFraction[] resultArray = new RationalFraction[(inputArray.length + 1) / 2];
         for (int i = 0; i < inputArray.length; i++) {
             if (i % 2 == 0 && i != inputArray.length - 1) {
-                resultArray[counter] = new Fraction();
+                resultArray[counter] = new RationalFraction();
                 resultArray[counter].setNumerator(inputArray[i].getNumerator()
                         + inputArray[i + 1].getNumerator());
                 resultArray[counter].setDenominator(inputArray[i].getDenominator()
                         + inputArray[i + 1].getDenominator());
                 counter++;
             } else if (i == inputArray.length - 1) {
-                resultArray[counter] = new Fraction();
+                resultArray[counter] = new RationalFraction();
                 resultArray[counter].setNumerator(inputArray[i].getNumerator());
                 resultArray[counter].setDenominator(inputArray[i].getDenominator());
                 counter++;
@@ -38,10 +38,11 @@ public class FractionUtils {
     /**
      * Calculates fraction.returns numerator/denominator.
      * Example A = n/m.
-     * @param fraction input Fraction object.
+     *
+     * @param fraction input RationalFraction object.
      * @return result double.
      */
-    public double fractionCalculation(Fraction fraction) {
+    public double rationalFractionCalculation(RationalFraction fraction) {
         if (fraction.getDenominator() != 0) {
             double fractionResult = fraction.getNumerator() / fraction.getDenominator();
             return fractionResult;

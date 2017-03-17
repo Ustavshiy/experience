@@ -1,13 +1,10 @@
-package com.courses.apollo.util;
+package com.courses.apollo.util.math;
 
-import com.courses.apollo.PolynomialUtilsTestData;
+import com.courses.apollo.util.mathdata.PolynomialUtilsTestData;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by chopenkod on 10.03.17.
- */
-public class PolymonimialUtilsTest {
+public class PolynomialUtilsTest {
 
     PolynomialUtils polynomialUtils = new PolynomialUtils();
 

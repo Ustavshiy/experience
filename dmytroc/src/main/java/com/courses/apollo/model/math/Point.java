@@ -1,4 +1,6 @@
-package com.courses.apollo.model;
+package com.courses.apollo.model.math;
+
+import java.util.Objects;
 
 /**
  * Class point. Includes coordinates X and Y. Expression point A(X,Y).
@@ -35,6 +37,24 @@ public class Point {
 
     public void setCoordY(double coordY) {
         this.coordY = coordY;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Point point = (Point) o;
+        return Double.compare(point.coordX, coordX) == 0
+                && Double.compare(point.coordY, coordY) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordX, coordY);
     }
 
     @Override
