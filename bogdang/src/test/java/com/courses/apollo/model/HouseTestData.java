@@ -88,39 +88,4 @@ public class HouseTestData {
         ArrayList<House> houses = new ArrayList<>();
         return houses;
     }
-
-
-
-
-
-    /*public static ArrayList<House> getHouses2() {
-        House house = new House(1,4, 35,1, 2, "Borshagovskaya","Apartment", "4 years");
-        House houseTwo = new House(2,1,55,1, 5, "Shevchenka","private house", "2 years");
-        House houseThree = new House(3,2,60,2, 4, "Bobenka","private house", "1 years");
-
-        return new House[]{house, houseTwo, houseThree};
-
-    }
-    public static House[] getHouses3() {
-
-        return new House[]{};
-
-    }
-
-    public static House[] getHouses4() {
-
-        House houseThree = new House(3, 2, 60, 4, 4, "Bobenka", "private house", "1 years");
-        House houseNine = new House(9, 78, 30, 3, 2, "Sobka", "Apartment", "18 years");
-
-        return new House[]{ houseThree,houseNine};*/
-
-    }
-
-/*House: id, Номер квартиры, Площадь, Этаж, Количество комнат, Улица, Тип здания, Срок эксплуатации.
-Создать массив объектов.
-Вывести:
-a) список квартир, имеющих заданное число комнат;
-b) список квартир, имеющих заданное число комнат и расположенных на этаже, который находится в заданном промежутке;
-c) список квартир, имеющих площадь, превосходящую заданную.
-**/
-
+}
