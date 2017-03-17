@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.service;
 
 import com.courses.apollo.model.Car;
 import com.courses.apollo.model.CarTestData;
