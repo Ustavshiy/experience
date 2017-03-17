@@ -1,8 +1,11 @@
-package com.courses.apollo;
+package com.courses.apollo.houses;
 
+import com.courses.apollo.HouseTestData;
 import com.courses.apollo.model.House;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class HouseServiceTest {
     private HouseService houseServiceTest = new HouseService();
@@ -14,14 +17,16 @@ public class HouseServiceTest {
 
 
     @Test
-    public void testPrintHouseFields() {
-        House[] houses = HouseTestData.getHouses();
-        houseServiceTest.printHouseFields(houses, ROOMS_QUANTITY_TEST);
-        
+    public void testQuantityRooms() {
+        ArrayList<House> houses = HouseTestData.getHouses();
+        ArrayList<House> housesExpected =HouseTestData.getHousesRooms();
+        ArrayList<House> afterMethodRun = houseServiceTest.quantityRooms(houses, ROOMS_QUANTITY_TEST);
+        Assert.assertArrayEquals(housesExpected, afterMethodRun);
+
     }
 
     @Test
-    public void testPrintHouseArea() {
+    public void testHouseArea() {
         House[] houses = HouseTestData.getHouses();
         houseServiceTest.printHouseArea(houses, AREA_TEST);
     }

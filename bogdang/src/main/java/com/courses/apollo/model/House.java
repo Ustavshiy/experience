@@ -1,5 +1,7 @@
 package com.courses.apollo.model;
 
+import java.util.Objects;
+
 /**
  * This class - molds for baking houses.
  */
@@ -49,85 +51,66 @@ public class House {
 
     }
 
-    public House(Integer houseId, Integer num, Integer area,
-                 Integer floor, Integer numRooms, String street, String bildType, String lifeTime) {
+    public House(Integer houseId,
+                 Integer num,
+                 Integer area,
+                 Integer floor,
+                 Integer roomsQuantity,
+                 String street,
+                 String buildType,
+                 String lifeTime) {
         this.houseId = houseId;
         number = num;
         this.area = area;
         this.floor = floor;
-        this.roomsQuantity = numRooms;
+        this.roomsQuantity = roomsQuantity;
         this.street = street;
-        this.bildType = bildType;
+        this.bildType = buildType;
         this.lifeTime = lifeTime;
     }
 
-    public Integer getHouseId() {
-        return houseId;
-    }
-
-    public void setHouseId(Integer houseId) {
-        this.houseId = houseId;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
 
     public Integer getArea() {
         return area;
-    }
-
-    public void setArea(Integer area) {
-        this.area = area;
     }
 
     public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(Integer floor) {
-        this.floor = floor;
-    }
-
     public Integer getRoomsQuantity() {
         return roomsQuantity;
     }
 
-    public void setRoomsQuantity(Integer roomsQuantity) {
-        this.roomsQuantity = roomsQuantity;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getBildType() {
-        return bildType;
-    }
-
-    public void setBildType(String bildType) {
-        this.bildType = bildType;
-    }
-
-    public String getLifeTime() {
-        return lifeTime;
-    }
-
-    public void setLifeTime(String lifeTime) {
-        this.lifeTime = lifeTime;
-    }
 
     @Override
     public String toString() {
         return houseId + " " + number + " " + area + " " + floor + " " + roomsQuantity + " " + street + " " + bildType
                 + " " + lifeTime;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof House)) {
+            return false;
+        }
+        House house = (House) o;
+        return Objects.equals(houseId, house.houseId)
+                && Objects.equals(number, house.number)
+                && Objects.equals(area, house.area)
+                && Objects.equals(floor, house.floor)
+                && Objects.equals(roomsQuantity, house.roomsQuantity)
+                && Objects.equals(street, house.street)
+                && Objects.equals(bildType, house.bildType)
+                && Objects.equals(lifeTime, house.lifeTime);
+
+    }
+
+    @Override
+    public int hashCode() {
+       return Objects.hash(houseId, number, area, floor, roomsQuantity, street, bildType,lifeTime);
     }
 }
