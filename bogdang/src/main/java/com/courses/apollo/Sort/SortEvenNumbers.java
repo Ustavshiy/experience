@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.Sort;
 
 /**
  * Choose from an array of even number equal to the number of even and odd digits.
