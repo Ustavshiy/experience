@@ -51,6 +51,18 @@ public class House {
 
     }
 
+    /**
+     * The constructor creates a class object of the house that have the following fields.
+     *
+     * @param houseId indicate Id this house.
+     * @param num indicate number this house.
+     * @param area indicate area this house.
+     * @param floor indicate floor this house.
+     * @param roomsQuantity indicate quantity of rooms this house.
+     * @param street indicate street this house.
+     * @param buildType indicate type of build this house.
+     * @param lifeTime indicate time of life this house.
+     */
     public House(Integer houseId,
                  Integer num,
                  Integer area,
