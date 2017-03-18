@@ -1,6 +1,5 @@
-package com.courses.apollo.Sort;
+package com.courses.apollo;
 
-import com.courses.apollo.Sort.SortMod;
 import org.junit.Assert;
 import org.junit.Test;
 
