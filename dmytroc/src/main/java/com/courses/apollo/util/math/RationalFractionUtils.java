@@ -46,8 +46,7 @@ public class RationalFractionUtils {
         if (fraction.getDenominator() != 0) {
             double fractionResult = fraction.getNumerator() / fraction.getDenominator();
             return fractionResult;
-        } else {
-            return 0;
         }
+        return 0;
     }
 }

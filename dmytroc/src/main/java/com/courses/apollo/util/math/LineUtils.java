@@ -22,9 +22,8 @@ public class LineUtils {
             return Double.POSITIVE_INFINITY;
         } else if (line.getXCoeff() == 0D) {
             return 0D;
-        } else {
-            return -line.getXCoeff() / line.getYCoeff();
         }
+        return -line.getXCoeff() / line.getYCoeff();
     }
 
     /**
@@ -38,9 +37,8 @@ public class LineUtils {
     public double xCrossFinder(Line line) {
         if (line.getYCoeff() != 0) {
             return -line.getCValue() / line.getYCoeff();
-        } else {
-            return Double.POSITIVE_INFINITY;
         }
+        return Double.POSITIVE_INFINITY;
     }
 
     /**
@@ -84,11 +82,6 @@ public class LineUtils {
     /**
      * Returns crossing point of two lines.
      * A1*x+B1*y+C1 = A2*x+B2*y+C2;
-     * A1/B1*x + y + C1 = A2/B2*x + y +C2.
-     * -slope1*x + C1 = -slope2*x + C2.
-     * x*(slope2-slope1) = C2 - C1.
-     * x = (C2-C1)/(slope2-slope1).
-     * y = -slope1 * x + C1;
      *
      * @param lineA First Line
      * @param lineB Second Line.
@@ -115,8 +108,7 @@ public class LineUtils {
             double crossCoordX = (bAVal * cBVal - bBVal * cAVal) / (bBVal * aAVal - bAVal * aBVal);
             double crossCoordY = -(aBVal * (crossCoordX) + cBVal) / bBVal;
             return new Point(crossCoordX, crossCoordY);
-        } else {
-            return new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
         }
+        return new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
     }
 }
