@@ -1,5 +1,6 @@
 package com.courses.apollo;
 
+import com.courses.apollo.service.SortIntegerArray;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class SortIntegerArrayTest {
     private int[] testArray = {128, -1, -48, 798, 89, 0, -78};
     private int[] arrayUp = {-78, -48, -1, 0, 89, 128, 798};
     private int[] arrayDown = {798, 128, 89, 0, -1, -48, -78};
-    SortIntegerArray SortIntegerArray = new SortIntegerArray();
+    com.courses.apollo.service.SortIntegerArray SortIntegerArray = new SortIntegerArray();
 
     @Test
     public void sortUpArrayTest() {

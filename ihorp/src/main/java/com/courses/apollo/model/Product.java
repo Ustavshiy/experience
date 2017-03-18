@@ -12,7 +12,7 @@ public class Product {
     /**
      * Create productId.
      */
-    private int productId;
+    private Integer productId;
 
     /**
      * Create name field.
@@ -22,7 +22,7 @@ public class Product {
     /**
      * Create upc field.
      */
-    private int upc;
+    private Integer upc;
 
     /**
      * Create creator field.
@@ -37,19 +37,19 @@ public class Product {
     /**
      * Create shelf life field.
      */
-    private int shelfLife;
+    private Integer shelfLife;
 
     /**
      * Create quantity field.
      */
-    private int quantity;
+    private Integer quantity;
 
     /**
      * Create a constructor of a Product.
      */
-    public Product(int productId, String name, int upc,
-                   String creator, String price, int shelfLife,
-                   int quantity) {
+    public Product(Integer productId, String name, int upc,
+                   String creator, String price, Integer shelfLife,
+                   Integer quantity) {
         this.productId = productId;
         this.name = name;
         this.upc = upc;
@@ -62,8 +62,8 @@ public class Product {
     /**
      * Create alternative constructor for Product.
      */
-    public Product(int productID, String name, String creator,
-                   String price, int shelfLife) {
+    public Product(Integer productID, String name, String creator,
+                   String price, Integer shelfLife) {
         this.productId = productID;
         this.name = name;
         this.creator = creator;
@@ -72,11 +72,11 @@ public class Product {
 
     }
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -112,19 +112,19 @@ public class Product {
         this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public int getShelfLife() {
+    public Integer getShelfLife() {
         return shelfLife;
     }
 
-    public void setShelfLife(int shelfLife) {
+    public void setShelfLife(Integer shelfLife) {
         this.shelfLife = shelfLife;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

@@ -1,5 +1,6 @@
 package com.courses.apollo;
 
+import com.courses.apollo.service.PalindromeService;
 import org.junit.Test;
 import org.junit.Assert;
 
