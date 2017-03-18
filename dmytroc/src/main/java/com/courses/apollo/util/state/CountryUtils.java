@@ -36,8 +36,7 @@ public class CountryUtils {
      * @return Integer value of Provinces.
      */
     public Integer provincesCounter(Country country) {
-        Integer provincesCounter = country.getProvinces().size();
-        return provincesCounter;
+        return country.getProvinces().size();
     }
 
     /**

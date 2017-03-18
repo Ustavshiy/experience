@@ -12,6 +12,10 @@ import java.util.List;
  * It can sort ingredients by weight.
  */
 public class SaladUtils {
+    /**
+     * Constant Vegetable parameter / TO_GRAMS.
+     */
+    static final int TO_GRAMS = 100;
 
     /**
      * Mixing new salad and add specie and fill-up.
@@ -39,12 +43,11 @@ public class SaladUtils {
      * @return ArrayList of approved ingredients.
      */
     public List<Vegetable> caloriesDiapazoneFinder(Salad salad, int diapasonFrom, int diapasonTo) {
-        final int toGrams = 100;
         List<Vegetable> caloriesDiapason = new ArrayList<>();
         for (Vegetable vegetable : salad.getVegetables()) {
             int calories = vegetable.getCharacteristics().getCalories();
             int weight = vegetable.getWeight();
-            int totalCalories = calories * weight / toGrams;
+            int totalCalories = calories * weight / TO_GRAMS;
             if (diapasonFrom <= totalCalories && totalCalories <= diapasonTo) {
                 caloriesDiapason.add(vegetable);
             }
@@ -60,11 +63,10 @@ public class SaladUtils {
      */
     public List<Vegetable> vegetablesWeightSorter(Salad salad) {
         List<Vegetable> vegetables = salad.getVegetables();
-        Vegetable temp;
         for (int i = 0; i < vegetables.size(); i++) {
             for (int j = 1; j < (vegetables.size() - i); j++) {
                 if (vegetables.get(j - 1).getWeight() > vegetables.get(j).getWeight()) {
-                    temp = vegetables.get(j - 1);
+                    Vegetable temp = vegetables.get(j - 1);
                     vegetables.set(j - 1, vegetables.get(j));
                     vegetables.set(j, temp);
                 }
