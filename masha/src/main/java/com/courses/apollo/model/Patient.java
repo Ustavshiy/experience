@@ -15,9 +15,7 @@ public class Patient {
         this.medicalInfo = medicalInfo;
     }
 
-    public Patient(Integer patientId) {
-        this.patientId = patientId;
-    }
+
 
     public Integer getPatientId() {
         return patientId;

@@ -25,6 +25,8 @@ public class PersonalInfo {
         this.patientPhoneNumber = patientPhoneNumber;
     }
 
+
+
     public String getPatientFamilyName() {
         return patientFamilyName;
     }
