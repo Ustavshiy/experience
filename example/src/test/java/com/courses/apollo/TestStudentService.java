@@ -1,12 +1,14 @@
 package com.courses.apollo;
 
 import com.courses.apollo.model.Student;
+import com.courses.apollo.model.University;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by User on 09.03.2017.
@@ -15,15 +17,27 @@ public class TestStudentService {
 
     @Test
     public void testStudentsInGroup() {
-        ArrayList<Student> students = StudentTestData.getStudentArrayList();
-        ArrayList<Student> result = new ArrayList<>();
-        final String courseName = "A";
-        for (int i = 0; i < students.size(); i++) {
-            if (courseName.equals(students.get(i).getCourse())) {
-                result.add(students.get(i));
+        final String courseToFind = "B";
+        ArrayList<University> universities = StudentTestData.getUniversities();
+        for (int i = 0; i < universities.size(); i++) {
+            University university = universities.get(i);
+            for (int j = 0; j < university.getStudents().size(); j++) {
+                Student student = university.getStudents().get(j);
+                if(student.getUniversityInfo() != null && courseToFind.equals(student.getUniversityInfo().getFaculty())) {
+                    System.out.println(student.getName());
+                }
             }
         }
-        System.out.println(result);
+    }
+
+    @Test
+    public void testEquals() {
+        Student test = new Student(
+                "Ivan",
+                "Ivaneko",
+                1, "A");
+        ArrayList<Student> students = StudentTestData.getStudentArrayList();
+        Assert.assertTrue(students.contains(test));
     }
 
     @Test
