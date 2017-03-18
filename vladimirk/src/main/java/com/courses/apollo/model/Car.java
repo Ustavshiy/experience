@@ -13,100 +13,89 @@ public class Car {
     private int carId;
 
     /**
-     * @param carBrand to indicate brand of the car.
+     * @param brand to indicate brand of the car.
      */
-    private String carBrand;
+    private String brand;
 
     /**
-     * @param carModel variable to indicate model of the car.
+     * @param model variable to indicate model of the car.
      */
-    private String carModel;
+    private String model;
 
     /**
-     * @param carYear variable to indicate the year of manufacture of the car.
+     * @param year variable to indicate the year of manufacture of the car.
      */
-    private int carYear;
+    private int year;
 
     /**
-     * @param carColor variable to indicate color of the car.
+     * @param color variable to indicate color of the car.
      */
-    private String carColor;
+    private String color;
 
     /**
-     * @param carPrice variable to indicate price of the car in cents.
+     * @param price variable to indicate price of the car in cents.
      */
-    private int carPrice;
+    private int price;
 
     /**
-     * @param carRegNmbr variable to indicate registration number of the car.
+     * @param regNmbr variable to indicate registration number of the car.
      */
-    private String carRegNmbr;
+    private String regNmbr;
 
     /**
-     * 16.03.2017.
      * Constructor to create objects of Car class, with next fields.
      * @param carId to indicate id of the car.
-     * @param carBrand to indicate brand of the car.
-     * @param carModel to indicate model of the car.
-     * @param carYear to indicate the year of manufacture of the car.
-     * @param carColor to indicate color of the car in cents.
-     * @param carPrice to indicate price of the car in cents.
-     * @param carRegNmbr to indicate registration number of the car.
+     * @param brand to indicate brand of the car.
+     * @param model to indicate model of the car.
+     * @param year to indicate the year of manufacture of the car.
+     * @param color to indicate color of the car in cents.
+     * @param price to indicate price of the car in cents.
+     * @param regNmbr to indicate registration number of the car.
      */
-    public Car(int carId,
-               String carBrand,
-               String carModel,
-               int carYear,
-               String carColor,
-               int carPrice,
-               String carRegNmbr) {
+    public Car(int carId, String brand, String model, int year, String color, int price, String regNmbr) {
         this.carId = carId;
-        this.carBrand = carBrand;
-        this.carModel = carModel;
-        this.carYear = carYear;
-        this.carColor = carColor;
-        this.carPrice = carPrice;
-        this.carRegNmbr = carRegNmbr;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.price = price;
+        this.regNmbr = regNmbr;
     }
 
     /**
-     * 16.03.2017.
-     * Constructor to create objects of Car class, with next fields.
-     * @param carBrand to indicate brand of the car
-     * @param carModel to indicate model of the car
-     * @param carYear to indicate the year of manufacture of the car
-     * @param carPrice to indicate price of the car in cents
+     * Another constructor to create objects of Car class, with next fields.
+     * @param brand to indicate brand of the car.
+     * @param model to indicate model of the car
+     * @param year to indicate the year of manufacture of the car
+     * @param price to indicate price of the car in cents
      */
-    public Car(String carBrand,
-               String carModel,
-               int carYear,
-               int carPrice) {
-        this.carBrand = carBrand;
-        this.carModel = carModel;
-        this.carYear = carYear;
-        this.carPrice = carPrice;
+    public Car(String brand, String model, int year, int price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
     }
 
-    public String getCarBrand() {
-        return carBrand;
+    public String getBrand() {
+        return brand;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public String getModel() {
+        return model;
     }
 
-    public int getCarYear() {
-        return carYear;
+    public int getYear() {
+        return year;
     }
 
-    public int getCarPrice() {
-        return carPrice;
+    public int getPrice() {
+
+        return price;
     }
 
     @Override
     public String toString() {
-            return carId + " " + carBrand + " " + carModel + " " + carYear + " " + carColor + " " + carPrice + " "
-                    + carRegNmbr;
+            return carId + " " + brand + " " + model + " " + year + " " + color + " " + price + " " + regNmbr;
     }
 
     @Override
@@ -119,16 +108,16 @@ public class Car {
         }
         Car car = (Car) o;
         return Objects.equals(carId, car.carId)
-                && Objects.equals(carBrand, car.carBrand)
-                && Objects.equals(carModel, car.carModel)
-                && Objects.equals(carYear, car.carYear)
-                && Objects.equals(carColor, car.carColor)
-                && Objects.equals(carPrice, car.carPrice)
-                && Objects.equals(carRegNmbr, car.carRegNmbr);
+                && Objects.equals(brand, car.brand)
+                && Objects.equals(model, car.model)
+                && Objects.equals(year, car.year)
+                && Objects.equals(color, car.color)
+                && Objects.equals(price, car.price)
+                && Objects.equals(regNmbr, car.regNmbr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(carId, carBrand, carModel, carYear, carColor, carPrice, carRegNmbr);
+        return Objects.hash(carId, brand, model, year, color, price, regNmbr);
     }
 }

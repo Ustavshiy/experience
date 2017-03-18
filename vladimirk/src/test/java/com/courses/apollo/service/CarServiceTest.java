@@ -12,40 +12,26 @@ import java.util.List;
 public class CarServiceTest {
 
     private CarService carServiceTest = new CarService();
-    private final static String GIVEN_CARS_BRAND = "Toyota";
-    private final static String GIVEN_CARS_MODEL = "Freelander";
-    private final static int GIVEN_CARS_AGE = 4;
-    private final static int GIVEN_CARS_PRICE = 2000000;
-    private final static int GIVEN_CARS_YEAR = 2016;
+    private final static String GIVEN_BRAND = "Toyota";
+    private final static String GIVEN_MODEL = "Freelander";
+    private final static int GIVEN_AGE = 4;
+    private final static int GIVEN_PRICE = 2000000;
+    private final static int GIVEN_YEAR = 2016;
 
     ArrayList<Car> cars = CarTestData.getCarArrayList();
 
     @Test
-    public void testPrintCarsOfGivenBrand() {
-        List<Car> expectedCarsOfGivenBrand = CarTestData.expectedCarsOfGivenBrand();
-        List<Car> resultCarsOfGivenBrand = carServiceTest.returnCarsOfGivenBrand(cars, GIVEN_CARS_BRAND);
-        Car[] expected = expectedCarsOfGivenBrand.toArray(new Car[expectedCarsOfGivenBrand.size()]);
-        Car[] result = resultCarsOfGivenBrand.toArray(new Car[resultCarsOfGivenBrand.size()]);
-        Assert.assertArrayEquals(expected, result);
+    public void testFindCarsOfGivenBrand() {
+        Assert.assertEquals(CarTestData.expectedCarsOfGivenBrand(), carServiceTest.returnCarsOfGivenBrand(cars, GIVEN_BRAND));
     }
 
     @Test
-    public void testPrintCarsOfGivenModelOlderThan() {
-        List<Car> expectedCarsOfGivenModelOlderThan = CarTestData.expectedCarsOfGivenModelOlderThan();
-        List<Car> resultCarsOfGivenModelOlderThan =
-                carServiceTest.returnCarsOfGivenModelOlderThan(cars, GIVEN_CARS_MODEL, GIVEN_CARS_AGE);
-        Car[] expected = expectedCarsOfGivenModelOlderThan.toArray(new Car[expectedCarsOfGivenModelOlderThan.size()]);
-        Car[] result = resultCarsOfGivenModelOlderThan.toArray(new Car[resultCarsOfGivenModelOlderThan.size()]);
-        Assert.assertArrayEquals(expected, result);
+    public void testFindCarsOfGivenModelOlderThan() {
+        Assert.assertEquals(CarTestData.expectedCarsOfGivenModelOlderThan(), carServiceTest.returnCarsOfGivenModelOlderThan(cars, GIVEN_MODEL, GIVEN_AGE));
     }
 
     @Test
-    public void testPrintCarsOfGivenYearMoreExpensive() {
-        List<Car> expectedCarsOfGivenYearMoreExpens = CarTestData.expectedCarsOfGivenYearMoreExpensiveThan();
-        List<Car> resultCarsOfGivenYearMoreExpensive = carServiceTest.returnCarsOfGivenYearMoreExpensiveThan(cars,
-                GIVEN_CARS_PRICE, GIVEN_CARS_YEAR);
-        Car[] expected = expectedCarsOfGivenYearMoreExpens.toArray(new Car[expectedCarsOfGivenYearMoreExpens.size()]);
-        Car[] result = resultCarsOfGivenYearMoreExpensive.toArray(new Car[resultCarsOfGivenYearMoreExpensive.size()]);
-        Assert.assertArrayEquals(expected, result);
+    public void testFindCarsOfGivenYearMoreExpensive() {
+        Assert.assertEquals(CarTestData.expectedCarsOfGivenYearMoreExpensiveThan(), carServiceTest.returnCarsOfGivenYearMoreExpensiveThan(cars, GIVEN_PRICE, GIVEN_YEAR));
     }
 }

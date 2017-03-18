@@ -21,7 +21,7 @@ public class CarService {
     public List<Car> returnCarsOfGivenBrand(ArrayList<Car> cars, String givenBrand) {
         List<Car> carsOfGivenBrand = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getCarBrand().equals(givenBrand)) {
+            if (cars.get(i).getBrand().equals(givenBrand)) {
                 carsOfGivenBrand.add(cars.get(i));
             }
         }
@@ -39,8 +39,8 @@ public class CarService {
         List<Car> carsOfGivenModelOlderThan = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             int year = LocalDate.now().getYear();
-            int carAge = year - (cars.get(i).getCarYear());
-            if (carAge > givenAge && cars.get(i).getCarModel().equals(givenModel)) {
+            int carAge = year - (cars.get(i).getYear());
+            if (carAge > givenAge && cars.get(i).getModel().equals(givenModel)) {
                 carsOfGivenModelOlderThan.add(cars.get(i));
             }
         }
@@ -56,7 +56,7 @@ public class CarService {
     public List<Car> returnCarsOfGivenYearMoreExpensiveThan(ArrayList<Car> cars, int givenPrice, int givenYear) {
         List<Car> carsOfGivenYearMoreExpensiveThan = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getCarYear() == givenYear && cars.get(i).getCarPrice() > givenPrice) {
+            if (cars.get(i).getYear() == givenYear && cars.get(i).getPrice() > givenPrice) {
                 carsOfGivenYearMoreExpensiveThan.add(cars.get(i));
             }
         }
