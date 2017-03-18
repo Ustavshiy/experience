@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.service;
 
 /**
  * Class added for findFirstNumberVariousDigits function.
