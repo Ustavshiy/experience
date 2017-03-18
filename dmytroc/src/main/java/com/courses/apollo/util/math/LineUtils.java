@@ -52,9 +52,8 @@ public class LineUtils {
     public double yCrossFinder(Line line) {
         if (line.getXCoeff() != 0) {
             return -line.getCValue() / line.getXCoeff();
-        } else {
-            return Double.POSITIVE_INFINITY;
         }
+        return Double.POSITIVE_INFINITY;
     }
 
     /**

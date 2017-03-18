@@ -17,9 +17,7 @@ public class LineUtilsTest {
         Line testLine = LineUtilsTestData.getLineA();
         List<Line> parallelFinderTestArray = lineUtils.parallelFinder(testLine, testArray);
         List<Line> expectedResult = LineUtilsTestData.expectedResultParallelFinder();
-        for (int i = 0; i < parallelFinderTestArray.size(); i++) {
-            Assert.assertEquals(expectedResult.get(i), parallelFinderTestArray.get(i));
-        }
+        Assert.assertEquals(expectedResult, parallelFinderTestArray);
     }
 
     @Test
