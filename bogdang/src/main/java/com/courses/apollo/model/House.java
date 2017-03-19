@@ -48,7 +48,6 @@ public class House {
     private String lifeTime;
 
     public House(){
-
     }
 
     /**
@@ -63,14 +62,8 @@ public class House {
      * @param buildType indicate type of build this house.
      * @param lifeTime indicate time of life this house.
      */
-    public House(Integer houseId,
-                 Integer num,
-                 Integer area,
-                 Integer floor,
-                 Integer roomsQuantity,
-                 String street,
-                 String buildType,
-                 String lifeTime) {
+    public House(Integer houseId, Integer num, Integer area, Integer floor, Integer roomsQuantity, String street,
+                 String buildType, String lifeTime) {
         this.houseId = houseId;
         number = num;
         this.area = area;
@@ -116,7 +109,6 @@ public class House {
                 && Objects.equals(street, house.street)
                 && Objects.equals(bildType, house.bildType)
                 && Objects.equals(lifeTime, house.lifeTime);
-
     }
 
     @Override

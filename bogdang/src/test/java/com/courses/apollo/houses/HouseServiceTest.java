@@ -14,54 +14,33 @@ public class HouseServiceTest {
     private final static Integer FLOOR_MIN_TEST = 2;
     private final static Integer FLOOR_MAX_TEST = 5;
 
-    ArrayList<House> houses = HouseTestData.getHouses();
-    ArrayList<House> housesTwo = HouseTestData.IntFlo_FirstCond();
-    ArrayList<House> housesThree = HouseTestData.IntFlo_SecondCond();
-
-
     @Test
     public void testQuantityRooms() {
-        ArrayList<House> housesExpected =HouseTestData.getHousesRooms();
-        ArrayList<House> afterMethodRun = houseServiceTest.quantityRooms(houses, ROOMS_QUANTITY_TEST);
-        House[] expectedHouses = housesExpected.toArray(new House[housesExpected.size()]);
-        House[] result = afterMethodRun.toArray(new House[afterMethodRun.size()]);
-        Assert.assertArrayEquals(expectedHouses, result);
+        Assert.assertEquals(HouseTestData.getHousesRooms(),houseServiceTest.quantityRooms(HouseTestData.getHouses(),
+                ROOMS_QUANTITY_TEST));
     }
 
     @Test
     public void testHouseArea() {
-        ArrayList<House> housesExpected =HouseTestData.getHousesArea();
-        ArrayList<House> afterMethodRun = houseServiceTest.area(houses, AREA_TEST);
-        House[] expectedHouses = housesExpected.toArray(new House[housesExpected.size()]);
-        House[] result = afterMethodRun.toArray(new House[afterMethodRun.size()]);
-        Assert.assertArrayEquals(expectedHouses, result);
+        Assert.assertEquals(HouseTestData.getHousesArea(),houseServiceTest.area(HouseTestData.getHouses(), AREA_TEST));
 
     }
 
     @Test
     public void testQtyRooms_IntervalFloor() {
-        ArrayList<House> housesExpected =HouseTestData.getQtyRooms_IntervalFloor();
-        ArrayList<House> afterMethodRun = houseServiceTest.qtyRooms_IntervalFloor(houses, ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST);
-        House[] expectedHouses = housesExpected.toArray(new House[housesExpected.size()]);
-        House[] result = afterMethodRun.toArray(new House[afterMethodRun.size()]);
-        Assert.assertArrayEquals(expectedHouses, result);
+        Assert.assertEquals(HouseTestData.getQtyRooms_IntervalFloor(), houseServiceTest.qtyRooms_IntervalFloor(HouseTestData.getHouses(),
+                ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST));
     }
 
     @Test
     public void testQtyRooms_IntFlo_FirstCond() {
-        ArrayList<House> housesExpected =HouseTestData.getIntFlo_Cond();
-        ArrayList<House> afterMethodRun = houseServiceTest.qtyRooms_IntervalFloor(housesTwo, ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST);
-        House[] expectedHouses = housesExpected.toArray(new House[housesExpected.size()]);
-        House[] result = afterMethodRun.toArray(new House[afterMethodRun.size()]);
-        Assert.assertArrayEquals(expectedHouses, result);
+        Assert.assertEquals(HouseTestData.getIntFlo_Cond(), houseServiceTest.qtyRooms_IntervalFloor(HouseTestData.IntFlo_FirstCond(),
+                ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST));
     }
 
     @Test
     public void testQtyRooms_IntFlo_SecondCond() {
-        ArrayList<House> housesExpected =HouseTestData.getIntFlo_Cond();
-        ArrayList<House> afterMethodRun = houseServiceTest.qtyRooms_IntervalFloor(housesThree, ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST);
-        House[] expectedHouses = housesExpected.toArray(new House[housesExpected.size()]);
-        House[] result = afterMethodRun.toArray(new House[afterMethodRun.size()]);
-        Assert.assertArrayEquals(expectedHouses, result);
+        Assert.assertEquals(HouseTestData.getIntFlo_Cond(), houseServiceTest.qtyRooms_IntervalFloor(HouseTestData.IntFlo_SecondCond(),
+                ROOMS_QUANTITY_TEST,FLOOR_MIN_TEST, FLOOR_MAX_TEST));
     }
 }
