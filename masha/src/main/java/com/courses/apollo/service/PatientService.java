@@ -66,7 +66,7 @@ public class PatientService {
         for (int i = 0; i < patients.size(); i++) {
             MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
             int medCard = medicalInfo.getMedicalCardNumber();
-            if ((inf <= medCard) && (sup >= medCard)) {
+            if (inf <= medCard && sup >= medCard) {
                 patientsInBorders.add(patients.get(i));
             }
         }
