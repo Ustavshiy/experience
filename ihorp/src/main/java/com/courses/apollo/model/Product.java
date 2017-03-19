@@ -1,9 +1,13 @@
 package com.courses.apollo.model;
 
+import java.math.BigDecimal;
+
 /**
  * A Product class to create constructor for object Product.
  */
 public class Product {
+
+    public Product() {}
 
     /**
      * Create productId.
@@ -11,7 +15,7 @@ public class Product {
     private Integer productId;
 
     /**
-     *Create name field.
+     * Create name field.
      */
     private String name;
 
@@ -28,7 +32,7 @@ public class Product {
     /**
      * Create price field.
      */
-    private Double price;
+    private BigDecimal price;
 
     /**
      * Create shelf life field.
@@ -43,15 +47,14 @@ public class Product {
     /**
      * Create a constructor of a Product.
      */
-    public Product(Integer productId, String name,
-                   Integer upc, String creator,
-                   Double price, Integer shelfLife,
+    public Product(Integer productId, String name, int upc,
+                   String creator, String price, Integer shelfLife,
                    Integer quantity) {
         this.productId = productId;
         this.name = name;
         this.upc = upc;
         this.creator = creator;
-        this.price = price;
+        this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
         this.shelfLife = shelfLife;
         this.quantity = quantity;
     }
@@ -59,12 +62,14 @@ public class Product {
     /**
      * Create alternative constructor for Product.
      */
-    public Product(Integer productID, String name,
-                    String creator, Double price) {
+    public Product(Integer productID, String name, String creator,
+                   String price, Integer shelfLife) {
         this.productId = productID;
         this.name = name;
         this.creator = creator;
-        this.price = price;
+        this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
+        this.shelfLife = shelfLife;
+
     }
 
     public Integer getProductId() {
@@ -83,11 +88,11 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getUpc() {
+    public int getUpc() {
         return upc;
     }
 
-    public void setUpc(Integer upc) {
+    public void setUpc(int upc) {
         this.upc = upc;
     }
 
@@ -99,12 +104,12 @@ public class Product {
         this.creator = creator;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice(String price) {
+        this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public Integer getShelfLife() {
@@ -128,3 +133,4 @@ public class Product {
         return productId + " " + name + " " + creator + " " + price + " " + shelfLife + " " + quantity;
     }
 }
+
