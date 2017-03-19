@@ -1,10 +1,10 @@
-package com.courses.apollo;
+package com.courses.apollo.service.sortarray;
 
 /**
  * Created by Ihor Pronko.
 * This method sorts the array in ascending and descending order
 */
-public final class SortIntegerArray {
+public final class SortIntegersService {
 
     /**
      *Method return sort array in ascending order.
