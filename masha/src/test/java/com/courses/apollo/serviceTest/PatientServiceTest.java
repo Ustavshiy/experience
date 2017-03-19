@@ -1,7 +1,21 @@
 package com.courses.apollo.serviceTest;
+import com.courses.apollo.model.Patient;
+import org.junit.Assert;
+import org.junit.Test;
 
-/**
- * Created by MashaJM on 19.03.2017.
- */
+import java.util.ArrayList;
+
+
 public class PatientServiceTest {
+    PatientTestData patientTestData = new PatientTestData();
+
+    @Test
+    public void testGetPatientDiagnosis() {
+
+        ArrayList<Patient> patients =  patientTestData.getPatientArrayList();
+
+
+    }
+
+
 }

@@ -1,7 +1,5 @@
 package com.courses.apollo.main;
 
-import com.courses.apollo.service.PatientTestData;
-
 /**
  * It's a test.
  */
