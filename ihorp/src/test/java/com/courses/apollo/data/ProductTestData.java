@@ -1,6 +1,6 @@
-package com.courses.apollo;
+package com.courses.apollo.data;
 
-import com.courses.apollo.model.Product;
+import com.courses.apollo.model.product.Product;
 
 import java.util.ArrayList;
 

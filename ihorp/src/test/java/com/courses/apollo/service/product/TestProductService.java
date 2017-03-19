@@ -1,12 +1,13 @@
-package com.courses.apollo.service;
+package com.courses.apollo.service.product;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import com.courses.apollo.service.product.FindProductService;
 import org.junit.Test;
 
-import com.courses.apollo.model.Product;
-import com.courses.apollo.ProductTestData;
+import com.courses.apollo.model.product.Product;
+import com.courses.apollo.data.ProductTestData;
 
 public class TestProductService {
 
@@ -18,7 +19,7 @@ public class TestProductService {
         answerList.add(ProductTestData.getProducts().get(3));
         answerList.add(ProductTestData.getProducts().get(5));
 
-        answerList.equals(FindProduct.findByName(ProductTestData.getProducts(), searchName));
+        answerList.equals(FindProductService.findByName(ProductTestData.getProducts(), searchName));
     }
 
     @Test
@@ -29,7 +30,7 @@ public class TestProductService {
         ArrayList<Product> answerList = new ArrayList();
         answerList.add(ProductTestData.getProducts().get(3));
 
-        answerList.equals(FindProduct.findByNameAndPrice(ProductTestData.getProducts(), searchName, maxPrice));
+        answerList.equals(FindProductService.findByNameAndPrice(ProductTestData.getProducts(), searchName, maxPrice));
     }
 
     @Test
@@ -41,6 +42,6 @@ public class TestProductService {
         answerList.add(ProductTestData.getProducts().get(7));
         answerList.add(ProductTestData.getProducts().get(9));
 
-        answerList.equals(FindProduct.findByShelfLife(ProductTestData.getProducts(), shelfLifeFind));
+        answerList.equals(FindProductService.findByShelfLife(ProductTestData.getProducts(), shelfLifeFind));
     }
 }

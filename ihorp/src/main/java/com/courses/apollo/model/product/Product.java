@@ -1,4 +1,4 @@
-package com.courses.apollo.model;
+package com.courses.apollo.model.product;
 
 import java.math.BigDecimal;
 
