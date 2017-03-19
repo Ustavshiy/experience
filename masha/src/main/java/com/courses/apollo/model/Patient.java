@@ -4,8 +4,20 @@ package com.courses.apollo.model;
  * Class for Hospital's Patients.
  */
 public class Patient {
+
+    /**
+     * ID of hospital's Patient.
+     */
     private Integer patientId;
+
+    /**
+     * link to personal information card of Patient.
+     */
     private PersonalInfo personalInfo;
+
+    /**
+     * link to medical information card of Patient.
+     */
     private MedicalInfo medicalInfo;
 
     /**

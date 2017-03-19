@@ -4,10 +4,30 @@ package com.courses.apollo.model;
  * This classes fields contain personal information for Patient class.
  */
 public class PersonalInfo {
+
+    /**
+     * Surname of Patient.
+     */
     private String patientFamilyName;
+
+    /**
+     * First name of Patient.
+     */
     private String patientName;
+
+    /**
+     * Name of Patient's father.
+     */
     private String patientPatronymicName;
+
+    /**
+     * String of Patient's home address.
+     */
     private String patientAddress;
+
+    /**
+     * Patient's private cellphone.
+     */
     private String patientPhoneNumber;
 
     /**
@@ -18,13 +38,17 @@ public class PersonalInfo {
 
     /**
      * Constructor.
-     * @param patientFamilyName
-     * @param patientName
-     * @param patientPatronymicName
-     * @param patientAddress
-     * @param patientPhoneNumber
+     * @param patientFamilyName Surname of Patient
+     * @param patientName First name of Patient
+     * @param patientPatronymicName Name of Patient's father
+     * @param patientAddress Home address of Patient
+     * @param patientPhoneNumber Patient's cellphone
      */
-    public PersonalInfo(String patientFamilyName, String patientName, String patientPatronymicName, String patientAddress, String patientPhoneNumber) {
+    public PersonalInfo(String patientFamilyName,
+                        String patientName,
+                        String patientPatronymicName,
+                        String patientAddress,
+                        String patientPhoneNumber) {
         this.patientFamilyName = patientFamilyName;
         this.patientName = patientName;
         this.patientPatronymicName = patientPatronymicName;

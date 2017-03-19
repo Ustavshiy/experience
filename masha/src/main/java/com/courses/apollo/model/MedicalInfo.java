@@ -4,7 +4,15 @@ package com.courses.apollo.model;
  * Class with medical information for Patient class.
  */
 public class MedicalInfo {
+
+    /**
+     * ID of Patient's medical Card.
+     */
     private Integer medicalCardNumber;
+
+    /**
+     * Patient's diagnosis name.
+     */
     private String diagnosis;
 
     /**

@@ -27,17 +27,11 @@ public class PatientService {
     public ArrayList<Patient> getPatientDiagnosis(ArrayList<Patient> patients,
                                                   String diagnosis) {
 
-        /*
-          list of the patient with the diagnosis needed
-         */
         ArrayList<Patient> patientsWithDiagnosis = new ArrayList<>();
 
         for (int i = 0; i < patients.size(); i++) {
             MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
 
-            /*
-             * diag is a diagnosis of patient from the given list
-             */
             String diag = medicalInfo.getDiagnosis();
 
             if (diagnosis.equals(diag)) {
@@ -58,7 +52,7 @@ public class PatientService {
     }
 
     /**
-     * @param patients is a list of all hospital's patients
+     * @param patients is a list of all hospital's patients.
      * @param inf      the lower border of medical card numbers
      * @param sup      the upper border of medical card numbers
      * @return the list of the patients which medical card numbers are between inf and sup
