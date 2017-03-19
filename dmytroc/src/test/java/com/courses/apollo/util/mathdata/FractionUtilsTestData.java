@@ -24,6 +24,6 @@ public class FractionUtilsTestData {
     }
 
     public static Double[] getFractionCalculationResultArray() {
-        return new Double[]{4D, 0D};
+        return new Double[]{4D, Double.POSITIVE_INFINITY};
     }
 }

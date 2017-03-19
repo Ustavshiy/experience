@@ -47,17 +47,6 @@ public class LineUtilsTestData {
     public static Double[] xCrossFinder() {
         return new Double[]{5D, -7D, 2D, Double.POSITIVE_INFINITY};
     }
-//                        new Point(0, 5)),
-//                new RationalFraction(
-//                        new Point(3.5, 0),
-//                        new Point(0, -7)),
-//                new RationalFraction(
-//                        new Point(2, 0),
-//                        new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY)),
-//                new RationalFraction(
-//                        new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY),
-//                        new Point(0, -3))};
-//    }
 
     public static Point expectedCrossPointFinder() {
         return new Point(-1, -3);

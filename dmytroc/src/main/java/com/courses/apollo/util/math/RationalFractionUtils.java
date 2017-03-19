@@ -43,10 +43,6 @@ public class RationalFractionUtils {
      * @return result double.
      */
     public double rationalFractionCalculation(RationalFraction fraction) {
-        if (fraction.getDenominator() != 0) {
-            double fractionResult = fraction.getNumerator() / fraction.getDenominator();
-            return fractionResult;
-        }
-        return 0;
+        return fraction.getNumerator() / fraction.getDenominator();
     }
 }
