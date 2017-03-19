@@ -43,7 +43,6 @@ public class PatientService {
         for (int i = 0; i < patientsWithDiagnosis.size(); i++) {
 
             System.out.println(i + 1 + "." + patientsWithDiagnosis.get(i));
-            System.out.println(" ");
         }
         if (patientsWithDiagnosis.size() == 0) {
             System.out.println("no patients with " + diagnosis + " for now");
