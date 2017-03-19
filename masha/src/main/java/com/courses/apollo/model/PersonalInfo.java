@@ -1,20 +1,29 @@
 package com.courses.apollo.model;
 
 /**
- * This classes fields contain personal information for Patient class
+ * This classes fields contain personal information for Patient class.
  */
 public class PersonalInfo {
-
     private String patientFamilyName;
     private String patientName;
     private String patientPatronymicName;
     private String patientAddress;
     private String patientPhoneNumber;
 
-
+    /**
+     * Constructor by default.
+     */
     public PersonalInfo() {
     }
 
+    /**
+     * Constructor.
+     * @param patientFamilyName
+     * @param patientName
+     * @param patientPatronymicName
+     * @param patientAddress
+     * @param patientPhoneNumber
+     */
     public PersonalInfo(String patientFamilyName, String patientName, String patientPatronymicName, String patientAddress, String patientPhoneNumber) {
         this.patientFamilyName = patientFamilyName;
         this.patientName = patientName;
@@ -22,7 +31,6 @@ public class PersonalInfo {
         this.patientAddress = patientAddress;
         this.patientPhoneNumber = patientPhoneNumber;
     }
-
 
     public String getPatientFamilyName() {
         return patientFamilyName;
@@ -71,13 +79,27 @@ public class PersonalInfo {
 
     @Override
     public String toString() {
-        return "PersonalInfo{" +
-                "patientFamilyName='" + patientFamilyName + '\'' +
-                ", patientName='" + patientName + '\'' +
-                ", patientPatronymicName='" + patientPatronymicName + '\'' +
-                ", patientAddress='" + patientAddress + '\'' +
-                ", patientPhoneNumber='" + patientPhoneNumber + '\'' +
-                '}';
+        return "PersonalInfo{"
+                +
+                "patientFamilyName='"
+                + patientFamilyName
+                + '\''
+                +
+                ", patientName='" + patientName
+                + '\''
+                +
+                ", patientPatronymicName='"
+                + patientPatronymicName
+                + '\''
+                +
+                ", patientAddress='"
+                + patientAddress
+                + '\''
+                +
+                ", patientPhoneNumber='"
+                + patientPhoneNumber
+                + '\''
+                + '}';
     }
 }
 

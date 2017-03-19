@@ -1,14 +1,19 @@
 package com.courses.apollo.model;
 
 /**
- * Class for Hospital's Patients
+ * Class for Hospital's Patients.
  */
 public class Patient {
-
     private Integer patientId;
     private PersonalInfo personalInfo;
     private MedicalInfo medicalInfo;
 
+    /**
+     * Creates Patient's card with full information.
+     * @param patientId personal ID of Patient
+     * @param personalInfo Patient's personal information
+     * @param medicalInfo Patient's medical information
+     */
     public Patient(Integer patientId, PersonalInfo personalInfo, MedicalInfo medicalInfo) {
         this.patientId = patientId;
         this.personalInfo = personalInfo;
@@ -46,10 +51,13 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "patientId=" + patientId +
-                ", personalInfo=" + personalInfo +
-                ", medicalInfo=" + medicalInfo +
-                '}';
+        return "Patient{"
+                + "patientId="
+                + patientId
+                + ", personalInfo="
+                + personalInfo
+                + ", medicalInfo="
+                + medicalInfo
+                + '}';
     }
 }

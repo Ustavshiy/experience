@@ -1,12 +1,17 @@
 package com.courses.apollo.model;
 
 /**
- * Class with medical information for Patient class
+ * Class with medical information for Patient class.
  */
 public class MedicalInfo {
     private Integer medicalCardNumber;
     private String diagnosis;
 
+    /**
+     * Creates Medical information for Patient.
+     * @param medicalCardNumber Patient's medical card ID
+     * @param diagnosis the problem of Patient.
+     */
     public MedicalInfo(Integer medicalCardNumber, String diagnosis) {
         this.medicalCardNumber = medicalCardNumber;
         this.diagnosis = diagnosis;
@@ -30,9 +35,14 @@ public class MedicalInfo {
 
     @Override
     public String toString() {
-        return "MedicalInfo{" +
-                "medicalCardNumber=" + medicalCardNumber +
-                ", diagnosis='" + diagnosis + '\'' +
+        return "MedicalInfo{"
+                + "medicalCardNumber="
+                + medicalCardNumber
+                +
+                ", diagnosis='"
+                + diagnosis
+                + '\''
+                +
                 '}';
     }
 }
