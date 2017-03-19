@@ -1,12 +1,8 @@
 package com.courses.apollo.util;
 
-import com.courses.apollo.util.ModuloUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by Dmytro Chopenko
- */
 public class ModuloUtilsTest {
 
     private int[] arrayWithBothTrue = {140, 3, 35, 14, 35, 87, 70, 57, 105, 106, 10};

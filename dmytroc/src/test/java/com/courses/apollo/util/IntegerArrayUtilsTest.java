@@ -3,9 +3,6 @@ package com.courses.apollo.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by chopenkod on 03.03.17.
- */
 public class IntegerArrayUtilsTest {
 
     IntegerArrayUtils integerArrayUtils = new IntegerArrayUtils();
