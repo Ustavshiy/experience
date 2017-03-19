@@ -17,7 +17,8 @@ import java.util.ArrayList;
 public class PatientService {
 
     /**
-     * Class for manipulating with Patients data.
+     * Method for getting Patients with proper diagnosis data.
+     * Also prints out the list of the patients with diagnosis needed.
      *
      * @param patients  is a list of all hospital's patients
      * @param diagnosis is the diagnosis we are looking for
@@ -43,19 +44,21 @@ public class PatientService {
 
             System.out.println(i + 1 + "." + patientsWithDiagnosis.get(i));
             System.out.println(" ");
-
         }
-        if (patientsWithDiagnosis.size() == 0)
+        if (patientsWithDiagnosis.size() == 0) {
             System.out.println("no patients with " + diagnosis + " for now");
+        }
         return patientsWithDiagnosis;
     }
 
     /**
+     * Method for getting Patients with proper numbers of medical cards.
+     * Also prints out the list of such Patients.
+     *
      * @param patients is a list of all hospital's patients.
      * @param inf      the lower border of medical card numbers
      * @param sup      the upper border of medical card numbers
      * @return the list of the patients which medical card numbers are between inf and sup
-     * also the method prints out the list of such patients
      */
     public ArrayList<Patient> medCardInBorders(ArrayList<Patient> patients, int inf, int sup) {
 
@@ -64,17 +67,17 @@ public class PatientService {
         for (int i = 0; i < patients.size(); i++) {
             MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
             int medCard = medicalInfo.getMedicalCardNumber();
-            if ((inf <= medCard)&&(sup >= medCard)) {
+            if ((inf <= medCard) && (sup >= medCard)) {
                 patientsInBorders.add(patients.get(i));
             }
         }
-        System.out.println("patients with card between ["+inf+".."+sup+"]:");
+        System.out.println("patients with card between [" + inf + ".." + sup + "]:");
         for (int i = 0; i < patientsInBorders.size(); i++) {
-            System.out.println((i + 1)+"."+patientsInBorders.get(i));
+            System.out.println((i + 1) + "." + patientsInBorders.get(i));
             System.out.println(" ");
         }
         if (patientsInBorders.size() == 0) {
-            System.out.println("no patients with card between ["+inf+".."+sup+"]");
+            System.out.println("no patients with card between [" + inf + ".." + sup + "]");
         }
         return patientsInBorders;
     }
