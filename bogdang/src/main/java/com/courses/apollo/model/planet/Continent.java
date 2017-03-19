@@ -8,32 +8,16 @@ import java.util.Objects;
 public class Continent extends Planet {
 
     /**
-     * The name of the Continent.
-     */
-    private String name;
-
-    /**
      * The area of the Continent.
      */
     private Integer area;
 
-    public Continent(){
-    }
 
     public Continent(String name, Integer area){
-        this.name = name;
+        super(name);
         this.area = area;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Integer getArea() {
         return area;
@@ -47,6 +31,7 @@ public class Continent extends Planet {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Continent continent = (Continent) o;
         return Objects.equals(name, continent.name)
@@ -55,6 +40,7 @@ public class Continent extends Planet {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name,area);
+        return Objects.hash(name, area);
     }
+
 }

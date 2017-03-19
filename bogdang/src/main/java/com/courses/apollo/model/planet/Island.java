@@ -8,26 +8,11 @@ import java.util.Objects;
 
 public class Island extends Planet {
 
-    private String name;
-
     private ArrayList<Integer> coordinates;
 
-    public Island(){
-    }
-
     public Island(String name, ArrayList<Integer> coordinates) {
-        this.name = name;
+        super(name);
         this.coordinates = coordinates;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
     }
 
     public ArrayList<Integer> getCoordinates() {
