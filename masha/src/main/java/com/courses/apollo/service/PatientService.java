@@ -26,16 +26,16 @@ public class PatientService {
      */
     public ArrayList<Patient> getPatientDiagnosis(ArrayList<Patient> patients, String diagnosis) {
 
-        /**
-         * list of the patient with the diagnosis needed
+        /*
+          list of the patient with the diagnosis needed
          */
         ArrayList<Patient> patientsWithDiagnosis = new ArrayList<>();
 
         for (int i = 0; i < patients.size(); i++) {
             MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
 
-            /**
-             * diag is a field for
+            /*
+             * diag is a diagnosis of patient from the given list
              */
             String diag = medicalInfo.getDiagnosis();
 
@@ -44,13 +44,15 @@ public class PatientService {
 
             }
         }
-        System.out.println("patients with " + diagnosis);
+        System.out.println("Patients with " + diagnosis + ":");
             for (int i = 0; i < patientsWithDiagnosis.size(); i++ ) {
 
             System.out.println(i+1 + "." + patientsWithDiagnosis.get(i));
                 System.out.println(" ");
 
             }
+            if (patientsWithDiagnosis.size() == 0)
+                System.out.println("no patients with " + diagnosis + " for now" );
             return patientsWithDiagnosis;
         }
 
@@ -64,25 +66,25 @@ public class PatientService {
      * also the method prints out the list of such patients
      */
 
-    public ArrayList<Patient> isMedCardInBorders(ArrayList<Patient> patients, int inf, int sup) {
+    public ArrayList<Patient> medCardInBorders(ArrayList<Patient> patients, int inf, int sup) {
 
         ArrayList<Patient> patientsInBorders = new ArrayList<>();
 
         for (int i = 0; i < patients.size(); i++) {
             MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
             int medCard = medicalInfo.getMedicalCardNumber();
-
             if ( (inf <= medCard)&&(sup >= medCard)) {
             patientsInBorders.add(patients.get(i));
-
             }
         }
 
-        System.out.println("patients with card between [" + inf + ".." + sup + "]");
+        System.out.println("patients with card between [" + inf + ".." + sup + "]:");
         for (int i = 0; i < patientsInBorders.size(); i++ ) {
             System.out.println(i+1 + "." + patientsInBorders.get(i));
             System.out.println(" ");
         }
+        if (patientsInBorders.size() == 0)
+            System.out.println("no patients with card between [" + inf + ".." + sup + "]");
         return patientsInBorders;
     }
 

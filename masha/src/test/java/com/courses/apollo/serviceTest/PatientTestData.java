@@ -12,14 +12,14 @@ public class PatientTestData {
 
     //public ArrayList<Patient> patients;
 
-    public  ArrayList<Patient> getPatientArrayList() {
+    public ArrayList<Patient> getPatientArrayList() {
 
         PersonalInfo personalInfo1 = new PersonalInfo(
                 "McLean",
                 "James",
                 "Paul",
                 "Liverpool",
-                "3809877212" );
+                "3809877212");
 
         MedicalInfo medicalInfo1 = new MedicalInfo(
                 1501,
@@ -36,7 +36,7 @@ public class PatientTestData {
                 "Andrew",
                 "M",
                 "Leeds",
-                "0102030405" );
+                "0102030405");
 
         MedicalInfo medicalInfo2 = new MedicalInfo(
                 1203,
@@ -53,7 +53,7 @@ public class PatientTestData {
                 "John",
                 "Wins",
                 "Liverpool",
-                "0102030407" );
+                "0102030407");
 
         MedicalInfo medicalInfo3 = new MedicalInfo(
                 1205,
@@ -71,7 +71,7 @@ public class PatientTestData {
                 "Ivy",
                 "Esq",
                 "Liverpool",
-                "0102030408" );
+                "0102030408");
 
         MedicalInfo medicalInfo4 = new MedicalInfo(
                 1207,
@@ -88,7 +88,7 @@ public class PatientTestData {
                 "Hans",
                 "Peter",
                 "Vienna",
-                "01233" );
+                "01233");
 
         MedicalInfo medicalInfo5 = new MedicalInfo(
                 1507,
@@ -100,7 +100,7 @@ public class PatientTestData {
                 personalInfo5,
                 medicalInfo5);
 
-       // final MedicalInfo medicalInfo = patient5.getMedicalInfo();
+        // final MedicalInfo medicalInfo = patient5.getMedicalInfo();
         //String diag = medicalInfo.getDiagnosis();
 
         ArrayList<Patient> patients = new ArrayList<>();
