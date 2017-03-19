@@ -22,7 +22,6 @@ public class PatientService {
      * @param patients  is a list of all hospital's patients
      * @param diagnosis is the diagnosis we are looking for
      * @return the list of patients with diagnosis needed
-     * also the method prints out the list of the patients with diagnosis needed
      */
     public ArrayList<Patient> getPatientDiagnosis(ArrayList<Patient> patients,
                                                   String diagnosis) {
