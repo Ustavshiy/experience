@@ -1,5 +1,7 @@
 package com.courses.apollo.main;
 
+import com.courses.apollo.service.PatientTestData;
+
 /**
  * It's a test.
  */
@@ -18,7 +20,10 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
+
+
     }
+
 
 }
 

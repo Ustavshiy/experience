@@ -1,7 +1,7 @@
 package com.courses.apollo.model;
 
 /**
- * Created by Maria on 13.03.2017.
+ * Class for Hospital's Patients
  */
 public class Patient {
 
@@ -15,21 +15,23 @@ public class Patient {
         this.medicalInfo = medicalInfo;
     }
 
-
-
     public Integer getPatientId() {
+
         return patientId;
     }
 
     public void setPatientId(Integer patientId) {
+
         this.patientId = patientId;
     }
 
     public PersonalInfo getPersonalInfo() {
+
         return personalInfo;
     }
 
     public void setPersonalInfo(PersonalInfo personalInfo) {
+
         this.personalInfo = personalInfo;
     }
 
@@ -38,6 +40,16 @@ public class Patient {
     }
 
     public void setMedicalInfo(MedicalInfo medicalInfo) {
+
         this.medicalInfo = medicalInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientId=" + patientId +
+                ", personalInfo=" + personalInfo +
+                ", medicalInfo=" + medicalInfo +
+                '}';
     }
 }

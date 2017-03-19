@@ -1,7 +1,7 @@
 package com.courses.apollo.model;
 
 /**
- * Created by MashaJM on 17.03.2017.
+ * This classes fields contain personal information for Patient class
  */
 public class PersonalInfo {
 
@@ -10,8 +10,6 @@ public class PersonalInfo {
     private String patientPatronymicName;
     private String patientAddress;
     private String patientPhoneNumber;
-
-
 
 
     public PersonalInfo() {
@@ -24,7 +22,6 @@ public class PersonalInfo {
         this.patientAddress = patientAddress;
         this.patientPhoneNumber = patientPhoneNumber;
     }
-
 
 
     public String getPatientFamilyName() {
@@ -70,6 +67,17 @@ public class PersonalInfo {
 
     public void setPatientPhoneNumber(String patientPhoneNumber) {
         this.patientPhoneNumber = patientPhoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonalInfo{" +
+                "patientFamilyName='" + patientFamilyName + '\'' +
+                ", patientName='" + patientName + '\'' +
+                ", patientPatronymicName='" + patientPatronymicName + '\'' +
+                ", patientAddress='" + patientAddress + '\'' +
+                ", patientPhoneNumber='" + patientPhoneNumber + '\'' +
+                '}';
     }
 }
 

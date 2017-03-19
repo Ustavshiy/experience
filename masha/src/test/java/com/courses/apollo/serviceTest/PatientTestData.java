@@ -1,5 +1,5 @@
 
-package com.courses.apollo;
+package com.courses.apollo.serviceTest;
 
 import com.courses.apollo.model.MedicalInfo;
 import com.courses.apollo.model.Patient;
@@ -10,7 +10,9 @@ import java.util.ArrayList;
 public class PatientTestData {
 
 
-    public static ArrayList<Patient> getStudentArrayList() {
+    //public ArrayList<Patient> patients;
+
+    public  ArrayList<Patient> getPatientArrayList() {
 
         PersonalInfo personalInfo1 = new PersonalInfo(
                 "McLean",
@@ -81,12 +83,32 @@ public class PatientTestData {
                 personalInfo4,
                 medicalInfo4);
 
+        PersonalInfo personalInfo5 = new PersonalInfo(
+                "Rattfinger",
+                "Hans",
+                "Peter",
+                "Vienna",
+                "01233" );
+
+        MedicalInfo medicalInfo5 = new MedicalInfo(
+                1507,
+                "Poisoning by unknown substances");
+
+
+        Patient patient5 = new Patient(
+                5,
+                personalInfo5,
+                medicalInfo5);
+
+       // final MedicalInfo medicalInfo = patient5.getMedicalInfo();
+        //String diag = medicalInfo.getDiagnosis();
 
         ArrayList<Patient> patients = new ArrayList<>();
         patients.add(patient1);
         patients.add(patient2);
         patients.add(patient3);
         patients.add(patient4);
+        patients.add(patient5);
         return patients;
     }
 }

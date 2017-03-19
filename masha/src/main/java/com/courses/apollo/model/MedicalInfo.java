@@ -1,23 +1,23 @@
 package com.courses.apollo.model;
 
 /**
- * Created by MashaJM on 17.03.2017.
+ * Class with medical information for Patient class
  */
 public class MedicalInfo {
-    private Integer MedicalCardNumber;
+    private Integer medicalCardNumber;
     private String diagnosis;
 
     public MedicalInfo(Integer medicalCardNumber, String diagnosis) {
-        MedicalCardNumber = medicalCardNumber;
+        this.medicalCardNumber = medicalCardNumber;
         this.diagnosis = diagnosis;
     }
 
     public Integer getMedicalCardNumber() {
-        return MedicalCardNumber;
+        return medicalCardNumber;
     }
 
     public void setMedicalCardNumber(Integer medicalCardNumber) {
-        MedicalCardNumber = medicalCardNumber;
+        this.medicalCardNumber = medicalCardNumber;
     }
 
     public String getDiagnosis() {
@@ -27,4 +27,13 @@ public class MedicalInfo {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
+
+    @Override
+    public String toString() {
+        return "MedicalInfo{" +
+                "medicalCardNumber=" + medicalCardNumber +
+                ", diagnosis='" + diagnosis + '\'' +
+                '}';
+    }
 }
+
