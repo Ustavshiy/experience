@@ -103,7 +103,9 @@ public class PersonalInfo {
 
     @Override
     public String toString() {
-        return "PersonalInfo{" + "patientFamilyName='" + patientFamilyName + '\'' + ", patientName='" + patientName + '\'' + ", patientPatronymicName='" + patientPatronymicName + '\'' + ", patientAddress='" + patientAddress + '\'' + ", patientPhoneNumber='" + patientPhoneNumber + '\'' + '}';
+        return "PersonalInfo{" + "patientFamilyName='" + patientFamilyName + '\'' + ", patientName='" + patientName
+                + '\'' + ", patientPatronymicName='" + patientPatronymicName + '\'' + ", patientAddress='"
+                + patientAddress + '\'' + ", patientPhoneNumber='" + patientPhoneNumber + '\'' + '}';
     }
 }
 

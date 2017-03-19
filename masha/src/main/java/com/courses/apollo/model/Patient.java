@@ -63,6 +63,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "patientId=" + patientId + ", personalInfo=" + personalInfo + ", medicalInfo=" + medicalInfo + '}';
+        return "Patient{" + "patientId=" + patientId + ", personalInfo=" + personalInfo
+                + ", medicalInfo=" + medicalInfo + '}';
     }
 }
