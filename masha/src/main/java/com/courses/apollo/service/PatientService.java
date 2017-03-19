@@ -74,7 +74,6 @@ public class PatientService {
         System.out.println("patients with card between [" + inf + ".." + sup + "]:");
         for (int i = 0; i < patientsInBorders.size(); i++) {
             System.out.println((i + 1) + "." + patientsInBorders.get(i));
-            System.out.println(" ");
         }
         if (patientsInBorders.size() == 0) {
             System.out.println("no patients with card between [" + inf + ".." + sup + "]");
