@@ -1,17 +1,16 @@
 package com.courses.apollo.data;
 
 import com.courses.apollo.model.motorcyclist.Motorcyclist;
-import com.courses.apollo.model.motorcyclist.motoarmor.*;
-import com.courses.apollo.model.motorcyclist.motoclothing.Balaclava;
-import com.courses.apollo.model.motorcyclist.motoclothing.Bandana;
-import com.courses.apollo.model.motorcyclist.motoclothing.MotoClothing;
-import com.courses.apollo.model.motorcyclist.motoclothing.Underpant;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoarmor.*;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Balaclava;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Bandana;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.MotoClothing;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Underpant;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * Motorcyclist equipment.
+ * MotoEquipment equipment.
  */
 public class MotorcyclistDataTest {
 
@@ -47,10 +46,12 @@ public class MotorcyclistDataTest {
         return motoClothing;
     }
 
-    public static ArrayList<Motorcyclist> getMotorcyclist() {
-        ArrayList<Motorcyclist> motorcyclist = new ArrayList<>();
+    public static Motorcyclist getMotorcyclist() {
+        Motorcyclist motorcyclist = new Motorcyclist();
 
-        motorcyclist = getMotoArmor();
+        motorcyclist.setMotoArmors(getMotoArmor());
+        motorcyclist.setMotoClothings(getMotoClothing());
+
         return motorcyclist;
     }
 }

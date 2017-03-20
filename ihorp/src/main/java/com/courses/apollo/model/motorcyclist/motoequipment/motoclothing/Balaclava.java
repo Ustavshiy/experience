@@ -1,4 +1,4 @@
-package com.courses.apollo.model.motorcyclist.motoclothing;
+package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
 /**
  * This class made for constructor "Bandana"

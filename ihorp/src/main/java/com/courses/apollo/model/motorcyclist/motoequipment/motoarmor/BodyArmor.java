@@ -1,4 +1,4 @@
-package com.courses.apollo.model.motorcyclist.motoarmor;
+package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
 /**
  * This class made for constructor "BodyArmor"

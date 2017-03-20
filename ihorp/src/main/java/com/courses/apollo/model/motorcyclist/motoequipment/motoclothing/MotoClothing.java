@@ -1,11 +1,11 @@
-package com.courses.apollo.model.motorcyclist.motoclothing;
+package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
-import com.courses.apollo.model.motorcyclist.Motorcyclist;
+import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
 /**
  * This class made constructor for all of sub classes "MotoClothing"
  */
-public class MotoClothing extends Motorcyclist{
+public class MotoClothing extends MotoEquipment {
 
     public MotoClothing() {}
 

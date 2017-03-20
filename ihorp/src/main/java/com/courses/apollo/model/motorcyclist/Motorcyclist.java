@@ -1,33 +1,35 @@
 package com.courses.apollo.model.motorcyclist;
 
-import java.math.BigDecimal;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoarmor.MotoArmor;
+import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.MotoClothing;
+
+import java.util.ArrayList;
 
 /**
- * Created by Ihor on 20.03.2017.
+ * Constructor class of object type Motorcyclist.
  */
 public class Motorcyclist {
 
     public Motorcyclist() {}
 
     /**
-     *
+     * Name of Motorcyclist.
      */
-    protected String name;
+    private String name;
 
     /**
-     *
+     * The List of Motorcyclist's Armor.
      */
-    protected BigDecimal price;
+    private ArrayList<MotoArmor> motoArmors;
 
     /**
-     *
+     * The List of Motorcyclist's Clothing.
      */
-    protected double weight;
+    private ArrayList<MotoClothing> motoClothings;
 
-    public Motorcyclist(String name, String price, double weight) {
-        this.name = name;
-        this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
-        this.weight = weight;
+    public Motorcyclist(String name, ArrayList<MotoArmor> motoArmors, ArrayList<MotoClothing> motoClothings) {
+        this.motoArmors = motoArmors;
+        this.motoClothings = motoClothings;
     }
 
     public String getName() {
@@ -38,19 +40,19 @@ public class Motorcyclist {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public ArrayList<MotoArmor> getMotoArmors() {
+        return motoArmors;
     }
 
-    public void setPrice(String price) {
-        this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP);
+    public void setMotoArmors(ArrayList<MotoArmor> motoArmors) {
+        this.motoArmors = motoArmors;
     }
 
-    public double getWeight() {
-        return weight;
+    public ArrayList<MotoClothing> getMotoClothings() {
+        return motoClothings;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setMotoClothings(ArrayList<MotoClothing> motoClothings) {
+        this.motoClothings = motoClothings;
     }
 }
