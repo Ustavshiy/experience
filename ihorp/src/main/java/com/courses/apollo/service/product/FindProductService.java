@@ -1,6 +1,6 @@
-package com.courses.apollo.service;
+package com.courses.apollo.service.product;
 
-import com.courses.apollo.model.Product;
+import com.courses.apollo.model.product.Product;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import java.util.Objects;
 /**
  * This class have til to find necessary object type "Product".
  */
-public final class FindProduct {
+public final class FindProductService {
 
-    private FindProduct() {
+    private FindProductService() {
 
     }
 

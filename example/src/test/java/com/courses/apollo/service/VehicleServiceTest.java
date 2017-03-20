@@ -31,8 +31,21 @@ public class VehicleServiceTest {
     private ArrayList<Vehicle> getTestVehicles() {
         ArrayList<Vehicle> tanks = new ArrayList<>();
         tanks.add(new Tank(1000.00, 10, 1000));
-        tanks.add(new Automobile("Test",10000.00, 10, 1000));
+        tanks.add(new Automobile("Test", 10000.00, 10, 1000));
         tanks.add(new Plane(8000L, 1000.00, 10, 1000));
         return tanks;
+    }
+
+    @Test
+    public void substitutionPrinciple() {
+        Tank tank = new Tank(100.00, 100, 100);
+        System.out.println(tank.getPrice());
+        System.out.println(tank.getCanon());
+
+        Vehicle vehicle = new Tank(100.00, 100, 100);
+        System.out.println(vehicle.getPrice());
+
+        vehicle = new Automobile("Test",100.00,300, 1000 );
+        System.out.println(vehicle.getPrice());
     }
 }

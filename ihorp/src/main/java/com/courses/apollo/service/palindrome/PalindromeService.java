@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.service.palindrome;
 
 /**
  * Created by Ihor Pronko.
