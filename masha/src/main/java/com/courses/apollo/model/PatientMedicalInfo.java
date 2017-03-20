@@ -43,7 +43,8 @@ public class PatientMedicalInfo {
 
     @Override
     public String toString() {
-        return "PatientMedicalInfo{" + "medicalCardNumber=" + medicalCardNumber + ", diagnosis='" + diagnosis + '\'' + '}';
+        return "PatientMedicalInfo{" + "medicalCardNumber=" + medicalCardNumber
+                + ", diagnosis='" + diagnosis + '\'' + '}';
     }
 }
 
