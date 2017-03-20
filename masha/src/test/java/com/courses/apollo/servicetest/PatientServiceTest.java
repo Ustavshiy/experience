@@ -1,4 +1,4 @@
-package com.courses.apollo.serviceTest;
+package com.courses.apollo.servicetest;
 
 import com.courses.apollo.model.Patient;
 import com.courses.apollo.service.PatientService;

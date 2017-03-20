@@ -44,11 +44,8 @@ public class PatientPersonalInfo {
      * @param address Home address of Patient
      * @param phoneNumber Patient's cellphone
      */
-    public PatientPersonalInfo(String familyName,
-                               String name,
-                               String patronymicName,
-                               String address,
-                               String phoneNumber) {
+    public PatientPersonalInfo(String familyName, String name, String patronymicName,
+                               String address, String phoneNumber) {
         this.familyName = familyName;
         this.name = name;
         this.patronymicName = patronymicName;

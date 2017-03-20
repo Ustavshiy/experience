@@ -1,5 +1,5 @@
 
-package com.courses.apollo.serviceTest;
+package com.courses.apollo.servicetest;
 
 import com.courses.apollo.model.PatientMedicalInfo;
 import com.courses.apollo.model.Patient;
