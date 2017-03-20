@@ -38,16 +38,16 @@ public class PatientService {
      * Method for getting Patients with proper numbers of medical cards.
      *
      * @param patients is a list of all hospital's patients.
-     * @param inf      the lower border of medical card numbers
-     * @param sup      the upper border of medical card numbers
-     * @return the list of the patients which medical card numbers are between inf and sup
+     * @param min      the lower border of medical card numbers
+     * @param max      the upper border of medical card numbers
+     * @return the list of the patients which medical card numbers are between min and max
      */
-    public ArrayList<Patient> medCardInBorders(ArrayList<Patient> patients, int inf, int sup) {
+    public ArrayList<Patient> medCardInBorders(ArrayList<Patient> patients, int min, int max) {
         ArrayList<Patient> patientsInBorders = new ArrayList<>();
         for (int i = 0; i < patients.size(); i++) {
             PatientMedicalInfo patientMedicalInfo = patients.get(i).getPatientMedicalInfo();
             int medCard = patientMedicalInfo.getMedicalCardNumber();
-            if (inf <= medCard && sup >= medCard) {
+            if (min <= medCard && max >= medCard) {
                 patientsInBorders.add(patients.get(i));
             }
         }
