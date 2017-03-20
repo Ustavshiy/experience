@@ -3,7 +3,6 @@ package com.courses.apollo.service;
 import com.courses.apollo.model.Patient;
 import com.courses.apollo.model.PatientMedicalInfo;
 
-
 import java.util.ArrayList;
 
 /**
