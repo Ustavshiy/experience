@@ -1,4 +1,4 @@
-package com.courses.apollo.service;
+package com.courses.apollo.service.computer;
 
 import com.courses.apollo.data.ComputerDataTest;
 import com.courses.apollo.model.computer.Computer;
