@@ -5,20 +5,16 @@ import java.util.Objects;
 /**
  * Created by Богдан on 19.03.2017.
  */
-public class Ocean extends Planet{
+public class Ocean {
 
-    /**
-     * The depth of the Ocean.
-     */
-    private Integer depth;
+    private String name;
 
-    public Integer getDepth() { return depth; }
+    public  Ocean(){
 
-    public void setDepth(Integer depth) { this.depth = depth; }
+    }
 
-    public Ocean(String name, Integer depth){
-        super(name);
-        this.depth = depth;
+    public Ocean(String name){
+        this.name = name;
     }
 
 
@@ -27,13 +23,12 @@ public class Ocean extends Planet{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ocean ocean = (Ocean) o;
-        return Objects.equals(name, ocean.name)
-                && Objects.equals(depth, ocean.depth);
-    }
+        return Objects.equals(name, ocean.name);
+                }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, depth);
+        return Objects.hash(name);
     }
 }
 

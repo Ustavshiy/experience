@@ -6,21 +6,24 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class Island extends Planet {
+public class Island {
 
-    private ArrayList<Integer> coordinates;
+    private String name;
 
-    public Island(String name, ArrayList<Integer> coordinates) {
-        super(name);
-        this.coordinates = coordinates;
+    public Island() {
+
     }
 
-    public ArrayList<Integer> getCoordinates() {
-        return coordinates;
+    public Island(String name) {
+       this.name = name;
     }
 
-    public void setCoordinates(ArrayList<Integer> coordinates) {
-        this.coordinates = coordinates;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -30,12 +33,11 @@ public class Island extends Planet {
         if (!super.equals(o)) return false;
 
         Island island = (Island) o;
-        return Objects.equals(name, island.name)
-                && Objects.equals(coordinates, island.coordinates);
-    }
+        return Objects.equals(name, island.name);
+               }
 
     @Override
     public int hashCode() {
-       return Objects.hash(name, coordinates);
+       return Objects.hash(name);
     }
 }

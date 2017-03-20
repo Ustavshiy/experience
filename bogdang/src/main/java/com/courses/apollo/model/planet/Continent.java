@@ -5,26 +5,25 @@ import java.util.Objects;
 /**
  * Created by Богдан on 19.03.2017.
  */
-public class Continent extends Planet {
+public class Continent {
 
-    /**
-     * The area of the Continent.
-     */
-    private Integer area;
+    private String name;
 
+    public Continent() {
 
-    public Continent(String name, Integer area){
-        super(name);
-        this.area = area;
     }
 
+    public Continent(String name){
+        this.name = name;
 
-    public Integer getArea() {
-        return area;
     }
 
-    public void setArea(Integer area) {
-        this.area = area;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -34,13 +33,12 @@ public class Continent extends Planet {
         if (!super.equals(o)) return false;
 
         Continent continent = (Continent) o;
-        return Objects.equals(name, continent.name)
-                && Objects.equals(area, continent.area);
+        return Objects.equals(name, continent.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, area);
+        return Objects.hash(name);
     }
 
 }

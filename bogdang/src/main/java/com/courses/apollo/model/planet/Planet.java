@@ -1,5 +1,7 @@
 package com.courses.apollo.model.planet;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -12,8 +14,27 @@ public class Planet {
      */
     String name;
 
+    private List<Ocean> oceanList = new ArrayList<>();
+    private List<Continent> continentList = new ArrayList<>();
+    private List<Island> islandList = new ArrayList<>();
+
+    public Planet(){
+    }
+
     public Planet(String name) {
         this.name = name;
+    }
+
+    public void addOcean(Ocean ocean) {
+        oceanList.add(ocean);
+    }
+
+    public void addContinent(Continent continent) {
+        continentList.add(continent);
+    }
+
+    public void addIsland(Island island){
+        islandList.add(island);
     }
 
     public String getName() {
@@ -23,6 +44,19 @@ public class Planet {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Ocean> getOceanList() {
+        return oceanList;
+    }
+
+    public List<Continent> getContinentList() {
+        return continentList;
+    }
+
+    public List<Island> getIslandList() {
+        return islandList;
+    }
+
 
     @Override
     public boolean equals(Object o) {
