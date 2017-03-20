@@ -12,7 +12,6 @@ public class PatientServiceTest {
 
     @Test
     public void testGetPatientDiagnosisSucceed() {
-
         PatientService patientService = new PatientService();
         ArrayList<Patient> patients = patientTestData.getPatientArrayList();
         Patient johnnie = patients.get(2);
@@ -25,7 +24,6 @@ public class PatientServiceTest {
 
     @Test
     public void testGetPatientDiagnosisUnsucceed() {
-
         PatientService patientService = new PatientService();
         ArrayList<Patient> patients = patientTestData.getPatientArrayList();
         final ArrayList<Patient> expectedList = new ArrayList<>();
@@ -34,7 +32,6 @@ public class PatientServiceTest {
 
     @Test
     public void testMedCardInBordersSucceed() {
-
         PatientService patientService = new PatientService();
         ArrayList<Patient> patients = patientTestData.getPatientArrayList();
 

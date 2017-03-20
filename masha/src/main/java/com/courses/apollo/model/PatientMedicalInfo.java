@@ -3,7 +3,7 @@ package com.courses.apollo.model;
 /**
  * Class with medical information for Patient class.
  */
-public class MedicalInfo {
+public class PatientMedicalInfo {
 
     /**
      * ID of Patient's medical Card.
@@ -20,7 +20,7 @@ public class MedicalInfo {
      * @param medicalCardNumber Patient's medical card ID
      * @param diagnosis the problem of Patient.
      */
-    public MedicalInfo(Integer medicalCardNumber, String diagnosis) {
+    public PatientMedicalInfo(Integer medicalCardNumber, String diagnosis) {
         this.medicalCardNumber = medicalCardNumber;
         this.diagnosis = diagnosis;
     }
@@ -43,7 +43,7 @@ public class MedicalInfo {
 
     @Override
     public String toString() {
-        return "MedicalInfo{" + "medicalCardNumber=" + medicalCardNumber + ", diagnosis='" + diagnosis + '\'' + '}';
+        return "PatientMedicalInfo{" + "medicalCardNumber=" + medicalCardNumber + ", diagnosis='" + diagnosis + '\'' + '}';
     }
 }
 

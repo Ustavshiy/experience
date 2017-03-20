@@ -13,57 +13,52 @@ public class Patient {
     /**
      * link to personal information card of Patient.
      */
-    private PersonalInfo personalInfo;
+    private PatientPersonalInfo patientPersonalInfo;
 
     /**
      * link to medical information card of Patient.
      */
-    private MedicalInfo medicalInfo;
+    private PatientMedicalInfo patientMedicalInfo;
 
     /**
      * Creates Patient's card with full information.
      * @param patientId personal ID of Patient
-     * @param personalInfo Patient's personal information
-     * @param medicalInfo Patient's medical information
+     * @param patientPersonalInfo Patient's personal information
+     * @param patientMedicalInfo Patient's medical information
      */
-    public Patient(Integer patientId, PersonalInfo personalInfo, MedicalInfo medicalInfo) {
+    public Patient(Integer patientId, PatientPersonalInfo patientPersonalInfo, PatientMedicalInfo patientMedicalInfo) {
         this.patientId = patientId;
-        this.personalInfo = personalInfo;
-        this.medicalInfo = medicalInfo;
+        this.patientPersonalInfo = patientPersonalInfo;
+        this.patientMedicalInfo = patientMedicalInfo;
     }
 
     public Integer getPatientId() {
-
         return patientId;
     }
 
     public void setPatientId(Integer patientId) {
-
         this.patientId = patientId;
     }
 
-    public PersonalInfo getPersonalInfo() {
-
-        return personalInfo;
+    public PatientPersonalInfo getPatientPersonalInfo() {
+        return patientPersonalInfo;
     }
 
-    public void setPersonalInfo(PersonalInfo personalInfo) {
-
-        this.personalInfo = personalInfo;
+    public void setPatientPersonalInfo(PatientPersonalInfo patientPersonalInfo) {
+        this.patientPersonalInfo = patientPersonalInfo;
     }
 
-    public MedicalInfo getMedicalInfo() {
-        return medicalInfo;
+    public PatientMedicalInfo getPatientMedicalInfo() {
+        return patientMedicalInfo;
     }
 
-    public void setMedicalInfo(MedicalInfo medicalInfo) {
-
-        this.medicalInfo = medicalInfo;
+    public void setPatientMedicalInfo(PatientMedicalInfo patientMedicalInfo) {
+        this.patientMedicalInfo = patientMedicalInfo;
     }
 
     @Override
     public String toString() {
-        return "Patient{" + "patientId=" + patientId + ", personalInfo=" + personalInfo
-                + ", medicalInfo=" + medicalInfo + '}';
+        return "Patient{" + "patientId=" + patientId + ", patientPersonalInfo=" + patientPersonalInfo
+                + ", patientMedicalInfo=" + patientMedicalInfo + '}';
     }
 }

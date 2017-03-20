@@ -1,10 +1,9 @@
 package com.courses.apollo.service;
 
-import com.courses.apollo.model.MedicalInfo;
+import com.courses.apollo.model.PatientMedicalInfo;
 import com.courses.apollo.model.Patient;
 
 import java.util.ArrayList;
-
 
 /**
  * This class contains 2 methods to manipulate with objects of Patient class.
@@ -18,23 +17,18 @@ public class PatientService {
     /**
      * Method for getting Patients with proper diagnosis data.
      *
-     * @param patients  is a list of all hospital's patients
+     * @param patients is a list of all hospital's patients
      * @param diagnosis is the diagnosis we are looking for
      * @return the list of patients with diagnosis needed
      */
     public ArrayList<Patient> getPatientDiagnosis(ArrayList<Patient> patients,
                                                   String diagnosis) {
-
         ArrayList<Patient> patientsWithDiagnosis = new ArrayList<>();
-
         for (int i = 0; i < patients.size(); i++) {
-            MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
-
-            String diag = medicalInfo.getDiagnosis();
-
+            PatientMedicalInfo patientMedicalInfo = patients.get(i).getPatientMedicalInfo();
+            String diag = patientMedicalInfo.getDiagnosis();
             if (diagnosis.equals(diag)) {
                 patientsWithDiagnosis.add(patients.get(i));
-
             }
         }
         return patientsWithDiagnosis;
@@ -49,12 +43,10 @@ public class PatientService {
      * @return the list of the patients which medical card numbers are between inf and sup
      */
     public ArrayList<Patient> medCardInBorders(ArrayList<Patient> patients, int inf, int sup) {
-
         ArrayList<Patient> patientsInBorders = new ArrayList<>();
-
         for (int i = 0; i < patients.size(); i++) {
-            MedicalInfo medicalInfo = patients.get(i).getMedicalInfo();
-            int medCard = medicalInfo.getMedicalCardNumber();
+            PatientMedicalInfo patientMedicalInfo = patients.get(i).getPatientMedicalInfo();
+            int medCard = patientMedicalInfo.getMedicalCardNumber();
             if (inf <= medCard && sup >= medCard) {
                 patientsInBorders.add(patients.get(i));
             }
