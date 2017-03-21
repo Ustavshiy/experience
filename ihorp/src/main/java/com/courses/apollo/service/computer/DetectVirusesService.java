@@ -5,9 +5,9 @@ import com.courses.apollo.model.computer.Computer;
 /**
  * This class created for the method that defines is the computer had viruses.
  */
-public final class DetectViruses {
+public final class DetectVirusesService {
 
-    private DetectViruses() {}
+    private DetectVirusesService() {}
 
     /**
      * This method checks computer for viruses.

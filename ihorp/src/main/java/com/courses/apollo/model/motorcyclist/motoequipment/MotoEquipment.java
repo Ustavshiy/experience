@@ -3,7 +3,7 @@ package com.courses.apollo.model.motorcyclist.motoequipment;
 import java.math.BigDecimal;
 
 /**
- * ALFA class of all of motorcyclist's equipment!
+ * ALFA class of all of motorcyclist's equipment.
  */
 public class MotoEquipment {
 

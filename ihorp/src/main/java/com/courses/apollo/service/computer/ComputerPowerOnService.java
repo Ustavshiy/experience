@@ -5,9 +5,9 @@ import com.courses.apollo.model.computer.Computer;
 /**
  * Created by Ihor Pronko.
  */
-public final class ComputerPowerOn {
+public final class ComputerPowerOnService {
 
-    private ComputerPowerOn() {}
+    private ComputerPowerOnService() {}
 
     /**
      * This method turns on the computer.

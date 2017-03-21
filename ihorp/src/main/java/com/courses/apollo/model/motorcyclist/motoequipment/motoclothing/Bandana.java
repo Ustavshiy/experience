@@ -1,9 +1,9 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
 /**
- * This class made for constructor "Bandana"
+ * This class made for constructor "Bandana".
  */
-public class Bandana extends MotoClothing{
+public class Bandana extends MotoClothing {
 
     /**
      * Field identify is the Bandana has print of the Fire.
@@ -11,6 +11,7 @@ public class Bandana extends MotoClothing{
     private boolean isFirePrint;
 
     public Bandana(String name, String price, double weight, String size, boolean isFirePrint) {
+        super(name, price, weight, size);
         this.isFirePrint = isFirePrint;
     }
 

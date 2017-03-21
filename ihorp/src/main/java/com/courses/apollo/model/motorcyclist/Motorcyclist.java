@@ -1,7 +1,6 @@
 package com.courses.apollo.model.motorcyclist;
 
-import com.courses.apollo.model.motorcyclist.motoequipment.motoarmor.MotoArmor;
-import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.MotoClothing;
+import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
 import java.util.ArrayList;
 
@@ -20,16 +19,11 @@ public class Motorcyclist {
     /**
      * The List of Motorcyclist's Armor.
      */
-    private ArrayList<MotoArmor> motoArmors;
+    private ArrayList<MotoEquipment> motoEquipment;
 
-    /**
-     * The List of Motorcyclist's Clothing.
-     */
-    private ArrayList<MotoClothing> motoClothings;
+    public Motorcyclist(String name, ArrayList<MotoEquipment> motoEquipment) {
+        this.motoEquipment = motoEquipment;
 
-    public Motorcyclist(String name, ArrayList<MotoArmor> motoArmors, ArrayList<MotoClothing> motoClothings) {
-        this.motoArmors = motoArmors;
-        this.motoClothings = motoClothings;
     }
 
     public String getName() {
@@ -40,19 +34,11 @@ public class Motorcyclist {
         this.name = name;
     }
 
-    public ArrayList<MotoArmor> getMotoArmors() {
-        return motoArmors;
+    public ArrayList<MotoEquipment> getMotoEquipment() {
+        return motoEquipment;
     }
 
-    public void setMotoArmors(ArrayList<MotoArmor> motoArmors) {
-        this.motoArmors = motoArmors;
-    }
-
-    public ArrayList<MotoClothing> getMotoClothings() {
-        return motoClothings;
-    }
-
-    public void setMotoClothings(ArrayList<MotoClothing> motoClothings) {
-        this.motoClothings = motoClothings;
+    public void setMotoEquipment(ArrayList<MotoEquipment> motoEquipment) {
+        this.motoEquipment = motoEquipment;
     }
 }

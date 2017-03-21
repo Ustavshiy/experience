@@ -1,9 +1,9 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
 /**
- * This class made for constructor "Glove"
+ * This class made for constructor "Glove".
  */
-public class Glove extends MotoArmor{
+public class Glove extends MotoArmor {
 
 
     /**
@@ -12,6 +12,7 @@ public class Glove extends MotoArmor{
     private boolean isNylon;
 
     public Glove(String name, String price, double weight, int protectionClass, boolean isNylon) {
+        super(name, price, weight, protectionClass);
         this.isNylon = isNylon;
     }
 

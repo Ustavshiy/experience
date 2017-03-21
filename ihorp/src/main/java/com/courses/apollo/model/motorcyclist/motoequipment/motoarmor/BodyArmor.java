@@ -1,16 +1,21 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
 /**
- * This class made for constructor "BodyArmor"
+ * This class made for constructor "BodyArmor".
  */
-public class BodyArmor extends MotoArmor{
+public class BodyArmor extends MotoArmor {
+
+    public BodyArmor() {
+
+    }
 
     /**
      * Field identify is this armor made with plastic.
      */
-    boolean isPlastic;
+    private boolean isPlastic;
 
-    public BodyArmor (String name, String price, double weight, int protectionClass, boolean isPlastic) {
+    public BodyArmor(String name, String price, double weight, int protectionClass, boolean isPlastic) {
+        super(name, price, weight, protectionClass);
         this.isPlastic = isPlastic;
     }
 

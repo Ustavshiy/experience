@@ -1,17 +1,18 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
 /**
- * This class made for constructor "Boots"
+ * This class made for constructor "Boots".
  */
-public class Boot extends MotoArmor{
+public class Boot extends MotoArmor {
 
     /**
      * Field identify is this Boots has a quick off system.
      */
     private boolean quickTakeOff;
 
-    public Boot(String name, String price, double weight, int protectionClass, boolean quikTakeOff) {
-        this.quickTakeOff = quikTakeOff;
+    public Boot(String name, String price, double weight, int protectionClass, boolean quickTakeOff) {
+        super(name, price, weight, protectionClass);
+        this.quickTakeOff = quickTakeOff;
     }
 
     public boolean isQuikTakeOff() {

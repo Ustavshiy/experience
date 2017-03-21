@@ -1,7 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
 /**
- * This class made for constructor "Bandana"
+ * This class made for constructor "Bandana".
  */
 public class Balaclava extends MotoClothing {
 
@@ -11,6 +11,7 @@ public class Balaclava extends MotoClothing {
     private boolean isSkeletonPrint;
 
     public Balaclava(String name, String price, double weight, String size, boolean isSkeletonPrint) {
+        super(name, price, weight, size);
         this.isSkeletonPrint = isSkeletonPrint;
     }
 

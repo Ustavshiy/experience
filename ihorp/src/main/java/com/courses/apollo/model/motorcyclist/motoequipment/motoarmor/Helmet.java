@@ -1,21 +1,22 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
 /**
- * This class made for constructor "Helmet"
+ * This class made for constructor "Helmet".
  */
 public class Helmet extends MotoArmor {
 
     /**
      * Field identify the type of helmet.
      */
-    boolean isOpen;
+    private boolean isOpen;
 
     /**
      * Field identify is this helmet has garniture.
      */
-    boolean isGarniture;
+    private boolean isGarniture;
 
-    public Helmet (String name, String price, double weight, int protectionClass, boolean isOpen, boolean isGarniture) {
+    public Helmet(String name, String price, double weight, int protectionClass, boolean isOpen, boolean isGarniture) {
+        super(name, price, weight, protectionClass);
         this.isOpen = isOpen;
         this.isGarniture = isGarniture;
     }

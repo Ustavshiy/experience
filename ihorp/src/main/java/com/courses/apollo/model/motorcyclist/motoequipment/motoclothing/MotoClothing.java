@@ -3,7 +3,7 @@ package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
 /**
- * This class made constructor for all of sub classes "MotoClothing"
+ * This class made constructor for all of sub classes "MotoClothing".
  */
 public class MotoClothing extends MotoEquipment {
 
@@ -15,6 +15,7 @@ public class MotoClothing extends MotoEquipment {
     protected String size;
 
     public MotoClothing(String name, String price, double weight, String size) {
+        super(name, price, weight);
         this.size = size;
     }
 

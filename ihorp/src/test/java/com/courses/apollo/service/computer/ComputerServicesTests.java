@@ -2,10 +2,6 @@ package com.courses.apollo.service.computer;
 
 import com.courses.apollo.data.ComputerDataTest;
 import com.courses.apollo.model.computer.Computer;
-import com.courses.apollo.service.computer.ComputerPowerOff;
-import com.courses.apollo.service.computer.ComputerPowerOn;
-import com.courses.apollo.service.computer.DetectViruses;
-import com.courses.apollo.service.computer.ShowCapacityHDD;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -18,7 +14,7 @@ public class ComputerServicesTests {
         Computer testComputer = ComputerDataTest.getComputer();
         testComputer.setConditionComputer(false);
 
-        ComputerPowerOn.turnComputerOn(testComputer);
+        ComputerPowerOnService.turnComputerOn(testComputer);
         Assert.assertEquals(computerOn, testComputer.isConditionComputer());
     }
 
@@ -29,7 +25,7 @@ public class ComputerServicesTests {
         Computer testComputer = ComputerDataTest.getComputer();
         testComputer.setConditionComputer(true);
 
-        ComputerPowerOff.turnComputerOff(testComputer);
+        ComputerPowerOffService.turnComputerOff(testComputer);
         Assert.assertEquals(computerOff, testComputer.isConditionComputer());
     }
 
@@ -41,7 +37,7 @@ public class ComputerServicesTests {
         testComputer.getHardDiskDrives().get(0).setHasViruses(true);
         testComputer.getHardDiskDrives().get(1).setHasViruses(false);
 
-        Assert.assertEquals(DetectViruses.virusesDetected(testComputer), isVirus);
+        Assert.assertEquals(DetectVirusesService.virusesDetected(testComputer), isVirus);
     }
 
     @Test
@@ -52,7 +48,7 @@ public class ComputerServicesTests {
         testComputer.getHardDiskDrives().get(0).setHasViruses(false);
         testComputer.getHardDiskDrives().get(1).setHasViruses(true);
 
-        Assert.assertEquals(DetectViruses.virusesDetected(testComputer), isVirus);
+        Assert.assertEquals(DetectVirusesService.virusesDetected(testComputer), isVirus);
     }
 
     @Test
@@ -63,7 +59,7 @@ public class ComputerServicesTests {
         testComputer.getHardDiskDrives().get(0).setHasViruses(false);
         testComputer.getHardDiskDrives().get(1).setHasViruses(false);
 
-        Assert.assertEquals(DetectViruses.virusesDetected(testComputer), isVirus);
+        Assert.assertEquals(DetectVirusesService.virusesDetected(testComputer), isVirus);
     }
 
     @Test
@@ -74,11 +70,11 @@ public class ComputerServicesTests {
         testComputer.getHardDiskDrives().get(0).setHasViruses(true);
         testComputer.getHardDiskDrives().get(1).setHasViruses(true);
 
-        Assert.assertEquals(DetectViruses.virusesDetected(testComputer), isVirus);
+        Assert.assertEquals(DetectVirusesService.virusesDetected(testComputer), isVirus);
     }
 
     @Test
     public void TestShowCapacityHDD() {
-        ShowCapacityHDD.printTotalSpace(ComputerDataTest.getComputer());
+        ShowCapacityHddService.printTotalSpace(ComputerDataTest.getComputer());
     }
 }

@@ -5,9 +5,9 @@ import com.courses.apollo.model.computer.Computer;
 /**
  * This class create to method which print all space in computer.
  */
-public final class ShowCapacityHDD {
+public final class ShowCapacityHddService {
 
-    private ShowCapacityHDD() {}
+    private ShowCapacityHddService() {}
 
     /**
      * The method calculate space of all of hdd disks in the computer.
