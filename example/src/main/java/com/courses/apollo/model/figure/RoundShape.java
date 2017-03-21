@@ -5,13 +5,4 @@ package com.courses.apollo.model.figure;
  */
 public abstract class RoundShape extends Shape {
 
-    private double sideA;
-
-    public double getSideA() {
-        return sideA;
-    }
-
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
-    }
 }

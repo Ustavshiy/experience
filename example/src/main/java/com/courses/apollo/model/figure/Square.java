@@ -1,13 +1,21 @@
 package com.courses.apollo.model.figure;
 
 /**
- * Square representation
+ * Square representation.
  */
 public class Square extends AngleShape {
 
-    @Override
+    /**
+     * Four sides in square.
+     */
+    private static final int SQUARE_SIDES = 4;
+
+    /**
+     * Find Square perimeter.
+     * @return perimeter
+     */
     public double getPerimeter() {
-        return getSideA() * 4;
+        return getSideA() * SQUARE_SIDES;
     }
 
     @Override

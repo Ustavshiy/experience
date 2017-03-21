@@ -4,12 +4,15 @@ package com.courses.apollo.model.figure;
  * Triangle representation.
  */
 public final class Triangle extends AngleShape {
+    /**
+     * Triangle sideB.
+     */
+    private double sideB;
 
-    public static int test;
-
-    public double sideB;
-
-    public double sideC;
+    /**
+     * Triangle sideC.
+     */
+    private double sideC;
 
     public double getSideB() {
         return sideB;
@@ -31,13 +34,19 @@ public final class Triangle extends AngleShape {
         System.out.println("In triangle constructor");
     }
 
-    @Override
+    /**
+     * Get Triangle area.
+     * @return area
+     */
     public double getArea() {
         double perimeter = getPerimeter() / 2;
         return Math.sqrt(perimeter * ((perimeter - getSideA()) * (perimeter - sideB) * (perimeter - sideC)));
     }
 
-    @Override
+    /**
+     * Get Triangle perimeter.
+     * @return perimeter.
+     */
     public double getPerimeter() {
         return getSideA() + getSideB() + getSideC();
     }

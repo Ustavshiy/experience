@@ -5,6 +5,9 @@ package com.courses.apollo.model.figure;
  */
 public class Circle extends RoundShape {
 
+    /**
+     * Circle radius.
+     */
     private double radius;
 
     public double getRadius() {
