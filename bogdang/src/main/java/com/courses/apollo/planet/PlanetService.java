@@ -1,4 +1,4 @@
-package com.courses.apollo.sort;
+package com.courses.apollo.planet;
 
 import com.courses.apollo.model.planet.Continent;
 import com.courses.apollo.model.planet.Island;
@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * Created by Богдан on 21.03.2017.
  */
-public class PlanetData {
+public class PlanetService {
 
-    public PlanetData (){
+    public PlanetService(){
         Island island = new Island("Madagascar");
 
         Planet planet = new Planet("Terra");
@@ -24,6 +24,7 @@ public class PlanetData {
         planet.addOcean(new Ocean("Atlantic"));
 
         planet.addIsland(new Island("Barbados"));
+
 
         System.out.println("Planet name: "+ planet.getName());
         System.out.println("Continent name: "+ getContinentName(planet.getContinentList()));
