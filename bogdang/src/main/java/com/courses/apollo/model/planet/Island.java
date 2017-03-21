@@ -6,38 +6,28 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class Island {
-
-    private String name;
+public class Island extends Planet {
 
     public Island() {
-
     }
 
     public Island(String name) {
-       this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        super(name);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+
 
         Island island = (Island) o;
-        return Objects.equals(name, island.name);
-               }
+        return Objects.equals(getName(), island.getName());
+    }
 
     @Override
     public int hashCode() {
-       return Objects.hash(name);
+        return Objects.hash(getName());
     }
+
 }

@@ -7,54 +7,18 @@ import java.util.Objects;
 /**
  * Created by Bogdan on 19.03.2017.
  */
-public class Planet {
-
-    /**
-     * The name of the planet.
-     */
-    String name;
-
-    private List<Ocean> oceanList = new ArrayList<>();
-    private List<Continent> continentList = new ArrayList<>();
-    private List<Island> islandList = new ArrayList<>();
+public class Planet extends Territory {
 
     public Planet(){
+
     }
 
     public Planet(String name) {
-        this.name = name;
+        setName(name);
     }
 
-    public void addOcean(Ocean ocean) {
-        oceanList.add(ocean);
-    }
-
-    public void addContinent(Continent continent) {
-        continentList.add(continent);
-    }
-
-    public void addIsland(Island island){
-        islandList.add(island);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Ocean> getOceanList() {
-        return oceanList;
-    }
-
-    public List<Continent> getContinentList() {
-        return continentList;
-    }
-
-    public List<Island> getIslandList() {
-        return islandList;
+    public String toString() {
+        return "Name of Planet: "+ super.toString();
     }
 
 
@@ -64,12 +28,12 @@ public class Planet {
         if (o == null || getClass() != o.getClass()) return false;
 
         Planet planet = (Planet) o;
-        return Objects.equals(name, planet.name);
+        return Objects.equals(getName(), planet.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(getName());
     }
 }
 

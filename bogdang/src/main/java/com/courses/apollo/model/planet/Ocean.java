@@ -5,30 +5,27 @@ import java.util.Objects;
 /**
  * Created by Богдан on 19.03.2017.
  */
-public class Ocean {
+public class Ocean extends Planet {
 
-    private String name;
-
-    public  Ocean(){
-
+    public Ocean() {
     }
 
-    public Ocean(String name){
-        this.name = name;
+    public Ocean(String name) {
+        super(name);
     }
 
-
-   @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Ocean ocean = (Ocean) o;
-        return Objects.equals(name, ocean.name);
-                }
+        return Objects.equals(getName(), ocean.getName());
+    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(getName());
     }
 }
 
