@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "BodyArmor".
  */
@@ -25,5 +27,25 @@ public class BodyArmor extends MotoArmor {
 
     public void setPlastic(boolean plastic) {
         isPlastic = plastic;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof BodyArmor)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        BodyArmor bodyArmor = (BodyArmor) o;
+        return isPlastic == bodyArmor.isPlastic;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isPlastic);
     }
 }

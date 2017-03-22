@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "Bandana".
  */
@@ -21,5 +23,25 @@ public class Balaclava extends MotoClothing {
 
     public void setSkeletonPrint(boolean skeletonPrint) {
         isSkeletonPrint = skeletonPrint;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Balaclava)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Balaclava balaclava = (Balaclava) o;
+        return isSkeletonPrint == balaclava.isSkeletonPrint;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isSkeletonPrint);
     }
 }

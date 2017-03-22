@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "Boots".
  */
@@ -21,5 +23,25 @@ public class Boot extends MotoArmor {
 
     public void setQuikTakeOff(boolean quikTakeOff) {
         this.quickTakeOff = quikTakeOff;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Boot)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Boot boot = (Boot) o;
+        return quickTakeOff == boot.quickTakeOff;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), quickTakeOff);
     }
 }

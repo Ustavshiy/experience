@@ -2,6 +2,8 @@ package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
+import java.util.Objects;
+
 /**
  * This class made constructor for all of sub classes "MotoClothing".
  */
@@ -25,5 +27,25 @@ public class MotoClothing extends MotoEquipment {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof MotoClothing)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        MotoClothing that = (MotoClothing) o;
+        return Objects.equals(size, that.size);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), size);
     }
 }

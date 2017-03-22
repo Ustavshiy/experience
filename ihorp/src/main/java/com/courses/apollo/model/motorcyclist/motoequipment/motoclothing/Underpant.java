@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoclothing;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "Underpant".
  */
@@ -21,5 +23,25 @@ public class Underpant extends MotoClothing {
 
     public void setSkipSmell(boolean skipSmell) {
         this.skipSmell = skipSmell;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Underpant)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Underpant underpant = (Underpant) o;
+        return skipSmell == underpant.skipSmell;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), skipSmell);
     }
 }

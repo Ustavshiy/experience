@@ -19,7 +19,7 @@ public final class TotalPriceService {
      */
     public static BigDecimal totalEquipmentPrice(ArrayList<MotoEquipment> motorcyclist) {
 
-        BigDecimal totalPrice = new BigDecimal(0.00).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal totalPrice = new BigDecimal(0.00);
 
         for (MotoEquipment motoEquipment : motorcyclist) {
             totalPrice = totalPrice.add(motoEquipment.getPrice());

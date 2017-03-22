@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "Glove".
  */
@@ -22,5 +24,25 @@ public class Glove extends MotoArmor {
 
     public void setNylon(boolean nylon) {
         isNylon = nylon;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Glove)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Glove glove = (Glove) o;
+        return isNylon == glove.isNylon;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isNylon);
     }
 }

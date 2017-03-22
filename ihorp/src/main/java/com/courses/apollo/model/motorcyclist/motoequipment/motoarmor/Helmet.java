@@ -1,5 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment.motoarmor;
 
+import java.util.Objects;
+
 /**
  * This class made for constructor "Helmet".
  */
@@ -35,5 +37,26 @@ public class Helmet extends MotoArmor {
 
     public void setGarniture(boolean garniture) {
         isGarniture = garniture;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Helmet)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Helmet helmet = (Helmet) o;
+        return isOpen == helmet.isOpen
+                && isGarniture == helmet.isGarniture;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isOpen, isGarniture);
     }
 }

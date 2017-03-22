@@ -1,6 +1,7 @@
 package com.courses.apollo.model.motorcyclist.motoequipment;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * ALFA class of all of motorcyclist's equipment.
@@ -52,5 +53,24 @@ public class MotoEquipment {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof MotoEquipment)) {
+            return false;
+        }
+        MotoEquipment that = (MotoEquipment) o;
+        return Double.compare(that.weight, weight) == 0
+                && Objects.equals(name, that.name)
+                && Objects.equals(price, that.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, weight);
     }
 }
