@@ -1,4 +1,4 @@
-package com.courses.apollo.service.motoservice;
+package com.courses.apollo.service.motorcyclist;
 
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
@@ -19,7 +19,7 @@ public final class TotalPriceService {
      */
     public static BigDecimal totalEquipmentPrice(ArrayList<MotoEquipment> motorcyclist) {
 
-        BigDecimal totalPrice = new BigDecimal(0.00);
+        BigDecimal totalPrice = new BigDecimal("0.00");
 
         for (MotoEquipment motoEquipment : motorcyclist) {
             totalPrice = totalPrice.add(motoEquipment.getPrice());

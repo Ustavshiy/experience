@@ -5,7 +5,7 @@ import com.courses.apollo.model.computer.Computer;
 import org.junit.Test;
 import org.junit.Assert;
 
-public class ComputerServicesTests {
+public class ComputerServiceTest {
 
     @Test
     public void TestComputerPowerOn() {

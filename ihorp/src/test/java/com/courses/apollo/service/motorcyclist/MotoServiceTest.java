@@ -1,4 +1,4 @@
-package com.courses.apollo.service.motoservice;
+package com.courses.apollo.service.motorcyclist;
 
 import com.courses.apollo.data.MotorcyclistDataTest;
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;

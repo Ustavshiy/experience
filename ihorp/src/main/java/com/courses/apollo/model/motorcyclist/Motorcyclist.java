@@ -22,8 +22,8 @@ public class Motorcyclist {
     private ArrayList<MotoEquipment> motoEquipment;
 
     public Motorcyclist(String name, ArrayList<MotoEquipment> motoEquipment) {
+        this.name = name;
         this.motoEquipment = motoEquipment;
-
     }
 
     public String getName() {

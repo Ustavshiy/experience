@@ -1,4 +1,4 @@
-package com.courses.apollo.service.motoservice;
+package com.courses.apollo.service.motorcyclist;
 
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
@@ -18,7 +18,7 @@ public final class MotoEquipmentSorterService {
      */
     public static ArrayList<MotoEquipment> motoEquipmentSorter(ArrayList<MotoEquipment> motoEquipments) {
 
-        for (MotoEquipment x : motoEquipments) {
+        for (int i = 1; i < motoEquipments.size(); i++) {
             for (int a = 1; a < motoEquipments.size(); a++) {
                 if (motoEquipments.get(a - 1).getWeight() > motoEquipments.get(a).getWeight()) {
                     MotoEquipment tmp = motoEquipments.get(a - 1);
