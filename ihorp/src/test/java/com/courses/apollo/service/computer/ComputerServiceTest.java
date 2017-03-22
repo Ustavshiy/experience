@@ -12,10 +12,10 @@ public class ComputerServiceTest {
         final boolean computerOn = true;
 
         Computer testComputer = ComputerDataTest.getComputer();
-        testComputer.setConditionComputer(false);
+        testComputer.setOn(false);
 
         ComputerService.turnComputerOn(testComputer);
-        Assert.assertEquals(computerOn, testComputer.isConditionComputer());
+        Assert.assertEquals(computerOn, testComputer.isOn());
     }
 
     @Test
@@ -23,10 +23,10 @@ public class ComputerServiceTest {
         final boolean computerOff = false;
 
         Computer testComputer = ComputerDataTest.getComputer();
-        testComputer.setConditionComputer(true);
+        testComputer.setOn(true);
 
         ComputerService.turnComputerOff(testComputer);
-        Assert.assertEquals(computerOff, testComputer.isConditionComputer());
+        Assert.assertEquals(computerOff, testComputer.isOn());
     }
 
     @Test

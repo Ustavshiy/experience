@@ -1,15 +1,12 @@
 package com.courses.apollo.model.computer;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
- * Created by User on 18.03.2017.
+ * Constructor of Computer.
  */
-public class Computer {
-
-    public Computer() {
-
-    }
+public final class Computer {
 
     /**
      * Computer Name.
@@ -19,7 +16,7 @@ public class Computer {
     /**
      * This boolean tell us is computer power on.
      */
-    private boolean conditionComputer;
+    private boolean isOn;
 
     /**
      * Add array list of objects type HardDiskDrive.
@@ -49,12 +46,12 @@ public class Computer {
         this.computerName = computerName;
     }
 
-    public boolean isConditionComputer() {
-        return conditionComputer;
+    public boolean isOn() {
+        return isOn;
     }
 
-    public void setConditionComputer(boolean conditionComputer) {
-        this.conditionComputer = conditionComputer;
+    public void setOn(boolean on) {
+        this.isOn = on;
     }
 
     public ArrayList<HardDiskDrive> getHardDiskDrives() {
@@ -87,6 +84,28 @@ public class Computer {
 
     public void setCpu(Cpu cpu) {
         this.cpu = cpu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Computer)) {
+            return false;
+        }
+        Computer computer = (Computer) o;
+        return isOn == computer.isOn
+                && Objects.equals(computerName, computer.computerName)
+                && Objects.equals(hardDiskDrives, computer.hardDiskDrives)
+                && Objects.equals(dvdRom, computer.dvdRom)
+                && Objects.equals(ram, computer.ram)
+                && Objects.equals(cpu, computer.cpu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(computerName, isOn, hardDiskDrives, dvdRom, ram, cpu);
     }
 }
 

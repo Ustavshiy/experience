@@ -1,13 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.util.Objects;
+
 /**
  * Constructor of RAM.
  */
 public class Ram {
-
-    public Ram() {
-
-    }
 
     /**
      * Name of RAM.
@@ -59,5 +57,25 @@ public class Ram {
 
     public void setTypeRam(String typeRam) {
         this.typeRam = typeRam;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Ram)) {
+            return false;
+        }
+        Ram ram = (Ram) o;
+        return capacityRam == ram.capacityRam
+                && speedRam == ram.speedRam
+                && Objects.equals(nameRam, ram.nameRam)
+                && Objects.equals(typeRam, ram.typeRam);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameRam, capacityRam, speedRam, typeRam);
     }
 }

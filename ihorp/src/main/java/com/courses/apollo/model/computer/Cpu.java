@@ -1,13 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.util.Objects;
+
 /**
  * Constructor of CPU.
  * */
 public class Cpu {
-
-    public Cpu() {
-
-    }
 
     /**
      * Name of CPU.
@@ -59,5 +57,25 @@ public class Cpu {
 
     public void setTdpCpu(int tdpCpu) {
         this.tdpCpu = tdpCpu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Cpu)) {
+            return false;
+        }
+        Cpu cpu = (Cpu) o;
+        return frequencyCpu == cpu.frequencyCpu
+                && lithographyCpu == cpu.lithographyCpu
+                && tdpCpu == cpu.tdpCpu
+                && Objects.equals(nameCpu, cpu.nameCpu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameCpu, frequencyCpu, lithographyCpu, tdpCpu);
     }
 }

@@ -1,13 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.util.Objects;
+
 /**
  * Constructor of DVDRom.
  */
 public class DvdRom {
-
-    public DvdRom() {
-
-    }
 
     /**
      * Name of DVD ROM.
@@ -17,7 +15,7 @@ public class DvdRom {
     /**
      * Speed of DVD ROM, *x.
      */
-    private String speedDvdRom;
+    private int speedDvdRom;
 
     /**
      * Field to detect is the CPU can write information on the disk.
@@ -32,11 +30,11 @@ public class DvdRom {
         this.nameDvdRom = nameDvdRom;
     }
 
-    public String getSpeedDvdRom() {
+    public int getSpeedDvdRom() {
         return speedDvdRom;
     }
 
-    public void setSpeedDvdRom(String speedDvdRom) {
+    public void setSpeedDvdRom(int speedDvdRom) {
         this.speedDvdRom = speedDvdRom;
     }
 
@@ -46,5 +44,24 @@ public class DvdRom {
 
     public void setDvdWriting(boolean dvdWriting) {
         isDvdWriting = dvdWriting;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof DvdRom)) {
+            return false;
+        }
+        DvdRom dvdRom = (DvdRom) o;
+        return speedDvdRom == dvdRom.speedDvdRom
+                && isDvdWriting == dvdRom.isDvdWriting
+                && Objects.equals(nameDvdRom, dvdRom.nameDvdRom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameDvdRom, speedDvdRom, isDvdWriting);
     }
 }

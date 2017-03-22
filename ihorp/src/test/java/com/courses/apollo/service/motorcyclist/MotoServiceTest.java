@@ -22,7 +22,7 @@ public class MotoServiceTest {
 
     @Test
     public void TestEquipmentSorter() {
-        ArrayList<MotoEquipment> unsortedEquipment = new ArrayList<>();
+        ArrayList<MotoEquipment> unsortedEquipment;
         unsortedEquipment = MotorcyclistDataTest.getTestEquipment();
 
         ArrayList<MotoEquipment> sortedEquipment = new ArrayList<>();
@@ -40,6 +40,7 @@ public class MotoServiceTest {
         testRangeOfEquipmentsFilter = MotorcyclistDataTest.getTestEquipmentFilter();
 
         Assert.assertEquals(testRangeOfEquipmentsFilter,
-                MotorcycleService.findEquipmentByPriceRange(testRangeOfEquipments, "10", "200"));
+                MotorcycleService.findEquipmentByPriceRange(testRangeOfEquipments,
+                        new BigDecimal(10), new BigDecimal(200)));
     }
 }

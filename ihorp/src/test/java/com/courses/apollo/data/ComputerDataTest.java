@@ -33,7 +33,7 @@ public class ComputerDataTest {
         DvdRom dvd = new DvdRom();
         dvd.setNameDvdRom("Samsung");
         dvd.setDvdWriting(true);
-        dvd.setSpeedDvdRom("16x");
+        dvd.setSpeedDvdRom(16);
 
         Ram ram = new Ram();
         ram.setNameRam("GoodRam");
@@ -49,7 +49,7 @@ public class ComputerDataTest {
 
         Computer computer = new Computer();
         computer.setComputerName("MacAir");
-        computer.setConditionComputer(true);
+        computer.setOn(true);
         computer.setHardDiskDrives(hdd);
         computer.setDvdRom(dvd);
         computer.setRam(ram);

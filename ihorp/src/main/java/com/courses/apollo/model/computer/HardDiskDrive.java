@@ -1,13 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.util.Objects;
+
 /**
  * Constructor of Hard Drive.
  */
 public class HardDiskDrive {
-
-    public HardDiskDrive() {
-
-    }
 
     /**
      * Name of HDD.
@@ -72,5 +70,26 @@ public class HardDiskDrive {
 
     public void setInterfaceHdd(String interfaceHdd) {
         this.interfaceHdd = interfaceHdd;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof HardDiskDrive)) {
+            return false;
+        }
+        HardDiskDrive that = (HardDiskDrive) o;
+        return isHasViruses == that.isHasViruses
+                && capacityHdd == that.capacityHdd
+                && Double.compare(that.formFactorHdd, formFactorHdd) == 0
+                && Objects.equals(nameHdd, that.nameHdd)
+                && Objects.equals(interfaceHdd, that.interfaceHdd);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameHdd, isHasViruses, capacityHdd, formFactorHdd, interfaceHdd);
     }
 }

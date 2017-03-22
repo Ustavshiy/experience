@@ -1,6 +1,5 @@
 package com.courses.apollo.service.motorcyclist;
 
-import com.courses.apollo.model.motorcyclist.Motorcyclist;
 import com.courses.apollo.model.motorcyclist.motoequipment.MotoEquipment;
 
 import java.math.BigDecimal;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 /**
  * This class contains all methods of Motorcyclist task.
  */
-public class MotorcycleService {
+public final class MotorcycleService {
 
     private MotorcycleService() {}
 
@@ -21,13 +20,10 @@ public class MotorcycleService {
      * @return the list of equipment.
      */
     public static ArrayList<MotoEquipment> findEquipmentByPriceRange(ArrayList<MotoEquipment> motoEquipments,
-                                                                     String minPrice, String maxPrice) {
-        BigDecimal min = new BigDecimal(minPrice);
-        BigDecimal max = new BigDecimal(maxPrice);
-
+                                                                     BigDecimal minPrice, BigDecimal maxPrice) {
         ArrayList<MotoEquipment> equipmentsByPriceRange = new ArrayList<>();
         for (MotoEquipment i : motoEquipments) {
-            if (i.getPrice().compareTo(min) == 1 && i.getPrice().compareTo(max) == -1) {
+            if (i.getPrice().compareTo(minPrice) == 1 && i.getPrice().compareTo(maxPrice) == -1) {
                 equipmentsByPriceRange.add(i);
             }
         }
