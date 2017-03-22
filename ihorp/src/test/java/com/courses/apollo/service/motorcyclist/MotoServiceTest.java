@@ -17,7 +17,7 @@ public class MotoServiceTest {
         ArrayList<MotoEquipment> testMotoEquipments = new ArrayList<>();
         testMotoEquipments = MotorcyclistDataTest.getTestEquipment();
 
-        testPrice.equals(TotalPriceService.totalEquipmentPrice(testMotoEquipments));
+        testPrice.equals(MotorcycleService.totalEquipmentPrice(testMotoEquipments));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class MotoServiceTest {
         ArrayList<MotoEquipment> sortedEquipment = new ArrayList<>();
         sortedEquipment = MotorcyclistDataTest.getTestEquipmentSortedWeight();
 
-        Assert.assertEquals(sortedEquipment, MotoEquipmentSorterService.motoEquipmentSorter(unsortedEquipment));
+        Assert.assertEquals(sortedEquipment, MotorcycleService.motoEquipmentSorter(unsortedEquipment));
     }
 
     @Test
@@ -40,6 +40,6 @@ public class MotoServiceTest {
         testRangeOfEquipmentsFilter = MotorcyclistDataTest.getTestEquipmentFilter();
 
         Assert.assertEquals(testRangeOfEquipmentsFilter,
-                FindRangePriceService.findEquipmentByPriceRange(testRangeOfEquipments, "10", "200"));
+                MotorcycleService.findEquipmentByPriceRange(testRangeOfEquipments, "10", "200"));
     }
 }

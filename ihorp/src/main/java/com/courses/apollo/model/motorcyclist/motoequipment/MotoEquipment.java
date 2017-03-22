@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * ALFA class of all of motorcyclist's equipment.
  */
-public class MotoEquipment {
+public abstract class MotoEquipment {
 
     public MotoEquipment() {}
 
