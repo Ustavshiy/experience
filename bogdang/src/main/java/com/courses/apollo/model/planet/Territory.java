@@ -3,7 +3,7 @@ package com.courses.apollo.model.planet;
 /**
  * Created by Богдан on 21.03.2017.
  */
-public abstract class Territory {
+public class Territory {
     private String name;
 
     public String getName() {
@@ -14,7 +14,7 @@ public abstract class Territory {
         this.name = name;
     }
 
-    public String toString() {
-        return name;
+    public Territory(String name){
+        this.name = name;
     }
 }

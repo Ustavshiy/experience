@@ -9,16 +9,23 @@ import java.util.Objects;
  */
 public class Planet extends Territory {
 
-    public Planet(){
+    private Integer number;
 
+    public Integer getNumber() {
+        return number;
     }
 
-    public Planet(String name) {
-        setName(name);
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Planet(String name, Integer number) {
+        super(name);
+        this.number = number;
     }
 
     public String toString() {
-        return "Name of Planet: "+ super.toString();
+        return getName();
     }
 
 
@@ -28,12 +35,13 @@ public class Planet extends Territory {
         if (o == null || getClass() != o.getClass()) return false;
 
         Planet planet = (Planet) o;
-        return Objects.equals(getName(), planet.getName());
+        return Objects.equals(getName(), planet.getName())
+            && Objects.equals(getNumber(), planet.getNumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(),getNumber());
     }
 }
 

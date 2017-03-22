@@ -6,13 +6,23 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class Island extends Planet {
+public class Island extends Territory {
 
-    public Island() {
+    private Double area;
+
+    public Double getArea() {
+        return area;
     }
 
-    public Island(String name) {
+    public void setArea(Double area) {
+        this.area = area;
+    }
+
+
+    public Island(String name, Double area) {
         super(name);
+        this.area = area;
+
     }
 
     @Override
@@ -22,12 +32,13 @@ public class Island extends Planet {
 
 
         Island island = (Island) o;
-        return Objects.equals(getName(), island.getName());
+        return Objects.equals(getName(), island.getName())
+            && Objects.equals(getArea(), island.getArea());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(),getArea());
     }
 
 }
