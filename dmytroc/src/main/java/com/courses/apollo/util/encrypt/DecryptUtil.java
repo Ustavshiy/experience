@@ -36,26 +36,30 @@ public class DecryptUtil {
         int matrixRow = (matrixSize + 1) / 2 - 1;
         int spiralEdge = 1;
         int lastChar = encryptedText.length();
+        return matrixSpiralProcessing(matrix, matrixSize, spiralEdge, encryptedText, lastChar, matrixLine, matrixRow);
+    }
+
+    private static char[][] matrixSpiralProcessing(char[][] matrix, int matrixSize, int spiralEdge,
+                                                   String encryptedText, int lastChar, int matrixLine, int matrixRow) {
         if ((matrixSize + 1) / 2 != matrixSize / 2) {
             matrix[matrixLine--][matrixRow--] = encryptedText.charAt(--lastChar);
             spiralEdge++;
         }
-        while (spiralEdge < matrixSize) {
-            for (int i = 0; i < spiralEdge; i++) {
+        for (int edge = spiralEdge; edge < matrixSize; edge += 2) {
+            for (int i = 0; i < edge; i++) {
                 matrix[++matrixLine][matrixRow] = encryptedText.charAt(--lastChar);
             }
-            for (int i = 0; i < spiralEdge; i++) {
+            for (int i = 0; i < edge; i++) {
                 matrix[matrixLine][++matrixRow] = encryptedText.charAt(--lastChar);
             }
-            for (int i = 0; i < spiralEdge; i++) {
+            for (int i = 0; i < edge; i++) {
                 matrix[--matrixLine][matrixRow] = encryptedText.charAt(--lastChar);
             }
-            for (int i = 0; i < spiralEdge; i++) {
+            for (int i = 0; i < edge; i++) {
                 matrix[matrixLine][--matrixRow] = encryptedText.charAt(--lastChar);
             }
             matrixLine--;
             matrixRow--;
-            spiralEdge += 2;
         }
         return matrix;
     }

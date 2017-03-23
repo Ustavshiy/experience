@@ -65,6 +65,11 @@ public class EncryptUtil {
         int matrixLine = 0;
         int matrixRow = 0;
         StringBuilder encryptedString = new StringBuilder();
+        return spiralToStringProcessing(matrix, matrixLine, matrixRow, encryptedString);
+    }
+
+    private static String spiralToStringProcessing(char[][] matrix, int matrixLine, int matrixRow,
+                                                   StringBuilder encryptedString) {
         for (int matrixSize = matrix.length; matrixSize > 0; matrixSize -= 2) {
             if (matrixSize == 1) {
                 for (int i = 0; i < matrixSize; i++) {
