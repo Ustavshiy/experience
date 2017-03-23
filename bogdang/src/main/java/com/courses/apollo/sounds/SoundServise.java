@@ -11,7 +11,8 @@ import java.util.ArrayList;
  */
 public class SoundServise {
 
-    public Disk record(ArrayList<Sound> list, Disk disk) {
+    public Disk record(ArrayList<Sound> list) {
+        Disk disk = new Disk();
        disk.setSounds(list);
        return disk;
     }
@@ -41,7 +42,7 @@ public class SoundServise {
         return sortDisk;
     }
 
-    public ArrayList<Sound> findSound(Disk disk, Integer minDuration, Integer maxDuration) {
+    public ArrayList<Sound> findSound(Disk disk, Double minDuration, Double maxDuration) {
         ArrayList<Sound> result = new ArrayList<>();
         for (int i = 0; i < disk.getSounds().size(); i++) {
             if (disk.getSounds().get(i).getDuration() >= minDuration && disk.getSounds().get(i).getDuration()>=
