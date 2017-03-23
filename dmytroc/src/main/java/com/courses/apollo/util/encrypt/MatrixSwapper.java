@@ -12,7 +12,7 @@ public class MatrixSwapper {
      * @param matrix input char[][].
      * @return swapped char[][].
      */
-    public static char[][] swap(char[][] matrix) {
+    public char[][] swap(char[][] matrix) {
         char[][] swapLines = new char[matrix.length][matrix.length];
         for (int i = 0; i < (matrix.length + 1) / 2; i++) {
             swapLines[i] = matrix[matrix.length - 1 - i];

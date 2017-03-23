@@ -1,7 +1,5 @@
 package com.courses.apollo.util.encrypt;
 
-import static com.courses.apollo.util.encrypt.MatrixSwapper.swap;
-
 /**
  * Encrypt String values with n^2 length.
  *
@@ -14,8 +12,9 @@ public class EncryptUtil {
      * @param decryptedText Input String.
      * @return Encrypted String.
      */
-    public static String encrypt(String decryptedText) {
-        return spiralToString(swap(rotate(stringToMatrix(decryptedText))));
+    public String encrypt(String decryptedText) {
+        MatrixSwapper swapper = new MatrixSwapper();
+        return spiralToString(swapper.swap(rotate(stringToMatrix(decryptedText))));
     }
 
     /**
