@@ -29,7 +29,7 @@ public class DecryptUtil {
      * @param encryptedText Input encrypted String.
      * @return char[][].
      */
-    private static char[][] stringToMatrixSpiral(String encryptedText) {
+    private char[][] stringToMatrixSpiral(String encryptedText) {
         int matrixSize = (int) Math.sqrt(encryptedText.length());
         char[][] matrix = new char[matrixSize][matrixSize];
         int matrixLine = (matrixSize + 1) / 2 - 1;
@@ -39,7 +39,7 @@ public class DecryptUtil {
         return matrixSpiralProcessing(matrix, matrixSize, spiralEdge, encryptedText, lastChar, matrixLine, matrixRow);
     }
 
-    private static char[][] matrixSpiralProcessing(char[][] matrix, int matrixSize, int spiralEdge,
+    private char[][] matrixSpiralProcessing(char[][] matrix, int matrixSize, int spiralEdge,
                                                    String encryptedText, int lastChar, int matrixLine, int matrixRow) {
         if ((matrixSize + 1) / 2 != matrixSize / 2) {
             matrix[matrixLine--][matrixRow--] = encryptedText.charAt(--lastChar);
@@ -71,7 +71,7 @@ public class DecryptUtil {
      * @param matrix char[][].
      * @return rotated char[][].
      */
-    private static char[][] unRotate(char[][] matrix) {
+    private char[][] unRotate(char[][] matrix) {
         char[][] rotatedMatrix = new char[matrix.length][matrix.length];
         for (int k = 0; k < matrix.length; k++) {
             for (int n = 0; n < matrix.length; n++) {

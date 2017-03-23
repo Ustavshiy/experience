@@ -23,7 +23,7 @@ public class EncryptUtil {
      * @param decryptedText input String.
      * @return char[][].
      */
-    private static char[][] stringToMatrix(String decryptedText) {
+    private char[][] stringToMatrix(String decryptedText) {
         int matrixSize = (int) Math.sqrt(decryptedText.length());
         char[][] matrix = new char[matrixSize][matrixSize];
         int counter = 0;
@@ -43,7 +43,7 @@ public class EncryptUtil {
      * @param matrix char[][] array.
      * @return rotated char[][] array.
      */
-    private static char[][] rotate(char[][] matrix) {
+    private char[][] rotate(char[][] matrix) {
         char[][] rotatedMatrix = new char[matrix.length][matrix.length];
         for (int k = 0; k < matrix.length; k++) {
             for (int n = 0; n < matrix.length; n++) {
@@ -61,14 +61,14 @@ public class EncryptUtil {
      * @param matrix char[][] array.
      * @return encoded String.
      */
-    private static String spiralToString(char[][] matrix) {
+    private String spiralToString(char[][] matrix) {
         int matrixLine = 0;
         int matrixRow = 0;
         StringBuilder encryptedString = new StringBuilder();
         return spiralToStringProcessing(matrix, matrixLine, matrixRow, encryptedString);
     }
 
-    private static String spiralToStringProcessing(char[][] matrix, int matrixLine, int matrixRow,
+    private String spiralToStringProcessing(char[][] matrix, int matrixLine, int matrixRow,
                                                    StringBuilder encryptedString) {
         for (int matrixSize = matrix.length; matrixSize > 0; matrixSize -= 2) {
             if (matrixSize == 1) {
