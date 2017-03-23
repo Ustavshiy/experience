@@ -1,6 +1,6 @@
-package com.courses.apollo.servise;
+package com.courses.apollo.planet;
 
-import com.courses.apollo.PlanetData;
+import com.courses.apollo.model.PlanetTestData;
 import com.courses.apollo.model.planet.Planet;
 import com.courses.apollo.model.planet.Continent;
 import org.junit.Test;
@@ -14,13 +14,13 @@ public class PlanetServiceTest {
 
     @Test
     public void testNamePlanet() {
-        Assert.assertEquals(getTestPlanet().get(0).getName(),PlanetData.getPlanet().get(0).getName());
+        Assert.assertEquals(getTestPlanet().get(0).getName(), PlanetTestData.getPlanet().get(0).getName());
     }
 
     @Test
     public void testNameContinent() {
-        for (int i = 0; i < PlanetData.getContinents().size(); i++) {
-            Assert.assertEquals(getTestContinents().get(i).getName(), PlanetData.getContinents().get(i).getName());
+        for (int i = 0; i < PlanetTestData.getContinents().size(); i++) {
+            Assert.assertEquals(getTestContinents().get(i).getName(), PlanetTestData.getContinents().get(i).getName());
         }
     }
 
@@ -41,7 +41,7 @@ public class PlanetServiceTest {
    @Test
     public void testQtyContinents() {
        int expected = 3;
-       Assert.assertEquals(expected, PlanetData.getContinents().size());
+       Assert.assertEquals(expected, PlanetTestData.getContinents().size());
    }
 
 }

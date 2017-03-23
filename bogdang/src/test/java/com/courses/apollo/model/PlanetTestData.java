@@ -1,4 +1,4 @@
-package com.courses.apollo;
+package com.courses.apollo.model;
 
 import com.courses.apollo.model.planet.Continent;
 import com.courses.apollo.model.planet.Island;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Богдан on 21.03.2017.
  */
-public class PlanetData {
+public class PlanetTestData {
 
 
 

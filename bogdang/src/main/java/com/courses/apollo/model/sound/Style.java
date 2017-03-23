@@ -7,6 +7,14 @@ public class Style {
 
     private String style;
 
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
     public Style(String style) {
         this.style = style;
     }
