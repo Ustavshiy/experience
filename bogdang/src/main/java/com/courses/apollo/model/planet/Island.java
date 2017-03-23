@@ -1,13 +1,15 @@
 package com.courses.apollo.model.planet;
 
-import org.hamcrest.core.Is;
-
-import java.util.ArrayList;
 import java.util.Objects;
 
-
+/**
+ * Is part of the Planet.
+ */
 public class Island extends Territory {
 
+    /**
+     * Area of the island.
+     */
     private Double area;
 
     public Double getArea() {
@@ -18,19 +20,19 @@ public class Island extends Territory {
         this.area = area;
     }
 
-
     public Island(String name, Double area) {
         super(name);
         this.area = area;
-
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Island island = (Island) o;
         return Objects.equals(getName(), island.getName())
             && Objects.equals(getArea(), island.getArea());
@@ -38,7 +40,6 @@ public class Island extends Territory {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(),getArea());
+        return Objects.hash(getName(), getArea());
     }
-
 }

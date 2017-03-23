@@ -1,7 +1,5 @@
 package com.courses.apollo.model.planet;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -9,6 +7,9 @@ import java.util.Objects;
  */
 public class Planet extends Territory {
 
+    /**
+     * Ordinal number of the planet in the system.
+     */
     private Integer number;
 
     public Integer getNumber() {
@@ -24,15 +25,14 @@ public class Planet extends Territory {
         this.number = number;
     }
 
-    public String toString() {
-        return getName();
-    }
-
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Planet planet = (Planet) o;
         return Objects.equals(getName(), planet.getName())
@@ -41,7 +41,7 @@ public class Planet extends Territory {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(),getNumber());
+        return Objects.hash(getName(), getNumber());
     }
 }
 

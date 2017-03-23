@@ -3,10 +3,13 @@ package com.courses.apollo.model.planet;
 import java.util.Objects;
 
 /**
- * Created by Богдан on 19.03.2017.
+ * Is part of the Planet.
  */
 public class Continent extends Territory {
 
+    /**
+     * Latitude on which there is continent.
+     */
     private String latitude;
 
     public String getLatitude() {
@@ -22,15 +25,14 @@ public class Continent extends Territory {
         this.latitude = latitude;
     }
 
-    public String toString() {
-        return getName();
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Continent continent = (Continent) o;
         return Objects.equals(getName(), continent.getName())
                 && Objects.equals(getLatitude(), continent.getLatitude());
@@ -38,7 +40,7 @@ public class Continent extends Territory {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(),getLatitude());
+        return Objects.hash(getName(), getLatitude());
     }
 }
 

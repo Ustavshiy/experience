@@ -4,6 +4,9 @@ package com.courses.apollo.model.planet;
  * Created by Богдан on 21.03.2017.
  */
 public class Territory {
+    /**
+     * Name of territory.
+     */
     private String name;
 
     public String getName() {
@@ -14,7 +17,7 @@ public class Territory {
         this.name = name;
     }
 
-    public Territory(String name){
+    public Territory(String name) {
         this.name = name;
     }
 }

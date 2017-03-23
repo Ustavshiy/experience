@@ -3,10 +3,13 @@ package com.courses.apollo.model.planet;
 import java.util.Objects;
 
 /**
- * Created by Богдан on 19.03.2017.
+ * Is part of the Planet.
  */
 public class Ocean extends Territory    {
 
+    /**
+     * Depth of Ocean.
+     */
     private Integer depth;
 
     public Integer getDepth() {
@@ -24,8 +27,12 @@ public class Ocean extends Territory    {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Ocean ocean = (Ocean) o;
         return Objects.equals(getName(), ocean.getName())
