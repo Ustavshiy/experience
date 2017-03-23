@@ -12,6 +12,12 @@ public class Sound {
 
     private String name;
 
+    public Sound(String name, Style style, Double duration) {
+        this.name = name;
+        this.style = style;
+        this.duration = duration;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,12 +40,6 @@ public class Sound {
 
     public void setStyle(Style style) {
         this.style = style;
-    }
-
-    public Sound(String name, Style style, Double duration) {
-        this.name = name;
-        this.style = style;
-        this.duration = duration;
     }
 
     @Override

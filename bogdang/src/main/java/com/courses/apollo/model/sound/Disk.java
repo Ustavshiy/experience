@@ -9,18 +9,16 @@ import java.util.Objects;
 public class Disk {
     private ArrayList<Sound> sounds;
 
+
+    public Disk( ArrayList<Sound> sounds) {
+        this.sounds = sounds;
+    }
+
     public ArrayList<Sound> getSounds() {
         return sounds;
     }
 
     public void setSounds(ArrayList<Sound> sounds) {
-        this.sounds = sounds;
-    }
-
-    public Disk() {
-    }
-
-    public Disk( ArrayList<Sound> sounds) {
         this.sounds = sounds;
     }
 
