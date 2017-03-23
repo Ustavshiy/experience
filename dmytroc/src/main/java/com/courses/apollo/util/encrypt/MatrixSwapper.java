@@ -1,7 +1,7 @@
 package com.courses.apollo.util.encrypt;
 
 /**
- * Created by Dell on 22.03.2017.
+ * Class for swap the lines and the rows in 2dimensional array.
  */
 public class MatrixSwapper {
     /**
