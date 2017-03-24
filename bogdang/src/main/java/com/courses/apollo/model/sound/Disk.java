@@ -7,10 +7,15 @@ import java.util.Objects;
  * Created by Богдан on 23.03.2017.
  */
 public class Disk {
+    /**
+     * List of songs on disk.
+     */
     private ArrayList<Sound> sounds;
 
+    public Disk() {
+    }
 
-    public Disk( ArrayList<Sound> sounds) {
+    public Disk(ArrayList<Sound> sounds) {
         this.sounds = sounds;
     }
 
@@ -31,11 +36,16 @@ public class Disk {
             return false;
         }
         Disk disk = (Disk) o;
-        return Objects.equals(getSounds(), disk.getSounds());
+        return Objects.equals(sounds, disk.sounds);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSounds());
+        return Objects.hash(sounds);
+    }
+
+    @Override
+    public String toString() {
+        return "Disk{" + "sounds=" + sounds + '}';
     }
 }

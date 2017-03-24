@@ -6,11 +6,24 @@ import java.util.Objects;
  * Created by Богдан on 23.03.2017.
  */
 public class Sound {
+    /**
+     * Duration of the song.
+     */
     private Double duration;
 
+    /**
+     * Style of the song.
+     */
     private Style style;
 
+    /**
+     * Name of the song.
+     */
     private String name;
+
+    public Sound() {
+
+    }
 
     public Sound(String name, Style style, Double duration) {
         this.name = name;
@@ -51,13 +64,18 @@ public class Sound {
             return false;
         }
         Sound sound = (Sound) o;
-        return Objects.equals(getName(), sound.getName())
-                && Objects.equals(getDuration(), sound.getDuration())
-                && Objects.equals(getStyle(), sound.getStyle());
-      }
+        return Objects.equals(duration, sound.duration)
+                && Objects.equals(style, sound.style)
+                && Objects.equals(name, sound.name);
+    }
 
     @Override
     public int hashCode() {
-         return Objects.hash(getName(),getDuration(),getDuration());
+        return Objects.hash(duration, style, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Sound{" + "duration=" + duration + ", style=" + style + ", name='" + name + '\'' + '}';
     }
 }

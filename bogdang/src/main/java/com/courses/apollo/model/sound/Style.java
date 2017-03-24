@@ -7,6 +7,9 @@ import java.util.Objects;
  */
 public class Style {
 
+    /**
+     * Style of the song.
+     */
     private String style;
 
     public String getStyle() {
@@ -29,12 +32,17 @@ public class Style {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Style style1 = (Style) o;
-        return Objects.equals(getStyle(), style1.getStyle());
+        Style styles = (Style) o;
+        return Objects.equals(style, styles.style);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStyle());
+        return Objects.hash(style);
+    }
+
+    @Override
+    public String toString() {
+        return "Style{" + "style='" + style + '\'' + '}';
     }
 }
