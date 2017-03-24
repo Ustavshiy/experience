@@ -31,23 +31,24 @@ public final class MotorcycleService {
     }
 
     /**
-     * This methos sort a list of equipments by price.
+     * This methos sort a list of equipments by wight.
      * @param motoEquipments list of equipments.
-     * @return sorted list of quipments by price.
+     * @return sorted list of quipments by wight.
      */
     public static ArrayList<MotoEquipment> motoEquipmentSorter(ArrayList<MotoEquipment> motoEquipments) {
-
-        for (int i = 1; i < motoEquipments.size(); i++) {
-            for (int a = 1; a < motoEquipments.size(); a++) {
-                if (motoEquipments.get(a - 1).getWeight() > motoEquipments.get(a).getWeight()) {
-                    MotoEquipment tmp = motoEquipments.get(a - 1);
-                    motoEquipments.set(a - 1, motoEquipments.get(a));
-                    motoEquipments.set(a, tmp);
+        for (int min = 0; min < motoEquipments.size() - 1; min++) {
+            int least = min;
+            for (int j = min + 1; j < motoEquipments.size(); j++) {
+                if (motoEquipments.get(j).getWeight() < motoEquipments.get(least).getWeight()) {
+                    least = j;
+                    }
                 }
+            MotoEquipment tmp = motoEquipments.get(min);
+            motoEquipments.set(min, motoEquipments.get(least));
+            motoEquipments.set(least, tmp);
             }
+            return motoEquipments;
         }
-        return motoEquipments;
-    }
 
     /**
      * This method calculate a total price of all motorcyclist's staff.
