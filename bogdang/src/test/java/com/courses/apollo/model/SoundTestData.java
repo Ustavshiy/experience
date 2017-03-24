@@ -58,7 +58,6 @@ public class SoundTestData {
         return disk;
     }
 
-
     public static ArrayList<Sound> getSoundSecondCond() {
         ArrayList<Sound> sounds = new ArrayList<>();
         sounds.add(new Sound("DDT",new Style("Rock"), 1.32));
@@ -79,7 +78,6 @@ public class SoundTestData {
         ArrayList<Sound> sounds = new ArrayList<>();
         return sounds;
     }
-
 
     public static Disk getRecordDisk() {
         Disk disk = new Disk(getRecordSound());
