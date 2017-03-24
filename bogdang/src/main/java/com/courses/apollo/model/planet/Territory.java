@@ -1,7 +1,7 @@
 package com.courses.apollo.model.planet;
 
 /**
- * Created by Богдан on 21.03.2017.
+ * Parent class for creating a planet.
  */
 public class Territory {
     /**

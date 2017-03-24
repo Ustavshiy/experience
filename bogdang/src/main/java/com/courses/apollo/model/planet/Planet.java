@@ -3,7 +3,7 @@ package com.courses.apollo.model.planet;
 import java.util.Objects;
 
 /**
- * Created by Bogdan on 19.03.2017.
+ * Creation of the planet.
  */
 public class Planet extends Territory {
 
