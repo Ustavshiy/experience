@@ -5,5 +5,5 @@ import com.courses.apollo.service.IBuilding;
 /**
  * Created abstract class for buildings.
  */
-public abstract class PublicBuilding implements IBuilding {
+public abstract class PublicBuildingImpl implements IBuilding {
 }
