@@ -1,9 +1,7 @@
 package com.courses.apollo.model.ship;
 
-import java.util.Objects;
-
 /**
- * Alpha Class of warship.
+ * Alpha abstract Class of warship.
  */
 public abstract class WarshipImpl implements IShip {
 
@@ -75,36 +73,29 @@ public abstract class WarshipImpl implements IShip {
     }
 
     @Override
-    /**
-     * Method is calculated a displacement of ship. Initialized in IShip.
-     * @param weight weight of Ship.
-     * @return displacement of Ship.
-     */
+    public void turnRight() {
+
+    }
+
+    @Override
+    public void turnLeft() {
+
+    }
+
+    @Override
+    public void sailForward() {
+
+    }
+
+    @Override
+    public void sailBack() {
+
+    }
+
+    @Override
     public int displacement(int weight) {
         int displacement = weight;
         return displacement;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof WarshipImpl)) {
-            return false;
-        }
-
-        WarshipImpl warship = (WarshipImpl) o;
-        return weight == warship.weight
-                && numberOfGun == warship.numberOfGun
-                && calibreOfGun == warship.calibreOfGun
-                && armorThickness == warship.armorThickness;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(weight, numberOfGun, calibreOfGun, armorThickness);
-    }
 }
-
 
