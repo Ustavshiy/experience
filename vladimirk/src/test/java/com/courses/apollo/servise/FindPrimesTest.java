@@ -1,5 +1,6 @@
-package com.courses.apollo;
+package com.courses.apollo.servise;
 
+import com.courses.apollo.service.FindPrimes;
 import org.junit.Assert;
 import org.junit.Test;
 
