@@ -193,7 +193,7 @@
                     -->
                     <execution>
                         <id>analyze-compile</id>
-                        <phase>compile</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
