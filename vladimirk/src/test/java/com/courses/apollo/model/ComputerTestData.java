@@ -17,7 +17,7 @@ public class ComputerTestData {
         Memory odd = new ODD(4812);
         Memory ram = new RAM(8192);
         Memory ram2 = new RAM(8192);
-        ArrayList<Memory> memories = new ArrayList<>();
+        List<Memory> memories = new ArrayList<>();
         memories.add(hdd);
         memories.add(hdd2);
         memories.add(odd);

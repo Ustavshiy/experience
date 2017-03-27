@@ -7,7 +7,6 @@ public class HDD extends Memory {
 
     /**
      * Constructor.
-     *
      * @param size to indicate size of HDD.
      */
     public HDD(int size) {
