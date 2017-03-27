@@ -20,9 +20,7 @@ public class PlanetServiceTest {
 
     @Test
     public void testNameContinent() {
-        for (int i = 0; i < PlanetTestData.getContinents().size(); i++) {
-            Assert.assertEquals(getTestContinents().get(i).getName(), PlanetTestData.getContinents().get(i).getName());
-        }
+        Assert.assertEquals(getTestContinents(), PlanetTestData.getContinents());
     }
 
     private ArrayList<Continent> getTestContinents() {
