@@ -1,7 +1,18 @@
 package com.courses.apollo.service;
 
 /**
- * Created interface for buildings.
+ * Interface for building.
  */
 public interface IBuilding {
+
+    /**
+     * method to find a perimeter.
+     */
+    void perimeter();
+
+    /**
+     * method to find a square.
+     */
+    void square();
+
 }
