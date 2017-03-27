@@ -7,22 +7,8 @@ import java.util.Objects;
  */
 public class Island extends Territory {
 
-    /**
-     * Area of the island.
-     */
-    private Double area;
-
-    public Double getArea() {
-        return area;
-    }
-
-    public void setArea(Double area) {
-        this.area = area;
-    }
-
     public Island(String name, Double area) {
-        super(name);
-        this.area = area;
+        super(name, area);
     }
 
     @Override

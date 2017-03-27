@@ -25,9 +25,9 @@ public class PlanetServiceTest {
 
     private ArrayList<Continent> getTestContinents() {
         ArrayList<Continent> continentes = new ArrayList<>();
-        continentes.add(new Continent("Australia", "South"));
-        continentes.add(new Continent("Eurasia", "North"));
-        continentes.add(new Continent("Africa", "Equator"));
+        continentes.add(new Continent("Australia",12325.343, "South"));
+        continentes.add(new Continent("Eurasia", 32525.78, "North"));
+        continentes.add(new Continent("Africa", 23435.456, "Equator"));
         return continentes;
     }
 

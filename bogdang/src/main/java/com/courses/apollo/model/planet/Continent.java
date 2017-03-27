@@ -20,8 +20,8 @@ public class Continent extends Territory {
         this.latitude = latitude;
     }
 
-    public Continent(String name, String latitude) {
-        super(name);
+    public Continent(String name, Double area, String latitude) {
+        super(name, area);
         this.latitude = latitude;
     }
 
@@ -35,12 +35,13 @@ public class Continent extends Territory {
         }
         Continent continent = (Continent) o;
         return Objects.equals(getName(), continent.getName())
+                && Objects.equals(getArea(), continent.getArea())
                 && Objects.equals(getLatitude(), continent.getLatitude());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getLatitude());
+        return Objects.hash(getName(), getArea(), getLatitude());
     }
 }
 

@@ -14,9 +14,9 @@ public class PlanetTestData {
     private Planet planet = new Planet();
 
     public static ArrayList<Continent> getContinents() {
-        Continent continent = new Continent("Australia", "South");
-        Continent continentOne = new Continent("Eurasia", "North");
-        Continent continentTwo = new Continent("Africa", "Equator");
+        Continent continent = new Continent("Australia",12325.343, "South");
+        Continent continentOne = new Continent("Eurasia", 32525.78, "North");
+        Continent continentTwo = new Continent("Africa", 23435.456, "Equator");
 
         ArrayList<Continent> continentes = new ArrayList<>();
         continentes.add(continent);
@@ -26,8 +26,8 @@ public class PlanetTestData {
     }
 
     public static ArrayList<Ocean> getOceans() {
-        Ocean ocean = new Ocean("Pacific", 10994);
-        Ocean oceanOne = new Ocean("Atlantic", 8742);
+        Ocean ocean = new Ocean("Pacific", 34235.33, 10994);
+        Ocean oceanOne = new Ocean("Atlantic", 33232.24, 8742);
 
         ArrayList<Ocean> oceans = new ArrayList<>();
         oceans.add(ocean);

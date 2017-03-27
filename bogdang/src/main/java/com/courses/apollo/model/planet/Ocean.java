@@ -20,8 +20,8 @@ public class Ocean extends Territory {
         this.depth = depth;
     }
 
-    public Ocean(String name, Integer depth) {
-        super(name);
+    public Ocean(String name, Double area, Integer depth) {
+        super(name, area);
         this.depth = depth;
     }
 
@@ -36,12 +36,13 @@ public class Ocean extends Territory {
 
         Ocean ocean = (Ocean) o;
         return Objects.equals(getName(), ocean.getName())
+                && Objects.equals(getArea(), ocean.getArea())
                 && Objects.equals(getDepth(), ocean.getDepth());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getDepth());
+        return Objects.hash(getName(), getArea(), getDepth());
     }
 }
 
