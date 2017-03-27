@@ -1,6 +1,5 @@
 package com.courses.apollo;
 
-import com.courses.apollo.model.CurrencyDemo;
 import com.courses.apollo.model.CurrencyEnum;
 import org.junit.Test;
 
@@ -10,23 +9,14 @@ import java.util.List;
 public class CurrencyDemoTest {
 
     @Test
-    public void testCurrency() {
-        System.out.println("PENNY " + CurrencyDemo.PENNY);
-    }
-
-    @Test
     public void testCurrencyEnum() {
-        System.out.println(CurrencyEnum.PENNY == CurrencyEnum.PENNY);
-        System.out.println(CurrencyEnum.PENNY.value);
+//        System.out.println(CurrencyEnum.PENNY == CurrencyEnum.PENNY);
+        System.out.println(CurrencyEnum.PENNY.getValue());
         CurrencyEnum.PENNY.printValue();
         testSwitchInEnum(CurrencyEnum.NICKLE);
         for (int i = 0; i < CurrencyEnum.values().length; i++) {
 
         }
-
-        List empty = Collections.EMPTY_LIST;
-        empty.add("Test");
-        System.out.println(empty.size());
 
     }
 
@@ -36,6 +26,8 @@ public class CurrencyDemoTest {
                 System.out.println("Nickle");break;
             case PENNY:
                 System.out.println("Penny");break;
+        default:
+            System.out.println("Other");
         }
     }
 }

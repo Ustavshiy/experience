@@ -14,6 +14,7 @@ public class Square extends AngleShape {
      * Find Square perimeter.
      * @return perimeter
      */
+    @Override
     public double getPerimeter() {
         return getSideA() * SQUARE_SIDES;
     }

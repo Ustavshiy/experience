@@ -38,6 +38,7 @@ public final class Triangle extends AngleShape {
      * Get Triangle area.
      * @return area
      */
+    @Override
     public double getArea() {
         double perimeter = getPerimeter() / 2;
         return Math.sqrt(perimeter * ((perimeter - getSideA()) * (perimeter - sideB) * (perimeter - sideC)));
@@ -47,6 +48,7 @@ public final class Triangle extends AngleShape {
      * Get Triangle perimeter.
      * @return perimeter.
      */
+    @Override
     public double getPerimeter() {
         return getSideA() + getSideB() + getSideC();
     }

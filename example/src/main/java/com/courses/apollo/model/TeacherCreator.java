@@ -3,11 +3,20 @@ package com.courses.apollo.model;
 /**
  * Created by User on 27.03.2017.
  */
-public class TeacherCreator {
+public final class TeacherCreator {
+    private TeacherCreator() {
+    }
 
-
+    /**
+     * Method.
+     *
+     * @param id int id.
+     * @return int.
+     */
     public static AbstractTeacher createTeacher(int id) {
-        // объявление класса внутри метода
+        /**
+         * Inner class.
+         */
         class Rector extends AbstractTeacher {
             Rector(int id) {
                 super(id);
@@ -15,13 +24,10 @@ public class TeacherCreator {
 
             @Override
             public boolean excludeStudent(String name) {
-                if (name != null) { // изменение статуса студента в базе данных
-                    return true;
-                } else {
-                    return false;
-                }
+                return true;
             }
         } // конец внутреннего класса
+
         if (isRectorId(id)) {
             return new Rector(id);
         } else {
@@ -31,6 +37,6 @@ public class TeacherCreator {
 
     private static boolean isRectorId(int id) {
         // проверка id
-        return id == 6; // stub
+        return id == 2; // stub
     }
 }

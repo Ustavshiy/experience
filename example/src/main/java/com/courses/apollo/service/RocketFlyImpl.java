@@ -7,12 +7,18 @@ public class RocketFlyImpl implements IVerticalFly, IFly {
 
     @Override
     public void fly() {
+
+        /**
+         * Inner class.
+         */
         class SomeFlyClass implements IFly {
             @Override
             public void fly() {
-
             }
         }
+
+        SomeFlyClass someFlyClass = new SomeFlyClass();
+        someFlyClass.fly();
         System.out.println("Rocket fly");
     }
 

@@ -5,24 +5,43 @@ package com.courses.apollo.service;
  */
 @FunctionalInterface
 public interface IFly {
+    /**
+     * Just string to test.
+     */
+    String TEST = "Test";
 
-    public String test = "Test";
-
+    /**
+     * Fly method.
+     */
     void fly();
 
-    public class IFlyClass {
+    /**
+     * Inner class.
+     */
+    class IFlyClass {
 
     }
 
-    public static void testInFly() {
+    /**
+     * Static method in interface.
+     */
+    static void testInFly() {
         System.out.println("Test");
     }
 
-    public default void flyDefault() {
+    /**
+     * Default fly method.
+     */
+    default void flyDefault() {
         System.out.println("Fly default");
     }
 
-    public default void flyDefault(String test) {
+    /**
+     * Default fly overloaded method.
+     *
+     * @param test input String.
+     */
+    default void flyDefault(String test) {
         System.out.println("Fly default");
     }
 

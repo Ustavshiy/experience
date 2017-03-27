@@ -8,8 +8,10 @@ import java.util.ArrayList;
  * Created by User on 23.03.2017.
  */
 public class AngryBird implements IFly {
-
-    ArrayList<Duck> ducks;
+    /**
+     * List of Ducks.
+     */
+    private ArrayList<Duck> ducks;
 
     @Override
     public void fly() {

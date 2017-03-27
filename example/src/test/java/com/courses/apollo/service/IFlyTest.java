@@ -17,12 +17,22 @@ import static java.util.Arrays.asList;
 public class IFlyTest {
 
     public IFly iFly;
+    public AngryBird angryBird = new AngryBird();
+
+    @Test
+    public void AngryBirdFlyTest() {
+        angryBird.fly();
+    }
 
     @Test
     public void testPlaneFly() {
         List<Plane> planes = new ArrayList<>();
-        Plane plane = new Plane(10000L,100.00, 100, 100000);
-        planes.add(plane);
+        Plane plane1 = new Plane(10000L, 100.00, 100, 100000);
+        Plane plane2 = new Plane(10000L, 100.00, 100, 5000);
+        Plane plane3 = new Plane(10000L, 100.00, 100, 500);
+        planes.add(plane1);
+        planes.add(plane2);
+        planes.add(plane3);
 
         List<Plane> planeStack = new LinkedList<>(planes);
         iFly = new PlaneFlyServiceImpl(planeStack);
@@ -35,6 +45,10 @@ public class IFlyTest {
         IFly verticalFly = new RocketFlyImpl();
         verticalFly.fly();
         verticalFly.flyDefault();
+        IFly.IFlyClass testFly = new IFly.IFlyClass();
+        IFly.testInFly();
+        IVerticalFly verticalFly1 = new RocketFlyImpl();
+        verticalFly1.verticalFly();
     }
 
 }

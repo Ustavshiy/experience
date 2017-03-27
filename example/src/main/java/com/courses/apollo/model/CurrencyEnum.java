@@ -4,76 +4,63 @@ package com.courses.apollo.model;
  * Created by User on 27.03.2017.
  */
 public enum CurrencyEnum implements ICurrencyDemo {
-    PENNY(1, new AbstractTeacher(1) {
-        @Override
-        public boolean excludeStudent(String name) {
-            return false;
-        }
-    }) {
-        @Override
-        public void printValue() {
-            System.out.println("Value of Penny");
-        }
-
-        @Override
-        public void doSomethingIncredible() {
-
-        }
-
-    }, NICKLE(5, new AbstractTeacher(2) {
-        @Override
-        public boolean excludeStudent(String name) {
-            return false;
-        }
-    }) {
-        @Override
-        public void doSomethingIncredible() {
-
-        }
-
+    /**
+     * enum PENNY.
+     */
+    PENNY(1) {
         @Override
         public void printValue() {
 
         }
-    }, DIME(10, new AbstractTeacher(3) {
-        @Override
-        public boolean excludeStudent(String name) {
-            return false;
-        }
-    }) {
-        @Override
-        public void doSomethingIncredible() {
-
-        }
-
+    },
+    /**
+     * enum NICKLE.
+     */
+    NICKLE(5) {
         @Override
         public void printValue() {
 
         }
-    }, QUARTER(25, new AbstractTeacher(4) {
+    },
+    /**
+     * enum DIME.
+     */
+    DIME(10) {
         @Override
-        public boolean excludeStudent(String name) {
-            return false;
-        }
-    }) {
-        @Override
-        public void doSomethingIncredible() {
+        public void printValue() {
 
         }
-
+    },
+    /**
+     * enum quarter.
+     */
+    QUARTER(25) {
         @Override
         public void printValue() {
 
         }
     };
 
-    public final int value;
-    public final AbstractTeacher teacher;
+    /**
+     * Enum variable value.
+     */
+    private final int value;
 
-    CurrencyEnum(int value, AbstractTeacher teacher) {
+    CurrencyEnum(int value) {
         this.value = value;
-        this.teacher = teacher;
     }
 
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * Method in enum. Prints value.
+     */
     public abstract void printValue();
+
+    @Override
+    public void doSomethingIncredible() {
+
+    }
 }

@@ -4,10 +4,29 @@ package com.courses.apollo.model;
  * Created by User on 27.03.2017.
  */
 public class Abonent {
-
+    /**
+     * String capacity.
+     */
+    private final int stringCapacity = 100;
+    /**
+     * int bound.
+     */
+    private final int bound = 10_000_000;
+    /**
+     * ID.
+     */
     private long id;
+    /**
+     * Abonent name.
+     */
     private String name;
+    /**
+     * Tariff plan.
+     */
     private String tariffPlan;
+    /**
+     * Phone number.
+     */
     private PhoneNumber phoneNumber; // ссылка на внутренний класс
 
     public Abonent(long id, String name) {
@@ -15,10 +34,21 @@ public class Abonent {
         this.name = name;
     }
 
-    // объявление внутреннего класса
+    /**
+     * Inner class declaration.
+     */
     private class PhoneNumber {
+        /**
+         * Country code.
+         */
         private int countryCode;
+        /**
+         * net code.
+         */
         private int netCode;
+        /**
+         * number.
+         */
         private int number;
 
         public void setCountryCode(int countryCode) {
@@ -32,8 +62,7 @@ public class Abonent {
         }
 
         public int generateNumber() {
-            int temp = new java.util.Random().nextInt(10_000_000);
-// проверка значения temp на совпадение в БД
+            int temp = new java.util.Random().nextInt(bound);
             number = temp;
             return number;
         }
@@ -55,16 +84,26 @@ public class Abonent {
         this.tariffPlan = tariffPlan;
     }
 
+    /**
+     * Get phone number.
+     *
+     * @return String.
+     */
     public String getPhoneNumber() {
         if (phoneNumber != null) {
             return ("+" + phoneNumber.countryCode + "-"
                     + phoneNumber.netCode + "-" + phoneNumber.number);
         } else {
-            return ("phone number is empty!");
+            return "phone number is empty!";
         }
     }
 
-    // соответствует шаблону Façade
+    /**
+     * Method set number.
+     *
+     * @param countryCode int.
+     * @param netCode     int.
+     */
     public void obtainPhoneNumber(int countryCode, int netCode) {
         phoneNumber = new PhoneNumber();
         phoneNumber.setCountryCode(countryCode);
@@ -74,11 +113,11 @@ public class Abonent {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder(100);
-        s.append("Abonent '" + name + "':\n");
-        s.append(" ID - " + id + "\n");
-        s.append(" Tariff Plan - " + tariffPlan + "\n");
-        s.append(" Phone Number - " + getPhoneNumber() + "\n");
-        return s.toString();
+        StringBuilder str = new StringBuilder(stringCapacity);
+        str.append("Abonent '" + name + "':\n");
+        str.append(" ID - " + id + "\n");
+        str.append(" Tariff Plan - " + tariffPlan + "\n");
+        str.append(" Phone Number - " + getPhoneNumber() + "\n");
+        return str.toString();
     }
 }
