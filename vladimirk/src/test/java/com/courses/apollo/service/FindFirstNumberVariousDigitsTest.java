@@ -1,4 +1,4 @@
-package com.courses.apollo.servise;
+package com.courses.apollo.service;
 
 import com.courses.apollo.service.FindFirstNumberVariousDigits;
 import org.junit.Assert;

@@ -1,9 +1,8 @@
-package com.courses.apollo.servise;
+package com.courses.apollo.service;
 
 import com.courses.apollo.model.MotorciclystTestData;
 import com.courses.apollo.model.motorcyclist.Equipment;
 import com.courses.apollo.model.motorcyclist.Motorcyclist;
-import com.courses.apollo.service.MotorcyclistService;
 import org.junit.Assert;
 import org.junit.Test;
 

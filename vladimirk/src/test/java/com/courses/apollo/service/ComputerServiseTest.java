@@ -1,8 +1,7 @@
-package com.courses.apollo.servise;
+package com.courses.apollo.service;
 
 import com.courses.apollo.model.ComputerTestData;
 import com.courses.apollo.model.computer.Computer;
-import com.courses.apollo.service.ComputerService;
 
 import org.junit.Assert;
 import org.junit.Test;
