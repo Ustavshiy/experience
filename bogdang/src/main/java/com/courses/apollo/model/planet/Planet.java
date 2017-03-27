@@ -5,23 +5,36 @@ import java.util.Objects;
 /**
  * Creation of the planet.
  */
-public class Planet extends Territory {
+public class Planet {
+
+    /**
+     * Name of the planet.
+     */
+    private String name;
 
     /**
      * Ordinal number of the planet in the system.
      */
     private Integer number;
 
+    public Planet(String name, Integer number) {
+        this.name = name;
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getNumber() {
         return number;
     }
 
     public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Planet(String name, Integer number) {
-        super(name);
         this.number = number;
     }
 

@@ -5,10 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-
-/**
- * Created by Богдан on 23.03.2017.
- */
 public class SoundServiseTest {
     private SoundServise soundServise = new SoundServise();
     private final static Double result = 16.87;

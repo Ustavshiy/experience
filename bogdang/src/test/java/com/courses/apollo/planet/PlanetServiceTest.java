@@ -7,9 +7,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import java.util.ArrayList;
 
-/**
- * Created by Богдан on 21.03.2017.
- */
+
 public class PlanetServiceTest {
 
     @Test

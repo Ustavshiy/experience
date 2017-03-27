@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Is part of the Planet.
  */
-public class Ocean extends Territory    {
+public class Ocean extends Territory {
 
     /**
      * Depth of Ocean.

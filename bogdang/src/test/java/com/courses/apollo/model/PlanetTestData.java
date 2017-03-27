@@ -8,9 +8,6 @@ import org.hamcrest.core.Is;
 
 import java.util.ArrayList;
 
-/**
- * Created by Богдан on 21.03.2017.
- */
 public class PlanetTestData {
 
 

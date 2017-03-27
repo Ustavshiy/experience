@@ -3,11 +3,15 @@ package com.courses.apollo.model.planet;
 /**
  * Parent class for creating a planet.
  */
-public class Territory {
+public abstract class Territory {
     /**
      * Name of territory.
      */
     private String name;
+
+    public Territory(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -17,7 +21,4 @@ public class Territory {
         this.name = name;
     }
 
-    public Territory(String name) {
-        this.name = name;
-    }
 }

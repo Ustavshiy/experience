@@ -3,7 +3,7 @@ package com.courses.apollo.model.sound;
 import java.util.Objects;
 
 /**
- * Created by Богдан on 23.03.2017.
+ * Class to create a style of music.
  */
 public class Style {
 
