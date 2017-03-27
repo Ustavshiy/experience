@@ -19,6 +19,13 @@
     </modules>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -186,7 +193,7 @@
                     -->
                     <execution>
                         <id>analyze-compile</id>
-                        <phase>compile</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -278,6 +285,7 @@
                     <excludes>
                         <exclude>**/model/**</exclude>
                         <exclude>**/main/**</exclude>
+                        <exclude>**/example/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -336,7 +344,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.1</version>
                 <configuration>
-                    <argLine>-server -ea -XX:MaxPermSize=256m -Xmx2g -XX:-UseSplitVerifier ${argLine}</argLine>
+                    <argLine>-server -ea -XX:MaxPermSize=256m -Xmx768m -XX:-UseSplitVerifier -XX:SoftRefLRUPolicyMSPerMB=50 ${argLine}</argLine>
                 </configuration>
             </plugin>
         </plugins>
