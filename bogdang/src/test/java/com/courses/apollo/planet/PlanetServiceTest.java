@@ -7,12 +7,15 @@ import org.junit.Test;
 import org.junit.Assert;
 import java.util.ArrayList;
 
-
+/**
+ * Created by Богдан on 21.03.2017.
+ */
 public class PlanetServiceTest {
+    final private String namePlanet = "Terra";
 
     @Test
     public void testNamePlanet() {
-        Assert.assertEquals(getTestPlanet().get(0).getName(), PlanetTestData.getPlanet().get(0).getName());
+        Assert.assertEquals(namePlanet, PlanetTestData.getPlanet().getName());
     }
 
     @Test
@@ -20,12 +23,6 @@ public class PlanetServiceTest {
         for (int i = 0; i < PlanetTestData.getContinents().size(); i++) {
             Assert.assertEquals(getTestContinents().get(i).getName(), PlanetTestData.getContinents().get(i).getName());
         }
-    }
-
-    private ArrayList<Planet> getTestPlanet() {
-        ArrayList<Planet> planets = new ArrayList<>();
-        planets.add(new Planet("Terra", 3));
-    return planets;
     }
 
     private ArrayList<Continent> getTestContinents() {

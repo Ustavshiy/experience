@@ -7,11 +7,11 @@ import com.courses.apollo.model.planet.Planet;
 import org.hamcrest.core.Is;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class PlanetTestData {
-
-
-
+    private Planet planet = new Planet();
 
     public static ArrayList<Continent> getContinents() {
         Continent continent = new Continent("Australia", "South");
@@ -42,11 +42,10 @@ public class PlanetTestData {
         return islands;
     }
 
-    public static ArrayList<Planet> getPlanet() {
-        Planet planet = new Planet("Terra", 3);
-        ArrayList<Planet> planets = new ArrayList<>();
-        planets.add(planet);
-        return planets;
+    public static Planet getPlanet() {
+        Planet planet = new Planet();
+        planet.setName("Terra");
+        return planet;
     }
 
 }
