@@ -13,8 +13,12 @@ public class EncryptUtil {
      * @return Encrypted String.
      */
     public String encrypt(String decryptedText) {
-        MatrixSwapper swapper = new MatrixSwapper();
-        return spiralToString(swapper.swap(rotate(stringToMatrix(decryptedText))));
+        MatrixUtil swapper = new MatrixUtil();
+        return spiralToString(swapper.swapEvenAndOddColumns(
+                swapper.reverseColumn(
+                        swapper.reverseRow(
+                                swapper.transpose(
+                                        stringToMatrix(decryptedText))))));
     }
 
     /**
@@ -37,25 +41,6 @@ public class EncryptUtil {
     }
 
     /**
-     * First step of encrypting.
-     * 90degrees clockwise rotate char[][] array .
-     *
-     * @param matrix char[][] array.
-     * @return rotated char[][] array.
-     */
-    private char[][] rotate(char[][] matrix) {
-        char[][] rotatedMatrix = new char[matrix.length][matrix.length];
-        for (int k = 0; k < matrix.length; k++) {
-            for (int n = 0; n < matrix.length; n++) {
-                rotatedMatrix[rotatedMatrix.length - 1 - n][rotatedMatrix.length - 1 - k]
-                        = matrix[k][matrix[k].length - 1 - n];
-            }
-        }
-        return rotatedMatrix;
-    }
-
-    /**
-     * Third step of encrypting.
      * Write to String from top left corner of matrix by clockwise spiral.
      *
      * @param matrix char[][] array.
@@ -69,7 +54,7 @@ public class EncryptUtil {
     }
 
     private String spiralToStringProcessing(char[][] matrix, int matrixLine, int matrixRow,
-                                                   StringBuilder encryptedString) {
+                                            StringBuilder encryptedString) {
         for (int matrixSize = matrix.length; matrixSize > 0; matrixSize -= 2) {
             if (matrixSize == 1) {
                 for (int i = 0; i < matrixSize; i++) {

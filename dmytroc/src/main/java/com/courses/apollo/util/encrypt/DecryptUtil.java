@@ -13,8 +13,9 @@ public class DecryptUtil {
      * @return String of decrypted text.
      */
     public String decrypt(String encryptedText) {
-        MatrixSwapper swapper = new MatrixSwapper();
-        char[][] charMatrix = unRotate(swapper.swap(stringToMatrixSpiral(encryptedText)));
+        MatrixUtil swapper = new MatrixUtil();
+        char[][] charMatrix = swapper.reverseColumn(swapper.swapEvenAndOddColumns(stringToMatrixSpiral(encryptedText)));
+        charMatrix = swapper.transpose(swapper.reverseRow(charMatrix));
         StringBuilder decryptedText = new StringBuilder();
         for (int i = 0; i < charMatrix.length; i++) {
             decryptedText.append(String.valueOf(charMatrix[i]));
@@ -23,7 +24,6 @@ public class DecryptUtil {
     }
 
     /**
-     * First step of decrypting.
      * Fill char[][] matrix with counterclockwise spiral from center.
      *
      * @param encryptedText Input encrypted String.
@@ -40,7 +40,7 @@ public class DecryptUtil {
     }
 
     private char[][] matrixSpiralProcessing(char[][] matrix, int matrixSize, int spiralEdge,
-                                                   String encryptedText, int lastChar, int matrixLine, int matrixRow) {
+                                            String encryptedText, int lastChar, int matrixLine, int matrixRow) {
         if ((matrixSize + 1) / 2 != matrixSize / 2) {
             matrix[matrixLine--][matrixRow--] = encryptedText.charAt(--lastChar);
             spiralEdge++;
@@ -62,23 +62,5 @@ public class DecryptUtil {
             matrixRow--;
         }
         return matrix;
-    }
-
-    /**
-     * Third step of decrypting.
-     * Rotates char[][] 90 degrees counterclockwise.
-     *
-     * @param matrix char[][].
-     * @return rotated char[][].
-     */
-    private char[][] unRotate(char[][] matrix) {
-        char[][] rotatedMatrix = new char[matrix.length][matrix.length];
-        for (int k = 0; k < matrix.length; k++) {
-            for (int n = 0; n < matrix.length; n++) {
-                rotatedMatrix[k][matrix[k].length - 1 - n]
-                        = matrix[rotatedMatrix.length - 1 - n][rotatedMatrix.length - 1 - k];
-            }
-        }
-        return rotatedMatrix;
     }
 }
