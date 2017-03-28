@@ -16,8 +16,8 @@ public class EncryptUtil {
         MatrixUtil swapper = new MatrixUtil();
         return spiralToString(swapper.swapEvenAndOddColumns(
                 swapper.reverseColumn(
-                        swapper.reverseRow(
-                                swapper.transpose(
+                        swapper.transpose(
+                                swapper.reverseColumn(
                                         stringToMatrix(decryptedText))))));
     }
 
