@@ -1,27 +1,17 @@
 package com.courses.apollo.main;
 
 /**
- * It's a test.
+ * Created by Ihor Pronko.
  */
-
 public final class Main {
 
-    /**
-     * Main constructor.
-     */
-    private Main() {
-    }
+    private Main() {}
 
     /**
-     * This is main method.
-     *
+     * This is Main method.
      * @param args strings array
      */
     public static void main(String[] args) {
 
     }
-
 }
-
-
-

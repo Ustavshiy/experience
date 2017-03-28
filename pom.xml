@@ -193,7 +193,7 @@
                     -->
                     <execution>
                         <id>analyze-compile</id>
-                        <phase>compile</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -285,6 +285,7 @@
                     <excludes>
                         <exclude>**/model/**</exclude>
                         <exclude>**/main/**</exclude>
+                        <exclude>**/example/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>

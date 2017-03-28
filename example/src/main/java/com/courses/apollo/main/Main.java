@@ -12,6 +12,5 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
-
     }
 }
