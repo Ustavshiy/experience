@@ -13,9 +13,9 @@ public class DecryptUtil {
      * @return String of decrypted text.
      */
     public String decrypt(String encryptedText) {
-        MatrixUtil swapper = new MatrixUtil();
-        char[][] charMatrix = swapper.reverseColumn(swapper.swapEvenAndOddColumns(stringToMatrixSpiral(encryptedText)));
-        charMatrix = swapper.transpose(swapper.reverseRow(charMatrix));
+        MatrixUtil matrixUtil = new MatrixUtil();
+        char[][] charMatrix = matrixUtil.reverseColumn(matrixUtil.swapEvenAndOddColumns(stringToMatrixSpiral(encryptedText)));
+        charMatrix = matrixUtil.reverseColumn(matrixUtil.transpose(charMatrix));
         StringBuilder decryptedText = new StringBuilder();
         for (int i = 0; i < charMatrix.length; i++) {
             decryptedText.append(String.valueOf(charMatrix[i]));

@@ -54,22 +54,4 @@ public class MatrixUtil {
         }
         return matrix;
     }
-
-    /**
-     * Reverse each Row of matrix.
-     *
-     * @param matrix input char[][].
-     * @return reversed char[][].
-     */
-    public char[][] reverseRow(char[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length / 2; j++) {
-                char temp = matrix[i][j];
-                matrix[i][j] = matrix[i][matrix.length - 1 - j];
-                matrix[i][matrix.length - 1 - j] = temp;
-            }
-        }
-        return matrix;
-    }
-
 }
