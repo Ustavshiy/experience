@@ -13,11 +13,11 @@ public class EncryptUtil {
      * @return Encrypted String.
      */
     public String encrypt(String decryptedText) {
-        MatrixUtil swapper = new MatrixUtil();
-        return spiralToString(swapper.swapEvenAndOddColumns(
-                swapper.reverseColumn(
-                        swapper.transpose(
-                                swapper.reverseColumn(
+        MatrixUtil matrixUtil = new MatrixUtil();
+        return spiralToString(matrixUtil.swapEvenAndOddColumns(
+                matrixUtil.reverseColumn(
+                        matrixUtil.transpose(
+                                matrixUtil.reverseColumn(
                                         stringToMatrix(decryptedText))))));
     }
 
