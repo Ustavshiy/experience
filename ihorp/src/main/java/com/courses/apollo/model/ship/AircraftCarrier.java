@@ -5,9 +5,6 @@ package com.courses.apollo.model.ship;
  */
 public class AircraftCarrier extends WarshipImpl {
 
-    public AircraftCarrier() {
-    }
-
     /**
      * Field Number of Aircraft in Aircraft Carrier.
      */

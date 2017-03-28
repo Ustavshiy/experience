@@ -5,9 +5,6 @@ package com.courses.apollo.model.ship;
  */
 public abstract class WarshipImpl implements IShip {
 
-    public WarshipImpl() {
-    }
-
     /**
      * Weight of Warship.
      */
