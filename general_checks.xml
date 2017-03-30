@@ -193,7 +193,7 @@
         Description:    Checks the style of array type definitions. Default - Java style.
         Example:        Java style: public static void main(String[] args)
                         C style:    public static void main(String args[])
-        Error messages: Array brackets at illegal position.
+        Error messages: Array brackets at illepositionNametion.
         Doc ref:        http://checkstyle.sourceforge.net/config_misc.html#ArrayTypeStyle
         -->
         <module name="ArrayTypeStyle"/>
@@ -202,7 +202,7 @@
         Description:    Checks the style of array type definitions. Default - Java style.
         Example:        Java style: public static void main(String[] args)
                         C style:    public static void main(String args[])
-        Error messages: Array brackets at illegal position.
+        Error messages: Array brackets at illepositionNametion.
         Doc ref:        http://checkstyle.sourceforge.net/config_misc.html#ArrayTypeStyle
         -->
         <module name="MissingSwitchDefault"/>
