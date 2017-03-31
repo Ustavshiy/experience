@@ -1,46 +1,52 @@
 package com.courses.apollo.model.library;
 
-import java.util.List;
-
 /**
- * Created by Dell on 29.03.2017.
+ * Enum Book contain all books in library.
  */
-public class Book {
+public enum Book {
     /**
-     * Book title.
+     * Book Anna Karenina.
      */
-    private String title;
+    ANNA_KARENINA(true),
     /**
-     * List of readers.
+     * Book Madame Bovary.
      */
-    private List<Reader> readers;
-
+    MADAME_BOVARY(true),
+    /**
+     * Book War and peace.
+     */
+    WAR_AND_PEACE(true),
+    /**
+     * Book Great Gatsby.
+     */
+    GREAT_GATSBY(true);
+    /**
+     * Is book available.
+     */
     private boolean isAvailable;
 
-    public String getTitle() {
-        return title;
+    Book(boolean b) {
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Reader> getReaders() {
-        return readers;
-    }
-
-    public void addReaders(Reader reader) {
-        this.readers.add(reader);
-    }
-
+    /**
+     * Check book status.
+     *
+     * @return boolean.
+     */
     public boolean isAvailable() {
         return isAvailable;
     }
 
+    /**
+     * Set book status to available.
+     */
     public void setAvailable() {
         isAvailable = true;
     }
 
+    /**
+     * Set book status to Unavailable.
+     */
     public void setUnavailable() {
         isAvailable = false;
     }

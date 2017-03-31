@@ -1,35 +1,94 @@
 package com.courses.apollo.util.library;
 
 import com.courses.apollo.model.library.Book;
-import com.courses.apollo.model.library.Books;
 import com.courses.apollo.model.library.Reader;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class catalog of Books.
+ * Class catalog of Book.
  */
-public class Catalog {
+public final class Catalog {
     /**
-     * Books history.
+     * Book history.
      */
-    List<BookHistory> bookHistories = new ArrayList<>();
+    private List<BookHistory> bookHistories = new ArrayList<>();
+
+    /**
+     * Singleton pattern to avoid duplicates.
+     */
+    private static final Catalog INSTANCE = new Catalog();
+
+    private Catalog() {
+    }
+
+    public static Catalog getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Book history class. Conteins name of book and list of readers.
+     */
     public class BookHistory {
-        private Books books;
-        private Reader abonent;
+        /**
+         * Name of Book.
+         */
+        private Book book;
+        /**
+         * List of readers.
+         */
+        private List<Reader> readers = new ArrayList<>();
 
-        public void takeBook(String bookName, Reader abonent) {
-
+        public BookHistory(Book book) {
+            this.book = book;
         }
 
-        public String getCurrentAbonent(Book book) {
+        public BookHistory(Book book, Reader reader) {
+            this.book = book;
+            book.setUnavailable();
+            readers.add(reader);
+            bookHistories.add(this);
+        }
+
+        /**
+         * Method of taking the Book.
+         *
+         * @param reader Reader.
+         */
+        public void takeBook(Reader reader) {
             if (book.isAvailable()) {
-                return "Book " + book.getTitle() + " is aviable";
+                book.setUnavailable();
+                readers.add(reader);
+                bookHistories.add(this);
             }
-            return book.getReaders().get(book.getReaders().size() - 1).getName();
+        }
+
+        /**
+         * Method of returning the book.
+         */
+        public void returnBook() {
+            book.setAvailable();
+        }
+
+        /**
+         * Get name of current Reader of Book.
+         *
+         * @return String.
+         */
+        public String getCurrentReader() {
+            if (book.isAvailable()) {
+                return "Book " + book.name() + " is available";
+            }
+            return this.readers.get(readers.size() - 1).getName();
+        }
+
+        public List getReaders() {
+            return readers;
         }
     }
 
-
+    public List getBookHistories() {
+        return bookHistories;
+    }
 }
