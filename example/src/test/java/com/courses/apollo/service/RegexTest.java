@@ -6,12 +6,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by User on 30.03.2017.
- */
 public class RegexTest {
-
-
 
     @Test
     public void testRegexp() {
@@ -37,6 +32,5 @@ public class RegexTest {
         String[] words = p3.split("java5tiger 77 java6mustang");
         System.out.print(Arrays.toString(words));
     }
-
 
 }
