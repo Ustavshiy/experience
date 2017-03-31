@@ -1,23 +1,35 @@
 package com.courses.apollo.model;
 
+/**
+ * Class for a Simple Singleton.
+ */
+public final class SimpleSingleton {
 
-public class SimpleSingleton {
-    private static SimpleSingleton INSTANCE;
+    /**
+     * Class field for example.
+     */
+    private static SimpleSingleton instance;
 
     private SimpleSingleton() {
 
     }
 
+    /**
+     * Creates an instance of the class.
+     * @return INSTANCE.
+     */
     public static SimpleSingleton getInstance() {
-        if(INSTANCE == null) {
-            INSTANCE = new SimpleSingleton();
+        if (instance == null) {
+            instance = new SimpleSingleton();
         }
-        return INSTANCE;
+        return instance;
     }
 
+    /**
+     * doSomething displays the text.
+     */
     public void doSomething() {
-        System.out.println("Hello Class!@!!!!");
+        System.out.println("Hello Class!!!!!");
     }
-
 
 }
