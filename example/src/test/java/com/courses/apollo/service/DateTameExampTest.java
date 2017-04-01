@@ -1,10 +1,28 @@
 package com.courses.apollo.service;
 
 
-/**
- * Created by Богдан on 31.03.2017.
- */
+import org.junit.Test;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+
+import static org.junit.Assert.assertTrue;
+
 public class DateTameExampTest {
+
+
+    @Test
+    public void testConstructor()
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<DateTimeExample> constructor = DateTimeExample.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
+
+
 
 }
 

@@ -3,7 +3,6 @@ package com.courses.apollo.service;
 import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 import static java.time.temporal.TemporalAdjusters.nextOrSame;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.Duration;
@@ -26,7 +25,7 @@ import java.util.Locale;
 /**
  * Class for input and output dates and times.
  */
-public final class DateTimeExamples {
+public final class DateTimeExample {
 
     /**
      * Value of year.
@@ -78,25 +77,17 @@ public final class DateTimeExamples {
      */
     private static final int THIRDDNUMB = 86400;
 
-    public DateTimeExamples() {
+    private DateTimeExample() {
 
     }
 
-    /**
-     * Date and time output format.
-     */
-    private static final ThreadLocal<DateFormat> FORMATTERS = new ThreadLocal<DateFormat>() {
-        protected DateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-        }
-    };
 
     /**
      * Old method of using dates.
      */
     public static void useOldDate() {
         Date date = new Date(YEAR, MONTH, DATE, HRS, MIN);
-        System.out.println(FORMATTERS.get().format(date));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX").format(date));
         Calendar calendar = Calendar.getInstance();
         calendar.set(YEAR, Calendar.FEBRUARY, DATE);
         System.out.println(calendar);
@@ -127,7 +118,7 @@ public final class DateTimeExamples {
     /**
      * Class for setting time parameters.
      */
-    private static void useTemporalAdjuster() {
+    public static void useTemporalAdjuster() {
         LocalDate date = LocalDate.of(YEAR, MONTH, DATE);
         System.out.println(date.with(nextOrSame(DayOfWeek.SUNDAY)));
         System.out.println(date.with(lastDayOfMonth()));
@@ -152,7 +143,7 @@ public final class DateTimeExamples {
     /**
      * The class that returns the next working day.
      */
-    private static class NextWorkingDay implements TemporalAdjuster {
+    public static class NextWorkingDay implements TemporalAdjuster {
         @Override
         public Temporal adjustInto(Temporal temporal) {
             DayOfWeek dow = DayOfWeek.of(temporal.get(ChronoField.DAY_OF_WEEK));
@@ -170,7 +161,7 @@ public final class DateTimeExamples {
     /**
      * Class for formatting dates.
      */
-    private static void useDateFormatter() {
+    public static void useDateFormatter() {
         LocalDate date = LocalDate.of(YEAR, MONTH, DATE);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter italianFormatter = DateTimeFormatter.ofPattern("d. MMMM yyyy", Locale.ITALIAN);
