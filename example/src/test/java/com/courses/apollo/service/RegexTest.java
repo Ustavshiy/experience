@@ -27,10 +27,9 @@ public class RegexTest {
         while (m2.find()) {
             System.out.println("e-mail: " + m2.group());
         }
-// разбиение строки на подстроки с применением шаблона в качестве разделителя
+        // разбиение строки на подстроки с применением шаблона в качестве разделителя
         Pattern p3 = Pattern.compile("\\d+\\s?");
         String[] words = p3.split("java5tiger 77 java6mustang");
         System.out.print(Arrays.toString(words));
     }
-
 }

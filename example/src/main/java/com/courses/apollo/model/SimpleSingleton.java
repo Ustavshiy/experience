@@ -16,6 +16,7 @@ public final class SimpleSingleton {
 
     /**
      * Creates an instance of the class.
+     *
      * @return INSTANCE.
      */
     public static SimpleSingleton getInstance() {

@@ -4,16 +4,18 @@ import static org.junit.Assert.assertTrue;
 import static com.courses.apollo.service.DateTimeExample.*;
 
 import org.junit.Test;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
+
 import org.junit.Assert;
-import org.junit.Test;
 
 public class DateTameExampTest {
     private final String testData = "3914-04-18T13:45:00.000+03:00";
     private final String testLocalData = "2014-03-18T13:45:20";
     private final String testTemporalAdjuster = "2014-03-19";
+    private final String testTemporalAdjusterMon = "2017-03-20";
     private final String testDateFormatter = "18. marzo 2014";
     private final Integer year = 2014;
     private final Integer month = 3;
@@ -45,6 +47,8 @@ public class DateTameExampTest {
     @Test
     public void testUseTemporalAdjuster() {
         Assert.assertEquals(testTemporalAdjuster, useTemporalAdjuster(year, month, date).toString());
+        Assert.assertEquals(testTemporalAdjusterMon, useTemporalAdjuster(2017, 03, 17).toString());
+        Assert.assertEquals(testTemporalAdjusterMon, useTemporalAdjuster(2017, 03, 18).toString());
     }
 
     @Test
