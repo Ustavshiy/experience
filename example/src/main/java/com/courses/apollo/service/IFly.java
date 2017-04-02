@@ -36,13 +36,4 @@ public interface IFly {
         System.out.println("Fly default");
     }
 
-    /**
-     * Default fly overloaded method.
-     *
-     * @param test input String.
-     */
-    default void flyDefault(String test) {
-        System.out.println("Fly default");
-    }
-
 }
