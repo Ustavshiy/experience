@@ -35,7 +35,7 @@ public class DateTameExampTest {
 
     @Test
     public void testOldDate() {
-        Assert.assertEquals(testData, useOldDate(year, month, date, hrs, min));
+        Assert.assertEquals(testData, useOldDate(year, month, date, hrs, min).toString());
     }
 
     @Test
