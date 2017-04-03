@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-
 /**
  * Europe service class.
  */
