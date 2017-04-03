@@ -14,13 +14,13 @@ public class FindAvrgTimeFee {
         /**
          * Method that fint average payment of 1 canadian employee in 1 hour (in previous (ended) year).
          * @param salary to indicate salary per year.
-         * @param workhours to indicate quantity of work hours in 1 day.
+         * @param workhour to indicate quantity of work hours in 1 day.
          * @param holidays to take list of Canadian Holidays.
          * @return average payment of 1 canadian employee in 1 hour in cents.
          */
-        public int findAvrgTimeFee(int salary, int workhours, List<Holiday> holidays) {
+        public int findAvrgTimeFee(int salary, int workhour, List<Holiday> holidays) {
                 int workday = findWorkeDays(holidays);
-                int result = Math.round(salary / (workday * workhours));
+                int result = Math.round(salary / (workday * workhour));
                 return result;
         }
 
