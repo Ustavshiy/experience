@@ -9,6 +9,9 @@ public class Reader {
      */
     private String name;
 
+    public Reader() {
+    }
+
     public Reader(String name) {
         this.name = name;
     }

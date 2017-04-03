@@ -60,7 +60,7 @@ public class Department {
         }
     }
 
-    public List getPositions() {
+    public List<Position> getPositions() {
         return positions;
     }
 }

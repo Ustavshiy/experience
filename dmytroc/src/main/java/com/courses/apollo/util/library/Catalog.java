@@ -83,12 +83,12 @@ public final class Catalog {
             return this.readers.get(readers.size() - 1).getName();
         }
 
-        public List getReaders() {
+        public List<Reader> getReaders() {
             return readers;
         }
     }
 
-    public List getBookHistories() {
+    public List<BookHistory> getBookHistories() {
         return bookHistories;
     }
 }
