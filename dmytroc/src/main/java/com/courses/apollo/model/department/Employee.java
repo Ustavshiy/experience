@@ -15,6 +15,9 @@ public class Employee {
      */
     private LocalDate accessionDate;
 
+    public Employee() {
+    }
+
     public Employee(String employeeName, int year, int month, int day) {
         this.employeeName = employeeName;
         this.accessionDate = LocalDate.of(year, month, day);
