@@ -1,5 +1,7 @@
 package com.courses.apollo.model.europe;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +38,18 @@ public class Europe {
         return countries;
     }
 
+    public void addCountry(String country) {
+        countries.add(new Country(country));
+    }
+
+    @Override
+    public String toString() {
+        return "Europe{" +
+                "year=" + year +
+                ", countries=" + countries +
+                '}';
+    }
+
     public void setCountries(List<Country> countries) {
         this.countries = countries;
     }
@@ -70,6 +84,13 @@ public class Europe {
         @Override
         public int hashCode() {
             return Objects.hash(name);
+        }
+
+        @Override
+        public String toString() {
+            return "Country{" +
+                    "name='" + name + '\'' +
+                    '}';
         }
     }
 }

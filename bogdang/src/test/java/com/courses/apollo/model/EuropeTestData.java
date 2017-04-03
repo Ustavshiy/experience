@@ -1,6 +1,7 @@
 package com.courses.apollo.model;
 
 import com.courses.apollo.model.europe.Europe;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
  */
 public class EuropeTestData {
 
-    public static List<Europe> getEuropeOne() {
-        List<Europe> europeList = new ArrayList<>();
-        europeList.add(new Europe(1991, new Europe.Country("Urkaine", "Polsha")));
-        return europeList;
+    @Test
+    public void getEuropeOne() {
+        List<Europe.Country> europeList = new ArrayList<>();
+        Europe europe = new Europe(1994, europeList);
+        europe.addCountry("Ukrain");
+        System.out.println(europe);
     }
 }
