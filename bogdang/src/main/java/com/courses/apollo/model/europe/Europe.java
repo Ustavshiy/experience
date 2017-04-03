@@ -18,9 +18,6 @@ public class Europe {
      */
     private List<Country> countries;
 
-    public Europe() {
-
-    }
 
     public Europe(Integer year, List<Country> countries) {
         this.year = year;
@@ -49,10 +46,6 @@ public class Europe {
          * Name of the country.
          */
         private String name;
-
-        public Country () {
-
-        }
 
         public Country (String name) {
             this.name = name;
