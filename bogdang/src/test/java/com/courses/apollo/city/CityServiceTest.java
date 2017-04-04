@@ -2,14 +2,10 @@ package com.courses.apollo.city;
 
 import com.courses.apollo.model.CityTestData;
 import com.courses.apollo.service.CityService;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Богдан on 05.04.2017.
- */
 public class CityServiceTest {
 
     private CityService cityService = new CityService();

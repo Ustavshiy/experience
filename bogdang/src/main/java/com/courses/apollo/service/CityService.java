@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Богдан on 04.04.2017.
+ * Created service for city..
  */
 public class CityService {
 

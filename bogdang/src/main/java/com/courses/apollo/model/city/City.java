@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Created by Богдан on 04.04.2017.
+ * Created class city.
  */
 public class City {
 
