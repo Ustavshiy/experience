@@ -13,9 +13,12 @@ import java.util.List;
  * Created by User on 03.04.2017.
  */
 public class EuropeServiceTest {
+    private EuropeService europeService = new EuropeService();
+    private final static Integer YEAR = 1954;
 
     @Test
     public void testTerritorialDivision() {
-        Assert.assertEquals(EuropeTestData.getCountry(), EuropeService.territorialDivision(1954, EuropeTestData.getEurope()));
+        Assert.assertEquals(EuropeTestData.getCountry(), europeService.territorialDivision(YEAR,
+                EuropeTestData.getEurope()));
     }
 }
