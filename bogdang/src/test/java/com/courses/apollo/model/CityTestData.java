@@ -36,4 +36,25 @@ public class CityTestData {
         cityList.add(cityTwo);
         return cityList;
     }
+
+    public static List<City.InfoCity> getKievAvenue() {
+        List<City.InfoCity> avenue = new ArrayList<>();
+        avenue.add(new City.InfoCity("Reunion", 1959));
+        avenue.add(new City.InfoCity("Victory", 1964));
+        return avenue;
+    }
+
+    public static List<City.InfoCity> getLvivStreet() {
+        List<City.InfoCity> street = new ArrayList<>();
+        street.add(new City.InfoCity("Galicka", 1382));
+        street.add(new City.InfoCity("Zelena", 1685));
+        return street;
+    }
+
+    public static List<City.InfoCity> getKievSquare() {
+        List<City.InfoCity> square = new ArrayList<>();
+        square.add(new City.InfoCity("Ivana Franca", 1944));
+        square.add(new City.InfoCity("Sofiyska", 1036));
+        return square;
+    }
 }
