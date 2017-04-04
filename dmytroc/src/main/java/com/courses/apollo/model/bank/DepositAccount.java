@@ -1,5 +1,7 @@
 package com.courses.apollo.model.bank;
 
+import com.courses.apollo.util.bank.DepositUtil;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -7,41 +9,66 @@ import java.time.LocalDate;
  * Created by Dell on 01.04.2017.
  */
 public class DepositAccount {
-    private BigDecimal DepositValue;
-    LocalDate InDate;
-    LocalDate outDate;
-    Deposit depositType;
+    /**
+     * Money value of deposit.
+     */
+    private BigDecimal depositValue;
+    /**
+     * Start deposit date.
+     */
+    private LocalDate depositDate;
+    /**
+     * End deposit date.
+     */
+    private LocalDate endDate;
+    /**
+     * Deposit type.
+     */
+    private DepositType depositType;
 
     private DepositAccount() {
     }
 
-    public DepositAccount(Double depositSum, Deposit depositType, int year, int month, int day) {
-        DepositValue = new BigDecimal(depositSum);
-        InDate = LocalDate.of(year, month, day);
+    public DepositAccount(Double depositSum, DepositType depositType, int year, int month, int day) {
+        depositValue = new BigDecimal(depositSum);
+        depositDate = LocalDate.of(year, month, day);
         this.depositType = depositType;
+        this.endDate = new DepositUtil().getDepositEndDate(this);
+    }
+
+    /**
+     * Set start date of deposit, deposit type and end date.
+     *
+     * @param depositDate deposit start date.
+     * @param depositType deposit type.
+     */
+    public void setInDate(LocalDate depositDate, DepositType depositType) {
+        this.depositDate = depositDate;
+        this.depositType = depositType;
+        this.endDate = new DepositUtil().getDepositEndDate(this);
     }
 
     public LocalDate getStartDate() {
-        return InDate;
+        return depositDate;
     }
 
-    public void setOutDate(LocalDate outDate) {
-        this.outDate = outDate;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public LocalDate getEndDate() {
-        return outDate;
+        return endDate;
     }
 
-    public Deposit getDepositType() {
+    public DepositType getDepositType() {
         return depositType;
     }
 
     public BigDecimal getDepositValue() {
-        return DepositValue;
+        return depositValue;
     }
 
     public void setDepositValue(BigDecimal depositValue) {
-        DepositValue = depositValue;
+        this.depositValue = depositValue;
     }
 }

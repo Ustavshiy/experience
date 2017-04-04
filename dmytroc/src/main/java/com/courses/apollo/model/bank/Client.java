@@ -4,22 +4,28 @@ package com.courses.apollo.model.bank;
  * Created by Dell on 01.04.2017.
  */
 public class Client {
-    private String Name;
+    /**
+     * Client name.
+     */
+    private String name;
+    /**
+     * Deposit account.
+     */
     private DepositAccount depositAccount;
 
     public Client() {
     }
 
     public Client(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public DepositAccount getDepositAccount() {
