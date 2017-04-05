@@ -52,17 +52,6 @@ public class DepositUtil {
     }
 
     /**
-     * Returns money plus interest at current date.
-     *
-     * @param account     deposit account.
-     * @param currentDate current date.
-     * @return current money.
-     */
-    public BigDecimal getCurrentDepositValue(DepositAccount account, LocalDate currentDate) {
-        return rounded(account.getDepositValue()).add(getDailyInterest(account, currentDate));
-    }
-
-    /**
      * Returns Local Date when client can withdraw money.
      *
      * @param depositAccount deposit account.
@@ -83,9 +72,9 @@ public class DepositUtil {
      * @param account DepositType account.
      * @return money value.
      */
-    public BigDecimal getDepositInterest(DepositAccount account) {
+    public BigDecimal getDepositCompoundInterest(DepositAccount account) {
         LocalDate withdrawDate = account.getEndDate();
-        return getDailyInterest(account, withdrawDate);
+        return account.getDepositValue().add(getDailyInterest(account, withdrawDate));
 
     }
 
@@ -100,7 +89,55 @@ public class DepositUtil {
                 .divide(new BigDecimal(yearDays * percentDivider), roundingMode);
     }
 
+    /**
+     * Returns money plus interest at current date.
+     *
+     * @param account     deposit account.
+     * @param currentDate current date.
+     * @return current money.
+     */
+    private BigDecimal getCurrentDepositValue(DepositAccount account, LocalDate currentDate) {
+        return rounded(account.getDepositValue()).add(getDailyInterest(account, currentDate));
+    }
+
     private BigDecimal rounded(BigDecimal aNumber) {
         return aNumber.setScale(decimals, roundingMode);
+    }
+
+    /**
+     * Returns object of Daily account status.
+     * @param depositAccount deposit account.
+     * @param currentDate current date.
+     * @return DailyStatus.
+     */
+    public DailyStatus getDailyStatus(DepositAccount depositAccount, LocalDate currentDate) {
+        return new DailyStatus(depositAccount, currentDate);
+    }
+
+    /**
+     * Inner class DailyStatus. Contains. information about current status of account.
+     */
+    class DailyStatus {
+        /**
+         * Deposit account.
+         */
+        private DepositAccount account;
+        /**
+         * Current date.
+         */
+        private LocalDate currentDate;
+
+        DailyStatus(DepositAccount account, LocalDate currentDate) {
+            this.account = account;
+            this.currentDate = currentDate;
+        }
+
+        public LocalDate getWithdrawDate() {
+            return DepositUtil.this.withdrawMoneyDate(account);
+        }
+
+        public BigDecimal getCurrentDepositValue() {
+            return DepositUtil.this.getCurrentDepositValue(account, currentDate);
+        }
     }
 }
