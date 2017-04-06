@@ -33,17 +33,15 @@ public class FindAvrgTimeFee {
          */
         private int findWorkDays(List<Holiday> holidays, int year) {
                 LocalDate reportPeriod = LocalDate.of(year, 1, 1);
-                int daysInYear = findDaysQuantityInYear(reportPeriod);
-                int workdays = daysInYear;
-                for (int i = 0; i < daysInYear; i++) {
+                int workdays = findDaysQuantityInYear(reportPeriod);
+                for (int i = 0; i < findDaysQuantityInYear(reportPeriod); i++) {
                         int result = reportPeriod.getDayOfWeek().getValue();
                         if (result == DayOfWeek.SATURDAY.getValue() || result == DayOfWeek.SUNDAY.getValue()) {
                                 workdays--;
                         } else {
                                 for (int k = 0; k < holidays.size(); k++) {
                                         String strData = holidays.get(k).getDate();
-                                        LocalDate holidayData = LocalDate.parse(strData);
-                                        if (holidayData.getDayOfYear() == reportPeriod.getDayOfYear()) {
+                                        if (LocalDate.parse(strData).getDayOfYear() == reportPeriod.getDayOfYear()) {
                                                 workdays--;
                                         }
                                 }

@@ -4,9 +4,6 @@ import com.courses.apollo.model.CanadianHolidayTestData;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by vladimirk on 03.04.17.
- */
 public class FindAvrgTimeFeeTest {
 
     private final static FindAvrgTimeFee findAvrgTimeFee = new FindAvrgTimeFee();
