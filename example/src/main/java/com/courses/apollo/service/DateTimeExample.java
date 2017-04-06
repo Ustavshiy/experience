@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -68,12 +67,7 @@ public final class DateTimeExample {
      * @return local date format.
      */
     public static LocalDateTime useLocalDate(int year, int month, int datte, int hrs, int min, int sec) {
-        LocalDate date = LocalDate.of(year, month, datte);
-        System.out.println(date);
-        LocalTime time = LocalTime.of(hrs, min, sec); // 13:45:20
-        System.out.println(time);
-        LocalDateTime dateTime = LocalDateTime.of(year, Month.MARCH, datte, hrs, min, sec); // 2014-03-18T13:45
-        return dateTime;
+        return LocalDateTime.of(year, Month.MARCH, datte, hrs, min, sec);
     }
 
     /**
