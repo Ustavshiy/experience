@@ -19,12 +19,10 @@ public class RocketFlyImpl implements IVerticalFly, IFly {
 
         SomeFlyClass someFlyClass = new SomeFlyClass();
         someFlyClass.fly();
-        System.out.println("Rocket fly");
     }
 
     @Override
     public void verticalFly() {
-        System.out.println("Vertical Fly");
     }
 
     @Override

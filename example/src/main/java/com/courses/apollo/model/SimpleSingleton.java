@@ -16,6 +16,7 @@ public final class SimpleSingleton {
 
     /**
      * Creates an instance of the class.
+     *
      * @return INSTANCE.
      */
     public static SimpleSingleton getInstance() {
@@ -29,7 +30,6 @@ public final class SimpleSingleton {
      * doSomething displays the text.
      */
     public void doSomething() {
-        System.out.println("Hello Class!!!!!");
     }
 
 }

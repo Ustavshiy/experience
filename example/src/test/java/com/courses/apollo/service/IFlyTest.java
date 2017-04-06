@@ -1,6 +1,7 @@
 package com.courses.apollo.service;
 
 import com.courses.apollo.model.Plane;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class IFlyTest {
 
     public IFly iFly;
     public AngryBird angryBird = new AngryBird();
+    private final String test = "Fly default";
 
     @Test
     public void AngryBirdFlyTest() {
