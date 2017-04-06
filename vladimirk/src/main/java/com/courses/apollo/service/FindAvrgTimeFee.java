@@ -53,11 +53,11 @@ public class FindAvrgTimeFee {
                 return workdays;
         }
 
-        /**
-         Method to find quantity of days in year.
-         @param reportPeriod to indicate year.
-         @return quantity of days.
-         */
+         /**
+          Method to find quantity of days in year.
+          @param reportPeriod to indicate year.
+          @return quantity of days.
+          */
          private int findDaysQuantityInYear(LocalDate reportPeriod) {
                 int daysInYear;
                 if (reportPeriod.isLeapYear()) {
