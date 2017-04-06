@@ -55,14 +55,14 @@ public class Calendar {
     /**
      *Class Weekend - inner class of Calendar.
      */
-    private class Weekend {
+    final class Weekend {
 
         /**
          *@param name indicate name of holidays, if it's null - indicate that the date is weekend, but not a holiday.
          */
         private String name;
 
-        /**
+         /**
          * Constructor for holidays.
          * @param date to indicate date of the holiday.
          * @param month to indicate month of the holiday.
@@ -70,7 +70,7 @@ public class Calendar {
          * @param dayOfWeek to indicate day of the week of the holiday.
          * @param name to indicate name of the holiday.
          */
-        public Weekend(String date, String month, String year, String dayOfWeek, String name) {
+         private Weekend(String date, String month, String year, String dayOfWeek, String name) {
             Calendar.date = date;
             Calendar.month = month;
             Calendar.year = year;
@@ -85,7 +85,7 @@ public class Calendar {
          * @param year year to indicate year of the holiday.
          * @param dayOfWeek to indicate day of the week of the holiday.
          */
-        public Weekend(String date, String month, String year, String dayOfWeek) {
+        private Weekend(String date, String month, String year, String dayOfWeek) {
             Calendar.date = date;
             Calendar.month = month;
             Calendar.year = year;
