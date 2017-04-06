@@ -62,7 +62,6 @@ public final class MotorcycleService {
         for (MotoEquipment motoEquipment : motorcyclist) {
             totalPrice = totalPrice.add(motoEquipment.getPrice());
         }
-        System.out.println(totalPrice);
         return totalPrice;
     }
 }

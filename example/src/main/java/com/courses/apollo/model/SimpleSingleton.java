@@ -30,7 +30,6 @@ public final class SimpleSingleton {
      * doSomething displays the text.
      */
     public void doSomething() {
-        System.out.println("Hello Class!!!!!");
     }
 
 }
