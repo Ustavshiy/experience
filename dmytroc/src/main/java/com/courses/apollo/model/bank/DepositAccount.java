@@ -29,7 +29,7 @@ public class DepositAccount {
     private DepositAccount() {
     }
 
-    public DepositAccount(Double depositSum, DepositType depositType, int year, int month, int day) {
+    public DepositAccount(String depositSum, DepositType depositType, int year, int month, int day) {
         depositValue = new BigDecimal(depositSum);
         depositDate = LocalDate.of(year, month, day);
         this.depositType = depositType;

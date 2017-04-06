@@ -19,16 +19,16 @@ public class DepositUtilTest {
     private Client testClientTwo = new Client();
     LocalDate expectedOneWithdrawResult = LocalDate.of(2017, 6, 5);
     LocalDate expectedTwoWithdrawResult = LocalDate.of(2017, 9, 4);
-    LocalDate testLocalDate = LocalDate.of(2017, 04, 05);
-    BigDecimal expectedForLocalDateResult = new BigDecimal("3008.13");
-    BigDecimal expectedCompoundInterestResult = new BigDecimal("2042.84");
+    LocalDate testLocalDate = LocalDate.of(2020, 7, 9);
+    BigDecimal expectedForLocalDateResult = new BigDecimal("4608.96");
+    BigDecimal expectedCompoundInterestResult = new BigDecimal("2166.35");
     DepositAccount clientOneAccount;
     DepositAccount clientTwoAccount;
 
     @Before
     public void before() {
-        testClientOne.setDepositAccount(new DepositAccount(3000.00, DepositType.THREE_MONTH, 2017, 03, 03));
-        testClientTwo.setDepositAccount(new DepositAccount(2000.00, DepositType.SIX_MONTH, 2017, 03, 03));
+        testClientOne.setDepositAccount(new DepositAccount("3000.00", DepositType.THREE_MONTH, 2017, 03, 03));
+        testClientTwo.setDepositAccount(new DepositAccount("2000.00", DepositType.SIX_MONTH, 2017, 03, 03));
         this.clientOneAccount = testClientOne.getDepositAccount();
         this.clientTwoAccount = testClientTwo.getDepositAccount();
     }
@@ -50,5 +50,4 @@ public class DepositUtilTest {
     public void getDepositCompoundInterestTest() {
         Assert.assertEquals(expectedCompoundInterestResult, depositUtil.getDepositCompoundInterest(clientTwoAccount));
     }
-
 }

@@ -9,19 +9,15 @@ public enum DepositType {
     /**
      * Three month deposit.
      */
-    THREE_MONTH(new BigDecimal("3.00"), 3),
+    THREE_MONTH(new BigDecimal("16.00"), 3),
     /**
      * Six month deposit.
      */
-    SIX_MONTH(new BigDecimal("4.25"), 6),
-    /**
-     * Nine month deposit.
-     */
-    NINE_MONTH(new BigDecimal("6.50"), 9),
+    SIX_MONTH(new BigDecimal("16.50"), 6),
     /**
      * One year deposit.
      */
-    ONE_YEAR(new BigDecimal("9.00"), 12);
+    ONE_YEAR(new BigDecimal("16.80"), 12);
     /**
      * Deposit penrcent.
      */
