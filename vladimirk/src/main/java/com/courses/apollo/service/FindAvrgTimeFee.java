@@ -15,59 +15,56 @@ public class FindAvrgTimeFee {
          * Method that fint average payment of 1 canadian employee in 1 hour (in previous (ended) year).
          * @param salary to indicate salary per year.
          * @param workhour to indicate quantity of work hours in 1 day.
+         * @param year to indicate report year.
          * @param holidays to take list of Canadian Holidays.
          * @return average payment of 1 canadian employee in 1 hour in cents.
          */
-        public int findAvrgTimeFee(int salary, int workhour, List<Holiday> holidays) {
-                int workday = findWorkeDays(holidays);
+        public int findAvrgTimeFee(int salary, int workhour, int year, List<Holiday> holidays) {
+                int workday = findWorkDays(holidays, year);
                 int result = Math.round(salary / (workday * workhour));
                 return result;
         }
 
         /**
-         * Method to wind workdays in Canada without weekands and holidays.
+         * Method to find workdays in Canada without weekends and holidays.
          * @param holidays - list of holidays in Canada in 2016.
+         * @param year to indicate report year.
          * @return quantity of workdays.
          */
-        private int findWorkeDays(List<Holiday> holidays) {
-                LocalDate localDate = LocalDate.now();
-                localDate = localDate.now().minusYears(1);
-                int daysQuantity = findDaysQuantityInYear(localDate);
-                localDate = localDate.of(localDate.getYear(), 1, 1).minusDays(1);
-                int workdays = daysQuantity;
-                for (int i = 0; i < daysQuantity; i++) {
-                        localDate = localDate.plusDays(1);
-                        int result = localDate.getDayOfWeek().getValue();
-                        int saturday = DayOfWeek.SATURDAY.getValue();
-                        int sunday = DayOfWeek.SUNDAY.getValue();
-                        if (result == saturday || result == sunday) {
+        private int findWorkDays(List<Holiday> holidays, int year) {
+                LocalDate reportPeriod = LocalDate.of(year, 1, 1);
+                int daysInYear = findDaysQuantityInYear(reportPeriod);
+                int workdays = daysInYear;
+                for (int i = 0; i < daysInYear; i++) {
+                        int result = reportPeriod.getDayOfWeek().getValue();
+                        if (result == DayOfWeek.SATURDAY.getValue() || result == DayOfWeek.SUNDAY.getValue()) {
                                 workdays--;
                         } else {
                                 for (int k = 0; k < holidays.size(); k++) {
                                         String strData = holidays.get(k).getDate();
                                         LocalDate holidayData = LocalDate.parse(strData);
-                                        if (holidayData.getDayOfYear() == localDate.getDayOfYear()) {
+                                        if (holidayData.getDayOfYear() == reportPeriod.getDayOfYear()) {
                                                 workdays--;
                                         }
                                 }
                         }
+                        reportPeriod = reportPeriod.plusDays(1);
                 }
                 return workdays;
         }
 
         /**
-         * Method to find quantity of days in year.
-         * @param localDate to indicate last ended year.
-         * @return quantity of days.
+         Method to find quantity of days in year.
+         @param reportPeriod to indicate year.
+         @return quantity of days.
          */
-        private int findDaysQuantityInYear(LocalDate localDate) {
-                int daysQuantity;
-                if (localDate.isLeapYear()) {
-                        daysQuantity =  localDate.MAX.getDayOfYear() + 1;
+         private int findDaysQuantityInYear(LocalDate reportPeriod) {
+                int daysInYear;
+                if (reportPeriod.isLeapYear()) {
+                        daysInYear =  reportPeriod.MAX.getDayOfYear() + 1;
                 } else {
-                        daysQuantity = localDate.MAX.getDayOfYear();
+                        daysInYear = reportPeriod.MAX.getDayOfYear();
                 }
-                return daysQuantity;
+                return daysInYear;
         }
 }
-
