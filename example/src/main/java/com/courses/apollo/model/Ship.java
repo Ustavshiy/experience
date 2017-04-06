@@ -8,10 +8,6 @@ public class Ship {
      * Engine inner class.
      */
     private Engine eng;
-    /**
-     * String test.
-     */
-    private String test = "Test";
 
     /**
      * Inner class.
@@ -23,8 +19,6 @@ public class Ship {
          * Method in inner class.
          */
         public void launch() {
-            System.out.println("Запуск двигателя");
-            System.out.println(test);
         }
     } // конец объявления внутреннего класса
 

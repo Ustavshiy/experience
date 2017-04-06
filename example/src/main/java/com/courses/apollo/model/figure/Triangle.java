@@ -31,7 +31,7 @@ public final class Triangle extends AngleShape {
     }
 
     public Triangle() {
-        System.out.println("In triangle constructor");
+
     }
 
     /**

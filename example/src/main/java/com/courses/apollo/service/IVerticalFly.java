@@ -13,7 +13,6 @@ public interface IVerticalFly {
      * Default method.
      */
     default void flyDefault() {
-        System.out.println("Fly default in vertical Fly");
     }
 
 }
