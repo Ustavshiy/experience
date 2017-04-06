@@ -26,14 +26,12 @@ public interface IFly {
      * Static method in interface.
      */
     static void testInFly() {
-        System.out.println("Test");
     }
 
     /**
      * Default fly method.
      */
     default void flyDefault() {
-        System.out.println("Fly default");
     }
 
 }

@@ -45,12 +45,12 @@ public final class ComputerService {
      * The method calculate space of all of hdd disks in the computer.
      * @param computer is the object type Computer.
      */
-    public static void hddTotalSpace(Computer computer) {
+    public static int hddTotalSpace(Computer computer) {
         int hddSpace = 0;
         for (int i = 0; i < computer.getHardDiskDrives().size(); i++) {
             hddSpace += computer.getHardDiskDrives().get(i).getCapacityHdd();
         }
-        System.out.println(hddSpace);
+        return hddSpace;
     }
 }
 
