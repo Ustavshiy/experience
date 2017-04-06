@@ -55,7 +55,7 @@ public class Calendar {
     /**
      *Class Weekend - inner class of Calendar.
      */
-    public class Weekend {
+    private class Weekend {
 
         /**
          *@param name indicate name of holidays, if it's null - indicate that the date is weekend, but not a holiday.
