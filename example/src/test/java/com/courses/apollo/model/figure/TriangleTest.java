@@ -14,10 +14,7 @@ public class TriangleTest {
 
     @Before
     public void before() {
-        triangle = new Triangle();
-        triangle.setSideA(10.00);
-        triangle.setSideB(10.00);
-        triangle.setSideC(10.00);
+        triangle = new Triangle(10.00);
     }
 
     @Test
