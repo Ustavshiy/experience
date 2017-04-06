@@ -12,7 +12,7 @@ import java.lang.reflect.Modifier;
 import org.junit.Assert;
 
 public class DateTameExampTest {
-    private final String testData = "3914-04-18T13:45:00.000+03:00";
+    private final String testData = "3914-04-18T13:45:00";
     private final String testLocalData = "2014-03-18T13:45:20";
     private final String testTemporalAdjuster = "2014-03-19";
     private final String testTemporalAdjusterMon = "2017-03-20";
@@ -35,7 +35,7 @@ public class DateTameExampTest {
 
     @Test
     public void testOldDate() {
-        Assert.assertEquals(testData, useOldDate(year, month, date, hrs, min).toString());
+        Assert.assertEquals(testData, useOldDate(year, month, date, hrs, min));
     }
 
     @Test

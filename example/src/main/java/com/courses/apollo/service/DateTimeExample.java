@@ -34,7 +34,7 @@ public final class DateTimeExample {
     public static final ThreadLocal<DateFormat> FORMATTERS = new ThreadLocal<DateFormat>() {
         @Override
         protected DateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         }
     };
 
