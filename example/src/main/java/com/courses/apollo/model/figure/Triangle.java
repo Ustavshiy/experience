@@ -14,6 +14,10 @@ public final class Triangle extends AngleShape {
      */
     private double sideC;
 
+    public Triangle(double sideA) {
+        super(sideA);
+    }
+
     public double getSideB() {
         return sideB;
     }
@@ -30,9 +34,7 @@ public final class Triangle extends AngleShape {
         this.sideC = sideC;
     }
 
-    public Triangle() {
 
-    }
 
     /**
      * Get Triangle area.

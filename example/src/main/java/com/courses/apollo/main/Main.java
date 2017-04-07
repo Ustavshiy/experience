@@ -1,5 +1,7 @@
 package com.courses.apollo.main;
 
+import com.courses.apollo.service.MemoryClass;
+
 /**
  * Created by User on 20.02.2017.
  */
@@ -12,5 +14,6 @@ public final class Main {
      * @param args strings array
      */
     public static void main(String[] args) {
+
     }
 }
