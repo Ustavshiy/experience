@@ -30,7 +30,11 @@ public class DepositAccount {
     }
 
     public DepositAccount(String depositSum, DepositType depositType, int year, int month, int day) {
-        depositValue = new BigDecimal(depositSum);
+        try {
+            depositValue = new BigDecimal(depositSum);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException();
+        }
         depositDate = LocalDate.of(year, month, day);
         this.depositType = depositType;
         this.endDate = new DepositUtil().getDepositEndDate(this);

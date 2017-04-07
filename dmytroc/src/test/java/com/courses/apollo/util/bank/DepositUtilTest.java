@@ -17,6 +17,7 @@ public class DepositUtilTest {
     DepositUtil depositUtil = new DepositUtil();
     private Client testClientOne = new Client();
     private Client testClientTwo = new Client();
+    private Client testClientThree = new Client();
     LocalDate expectedOneWithdrawResult = LocalDate.of(2017, 6, 5);
     LocalDate expectedTwoWithdrawResult = LocalDate.of(2017, 9, 4);
     LocalDate testLocalDate = LocalDate.of(2020, 7, 9);
@@ -31,6 +32,11 @@ public class DepositUtilTest {
         testClientTwo.setDepositAccount(new DepositAccount("2000.00", DepositType.SIX_MONTH, 2017, 03, 03));
         this.clientOneAccount = testClientOne.getDepositAccount();
         this.clientTwoAccount = testClientTwo.getDepositAccount();
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void getExceptionAccountStatus() {
+        testClientThree.setDepositAccount(new DepositAccount("two thousand", DepositType.SIX_MONTH, 2017, 03, 03));
     }
 
     @Test
