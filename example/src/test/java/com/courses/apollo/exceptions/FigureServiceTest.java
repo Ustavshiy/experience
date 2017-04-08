@@ -19,15 +19,15 @@ public class FigureServiceTest {
         figureService = new FigureService();
     }
 
-    @Test(expected = FigureIllegalArgumentsEntered.class)
-    public void testFigureService() {
-        Shape triangle = new Triangle(0.0);
-        figureService.getPerimeter(triangle);
-    }
+//    @Test(expected = FigureIllegalArgumentsEntered.class)
+//    public void testFigureService() {
+//        Shape triangle = new Triangle(0.0);
+//        figureService.getPerimeter(triangle);
+//    }
 
-    @Test(expected = NullPointerException.class)
-    public void testIfFigureThrowException() {
-        Triangle triangle = new Triangle(10.00);
-        triangle.getArea();
-    }
+//    @Test(expected = NullPointerException.class)
+//    public void testIfFigureThrowException() {
+//        Triangle triangle = new Triangle(10.00);
+//        triangle.getArea();
+//    }
 }
