@@ -2,6 +2,7 @@ package com.courses.apollo.model;
 
 import com.courses.apollo.model.city.City;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class CityTestData {
         List<City.InfoCity> street = new ArrayList<>();
         List<City.InfoCity> square = new ArrayList<>();
         City city = new City("Kiev", avenue, street, square);
-        city.addAvenue("Reunion", 1959);
+        city.addAvenue("Reunion", 2004);
         city.addAvenue("Victory", 1964);
         city.addStreet("Minska", 1955);
         city.addStreet("Kashtanova", 1983);

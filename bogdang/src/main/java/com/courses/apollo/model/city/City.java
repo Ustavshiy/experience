@@ -1,5 +1,6 @@
 package com.courses.apollo.model.city;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,19 +10,9 @@ import java.util.Objects;
 public class City {
 
     /**
-     * Avenue of City.
+     * Avenue, street, square of City.
      */
-    private List<InfoCity> avenue;
-
-    /**
-     * Street of City.
-     */
-    private List<InfoCity> street;
-
-    /**
-     * Square of City.
-     */
-    private List<InfoCity> square;
+    private List<InfoCity> avenue, street, square;
 
     /**
      * Name of city.
@@ -72,7 +63,7 @@ public class City {
      * @param name avenue.
      * @param yearBecoming when has been opened.
      */
-    public void addAvenue(String name, Integer yearBecoming) {
+    public void addAvenue(String name, LocalDate yearBecoming) {
         avenue.add(new InfoCity(name, yearBecoming));
     }
 
@@ -81,7 +72,7 @@ public class City {
      * @param name avenue.
      * @param yearBecoming when has been opened.
      */
-    public void addStreet(String name, Integer yearBecoming) {
+    public void addStreet(String name, LocalDate yearBecoming) {
         street.add(new InfoCity(name, yearBecoming));
     }
 
@@ -90,7 +81,7 @@ public class City {
      * @param name avenue.
      * @param yearBecoming when has been opened.
      */
-    public void addSquare(String name, Integer yearBecoming) {
+    public void addSquare(String name, LocalDate yearBecoming) {
         square.add(new InfoCity(name, yearBecoming));
     }
 
@@ -113,9 +104,9 @@ public class City {
         /**
          * When has been opened.
          */
-        private Integer yearBecoming;
+        private LocalDate yearBecoming;
 
-        public InfoCity(String name, Integer yearBecoming) {
+        public InfoCity(String name, LocalDate yearBecoming) {
             this.name = name;
             this.yearBecoming = yearBecoming;
         }
