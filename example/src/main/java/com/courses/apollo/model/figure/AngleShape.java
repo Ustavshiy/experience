@@ -10,6 +10,10 @@ public abstract class AngleShape extends Shape {
      */
     private double sideA;
 
+    public AngleShape(double sideA) {
+        this.sideA = sideA;
+    }
+
     public double getSideA() {
         return sideA;
     }

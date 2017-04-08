@@ -885,12 +885,34 @@
         Description:    Restricts nested if-else blocks to a specified depth (default = 1).
         Doc ref:        http://checkstyle.sourceforge.net/config_coding.html#NestedIfDepth
         -->
-        <module name="NestedIfDepth"/>
+        <module name="NestedIfDepth">
+            <property name="max" value="3" />
+        </module>
 
         <!--
         Description:    Restricts nested for blocks to a specified depth (default = 1).
         Doc ref:        http://checkstyle.sourceforge.net/config_coding.html#NestedForDepth
         -->
-        <module name="NestedForDepth"/>
+        <module name="NestedForDepth">
+            <property name="max" value="3" />
+        </module>
+        <module name="AnnotationUseStyle">
+            <property name="elementStyle" value="compact" />
+        </module>
+        <module name="MutableException" />
+        <module name="CovariantEquals" />
+        <module name="RequireThis">
+            <property name="checkMethods" value="false" />
+        </module>
+        <module name="Regexp">
+            <property name="format" value="System.(out|err).print" />
+            <property name="illegalPattern" value="true" />
+            <property name="message" value="System.out or .err" />
+        </module>
+        <module name="Regexp">
+            <property name="format" value="[ \t]+$" />
+            <property name="illegalPattern" value="true" />
+            <property name="message" value="Trailing whitespace" />
+        </module>
     </module>
 </module>

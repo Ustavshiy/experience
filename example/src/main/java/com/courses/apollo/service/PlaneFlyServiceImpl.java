@@ -30,7 +30,7 @@ public class PlaneFlyServiceImpl implements IFly, Serializable, Cloneable {
     public void fly() {
         for (int i = 0; i < planes.size(); i++) {
             if (planes.get(i).getWeight() > weightMax) {
-                System.out.println("Probably you cannot fly!");
+                new RocketFlyImpl().fly();
             } else if (planes.get(i).getWeight() < lowWeight) {
                 new SmallPlane().fly();
             }

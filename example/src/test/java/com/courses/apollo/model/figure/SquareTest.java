@@ -13,8 +13,7 @@ public class SquareTest {
 
     @Before
     public void before() {
-        square = new Square();
-        square.setSideA(10);
+        square = new Square(10);
     }
 
     @Test
