@@ -1,7 +1,7 @@
 package com.courses.apollo.model.bank;
 
 /**
- * Created by Dell on 01.04.2017.
+ * Client class.
  */
 public class Client {
     /**

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
- * Created by Dell on 01.04.2017.
+ * Deposit Account class.
  */
 public class DepositAccount {
     /**
