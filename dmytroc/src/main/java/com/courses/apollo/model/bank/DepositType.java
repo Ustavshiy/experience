@@ -3,7 +3,7 @@ package com.courses.apollo.model.bank;
 import java.math.BigDecimal;
 
 /**
- * Created by Dell on 10.04.2017.
+ * Deposit type class.
  */
 public class DepositType {
     /**
