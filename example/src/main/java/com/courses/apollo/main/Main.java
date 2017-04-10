@@ -1,7 +1,5 @@
 package com.courses.apollo.main;
 
-import com.courses.apollo.service.MemoryClass;
-
 /**
  * Created by User on 20.02.2017.
  */

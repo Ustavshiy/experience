@@ -3,39 +3,54 @@ package com.courses.apollo.service;
 import com.courses.apollo.model.Student;
 
 /**
- * Created by User on 06.04.2017.
+ * Created by User.
  */
 public class MemoryClass {
-    int i = 0;
 
+    /**
+     * Change a primitive int in method.
+     * @param i primitive variable.
+     */
     public void changePrimitiveValue(int i) {
-        i = 10;
+        final int tmp = 10;
+        i = tmp;
     }
 
+    /**
+     * Change a primitive int in method with return.
+     * @param i primitive variable.
+     * @return i
+     */
     public int changePrimitiveValueWithReturn(int i) {
-        i = 10;
+        final int tmp = 10;
+        i = tmp;
         return i;
     }
 
+    /**
+     * Change field of student in method to check is it change in original object.
+     * @param student is an instance of object Student.
+     */
     public void changeStudentData(Student student) {
         student = new Student();
         student.setName("Ivan");
     }
 
+    /**
+     * Check whether the original array of primitive variables changes.
+     * @param array array of a primitive variables.
+     */
     public void testChangePrimitiveInArray(int[] array) {
-        array[0] = 10;
+        final int[] arrayTwo = {10};
+        array[0] = arrayTwo[0];
     }
 
+    /**
+     * Check whether the original wrap value variable changes.
+     * @param i is Integer.
+     */
     public void changeWrapValueWithReturn(Integer i) {
-        i = 10;
-    }
-
-    public int performErrorStack() {
-        System.out.println(i++);
-        return 1 + performErrorStack();
-    }
-
-    public void performOutOfMemory() {
-        int[] array = new int[Integer.MAX_VALUE];
+        final Integer tmp = 10;
+        i = tmp;
     }
 }

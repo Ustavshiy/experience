@@ -60,15 +60,4 @@ public class MemoryClassTest {
         memoryClass.changeWrapValueWithReturn(toChange);
         System.out.println(toChange);
     }
-
-    public void performErrorStackTest() {
-        memoryClass.performErrorStack();
-    }
-
-    public void performErrorHeapTest() {
-        memoryClass.performOutOfMemory();
-    }
-
-
-
 }

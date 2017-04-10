@@ -14,7 +14,7 @@ public class TriangleTest {
 
     @Before
     public void before() {
-        triangle = new Triangle(10.00);
+        triangle = new Triangle(10.00, 10.00, 10.00);
     }
 
     @Test
