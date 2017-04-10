@@ -343,6 +343,11 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.1</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                    </execution>
+                </executions>
                 <configuration>
                     <argLine>-server -ea -XX:MaxPermSize=256m -Xmx768m -XX:-UseSplitVerifier -XX:SoftRefLRUPolicyMSPerMB=50 ${argLine}</argLine>
                 </configuration>

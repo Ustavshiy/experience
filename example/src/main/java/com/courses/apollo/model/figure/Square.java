@@ -10,6 +10,10 @@ public class Square extends AngleShape {
      */
     private static final int SQUARE_SIDES = 4;
 
+    public Square(double sideA) {
+        super(sideA);
+    }
+
     /**
      * Find Square perimeter.
      * @return perimeter
