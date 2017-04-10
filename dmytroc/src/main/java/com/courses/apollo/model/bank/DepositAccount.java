@@ -32,8 +32,8 @@ public class DepositAccount {
     public DepositAccount(String depositSum, DepositType depositType, int year, int month, int day) {
         try {
             depositValue = new BigDecimal(depositSum);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException();
+        } catch (Exception e) {
+            throw new NumberFormatException("Make sure your sum contains only digits");
         }
         depositDate = LocalDate.of(year, month, day);
         this.depositType = depositType;
@@ -74,5 +74,28 @@ public class DepositAccount {
 
     public void setDepositValue(BigDecimal depositValue) {
         this.depositValue = depositValue;
+    }
+
+    /**
+     * Inner class DailyStatus. Contains. information about current status of account.
+     */
+    public class DailyStatus {
+        /**
+         * Current date.
+         */
+        private LocalDate currentDate;
+
+        public DailyStatus(LocalDate currentDate) {
+            this.currentDate = currentDate;
+        }
+
+        public LocalDate getWithdrawDate() {
+            return new DepositUtil().withdrawMoneyDate(DepositAccount.this);
+        }
+
+        public BigDecimal getCurrentDepositValue() {
+            return new DepositUtil().getCurrentDepositValue(DepositAccount.this, currentDate)
+                    .setScale(2, BigDecimal.ROUND_DOWN);
+        }
     }
 }

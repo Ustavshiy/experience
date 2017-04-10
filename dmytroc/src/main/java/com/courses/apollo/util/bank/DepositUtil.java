@@ -5,15 +5,12 @@ import com.courses.apollo.model.bank.DepositAccount;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 
 /**
  * DepositUtil class.
  */
 public class DepositUtil {
-    /**
-     * Days in year(no leap).
-     */
-    private final int daysInYear = 365;
     /**
      * Percent divider.
      */
@@ -66,18 +63,15 @@ public class DepositUtil {
     }
 
     private BigDecimal getDailyInterest(DepositAccount account, LocalDate startDate, LocalDate countDate) {
-        BigDecimal epochDepositDate = new BigDecimal(startDate.toEpochDay());
-        BigDecimal epochCountDate = new BigDecimal(countDate.toEpochDay());
-        BigDecimal days = epochCountDate.subtract(epochDepositDate);
+        int epochDepositDate = (int) startDate.toEpochDay();
+        int epochCountDate = (int) countDate.toEpochDay();
+        int days = epochCountDate - epochDepositDate;
         BigDecimal percentPerYear = rounded(account.getDepositType().getPercentPerYear());
-        int daysInThisYear = daysInYear;
-        if (startDate.isLeapYear()) {
-            daysInThisYear += 1;
-        }
+        ChronoLocalDate chronoLocalDate = startDate;
         return percentPerYear
                 .multiply(account.getDepositValue())
-                .multiply(days)
-                .divide(new BigDecimal(daysInThisYear * percentDivider), roundingMode);
+                .multiply(BigDecimal.valueOf(days))
+                .divide(new BigDecimal(chronoLocalDate.lengthOfYear() * percentDivider), roundingMode);
     }
 
     /**
@@ -87,10 +81,10 @@ public class DepositUtil {
      * @param currentDate current date.
      * @return current money.
      */
-    private BigDecimal getCurrentDepositValue(DepositAccount account, LocalDate currentDate) {
+    public BigDecimal getCurrentDepositValue(DepositAccount account, LocalDate currentDate) {
         LocalDate depositYearStart = LocalDate.of(account.getStartDate().getYear(), 1, 1);
         LocalDate withdrawYearStart = LocalDate.of(currentDate.getYear(), 1, 1);
-        if (depositYearStart == withdrawYearStart) {
+        if (depositYearStart.equals(withdrawYearStart)) {
             return rounded(account.getDepositValue())
                     .add(getDailyInterest(account, account.getStartDate(), currentDate));
         }
@@ -107,10 +101,6 @@ public class DepositUtil {
                 .add(getDailyInterest(account, depositYearStart, currentDate)));
     }
 
-    private BigDecimal rounded(BigDecimal aNumber) {
-        return aNumber.setScale(decimals, roundingMode);
-    }
-
     /**
      * Returns object of Daily account status.
      *
@@ -118,34 +108,11 @@ public class DepositUtil {
      * @param currentDate    current date.
      * @return DailyStatus.
      */
-    public DailyStatus getDailyStatus(DepositAccount depositAccount, LocalDate currentDate) {
-        return new DailyStatus(depositAccount, currentDate);
+    public DepositAccount.DailyStatus getDailyStatus(DepositAccount depositAccount, LocalDate currentDate) {
+        return depositAccount.new DailyStatus(currentDate);
     }
 
-    /**
-     * Inner class DailyStatus. Contains. information about current status of account.
-     */
-    class DailyStatus {
-        /**
-         * Deposit account.
-         */
-        private DepositAccount account;
-        /**
-         * Current date.
-         */
-        private LocalDate currentDate;
-
-        DailyStatus(DepositAccount account, LocalDate currentDate) {
-            this.account = account;
-            this.currentDate = currentDate;
-        }
-
-        public LocalDate getWithdrawDate() {
-            return DepositUtil.this.withdrawMoneyDate(account);
-        }
-
-        public BigDecimal getCurrentDepositValue() {
-            return DepositUtil.this.getCurrentDepositValue(account, currentDate).setScale(2, roundingMode);
-        }
+    private BigDecimal rounded(BigDecimal aNumber) {
+        return aNumber.setScale(decimals, roundingMode);
     }
 }

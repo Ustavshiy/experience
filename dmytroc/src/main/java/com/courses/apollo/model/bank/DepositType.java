@@ -3,32 +3,31 @@ package com.courses.apollo.model.bank;
 import java.math.BigDecimal;
 
 /**
- * Types of deposit.
+ * Created by Dell on 10.04.2017.
  */
-public enum DepositType {
+public class DepositType {
     /**
-     * Three month deposit.
+     * Deposit percent.
      */
-    THREE_MONTH(new BigDecimal("16.00"), 3),
-    /**
-     * Six month deposit.
-     */
-    SIX_MONTH(new BigDecimal("16.50"), 6),
-    /**
-     * One year deposit.
-     */
-    ONE_YEAR(new BigDecimal("16.80"), 12);
-    /**
-     * Deposit penrcent.
-     */
-    private final BigDecimal percentPerYear;
+    private BigDecimal percentPerYear;
     /**
      * Month count of deposit.
      */
-    private final int monthCount;
+    private int monthCount;
 
-    DepositType(BigDecimal percentPerYear, int monthCount) {
+    public DepositType() {
+    }
+
+    public DepositType(BigDecimal percentPerYear, int monthCount) {
         this.percentPerYear = percentPerYear;
+        this.monthCount = monthCount;
+    }
+
+    public void setPercentPerYear(BigDecimal percentPerYear) {
+        this.percentPerYear = percentPerYear;
+    }
+
+    public void setMonthCount(int monthCount) {
         this.monthCount = monthCount;
     }
 

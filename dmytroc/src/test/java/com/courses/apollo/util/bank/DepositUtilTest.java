@@ -25,18 +25,21 @@ public class DepositUtilTest {
     BigDecimal expectedCompoundInterestResult = new BigDecimal("2166.35");
     DepositAccount clientOneAccount;
     DepositAccount clientTwoAccount;
+    DepositType threeMonthDeposit = new DepositType(new BigDecimal("16.00"), 3);
+    DepositType sixMonthDeposit = new DepositType(new BigDecimal("16.50"), 6);
+    DepositType oneYearDeposit = new DepositType(new BigDecimal("16.80"), 12);
 
     @Before
     public void before() {
-        testClientOne.setDepositAccount(new DepositAccount("3000.00", DepositType.THREE_MONTH, 2017, 03, 03));
-        testClientTwo.setDepositAccount(new DepositAccount("2000.00", DepositType.SIX_MONTH, 2017, 03, 03));
+        testClientOne.setDepositAccount(new DepositAccount("3000.00", threeMonthDeposit, 2017, 03, 03));
+        testClientTwo.setDepositAccount(new DepositAccount("2000.00", sixMonthDeposit, 2017, 03, 03));
         this.clientOneAccount = testClientOne.getDepositAccount();
         this.clientTwoAccount = testClientTwo.getDepositAccount();
     }
 
     @Test(expected = NumberFormatException.class)
     public void getExceptionAccountStatus() {
-        testClientThree.setDepositAccount(new DepositAccount("two thousand", DepositType.SIX_MONTH, 2017, 03, 03));
+        testClientThree.setDepositAccount(new DepositAccount("two thousand", oneYearDeposit, 2017, 03, 03));
     }
 
     @Test
@@ -47,7 +50,7 @@ public class DepositUtilTest {
 
     @Test
     public void getAccountStatus() {
-        DepositUtil.DailyStatus clientOneStatus = depositUtil.getDailyStatus(clientOneAccount, testLocalDate);
+        DepositAccount.DailyStatus clientOneStatus = depositUtil.getDailyStatus(clientOneAccount, testLocalDate);
         Assert.assertEquals(expectedForLocalDateResult, clientOneStatus.getCurrentDepositValue());
         Assert.assertEquals(expectedOneWithdrawResult, clientOneStatus.getWithdrawDate());
     }
