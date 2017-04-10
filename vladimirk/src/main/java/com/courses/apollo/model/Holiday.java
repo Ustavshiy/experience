@@ -1,5 +1,7 @@
 package com.courses.apollo.model;
 
+import java.time.LocalDate;
+
 /**
  * Class Holiday for holidays.
  */
@@ -13,13 +15,13 @@ public class Holiday {
     /**
      * @param date to indicate date of the holiday.
      */
-    private final String date;
+    private LocalDate date;
 
     public String getName() {
         return name;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -28,7 +30,7 @@ public class Holiday {
      * @param name to indicate name of the holiday;
      * @param date to indicate date of the holiday;
      */
-    public Holiday(String name, String date) {
+    public Holiday(String name, LocalDate date) {
         this.name = name;
         this.date = date;
     }
