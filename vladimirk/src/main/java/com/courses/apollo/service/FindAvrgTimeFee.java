@@ -31,17 +31,18 @@ public class FindAvrgTimeFee {
      * @return quantity of workdays.
      */
     private int findWorkDays(List<Holiday> holidays, int year) {
-        LocalDate strtRprtYear = LocalDate.of(year, 1, 1);
-        int daysInYear = strtRprtYear.lengthOfYear();
-        int weekendsNmbr = 0;
-        for (int i = 0; i < strtRprtYear.lengthOfYear(); i++) {
-            if (DayOfWeek.SATURDAY.equals(strtRprtYear.getDayOfWeek())
-                || DayOfWeek.SUNDAY.equals(strtRprtYear.getDayOfWeek())) {
-                weekendsNmbr++;
-            }
-            strtRprtYear = strtRprtYear.plusDays(1);
+        LocalDate bgnRprtYear = LocalDate.of(year, 1, 1);
+        final int daysInWeek = 7;
+        int weekends = 0;
+        int daysToFirstSat = Math.abs(DayOfWeek.SATURDAY.getValue() - bgnRprtYear.getDayOfWeek().getValue());
+        int daysToFirstSun = Math.abs(DayOfWeek.SUNDAY.getValue() - bgnRprtYear.getDayOfWeek().getValue());
+        for (int i = 0; i < bgnRprtYear.lengthOfYear() - daysToFirstSat; i += daysInWeek) {
+            weekends++;
         }
-        return daysInYear - weekendsNmbr - holidays.size() + findNmbrHolidaysOnWeekends(holidays);
+        for (int i = 0; i < bgnRprtYear.lengthOfYear() - daysToFirstSun; i += daysInWeek) {
+            weekends++;
+        }
+        return bgnRprtYear.lengthOfYear() - weekends - holidays.size() + findNmbrHolidaysOnWeekend(holidays);
     }
 
     /**
@@ -49,7 +50,7 @@ public class FindAvrgTimeFee {
      * @param holidays - list of holidays in Canada in 2016.
      * @return quantity of coincidences.
      */
-    private int findNmbrHolidaysOnWeekends(List<Holiday> holidays) {
+    private int findNmbrHolidaysOnWeekend(List<Holiday> holidays) {
         int nmbrHolidaysOnWeekends = 0;
         for (int k = 0; k < holidays.size(); k++) {
             if (holidays.get(k).getDate().getDayOfWeek() == DayOfWeek.SATURDAY
