@@ -33,16 +33,16 @@ public class FindAvrgTimeFee {
     private int findWorkDays(List<Holiday> holidays, int year) {
         LocalDate bgnRprtYear = LocalDate.of(year, 1, 1);
         final int daysInWeek = 7;
-        int weekends = 0;
+        int weekend = 0;
         int daysToFirstSat = Math.abs(DayOfWeek.SATURDAY.getValue() - bgnRprtYear.getDayOfWeek().getValue());
         int daysToFirstSun = Math.abs(DayOfWeek.SUNDAY.getValue() - bgnRprtYear.getDayOfWeek().getValue());
         for (int i = 0; i < bgnRprtYear.lengthOfYear() - daysToFirstSat; i += daysInWeek) {
-            weekends++;
+            weekend++;
         }
         for (int i = 0; i < bgnRprtYear.lengthOfYear() - daysToFirstSun; i += daysInWeek) {
-            weekends++;
+            weekend++;
         }
-        return bgnRprtYear.lengthOfYear() - weekends - holidays.size() + findNmbrHolidaysOnWeekend(holidays);
+        return bgnRprtYear.lengthOfYear() - weekend - holidays.size() + findNmbrHolidaysOnWeekend(holidays);
     }
 
     /**
