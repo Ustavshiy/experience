@@ -23,12 +23,13 @@ public class FindInTextService {
         for (int i = 0; i < sentenses.size(); i++) {
             int lettersCounter = 0;
             Matcher vowel = Pattern.compile("(?i)[aeiouy]").matcher(sentenses.get(i));
-            Matcher consonant = Pattern.compile("(?i)[BCDFGHJKLMNPQRSTVWXZ]").matcher(sentenses.get(i));
-            while (consonant.find()) {
-                lettersCounter++;
-            }
-            while (vowel.find()) {
-                lettersCounter--;
+            Matcher letter = Pattern.compile("[A-Za-z]").matcher(sentenses.get(i));
+            while (letter.find()) {
+                if (vowel.find()) {
+                    lettersCounter--;
+                } else {
+                    lettersCounter++;
+                }
             }
             if (lettersCounter > 0) {
                 result.add("In the sentence " + (i + 1) + " more consonants");
