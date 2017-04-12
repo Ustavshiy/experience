@@ -10,35 +10,35 @@ public class FindInTextServiceTest {
     private static TextTestData textTestData = new TextTestData();
     private final static int expectedWordsBgnWithVowel = 11;
     private final static int wordCost = 13;
-    private final static String expectedReceipt = "The payment for the telegram is 1 dollar(s) 30 cent(s).";
+    private final static int expectedReceiptInCent = 130;
 
     @Test
     public void testFindWhichLettersMore() {
-        Assert.assertTrue(textTestData.getExpectedStrings1()
-                .equals(findInTextService.findWhichLettersMore(textTestData.getText1())));
+        Assert.assertTrue(textTestData.getExpectedStringsA()
+                .equals(findInTextService.findWhichLettersMore(textTestData.getTextA())));
     }
 
     @Test
     public void testFindNumberOfWordsBgnAndEndWithVowels() {
         Assert.assertTrue(expectedWordsBgnWithVowel == (findInTextService.findNumberOfWordsBgnAndEndWithVowels
-                (textTestData.getText2())));
+                (textTestData.getTextB())));
     }
 
     @Test
     public void testFindWordsSame1stLstLttr() {
-        Assert.assertTrue(findInTextService.findWrdSameFstLstLttr(textTestData.getText3())
-                .equals(textTestData.getExpectedStrings3()));
+        Assert.assertTrue(findInTextService.findWrdSameFstLstLttr(textTestData.getTextC())
+                .equals(textTestData.getExpectedStringsC()));
     }
 
     @Test
     public void testReturnWordsMaxMinLength() {
-         Assert.assertTrue(textTestData.getExpectedStrings4()
-                .equals(findInTextService.returnWordsMaxMinLength(textTestData.getText4())));
+         Assert.assertTrue(textTestData.getExpectedStringsD()
+                .equals(findInTextService.returnWordsMaxMinLength(textTestData.getTextD())));
     }
 
     @Test
     public void testReturnReceiptForPaymentOFTelegram() {
-        Assert.assertTrue(findInTextService.returnReceiptForPaymentOFTelegram(textTestData.getText5(), wordCost)
-                .contentEquals(expectedReceipt));
+        Assert.assertTrue(findInTextService.returnReceiptForPaymentOFTelegram(textTestData.getTextE(),
+                wordCost) == expectedReceiptInCent);
     }
  }

@@ -96,12 +96,7 @@ public class FindInTextService {
         int min = temp.get(0);
         int max = temp.get(temp.size() - 1);
         for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() == min) {
-                result.add(words.get(i));
-            }
-        }
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() == max) {
+            if (words.get(i).length() == min || words.get(i).length() == max) {
                 result.add(words.get(i));
             }
         }
@@ -114,11 +109,8 @@ public class FindInTextService {
      * @param wordCost to indicate cost by sending 1 word.
      * @return String text of receipt with price.
      */
-    public String returnReceiptForPaymentOFTelegram(String text, int wordCost) {
+    public int returnReceiptForPaymentOFTelegram(String text, int wordCost) {
         List<String> words = Arrays.asList(text.split("\\W+"));
-        final int centsInDollar = 100;
-        int price = words.size() * wordCost;
-        return "The payment for the telegram is " + ((price - price % centsInDollar) / centsInDollar)
-                + " dollar(s) " + (price % centsInDollar) + " cent(s).";
+        return words.size() * wordCost;
     }
 }
