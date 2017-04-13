@@ -50,9 +50,9 @@ public class FindInTextService {
     public int findNumberOfWordsBgnAndEndWithVowels(String text) {
         List<String> words = Arrays.asList(text.split("\\W+"));
         int counter = 0;
-        for (int i = 0; i < words.size(); i++) {
+        for (String word : words) {
             Pattern pattern = Pattern.compile("^[aeiouy].*");
-            if (pattern.matcher(words.get(i).toLowerCase()).find()) {
+            if (pattern.matcher(word.toLowerCase()).find()) {
                 counter++;
             }
         }
@@ -67,11 +67,11 @@ public class FindInTextService {
     public List<String> findWrdSameFstLstLttr(String text) {
         List<String> result = new ArrayList<>();
         List<String> words = Arrays.asList(text.split("\\W+"));
-        for (int i = 0; i < words.size(); i++) {
+        for (String word : words) {
             Pattern pattern = Pattern.compile("^(\\w+).*(\\1)");
-            Matcher matcher = pattern.matcher(words.get(i).toLowerCase());
-            if (matcher.find() && !(result.contains(words.get(i)))) {
-                result.add(words.get(i));
+            Matcher matcher = pattern.matcher(word.toLowerCase());
+            if (matcher.find() && !(result.contains(word))) {
+                result.add(word);
             }
         }
         return result;
@@ -86,16 +86,16 @@ public class FindInTextService {
         List<String> result = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         List<String> words = Arrays.asList(text.split("\\W+"));
-        for (int i = 0; i < words.size(); i++) {
-            Integer wordLenght = words.get(i).length();
+        for (String word : words) {
+            Integer wordLenght = word.length();
             temp.add(wordLenght);
         }
         temp.sort(Comparator.comparing(Integer::intValue));
         int min = temp.get(0);
         int max = temp.get(temp.size() - 1);
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() == min || words.get(i).length() == max) {
-                result.add(words.get(i));
+        for (String word : words) {
+            if (word.length() == min || word.length() == max) {
+                result.add(word);
             }
         }
         return result;
