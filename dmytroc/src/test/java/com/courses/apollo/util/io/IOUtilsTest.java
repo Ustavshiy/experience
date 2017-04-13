@@ -1,6 +1,5 @@
 package com.courses.apollo.util.io;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,6 +12,10 @@ public class IOUtilsTest {
     IOUtils ioUtil = new IOUtils();
     String testFileName = "./src/main/resources/LA DIVINA COMMEDIA DI DANTE ALIGHIERI.txt";
     File testFile = new File(testFileName);
+    String testOutputLettersFileName = "./src/main/resources/LettersInDivinaCommedia.txt";
+    File testOutputLettersFile = new File(testOutputLettersFileName);
+    String testOutputWordsFileName = "./src/main/resources/WordsInDivinaCommedia.txt";
+    File testOutputWordsFile = new File(testOutputWordsFileName);
     String text;
     String testWord = "ch'era";
     Character testChar = 'n';
@@ -27,12 +30,11 @@ public class IOUtilsTest {
     }
 
     @Test
-    public void countSameWordsTest() {
-        Assert.assertEquals(expectedResultCountWords, ioUtil.countSameWords(testFile, testWord));
+    public void countSameLettersTest() {
+        ioUtil.writeToFile(testOutputLettersFile,ioUtil.getLettersStatistics(testFile));
     }
-
     @Test
-    public void countSameLettersTest(){
-        Assert.assertEquals(expectedResultCountChars, ioUtil.countSameLetters(testFile, testChar));
+    public void countSameWordsTest() {
+        ioUtil.writeToFile(testOutputWordsFile,ioUtil.getWordsStatistics(testFile));
     }
 }
