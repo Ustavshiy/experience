@@ -21,19 +21,19 @@ public class FindInTextService {
         List<String> result = new ArrayList<>();
         List<String> sentenses = Arrays.asList(text.split("[\\.\\!\\?\\.+]"));
         for (int i = 0; i < sentenses.size(); i++) {
-            int lettersCounter = 0;
             Matcher vowel = Pattern.compile("(?i)[aeiouy]").matcher(sentenses.get(i));
             Matcher letter = Pattern.compile("[A-Za-z]").matcher(sentenses.get(i));
+            int lettersCounter = 0;
+            int vowelCounter = 0;
             while (letter.find()) {
+                lettersCounter++;
                 if (vowel.find()) {
-                    lettersCounter--;
-                } else {
-                    lettersCounter++;
+                    vowelCounter++;
                 }
             }
-            if (lettersCounter > 0) {
+            if (lettersCounter - vowelCounter > vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more consonants");
-            } else if (lettersCounter < 0) {
+            } else if (lettersCounter - vowelCounter < vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more vowels");
             } else {
                 result.add("The same number of vowels and consonants in sentense " + (i + 1));
@@ -52,8 +52,7 @@ public class FindInTextService {
         int counter = 0;
         for (int i = 0; i < words.size(); i++) {
             Pattern pattern = Pattern.compile("^[aeiouy].*");
-            Matcher matcher = pattern.matcher(words.get(i).toLowerCase());
-            while (matcher.find()) {
+            if (pattern.matcher(words.get(i).toLowerCase()).find()) {
                 counter++;
             }
         }
@@ -71,10 +70,8 @@ public class FindInTextService {
         for (int i = 0; i < words.size(); i++) {
             Pattern pattern = Pattern.compile("^(\\w+).*(\\1)");
             Matcher matcher = pattern.matcher(words.get(i).toLowerCase());
-            while (matcher.find()) {
-                if (!(result.contains(words.get(i)))) {
-                    result.add(words.get(i));
-                }
+            if (matcher.find() && !(result.contains(words.get(i)))) {
+                result.add(words.get(i));
             }
         }
         return result;
