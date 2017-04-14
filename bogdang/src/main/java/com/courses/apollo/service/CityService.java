@@ -16,8 +16,8 @@ public class CityService {
      * @param cityList list city.
      * @return result.
      */
-    public List<City.InfoCity> getAvenueCity(String name, List<City> cityList) {
-        List<City.InfoCity> result = new ArrayList<>();
+    public List<City.InfoCity.Avenue> getAvenueCity(String name, List<City> cityList) {
+        List<City.InfoCity.Avenue> result = new ArrayList<>();
         for (City city : cityList) {
             if (name.equals(city.getName())) {
                 result = city.getAvenue();
@@ -32,8 +32,8 @@ public class CityService {
      * @param cityList list city.
      * @return result.
      */
-    public List<City.InfoCity> getStreetCity(String name, List<City> cityList) {
-        List<City.InfoCity> result = new ArrayList<>();
+    public List<City.InfoCity.Street> getStreetCity(String name, List<City> cityList) {
+        List<City.InfoCity.Street> result = new ArrayList<>();
         for (City city : cityList) {
             if (name.equals(city.getName())) {
                 result = city.getStreet();
@@ -48,8 +48,8 @@ public class CityService {
      * @param cityList list city.
      * @return result.
      */
-    public List<City.InfoCity> getSquareCity(String name, List<City> cityList) {
-        List<City.InfoCity> result = new ArrayList<>();
+    public List<City.InfoCity.Square> getSquareCity(String name, List<City> cityList) {
+        List<City.InfoCity.Square> result = new ArrayList<>();
         for (City city : cityList) {
             if (name.equals(city.getName())) {
                 result = city.getSquare();

@@ -89,9 +89,7 @@ public class Europe {
 
         @Override
         public String toString() {
-            return "Country{" +
-                    "name='" + name + '\'' +
-                    '}';
+            return "Country{" + "name='" + name + '\'' + '}';
         }
     }
 }

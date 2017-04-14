@@ -2,28 +2,28 @@ package com.courses.apollo.model;
 
 import com.courses.apollo.model.city.City;
 
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CityTestData {
 
+
     public static List<City> getCity() {
         List<City> cityList = new ArrayList<>();
-        List<City.InfoCity> avenue = new ArrayList<>();
-        List<City.InfoCity> street = new ArrayList<>();
-        List<City.InfoCity> square = new ArrayList<>();
+        List<City.InfoCity.Avenue> avenue = new ArrayList<>();
+        List<City.InfoCity.Street> street = new ArrayList<>();
+        List<City.InfoCity.Square> square = new ArrayList<>();
         City city = new City("Kiev", avenue, street, square);
-        city.addAvenue("Reunion", 2004);
+        city.addAvenue("Reunion", 1959);
         city.addAvenue("Victory", 1964);
         city.addStreet("Minska", 1955);
         city.addStreet("Kashtanova", 1983);
         city.addSquare("Ivana Franca", 1944);
         city.addSquare("Sofiyska", 1036);
         cityList.add(city);
-        List<City.InfoCity> avenueTwo = new ArrayList<>();
-        List<City.InfoCity> streetTwo = new ArrayList<>();
-        List<City.InfoCity> squareTwo = new ArrayList<>();
+        List<City.InfoCity.Avenue> avenueTwo = new ArrayList<>();
+        List<City.InfoCity.Street> streetTwo = new ArrayList<>();
+        List<City.InfoCity.Square> squareTwo = new ArrayList<>();
         City cityTwo = new City("Lviv", avenueTwo, streetTwo, squareTwo);
         cityTwo.addAvenue("Shevchenka", 1569);
         cityTwo.addAvenue("Svobody", 1855);
@@ -35,24 +35,24 @@ public class CityTestData {
         return cityList;
     }
 
-    public static List<City.InfoCity> getKievAvenue() {
-        List<City.InfoCity> avenue = new ArrayList<>();
-        avenue.add(new City.InfoCity("Reunion", 1959));
-        avenue.add(new City.InfoCity("Victory", 1964));
+    public static List<City.InfoCity.Avenue> getKievAvenue() {
+        List<City.InfoCity.Avenue> avenue = new ArrayList<>();
+        avenue.add(new City.InfoCity.Avenue("Reunion", 1959));
+        avenue.add(new City.InfoCity.Avenue("Victory", 1964));
         return avenue;
     }
 
-    public static List<City.InfoCity> getLvivStreet() {
-        List<City.InfoCity> street = new ArrayList<>();
-        street.add(new City.InfoCity("Galicka", 1382));
-        street.add(new City.InfoCity("Zelena", 1685));
+    public static List<City.InfoCity.Street> getLvivStreet() {
+        List<City.InfoCity.Street> street = new ArrayList<>();
+        street.add(new City.InfoCity.Street("Galicka", 1382));
+        street.add(new City.InfoCity.Street("Zelena", 1685));
         return street;
     }
 
-    public static List<City.InfoCity> getKievSquare() {
-        List<City.InfoCity> square = new ArrayList<>();
-        square.add(new City.InfoCity("Ivana Franca", 1944));
-        square.add(new City.InfoCity("Sofiyska", 1036));
+    public static List<City.InfoCity.Square> getKievSquare() {
+        List<City.InfoCity.Square> square = new ArrayList<>();
+        square.add(new City.InfoCity.Square("Ivana Franca", 1944));
+        square.add(new City.InfoCity.Square("Sofiyska", 1036));
         return square;
     }
 }
