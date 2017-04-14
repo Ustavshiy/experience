@@ -10,10 +10,18 @@ import java.util.Objects;
 public class City {
 
     /**
-     * Avenue, street, square of City.
+     * Avenue of City.
      */
     private List<InfoCity.Avenue> avenue;
+
+    /**
+     * Street of City.
+     */
     private List<InfoCity.Street> street;
+
+    /**
+     * Square of City.
+     */
     private List<InfoCity.Square> square;
 
     /**
@@ -89,14 +97,14 @@ public class City {
 
     @Override
     public String toString() {
-        return "City{" +
-                "avenue=" + avenue + ", street=" + street + ", square=" + square + ", name='" + name + '\'' + '}';
+        return "City{"
+                + "avenue=" + avenue + ", street=" + street + ", square=" + square + ", name='" + name + '\'' + '}';
     }
 
     /**
      * Information about city.
      */
-    public static  abstract class InfoCity {
+    public abstract static  class InfoCity {
 
         /**
          * Name of info city.
@@ -124,8 +132,10 @@ public class City {
             this.yearBecoming = yearBecoming;
         }
 
+        /**
+         * Class for avenue in city.
+         */
         public static class Avenue extends InfoCity {
-
                 public Avenue(String name, Integer yearBecoming) {
                     setName(name);
                     this.setYearBecoming(LocalDate.of(yearBecoming, 01, 01));
@@ -133,31 +143,39 @@ public class City {
 
             }
 
+        /**
+         * Class for street in city.
+         */
         public static class Street extends InfoCity {
-
             public Street(String name, Integer yearBecoming) {
                 setName(name);
-                this.setYearBecoming(LocalDate.of(yearBecoming, 01, 01));
+                setYearBecoming(LocalDate.of(yearBecoming, 01, 01));
+            }
+        }
+
+        /**
+         * Class for square in city.
+         */
+        public static class Square extends InfoCity {
+
+            public Square(String name, Integer yearBecoming) {
+                setName(name);
+                setYearBecoming(LocalDate.of(yearBecoming, 01, 01));
             }
 
         }
-            public static class Square extends InfoCity {
-
-                public Square(String name, Integer yearBecoming) {
-                    setName(name);
-                    this.setYearBecoming(LocalDate.of(yearBecoming, 01, 01));
-                }
-
-
-            }
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             InfoCity infoCity = (InfoCity) o;
-            return Objects.equals(name, infoCity.name) &&
-                    Objects.equals(yearBecoming, infoCity.yearBecoming);
+            return Objects.equals(name, infoCity.name)
+                    && Objects.equals(yearBecoming, infoCity.yearBecoming);
         }
 
         @Override
@@ -166,16 +184,19 @@ public class City {
         }
     }
 
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         City city = (City) o;
-        return Objects.equals(avenue, city.avenue) &&
-                Objects.equals(street, city.street) &&
-                Objects.equals(square, city.square) &&
-                Objects.equals(name, city.name);
+        return Objects.equals(avenue, city.avenue)
+                && Objects.equals(street, city.street)
+                && Objects.equals(square, city.square)
+                && Objects.equals(name, city.name);
     }
 
     @Override
