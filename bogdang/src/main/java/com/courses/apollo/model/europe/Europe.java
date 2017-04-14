@@ -1,5 +1,6 @@
 package com.courses.apollo.model.europe;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class Europe {
     /**
      * Year in history.
      */
-    private Integer year;
+    private LocalDate year;
 
     /**
      * Countries of part of the world.
@@ -19,15 +20,15 @@ public class Europe {
     private List<Country> countries;
 
     public Europe(Integer year, List<Country> countries) {
-        this.year = year;
+        this.year = LocalDate.of(year, 01, 01);
         this.countries = countries;
     }
 
-    public Integer getYear() {
+    public LocalDate getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(LocalDate year) {
         this.year = year;
     }
 

@@ -2,6 +2,7 @@ package com.courses.apollo.service;
 
 import com.courses.apollo.model.europe.Europe;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +18,11 @@ public class EuropeService {
      * @return result - desired division.
      */
     public List<Europe.Country> territorialDivision(Integer year, List<Europe> europeList) {
+        LocalDate resultYaer = LocalDate.of(year, 01, 01);
         List<Europe.Country> result = new ArrayList<>();
         for (int i = 0; i < europeList.size(); i++) {
-            Integer findYear = europeList.get(i).getYear();
-            if (year.equals(findYear)) {
+            LocalDate findYear = europeList.get(i).getYear();
+            if (resultYaer.equals(findYear)) {
                 result = europeList.get(i).getCountries();
             }
         }

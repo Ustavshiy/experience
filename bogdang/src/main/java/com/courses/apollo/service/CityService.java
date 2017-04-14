@@ -12,7 +12,8 @@ public class CityService {
 
     /**
      * Method return avenues of needed city.
-     * @param name name of city.
+     *
+     * @param name     name of city.
      * @param cityList list city.
      * @return result.
      */
@@ -28,7 +29,8 @@ public class CityService {
 
     /**
      * Method return streets of needed city.
-     * @param name name of city.
+     *
+     * @param name     name of city.
      * @param cityList list city.
      * @return result.
      */
@@ -44,7 +46,8 @@ public class CityService {
 
     /**
      * Method return squares of needed city.
-     * @param name name of city.
+     *
+     * @param name     name of city.
      * @param cityList list city.
      * @return result.
      */
@@ -57,4 +60,4 @@ public class CityService {
         }
         return result;
     }
-            }
+}
