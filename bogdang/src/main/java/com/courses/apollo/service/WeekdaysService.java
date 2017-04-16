@@ -29,10 +29,9 @@ public class WeekdaysService {
             Integer quantity = date.lengthOfMonth();
             for (int j = 1; j <= quantity; j++) {
                 date = LocalDate.of(date.getYear(), i, j);
-                if (!findHolidays(date, holidays)) {
-                    if (date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY) {
+                if (!findHolidays(date, holidays) && date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek()
+                        != DayOfWeek.SUNDAY) {
                         weekdays++;
-                    }
                 }
             }
         }
