@@ -2,8 +2,9 @@ package com.courses.apollo.holidays;
 
 import com.courses.apollo.model.HolidayTestData;
 import com.courses.apollo.service.WeekdaysService;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class WeekdaysServiceTest {
 
@@ -13,6 +14,6 @@ public class WeekdaysServiceTest {
 
     @Test
     public void findWeekdaysTest() {
-        Assert.assertEquals(wekdays.findWeekdays(YEAR, HolidayTestData.getBankingHolidays()), expected);
+        assertEquals(wekdays.findWeekdays(YEAR, HolidayTestData.getBankingHolidays()), expected);
     }
 }
