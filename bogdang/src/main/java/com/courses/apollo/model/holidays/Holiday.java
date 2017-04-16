@@ -3,7 +3,7 @@ package com.courses.apollo.model.holidays;
 import java.time.LocalDate;
 
 /**
- * Created by Богдан on 15.04.2017.
+ * Created on 15.04.2017.
  */
 public class Holiday {
 
