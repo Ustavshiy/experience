@@ -10,10 +10,6 @@ import java.util.List;
  * Class for calculates working days.
  */
 public class WeekdaysService {
-    /**
-     * Quantity month in year.
-     */
-    private static final Integer QTY_MONTH = 12;
 
     /**
      * Method for calculates total working days in year for Ukraine. Including banking holidays.
@@ -24,16 +20,13 @@ public class WeekdaysService {
     public Integer findWeekdays(int year, List<Holiday> holidays) {
         LocalDate date = LocalDate.of(year, 1, 1);
         Integer weekdays = 0;
-        for (int i = 1; i <= QTY_MONTH; i++) {
-            date = LocalDate.of(date.getYear(), i, date.getDayOfWeek().getValue());
-            Integer quantity = date.lengthOfMonth();
-            for (int j = 1; j <= quantity; j++) {
-                date = LocalDate.of(date.getYear(), i, j);
-                if (!findHolidays(date, holidays) && date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek()
+        LocalDate dat = date;
+        for (int i = 0; i < date.lengthOfYear(); i++) {
+            if (!findHolidays(dat, holidays) && dat.getDayOfWeek() != DayOfWeek.SATURDAY && dat.getDayOfWeek()
                         != DayOfWeek.SUNDAY) {
                         weekdays++;
                 }
-            }
+            dat = dat.plusDays(1);
         }
         return weekdays;
     }
@@ -48,7 +41,7 @@ public class WeekdaysService {
         boolean result = false;
         for (Holiday holiday : holidays) {
             if (holiday.getDate().equals(date)) {
-                result = true;
+                return true;
             }
         }
         return result;

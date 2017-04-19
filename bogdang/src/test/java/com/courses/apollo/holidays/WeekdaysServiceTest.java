@@ -14,6 +14,6 @@ public class WeekdaysServiceTest {
 
     @Test
     public void findWeekdaysTest() {
-        assertEquals(wekdays.findWeekdays(YEAR, HolidayTestData.getBankingHolidays()), expected);
+        assertEquals(expected, wekdays.findWeekdays(YEAR, HolidayTestData.getBankingHolidays()));
     }
 }
