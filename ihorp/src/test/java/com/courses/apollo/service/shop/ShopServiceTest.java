@@ -5,44 +5,42 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
 public class ShopServiceTest {
 
-    Shop billa = new Shop();
-    Shop.Department fruitDep = billa.new Department();
-    Shop.Department clothingDep = billa.new Department();
-    Shop.Department alcoholDep = billa.new Department();
+    Shop testShop = new Shop();
+    ArrayList<Shop.Product> products = new ArrayList<>();
 
     @Before
-    public void testShop() {
-        Shop.Department.Product banana = new Shop(). new Department(). new Product("Nigeria Bananas (c)", "17.45");
-        Shop.Department.Service packFruit = new Shop().new Department().new Service("Billa (c)", "0.51");
-        fruitDep.setDepartmentName("Fruits Dep");
-        fruitDep.setProduct(banana);
-        fruitDep.setService(packFruit);
+    public void addData() {
+        Shop.Product banana = testShop.new Product(false, "FruitDep", "Banana", "10.74");
+        Shop.Product apple = testShop.new Product(false, "FruitDep", "Apple", "17.53");
+        Shop.Product orange = testShop.new Product(false, "FruitDep", "Orange", "7.12");
+        Shop.Product cutFruit = testShop.new Product(true, "ServiceDep", "Sharp knife", "0.99");
+        Shop.Product washShirt = testShop.new Product(true, "ServiceDep", "TiotyaMotia wash", "29.99");
 
-        Shop.Department.Product shirt = new Shop().new Department().new Product("Zara (c)", "299.99");
-        Shop.Department.Service washClothes = new Shop().new Department().new Service("Billa Wash", "15.57");
-        clothingDep.setDepartmentName("Clothing Dep");
-        clothingDep.setProduct(shirt);
-        clothingDep.setService(washClothes);
+        ArrayList<Shop.Product> products = new ArrayList<>();
+        products.add(banana);
+        products.add(apple);
+        products.add(orange);
+        products.add(cutFruit);
+        products.add(washShirt);
 
-        Shop.Department.Product vodka = new Shop().new Department().new Product("Hortica", "49.99");
-        Shop.Department.Service detoxication = new Shop().new Department().new Service("Ogur4ik", "99.99");
-        alcoholDep.setDepartmentName("Alkohol Dep");
-        alcoholDep.setProduct(vodka);
-        alcoholDep.setService(detoxication);
-
-        billa.setName("Billa");
-        billa.setAddress("Khreshatic str.");
-        billa.setDepartments(fruitDep);
-        billa.setDepartments(clothingDep);
-        billa.setDepartments(alcoholDep);
+        testShop.setName("Billa");
+        testShop.setAddress("Khreshatic str.");
+        testShop.setProducts(products);
     }
 
     @Test
     public void testShopService() {
-        Assert.assertEquals(fruitDep, ShopService.cheapestDepartment(billa));
+        ArrayList<Shop.Product> results = new ArrayList<>();
+        Shop.Product result = new Shop().new Product(false, "FruitDep", "Orange", "7.12");
+        results.add(result);
+        BigDecimal minPrice = new BigDecimal(1);
+        BigDecimal maxPrice = new BigDecimal(10);
+        Assert.assertEquals(results, ShopService.findProduct(testShop, minPrice, maxPrice));
     }
-
 
 }

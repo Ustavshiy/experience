@@ -1,7 +1,6 @@
 package com.courses.apollo.model.shop;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +10,7 @@ import java.util.Objects;
 public class Shop {
 
     /**
-     *  Name of Shop.
+     * Name of Shop.
      */
     private String name;
 
@@ -21,23 +20,28 @@ public class Shop {
     private String address;
 
     /**
-     * List of Departments Shop.
+     * List of products or services in Shop.
      */
-    private List<Department> departments;
+    private List<Product> products;
 
-     public Shop() {
+    public Shop() {
     }
 
-    public Shop(String name, String address, List<Department> departments) {
+    public Shop(String name, String address, List<Product> products) {
         this.name = name;
         this.address = address;
-        this.departments = departments;
+        this.products = products;
     }
 
     /**
-     * Inner class Department.
+     * Inner class Product.
      */
-    public class Department {
+    public class Product {
+
+        /**
+         * Product/Service detector.
+         */
+        private boolean isServise;
 
         /**
          * Department name.
@@ -45,24 +49,29 @@ public class Shop {
         private String departmentName;
 
         /**
-         * List of products in Department.
+         * Product name.
          */
-        private ArrayList<Product> products;
+        private String productName;
 
         /**
-         * List of services in Department.
+         * Product price.
          */
-        private ArrayList<Service> services;
+        private BigDecimal productPrice;
 
-        public Department() {
-        }
-
-        public Department(String departmentName, Product product, Service service) {
+        public Product(boolean isServise, String departmentName, String productName, String productPrice) {
+            this.isServise = isServise;
             this.departmentName = departmentName;
-            products.add(product);
-            services.add(service);
+            this.productName = productName;
+            this.productPrice = new BigDecimal(productPrice);
         }
 
+        public boolean isServise() {
+            return isServise;
+        }
+
+        public void setServise(boolean servise) {
+            isServise = servise;
+        }
 
         public String getDepartmentName() {
             return departmentName;
@@ -72,102 +81,20 @@ public class Shop {
             this.departmentName = departmentName;
         }
 
-        public ArrayList<Product> getProducts() {
-            return products;
+        public String getProductName() {
+            return productName;
         }
 
-        /**
-         * Setter.
-         * @param product object type Product.
-         */
-        public void setProduct(Product product) {
-            products.add(product);
+        public void setProductName(String productName) {
+            this.productName = productName;
         }
 
-        public ArrayList<Service> getServices() {
-            return services;
+        public BigDecimal getProductPrice() {
+            return productPrice;
         }
 
-        /**
-         * Setter.
-         * @param service object type Service.
-         */
-        public void setService(Service service) {
-            services.add(service);
-        }
-
-        /**
-         * Inner class Product.
-         */
-        public class Product {
-
-            /**
-             * Name of a Product.
-             */
-            private String productName;
-
-            /**
-             * Price of a Product.
-             */
-            private BigDecimal productPrice;
-
-            public Product(String productName, String productPrice) {
-                this.productName = productName;
-                this.productPrice = new BigDecimal(productPrice).setScale(2, BigDecimal.ROUND_HALF_UP);
-            }
-
-            public String getProductName() {
-                return productName;
-            }
-
-            public void setProductName(String productName) {
-                this.productName = productName;
-            }
-
-            public BigDecimal getProductPrice() {
-                return productPrice;
-            }
-
-            public void setProductPrice(String productPrice) {
-                this.productPrice = new BigDecimal(productPrice).setScale(2, BigDecimal.ROUND_HALF_UP);
-            }
-        }
-
-        /**
-         * Inner class Service.
-         */
-        public class Service {
-
-            /**
-             * Name of a Service.
-             */
-            private String serviceName;
-
-            /**
-             * Price of a Service.
-             */
-            private BigDecimal servicePrice;
-
-            public Service(String serviceName, String servicePrice) {
-                this.serviceName = serviceName;
-                this.servicePrice = new BigDecimal(servicePrice).setScale(2, BigDecimal.ROUND_HALF_UP);
-            }
-
-            public String getServiceName() {
-                return serviceName;
-            }
-
-            public void setServiceName(String serviceName) {
-                this.serviceName = serviceName;
-            }
-
-            public BigDecimal getServicePrice() {
-                return servicePrice;
-            }
-
-            public void setServicePrice(String servicePrice) {
-                this.servicePrice = new BigDecimal(servicePrice).setScale(2, BigDecimal.ROUND_HALF_UP);
-            }
+        public void setProductPrice(String productPrice) {
+            this.productPrice = new BigDecimal(productPrice);
         }
 
         @Override
@@ -175,18 +102,19 @@ public class Shop {
             if (this == o) {
                 return true;
             }
-            if (!(o instanceof Department)) {
+            if (!(o instanceof Product)) {
                 return false;
             }
-            Department that = (Department) o;
-            return Objects.equals(departmentName, that.departmentName)
-                    && Objects.equals(products, that.products)
-                    && Objects.equals(services, that.services);
+            Product product = (Product) o;
+            return isServise == product.isServise
+                    && Objects.equals(departmentName, product.departmentName)
+                    && Objects.equals(productName, product.productName)
+                    && Objects.equals(productPrice, product.productPrice);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(departmentName, products, services);
+            return Objects.hash(isServise, departmentName, productName, productPrice);
         }
     }
 
@@ -206,15 +134,11 @@ public class Shop {
         this.address = address;
     }
 
-    public List<Department> getDepartments() {
-        return departments;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    /**
-     * Setter.
-     * @param department object type Department.
-     */
-    public void setDepartments(Department department) {
-        departments.add(department);
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

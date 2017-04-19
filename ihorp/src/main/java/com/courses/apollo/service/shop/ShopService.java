@@ -8,62 +8,23 @@ import java.util.ArrayList;
 /**
  * Some service to test shop class.
  */
-public class ShopService {
+public final class ShopService {
+
+    private ShopService() {}
 
     /**
-     * Method identify the most cheapest department in shop.
-     *
-     * @param billa is a object type Shop.
-     * @return Department
+     * @param shop     object type Shop.
+     * @param minPrice minimal price of Product.
+     * @param maxPrice maximum price for product.
+     * @return array of products.
      */
-    public static Shop.Department cheapestDepartment(Shop billa) {
-
-        ArrayList<BigDecimal> averageDepartmentPrices;
-        averageDepartmentPrices = getAveragePrices(billa);
-
-        BigDecimal minPrice;
-        minPrice = averageDepartmentPrices.get(0);
-        int indexMinPrice = 0;
-
-        for (int i = 1; i < averageDepartmentPrices.size(); i++) {
-            if (minPrice.compareTo(averageDepartmentPrices.get(i)) == 1) {
-                indexMinPrice = i;
-                minPrice = averageDepartmentPrices.get(i);
+    public static ArrayList<Shop.Product> findProduct(Shop shop, BigDecimal minPrice, BigDecimal maxPrice) {
+        ArrayList<Shop.Product> result = new ArrayList<>();
+        for (Shop.Product i : shop.getProducts()) {
+            if (minPrice.compareTo(i.getProductPrice()) == -1 && maxPrice.compareTo(i.getProductPrice()) == 1) {
+                result.add(i);
             }
         }
-        return billa.getDepartments().get(indexMinPrice);
+        return result;
     }
-
-    /**
-     * This method find the average price for each of the department and return the list of average prices.
-     *
-     * @param fozzy is object type shop.
-     * @return list of average prices.
-     */
-    private static ArrayList<BigDecimal> getAveragePrices(Shop fozzy) {
-
-        ArrayList<BigDecimal> averagePrices = new ArrayList<>();
-
-        for (int i = 0; i < fozzy.getDepartments().size(); i++) {
-
-            Shop.Department tmpDepartment = fozzy.getDepartments().get(i);
-            BigDecimal totalPrice = new BigDecimal(0.00);
-
-            for (Shop.Department.Product tmpProduct : tmpDepartment.getProducts()) {
-                totalPrice = totalPrice.add(tmpProduct.getProductPrice());
-            }
-
-            for (Shop.Department.Service tmpService : tmpDepartment.getServices()) {
-                totalPrice = totalPrice.add(tmpService.getServicePrice());
-            }
-
-            BigDecimal quantity = new BigDecimal(
-                    fozzy.getDepartments().get(i).getProducts().size()
-                            + fozzy.getDepartments().get(i).getServices().size());
-            averagePrices.add(totalPrice.divide(quantity));
-        }
-        return averagePrices;
-    }
-
-
 }
