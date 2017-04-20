@@ -38,12 +38,11 @@ public class WeekdaysService {
      * @return true or false.
      */
     private static boolean findHolidays(LocalDate date, List<Holiday> holidays) {
-        boolean result = false;
         for (Holiday holiday : holidays) {
             if (holiday.getDate().equals(date)) {
                 return true;
             }
         }
-        return result;
+        return false;
     }
 }
