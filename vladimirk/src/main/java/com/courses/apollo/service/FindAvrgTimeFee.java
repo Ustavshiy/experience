@@ -17,7 +17,7 @@ public class FindAvrgTimeFee {
      * @param year to indicate report year.
      * @return average payment of 1 canadian employee in 1 hour in cents.
      */
-    public int findAvrgTimeFee(int salary, int workhour, int year) {
+    public int findAvrgTimeFee(int salary, int workhour, LocalDate year) {
         int workday = findWorkDays(year);
         return Math.round(salary / (workday * workhour));
     }
@@ -27,8 +27,8 @@ public class FindAvrgTimeFee {
      * @param year to indicate report year.
      * @return quantity of workdays.
      */
-    private int findWorkDays(int year) {
-        LocalDate dateOfYear = LocalDate.of(year, 1, 1);
+    private int findWorkDays(LocalDate year) {
+        LocalDate dateOfYear = LocalDate.of(year.getYear(), 1, 1);
         int workdays = 0;
         for (int i = 0; i < dateOfYear.lengthOfYear(); i++) {
             if (!(dateOfYear.getDayOfWeek() == DayOfWeek.SATURDAY || dateOfYear.getDayOfWeek() == DayOfWeek.SUNDAY)) {
