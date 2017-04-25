@@ -1,6 +1,7 @@
 package com.courses.apollo.util.io;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -51,6 +52,10 @@ public class SubstringOutputUtil {
         while (mat.find()) {
             matches.append(mat.group() + "\n");
         }
-        fileUtils.writeToFile(file, matches.toString());
+        try {
+            fileUtils.writeToFile(file, matches.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

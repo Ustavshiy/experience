@@ -6,33 +6,33 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class IOCountryUtilTest {
 
-    Country country = CountryUtilTestData.getState();
+    Country country;
     CountrySaverLoader countrySaverLoader = new CountrySaverLoader();
     String filename = "./src/main/resources/country/country.dat";
 
     @Before
-    public void Before() throws Exception {
-        countrySaverLoader.saveCountry(country, filename);
+    public void Before() {
+        country = CountryUtilTestData.getState();
     }
 
     @Test
-    public void getCountryObjectTest() throws Exception{
+    public void getCountryTest() throws ClassNotFoundException, IOException {
+        countrySaverLoader.saveCountry(country,filename);
         Country testCountry = countrySaverLoader.loadCountry(filename);
         Assert.assertEquals(country, testCountry);
     }
 
-    @Test(expected = Exception.class)
-    public void getCountryObjectExceptionTest() throws Exception{
+    @Test(expected = IOException.class)
+    public void getCountryExceptionTest() throws ClassNotFoundException, IOException {
         Country testCountry = countrySaverLoader.loadCountry("");
     }
 
-    @Test(expected = Exception.class)
-    public void saveCountryExceptionTest() throws Exception {
-        countrySaverLoader.saveCountry(country, "");
+    @Test(expected = IOException.class)
+    public void saveCountryExceptionTest() throws IOException {
+        countrySaverLoader.saveCountry(country, " ");
     }
 }

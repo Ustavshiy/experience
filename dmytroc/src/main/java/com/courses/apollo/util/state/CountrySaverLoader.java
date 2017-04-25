@@ -5,10 +5,10 @@ import com.courses.apollo.model.state.Country;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
+
 
 /**
  * Class to save and load Country object.
@@ -20,13 +20,13 @@ public class CountrySaverLoader {
      * @param filename filename to load from.
      * @return country object.
      */
-    public Country loadCountry(String filename) throws Exception {
-        File file = new File(filename);
-        Country country = new Country();
-        try (InputStream stream = new FileInputStream(file);
-             ObjectInputStream objectStream = new ObjectInputStream(stream)) {
+    public Country loadCountry(String filename) throws ClassNotFoundException, IOException {
+        Country country;
+        ObjectInputStream objectStream;
+        try {
+            objectStream = new ObjectInputStream(new FileInputStream(new File(filename)));
             country = (Country) objectStream.readObject();
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw e;
         }
         return country;
@@ -38,12 +38,12 @@ public class CountrySaverLoader {
      * @param country  country object.
      * @param filename filename to save to.
      */
-    public void saveCountry(Country country, String filename) throws Exception {
-        File file = new File(filename);
-        try (OutputStream stream = new FileOutputStream(file);
-             ObjectOutputStream objectStream = new ObjectOutputStream(stream)) {
+    public void saveCountry(Country country, String filename) throws IOException {
+        ObjectOutputStream objectStream;
+        try {
+            objectStream = new ObjectOutputStream(new FileOutputStream(new File(filename)));
             objectStream.writeObject(country);
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw e;
         }
     }

@@ -1,13 +1,16 @@
 package com.courses.apollo.util.io;
 
-import java.io.BufferedReader;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 
 /**
  * IO class to read and write.
@@ -21,11 +24,10 @@ public class FileIOUtils {
      * @return string.
      */
     public String readFromFile(File testFile) {
-        String line;
         StringBuffer stringBuffer = new StringBuffer();
-        try (Reader fileReader = Files.newBufferedReader(testFile.toPath(), StandardCharsets.UTF_8);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            while ((line = bufferedReader.readLine()) != null) {
+        try {
+            List<String> lines = Files.readAllLines(testFile.toPath(), UTF_8);
+            for (String line : lines) {
                 stringBuffer.append(line + " ");
             }
         } catch (IOException e) {
@@ -37,17 +39,19 @@ public class FileIOUtils {
     /**
      * Method write to string to file.
      *
-     * @param file output file.
+     * @param file   output file.
      * @param string string to write.
      */
 
-    public void writeToFile(File file, String string) {
-        try (Writer writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8);
-             BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
-            bufferedWriter.write(string);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void writeToFile(File file, String string) throws IOException {
+        Writer writer = null;
+        try {
+            writer = Files.newBufferedWriter(Paths.get(file.toURI()), UTF_8);
+            writer = new BufferedWriter(new FileWriter(file));
+            writer.write(string);
+        } finally {
+            writer.flush();
+            writer.close();
         }
     }
 }
-
