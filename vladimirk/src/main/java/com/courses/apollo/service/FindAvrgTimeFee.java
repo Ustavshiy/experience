@@ -46,8 +46,8 @@ public class FindAvrgTimeFee {
     private int findNmbrHolidaysWthtWknd() {
         int nmbrHolidays = 0;
         for (CndnHoliday holidays : CndnHoliday.values()) {
-            if (!(holidays.getDate().getDayOfWeek() == DayOfWeek.SATURDAY
-                    || holidays.getDate().getDayOfWeek() == DayOfWeek.SUNDAY)) {
+            if (holidays.getDate().getDayOfWeek() != DayOfWeek.SATURDAY
+                    && holidays.getDate().getDayOfWeek() != DayOfWeek.SUNDAY) {
                 nmbrHolidays++;
             }
         }
