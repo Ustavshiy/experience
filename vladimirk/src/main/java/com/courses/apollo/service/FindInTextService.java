@@ -2,7 +2,6 @@ package com.courses.apollo.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,8 +50,7 @@ public class FindInTextService {
         List<String> words = Arrays.asList(text.split("\\W+"));
         int counter = 0;
         for (String word : words) {
-            Pattern pattern = Pattern.compile("^[aeiouy].*");
-            if (pattern.matcher(word.toLowerCase()).find()) {
+            if (word.toLowerCase().matches("^[aeiouy].*")) {
                 counter++;
             }
         }
@@ -68,9 +66,7 @@ public class FindInTextService {
         List<String> result = new ArrayList<>();
         List<String> words = Arrays.asList(text.split("\\W+"));
         for (String word : words) {
-            Pattern pattern = Pattern.compile("^(\\w+).*(\\1)");
-            Matcher matcher = pattern.matcher(word.toLowerCase());
-            if (matcher.find() && !(result.contains(word))) {
+            if (word.toLowerCase().matches("^(\\w+).*(\\1)") && !(result.contains(word))) {
                 result.add(word);
             }
         }
@@ -84,15 +80,17 @@ public class FindInTextService {
      */
     public List<String> returnWordsMaxMinLength(String text) {
         List<String> result = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
         List<String> words = Arrays.asList(text.split("\\W+"));
+        int min = words.get(0).length();
+        int max = 0;
         for (String word : words) {
-            Integer wordLenght = word.length();
-            temp.add(wordLenght);
+            if (word.length() < min) {
+                min = word.length();
+            }
+            if (word.length() > max) {
+                max = word.length();
+            }
         }
-        temp.sort(Comparator.comparing(Integer::intValue));
-        int min = temp.get(0);
-        int max = temp.get(temp.size() - 1);
         for (String word : words) {
             if (word.length() == min || word.length() == max) {
                 result.add(word);
@@ -108,7 +106,6 @@ public class FindInTextService {
      * @return String text of receipt with price.
      */
     public int returnReceiptForPaymentOFTelegram(String text, int wordCost) {
-        List<String> words = Arrays.asList(text.split("\\W+"));
-        return words.size() * wordCost;
+        return text.split("\\W+").length * wordCost;
     }
 }
