@@ -31,7 +31,7 @@ public class FindAvrgTimeFee {
         LocalDate dateOfYear = LocalDate.of(year.getYear(), 1, 1);
         int workdays = 0;
         for (int i = 0; i < dateOfYear.lengthOfYear(); i++) {
-            if (!(dateOfYear.getDayOfWeek() == DayOfWeek.SATURDAY || dateOfYear.getDayOfWeek() == DayOfWeek.SUNDAY)) {
+            if (dateOfYear.getDayOfWeek() != DayOfWeek.SATURDAY && dateOfYear.getDayOfWeek() != DayOfWeek.SUNDAY) {
                 workdays++;
             }
             dateOfYear = dateOfYear.plusDays(1);
