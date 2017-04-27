@@ -26,6 +26,7 @@ public class CountrySaverLoader {
         try {
             objectStream = new ObjectInputStream(new FileInputStream(new File(filename)));
             country = (Country) objectStream.readObject();
+            objectStream.close();
         } catch (IOException e) {
             throw e;
         }
@@ -43,6 +44,7 @@ public class CountrySaverLoader {
         try {
             objectStream = new ObjectOutputStream(new FileOutputStream(new File(filename)));
             objectStream.writeObject(country);
+            objectStream.close();
         } catch (IOException e) {
             throw e;
         }
