@@ -23,7 +23,7 @@ public class ThirdMain {
         new X<String>("", 3);
         new X<Object>("", 3);
 
-        new <Integer>X<String>("", 3);// T is String and S is Integer
+        new <Integer>X<String>(3, "");// T is String and S is Integer
         new <Number>X<String>("", 3);// T is String and S is Number
         new <Integer>X<Object>("", 3);// T is Object and S is Integer
         new <Number>X<Object>("", 3);// T is Object and S is Number

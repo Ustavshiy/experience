@@ -23,7 +23,7 @@ public class GenericsInList {
          */
 
 
-        List<String> words = new ArrayList<String>();
+        List<String> words = new ArrayList<>();
         words.add("Hello ");
         words.add("world!");
         String str = words.get(0) + words.get(1);

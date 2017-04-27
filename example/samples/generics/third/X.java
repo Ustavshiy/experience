@@ -6,7 +6,7 @@ package com.courses.apollo.generics.third;
 public class X<T> {
     T t;
 
-    <S> X(T t, S s) {
+    <S> X( S s, T t) {
     }
 
     static <T extends Number, S extends Number> T doSomething(S s) {

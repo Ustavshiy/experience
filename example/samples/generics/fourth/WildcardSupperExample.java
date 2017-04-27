@@ -100,7 +100,6 @@ public class WildcardSupperExample {
         //The exception proves the rule, and each of these rules has one exception.
         // You cannot put anything into a type declared with an extends wildcard—except for the value null,
         // which belongs to every reference type:
-
         List<Integer> intsSix = new ArrayList<Integer>();
         intsSix.add(1);
         intsSix.add(2);
@@ -110,7 +109,10 @@ public class WildcardSupperExample {
         //Similarly, you cannot get anything out from a type declared with a super wildcard—except for a value
         // of type Object, which is a supertype of every reference type:
         List<Object> objsTwo = Arrays.<Object>asList(1,"two");
-        List<? super Integer> intsSeven = objsTwo;
+        List<? super Number> intsSeven = objsTwo;
+        intsSeven.add(1);
+        intsSeven.get(0);
+        intsSeven.add(0.0);
         String str = "";
         for (Object obj : ints) str += obj.toString(); assert str.equals("1two");
         //You may find it helpful to think of ? extends T as containing every type in an interval bounded

@@ -31,13 +31,13 @@ public class WildcardExtendsExample {
         //We can also use wildcards when declaring variables. Here is a variant of the example at the end of
         // the preceding section, changed by adding a wildcard to the second line:
 
-        /*
+
         List<Integer> integers = new ArrayList<Integer>();
         integers.add(1);
         integers.add(2);
         List<? extends Number> wints = integers;
-        wints.add(3.14); // compile-time error
-        assert ints.toString().equals("[1, 2, 3.14]");*/
+        //wints.add(3.14); // compile-time error
+        assert ints.toString().equals("[1, 2, 3.14]");
 
         /*Before, the fourth line caused a compile-time error (because List<Integer> is not a subtype of List<Number>),
         but the fifth line was fine (because a double is a number, so you can add a double to a List<Number>).
@@ -93,10 +93,12 @@ public class WildcardExtendsExample {
 
     }
 
-    public static <T> void copy(List<? super T> dst, List<? extends T> src) {
+    public static <T extends Number> List<? super T> copy(List<? super T> dst, List<? extends T> src) {
+        dst.get(0);
         for (int i = 0; i < src.size(); i++) {
             dst.set(i, src.get(i));
         }
+        return dst;
     }
 
     interface Collection<E> {
