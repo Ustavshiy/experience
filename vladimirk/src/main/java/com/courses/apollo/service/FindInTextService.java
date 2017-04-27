@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class fof methods, wich work with texts..
+ * Class fof methods, wich work with texts.
  */
 public class FindInTextService {
 
@@ -18,10 +18,10 @@ public class FindInTextService {
      */
     public List<String> findWhichLettersMore(String text) {
         List<String> result = new ArrayList<>();
-        List<String> sentenses = Arrays.asList(text.split("[\\.\\!\\?\\.+]"));
-        for (int i = 0; i < sentenses.size(); i++) {
-            Matcher vowel = Pattern.compile("(?i)[aeiouy]").matcher(sentenses.get(i));
-            Matcher letter = Pattern.compile("[A-Za-z]").matcher(sentenses.get(i));
+        List<String> sentences = Arrays.asList(text.split("[.!?]"));
+        for (int i = 0; i < sentences.size(); i++) {
+            Matcher vowel = Pattern.compile("(?i)[aeiouy]").matcher(sentences.get(i));
+            Matcher letter = Pattern.compile("[A-Za-z]").matcher(sentences.get(i));
             int lettersCounter = 0;
             int vowelCounter = 0;
             while (letter.find()) {
@@ -35,7 +35,7 @@ public class FindInTextService {
             } else if (lettersCounter - vowelCounter < vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more vowels");
             } else {
-                result.add("The same number of vowels and consonants in sentense " + (i + 1));
+                result.add("The same number of vowels and consonants in sentence " + (i + 1));
             }
         }
         return result;
@@ -50,7 +50,7 @@ public class FindInTextService {
         List<String> words = Arrays.asList(text.split("\\W+"));
         int counter = 0;
         for (String word : words) {
-            if (word.toLowerCase().matches("^[aeiouy].*")) {
+            if (word.matches("(?i)[aeiouy](.*(?i)[aeiouy])*")) {
                 counter++;
             }
         }
@@ -66,7 +66,7 @@ public class FindInTextService {
         List<String> result = new ArrayList<>();
         List<String> words = Arrays.asList(text.split("\\W+"));
         for (String word : words) {
-            if (word.toLowerCase().matches("^(\\w+).*(\\1)") && !(result.contains(word))) {
+            if (word.matches("^(?i)(\\w+).*(\\1)") && !(result.contains(word))) {
                 result.add(word);
             }
         }

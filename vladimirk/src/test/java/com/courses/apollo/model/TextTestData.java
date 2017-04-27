@@ -5,10 +5,10 @@ import java.util.List;
 
 public class TextTestData {
 
-    public static List<String> getExpectedStringsA() {
+    public List<String> getExpectedStringsA() {
         return new ArrayList<String>() {{
             add(new String("In the sentence 1 more vowels"));
-            add(new String("The same number of vowels and consonants in sentense 2"));
+            add(new String("The same number of vowels and consonants in sentence 2"));
             add(new String("In the sentence 3 more consonants"));
         }};
     }
@@ -21,14 +21,15 @@ public class TextTestData {
         return "A book of verses underneath the bough\n" +
                 "A flask of wine, a loaf of bread and thou\n" +
                 "Beside me singing in the wilderness\n" +
-                "And wilderness is paradise now.";
+                "And wilderness is paradise now. " +
+                "Ase...Au...Omme..Altus. (Additional line for check)" ;
     }
 
     public String getTextC() {
         return "olto, ff, beta, omo, Sees, otjmo, Aomo, nulan, Alpha";
     }
 
-    public static List<String> getExpectedStringsC() {
+    public List<String> getExpectedStringsC() {
         return new ArrayList<String>(){{
             add(new String("olto"));
             add(new String("ff"));
