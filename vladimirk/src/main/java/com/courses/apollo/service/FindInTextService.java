@@ -25,9 +25,9 @@ public class FindInTextService {
             while (vowel.find()) {
                 vowelCounter++;
             }
-            if (sentences.get(i).length() > 2 * vowelCounter) {
+            if (sentences.get(i).length() - vowelCounter > vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more consonants");
-            } else if (sentences.get(i).length() < 2 * vowelCounter) {
+            } else if (sentences.get(i).length() - vowelCounter < vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more vowels");
             } else {
                 result.add("The same number of vowels and consonants in sentence " + (i + 1));
