@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * Util class. AP-91 paragraph 1.
  */
-public class CharMatches {
+public final class CharMatches {
 
     private CharMatches() {
     }
@@ -26,8 +26,8 @@ public class CharMatches {
 
         for (String i : firstWordChars) {
             if (isHasChar(i, splitedStrings)) {
-                char[] j = i.toCharArray();
-                result.add(j[0]);
+                char[] chars = i.toCharArray();
+                result.add(chars[0]);
             }
         }
         return result;
@@ -35,21 +35,18 @@ public class CharMatches {
 
     /**
      * @param stringToFind is the string whitch need to find in "strings".
-     * @param strings That's where we look
+     * @param strings      That's where we look
      * @return true if find, false if not find.
      */
     public static boolean isHasChar(String stringToFind, String[] strings) {
-
-        Pattern p = Pattern.compile(stringToFind.toLowerCase());
+        Pattern pattern = Pattern.compile(stringToFind.toLowerCase());
         boolean result = true;
         for (String i : strings) {
-            Matcher m = p.matcher(i.toLowerCase());
-            if (!m.find()) {
+            Matcher matcher = pattern.matcher(i.toLowerCase());
+            if (!matcher.find()) {
                 result = false;
             }
         }
         return result;
     }
-
-
 }

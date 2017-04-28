@@ -7,13 +7,14 @@ import java.util.regex.Pattern;
 /**
  * Util class. AP-91 paragraph 3.
  */
-public class ConsonantsFinder {
+public final class ConsonantsFinder {
 
     private ConsonantsFinder() {
     }
 
     /**
      * Method find consonants letters that occur in the text no more than 2 times.
+     *
      * @param text in which you want to search.
      * @return consonants letters.
      */
@@ -21,10 +22,11 @@ public class ConsonantsFinder {
 
         ArrayList<Character> result = new ArrayList<>();
         String[] splitedText = text.split("[^a-z,A-Z,\\']+");
-        final String[] consonants = {"b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","x","z"};
+        final String[] consonants = {"b", "c", "d", "f", "g", "h", "j", "k",
+                "l", "m", "n", "p", "q", "r", "s", "t", "v", "x", "z"};
 
         for (String i : consonants) {
-            if(isRepetitionsChar(i, splitedText)) {
+            if (isRepetitionsChar(i, splitedText)) {
                 char[] tmp = i.toCharArray();
                 result.add(tmp[0]);
             }
@@ -34,20 +36,21 @@ public class ConsonantsFinder {
 
     /**
      * The method determines whether there is a letter in the words array that repeats no more than two times.
-     * @param find char to find.
+     *
+     * @param find  char to find.
      * @param words array of words.
-     * @return
+     * @return true or false.
      */
     public static boolean isRepetitionsChar(String find, String[] words) {
-        Pattern p = Pattern.compile(find);
+        Pattern pattern = Pattern.compile(find);
 
         int counter = 0;
         for (String i : words) {
-            Matcher m = p.matcher(i.toLowerCase());
-            if(m.find()){
+            Matcher matcher = pattern.matcher(i.toLowerCase());
+            if (matcher.find()) {
                 counter++;
             }
-            if(counter > 2){
+            if (counter > 2) {
                 return false;
             }
         }

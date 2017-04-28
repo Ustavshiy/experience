@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 /**
  * Util class. AP-91 paragraph 2.
  */
-public class NonLetters {
+public final class NonLetterChain {
 
-    private NonLetters() {
+    private NonLetterChain() {
     }
 
     /**
@@ -20,11 +20,11 @@ public class NonLetters {
      */
     public static String nonLettersFinder(String string) {
         Pattern pattern = Pattern.compile("[^a-z,A-Z]+");
-        Matcher m = pattern.matcher(string);
+        Matcher matcher = pattern.matcher(string);
 
         ArrayList<String> nonLetters = new ArrayList<>();
-        while (m.find()) {
-            nonLetters.add(m.group());
+        while (matcher.find()) {
+            nonLetters.add(matcher.group());
         }
         return theBiggestString(nonLetters);
     }

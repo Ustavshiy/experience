@@ -1,5 +1,6 @@
 package com.courses.apollo.service.regex;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class CharMatchesTest {
 
-    private String string = "Test sdfsdfe dfsfkjlsdjfe\ndfdfed";
+    private String string = "Test sdfsdfe dfsfkjlsdjfe\ndsfdfed";
     private String[] splitedString = string.split("\\s, \\n");
     private String charToFind = "e";
 
@@ -17,12 +18,12 @@ public class CharMatchesTest {
         resultChars.add('e');
         resultChars.add('s');
 
-        resultChars.equals(CharMatches.charMatches(string));
+        Assert.assertEquals(resultChars, CharMatches.charMatches(string));
     }
 
     @Test
     public void testIsHasChar() {
         boolean result = true;
-        result = CharMatches.isHasChar(charToFind, splitedString);
+        Assert.assertTrue(CharMatches.isHasChar(charToFind, splitedString));
     }
 }

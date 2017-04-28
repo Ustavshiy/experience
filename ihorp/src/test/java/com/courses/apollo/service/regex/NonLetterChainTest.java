@@ -1,11 +1,12 @@
 package com.courses.apollo.service.regex;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class NonLettersTest {
+public class NonLetterChainTest {
 
     private String string = "I must find 234 here a most 0978&^6 long (*7 non letters order";
     private ArrayList<String> stringArray = new ArrayList<>();
@@ -26,12 +27,12 @@ public class NonLettersTest {
     @Test
     public void testNonLettersFinder() {
         String answer = " 0978&^6 ";
-        answer.equals(NonLetters.nonLettersFinder(string));
+        Assert.assertEquals(answer,NonLetterChain.nonLettersFinder(string));
     }
 
     @Test
     public void testTheBiggestString() {
-        String answer = "The most supa long string";
-        answer.equals(stringArray);
+        String answear = "The most supa long string";
+        Assert.assertEquals(answear, NonLetterChain.theBiggestString(stringArray));
     }
 }
