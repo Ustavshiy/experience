@@ -1,6 +1,6 @@
 package com.courses.apollo.model.figure;
 
-import com.courses.apollo.model.IntegerStringVocabulary;
+import com.courses.apollo.model.VocabularyPair;
 import com.courses.apollo.model.Patient;
 
 import java.util.ArrayList;
@@ -12,25 +12,19 @@ import java.util.List;
 public class IntegerStringVocabularyTest {
 
     public void test(){
-        IntegerStringVocabulary integerStringVocabularyOne
-                = new IntegerStringVocabulary(1, "word");
-        IntegerStringVocabulary integerStringVocabularyTwo
-                = new IntegerStringVocabulary(2, "letter");
-        IntegerStringVocabulary integerStringVocabularyThree
-                = new IntegerStringVocabulary("vasya"
+        VocabularyPair<Integer, String> integerStringVocabularyOne
+                = new VocabularyPair<>(1, "word");
+        VocabularyPair<Integer, String> integerStringVocabularyTwo
+                = new VocabularyPair<>(2, "letter");
+
+        VocabularyPair<String, Patient> integerStringVocabularyThree
+                = new VocabularyPair<>("vasya"
                 , new Patient(null,null
                 ,null));
 
-        List<IntegerStringVocabulary> vocabularyList = new ArrayList<>();
+        List<VocabularyPair<Integer, String>> vocabularyList = new ArrayList<>();
         vocabularyList.add(integerStringVocabularyOne);
         vocabularyList.add(integerStringVocabularyTwo);
-        vocabularyList.add(integerStringVocabularyThree);
 
-
-        for (IntegerStringVocabulary vocabulary : vocabularyList){
-            if (Integer.valueOf(vocabulary.getKey().toString()) == 2){
-                System.out.println(vocabulary.getWord());
-            }
-        }
     }
 }

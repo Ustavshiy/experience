@@ -1,9 +1,11 @@
 package com.courses.apollo.model;
 
+import java.util.Comparator;
+
 /**
  * Class for Hospital's Patients.
  */
-public class Patient {
+public class Patient implements Comparable<Patient> {
 
     /**
      * ID of hospital's Patient.
@@ -60,5 +62,15 @@ public class Patient {
     public String toString() {
         return "Patient{" + "patientId=" + patientId + ", patientPersonalInfo=" + patientPersonalInfo
                 + ", patientMedicalInfo=" + patientMedicalInfo + '}';
+    }
+
+    @Override
+    public int compareTo(Patient o) {
+        if(this.getPatientId() > o.getPatientId()) {
+            return 1;
+        } else  if(this.getPatientId() < o.getPatientId()) {
+            return -1;
+        }
+        return 0;
     }
 }

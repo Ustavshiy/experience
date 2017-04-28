@@ -1,9 +1,11 @@
 package com.courses.apollo.model.figure;
 
+import java.io.Serializable;
+
 /**
  * Triangle representation.
  */
-public final class Triangle extends AngleShape {
+public final class Triangle extends AngleShape implements Serializable {
     /**
      * Triangle sideB.
      */

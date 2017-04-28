@@ -1,8 +1,6 @@
 package com.courses.apollo.generics.second;
 
 
-import java.util.List;
-
 public class Y<S> {
 
     <T> void print(S s, T t) {

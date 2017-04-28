@@ -1,9 +1,6 @@
 package com.courses.apollo.generics.first;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainGenericWrapper {
     public static void main(String[] args) {
         /*To refer to this generic type, we supply a concrete type name as argument*/
