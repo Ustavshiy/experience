@@ -1,5 +1,6 @@
 package com.courses.apollo.util.state;
 
+import com.courses.apollo.exception.CountryIOException;
 import com.courses.apollo.model.state.Country;
 
 import java.io.File;
@@ -20,15 +21,15 @@ public class CountrySaverLoader {
      * @param filename filename to load from.
      * @return country object.
      */
-    public Country loadCountry(String filename) throws ClassNotFoundException, IOException {
+    public Country loadCountry(String filename) throws CountryIOException {
         Country country;
         ObjectInputStream objectStream;
         try {
             objectStream = new ObjectInputStream(new FileInputStream(new File(filename)));
             country = (Country) objectStream.readObject();
             objectStream.close();
-        } catch (IOException e) {
-            throw e;
+        } catch (IOException | ClassNotFoundException e) {
+            throw new CountryIOException(e.getMessage(), "Can't read country from file");
         }
         return country;
     }
@@ -39,14 +40,14 @@ public class CountrySaverLoader {
      * @param country  country object.
      * @param filename filename to save to.
      */
-    public void saveCountry(Country country, String filename) throws IOException {
+    public void saveCountry(Country country, String filename) throws CountryIOException {
         ObjectOutputStream objectStream;
         try {
             objectStream = new ObjectOutputStream(new FileOutputStream(new File(filename)));
             objectStream.writeObject(country);
             objectStream.close();
         } catch (IOException e) {
-            throw e;
+            throw new CountryIOException(e.getMessage(), "Can`t save country to file");
         }
     }
 }

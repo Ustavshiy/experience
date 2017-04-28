@@ -2,9 +2,7 @@ package com.courses.apollo.util.io;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -47,7 +45,6 @@ public class FileIOUtils {
         Writer writer = null;
         try {
             writer = Files.newBufferedWriter(Paths.get(file.toURI()), UTF_8);
-            writer = new BufferedWriter(new FileWriter(file));
             writer.write(string);
         } finally {
             writer.flush();

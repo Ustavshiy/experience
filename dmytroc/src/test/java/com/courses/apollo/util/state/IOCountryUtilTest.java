@@ -1,6 +1,7 @@
 package com.courses.apollo.util.state;
 
 import com.courses.apollo.CountryUtilTestData;
+import com.courses.apollo.exception.CountryIOException;
 import com.courses.apollo.model.state.Country;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -8,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.IOException;
 
 public class IOCountryUtilTest {
 
@@ -25,19 +25,19 @@ public class IOCountryUtilTest {
     }
 
     @Test
-    public void getCountryTest() throws ClassNotFoundException, IOException {
+    public void getCountryTest() throws CountryIOException {
         countrySaverLoader.saveCountry(country, filename);
         Country testCountry = countrySaverLoader.loadCountry(filename);
         Assert.assertEquals(country, testCountry);
     }
 
-    @Test(expected = IOException.class)
-    public void getCountryExceptionTest() throws ClassNotFoundException, IOException {
+    @Test(expected = CountryIOException.class)
+    public void getCountryExceptionTest() throws CountryIOException {
         Country testCountry = countrySaverLoader.loadCountry("");
     }
 
-    @Test(expected = IOException.class)
-    public void saveCountryExceptionTest() throws IOException {
+    @Test(expected = CountryIOException.class)
+    public void saveCountryExceptionTest() throws CountryIOException {
         countrySaverLoader.saveCountry(country, " ");
     }
 
