@@ -18,21 +18,16 @@ public class FindInTextService {
      */
     public List<String> findWhichLettersMore(String text) {
         List<String> result = new ArrayList<>();
-        List<String> sentences = Arrays.asList(text.split("[.!?]"));
+        List<String> sentences = Arrays.asList(text.replaceAll("[^A-Za-z.!?]", "").split("[.!?]"));
         for (int i = 0; i < sentences.size(); i++) {
             Matcher vowel = Pattern.compile("(?i)[aeiouy]").matcher(sentences.get(i));
-            Matcher letter = Pattern.compile("[A-Za-z]").matcher(sentences.get(i));
-            int lettersCounter = 0;
             int vowelCounter = 0;
-            while (letter.find()) {
-                lettersCounter++;
-                if (vowel.find()) {
-                    vowelCounter++;
-                }
+            while (vowel.find()) {
+                vowelCounter++;
             }
-            if (lettersCounter - vowelCounter > vowelCounter) {
+            if (sentences.get(i).length() > 2 * vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more consonants");
-            } else if (lettersCounter - vowelCounter < vowelCounter) {
+            } else if (sentences.get(i).length() < 2 * vowelCounter) {
                 result.add("In the sentence " + (i + 1) + " more vowels");
             } else {
                 result.add("The same number of vowels and consonants in sentence " + (i + 1));
