@@ -1,7 +1,7 @@
 package com.courses.apollo.generics.five;
 
 
-import com.courses.apollo.generics.first.GenericWrapper;
+import com.courses.apollo.main.generics.first.GenericWrapper;
 
 public class TypeErasure {
     public static void main(String[] args) {
