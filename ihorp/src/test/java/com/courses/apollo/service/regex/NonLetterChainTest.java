@@ -4,7 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
 
 public class NonLetterChainTest {
 
@@ -34,5 +39,13 @@ public class NonLetterChainTest {
     public void testTheBiggestString() {
         String answear = "The most supa long string";
         Assert.assertEquals(answear, NonLetterChain.theBiggestString(stringArray));
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<NonLetterChain> constructor = NonLetterChain.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

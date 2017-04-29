@@ -3,8 +3,13 @@ package com.courses.apollo.service.regex;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 public class CharMatchesTest {
 
@@ -24,6 +29,14 @@ public class CharMatchesTest {
     @Test
     public void testIsHasChar() {
         boolean result = true;
-        Assert.assertTrue(CharMatches.isHasChar(charToFind, splitedString));
+        assertTrue(CharMatches.isHasChar(charToFind, splitedString));
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<CharMatches> constructor = CharMatches.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }
