@@ -6,32 +6,71 @@ import java.io.Serializable;
 
 /**
  * Created by User on 27.04.2017.
+ * @param <TT> generic.
+ * @param <SS> generic.
  */
-public class SimpleGenericClass<T, S extends Shape & Serializable> {
-    T first;
-    S second;
+public class SimpleGenericClass<TT, SS extends Shape & Serializable> {
 
-    public <U, V> SimpleGenericClass(U u, V v) {
-        setSomething(u);
-        System.out.println(v.toString());
+    public SimpleGenericClass(TT first, SS second) {
+        this.first = first;
+        this.second = second;
     }
 
+    /**
+     * Field first type S.
+     */
+    private TT first;
+
+    /**
+     * Field second type S.
+     */
+    private SS second;
+
+    /**
+     * Method doSomething.
+     * @param t  is object type T.
+     * @param <T> type of object.
+     * @return t.
+     */
     public static <T> T doSomehting(T t) {
         return t;
     }
 
-    public <Jeneric> T setFirst(Jeneric jeneric) {
+    /**
+     * Setter to first.
+     * @param jnrc is jeneric.
+     * @param <G> is generic.
+     * @return first.
+     */
+    public <G> TT setFirst(G jnrc) {
         return first;
     }
 
-    public <U> void setSomething(U u) {
-        System.out.println(u.toString());
+    public SS getSecond() {
+        return second;
     }
 
+    public void setSecond(SS second) {
+        this.second = second;
+    }
+
+    /**
+     * Method return shape.
+     * @param t is object type T.
+     * @param <T> extends Shape
+     * @return t.
+     */
     public <T extends Shape> T returnSomeShape(T t) {
         return t;
     }
 
+    /**
+     * Override method to return Shape.
+     * @param t is object type T.
+     * @param type is type.
+     * @param <E> extends Shape & Comparable.
+     * @return t.
+     */
     public <E extends Shape & Comparable> E returnSomeShape(E t, E type) {
         t.compareTo(type);
         return t;

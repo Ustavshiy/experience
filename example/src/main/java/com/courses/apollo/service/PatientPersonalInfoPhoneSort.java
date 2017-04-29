@@ -9,9 +9,9 @@ import java.util.Comparator;
  */
 public class PatientPersonalInfoPhoneSort implements Comparator<Patient> {
     @Override
-    public int compare(Patient o1, Patient o2) {
-        return o1.getPatientPersonalInfo()
+    public int compare(Patient objectOne, Patient objectTwo) {
+        return objectOne.getPatientPersonalInfo()
                 .getPhoneNumber()
-                .compareTo(o2.getPatientPersonalInfo().getPhoneNumber());
+                .compareTo(objectTwo.getPatientPersonalInfo().getPhoneNumber());
     }
 }

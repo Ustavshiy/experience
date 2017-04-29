@@ -4,6 +4,10 @@ package com.courses.apollo.model;
  * Created by User on 27.04.2017.
  */
 public class City {
+
+    /**
+     * Field company.
+     */
     private Company company;
 
     public Company getCompany() {

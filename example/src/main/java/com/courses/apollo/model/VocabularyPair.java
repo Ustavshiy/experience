@@ -1,30 +1,45 @@
 package com.courses.apollo.model;
 
 /**
- * Created by User on 20.04.2017.
+ * Example of use generic.
+ * @param <Kk> is key.
+ * @param <Vv> is value.
  */
-public class VocabularyPair<K, V> {
-    private K key;
-    private V value;
+public class VocabularyPair<Kk, Vv> {
 
-    public VocabularyPair(K key, V value) {
+    /**
+     * Field key.
+     */
+    private Kk key;
+
+    /**
+     * Field value.
+     */
+    private Vv value;
+
+    /**
+     * Constructor for VocabularyPair.
+     * @param key is key.
+     * @param value is value.
+     */
+    public VocabularyPair(Kk key, Vv value) {
         this.key = key;
         this.value = value;
     }
 
-    public K getKey() {
+    public Kk getKey() {
         return key;
     }
 
-    public void setKey(K key) {
+    public void setKey(Kk key) {
         this.key = key;
     }
 
-    public V getValue() {
+    public Vv getValue() {
         return value;
     }
 
-    public void setValue(V value) {
+    public void setValue(Vv value) {
         this.value = value;
     }
 }

@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * Triangle representation.
  */
-public final class Triangle extends AngleShape implements Serializable {
+public final class Triangle extends AngleShape implements Comparable, Serializable {
+
     /**
      * Triangle sideB.
      */
@@ -63,4 +64,8 @@ public final class Triangle extends AngleShape implements Serializable {
         return getSideA() + getSideB() + getSideC();
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

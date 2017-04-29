@@ -15,6 +15,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 /**
  * Created by User on 10.04.2017.
  */
@@ -39,7 +41,7 @@ public class FileTest {
     @Test
     public void testOutputStreamFinally() {
         File file = new File("src\\main\\resources\\testTwo.txt");
-        byte[] text = "How to download and save a file from Internet using Java?\n".getBytes();
+        byte[] text = "How to download and save a file from Internet using Java?\n".getBytes(UTF_8);
         try (OutputStream stream = new FileOutputStream(file);
              BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(stream);
              AutoCloseableExample example = new AutoCloseableExample()) {
@@ -54,7 +56,7 @@ public class FileTest {
 
     public void testOutputStream() {
         File file = new File("src\\main\\resources\\test.txt");
-        byte[] text = "How to download and save a file from Internet using Java?\n".getBytes();
+        byte[] text = "How to download and save a file from Internet using Java?\n".getBytes(UTF_8);
         OutputStream stream = null;
         BufferedOutputStream bufferedOutputStream = null;
         try {
@@ -112,7 +114,7 @@ public class FileTest {
         List<Student> students = new ArrayList<>();
         File file = new File("src\\main\\resources\\temp.txt");
         try {
-            Reader reader = new FileReader(file);
+            Reader reader = Files.newBufferedReader(file.toPath());
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -152,7 +154,7 @@ public class FileTest {
     public void writeToFIleTest() {
         File file = new File("src\\main\\resources\\write.txt");
         try {
-            Writer writer = new FileWriter(file);
+            Writer writer = Files.newBufferedWriter(file.toPath(), UTF_8);;
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
         } catch (IOException e) {
             e.printStackTrace();
@@ -169,7 +171,7 @@ public class FileTest {
         File file = new File("src\\main\\resources\\write.txt");
         RandomAccessFile accessFile = new RandomAccessFile(file, "rw");
         accessFile.seek(1000);
-        accessFile.write("Hello Class!!!!".getBytes());
+        accessFile.write("Hello Class!!!!".getBytes(UTF_8));
         accessFile.close();
     }
 
@@ -181,7 +183,7 @@ public class FileTest {
         List<String> strings = new ArrayList<>();
         int res;
         while ((res = stream.read(bytes)) != -1) {
-            strings.add(new String(bytes));
+            strings.add(new String(bytes, UTF_8));
         }
         for (int i = 0; i < strings.size(); i++) {
             System.out.println(strings.get(i));

@@ -12,7 +12,7 @@ public class SimpleGenericClassTest {
     public void testExtends() {
         Square square = new Square(10);
         Triangle triangle = new Triangle(10.00, 10.00, 10.00);
-        SimpleGenericClass simpleGenericClass = new SimpleGenericClass("1", 1);
+        SimpleGenericClass simpleGenericClass = new SimpleGenericClass("1", triangle);
         simpleGenericClass.returnSomeShape(new Shape() {
             @Override
             public double getPerimeter() {

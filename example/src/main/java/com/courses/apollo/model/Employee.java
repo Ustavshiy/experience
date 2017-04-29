@@ -1,9 +1,13 @@
 package com.courses.apollo.model;
 
 /**
- * Created by User on 27.04.2017.
+ * Class of Employee.
  */
 public class Employee {
+
+    /**
+     * Field salary.
+     */
     private double salary;
 
     public double getSalary() {

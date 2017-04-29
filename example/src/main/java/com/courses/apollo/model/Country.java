@@ -4,7 +4,15 @@ package com.courses.apollo.model;
  * Created by User on 27.04.2017.
  */
 public class Country {
+
+    /**
+     * Field city.
+     */
     private City city;
+
+    /**
+     * Field name.
+     */
     private String name;
 
     public City getCity() {

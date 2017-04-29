@@ -4,7 +4,11 @@ package com.courses.apollo.model;
  * Created by User on 27.04.2017.
  */
 public class Department {
-    Employee employee;
+
+    /**
+     * Field Employee.
+     */
+    private Employee employee;
 
     public Employee getEmployee() {
         return employee;

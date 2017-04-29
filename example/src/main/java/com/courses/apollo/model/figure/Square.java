@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Square representation.
  */
-public class Square extends AngleShape implements Serializable, Comparable, AutoCloseable{
+public class Square extends AngleShape implements Serializable, Comparable, AutoCloseable {
 
     /**
      * Four sides in square.
