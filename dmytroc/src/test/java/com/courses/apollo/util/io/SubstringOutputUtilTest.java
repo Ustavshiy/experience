@@ -14,39 +14,34 @@ import java.io.IOException;
 public class SubstringOutputUtilTest {
     FileIOUtils fileIOUtils = new FileIOUtils();
     SubstringOutputUtil substringOutputUtil = new SubstringOutputUtil();
-    String testText;
-    String matcher = "[a-zA-Z]+@[a-zA-Z]+.[a-zA_Z]+";
-    static String outputPath = "./src/main/resources";
-    String testOutputPath = "./src/test/resources/textoutput";
-    static String testFolderName = outputPath + "/writematches";
-    String testMatchedFileName = "/matched.txt";
-    File testMatchedFile = new File(testFolderName + "/" + testMatchedFileName);
-    static String testAllWordsFileName = outputPath + "/allwords.txt";
-    File testAllWordsFile = new File(testAllWordsFileName);
+    static String resourcesPath = "./src/main/resources";
+    static String testFolderName = resourcesPath + "/writematches";
+    static File testWordsFile = new File(resourcesPath + "/allwords.txt");
+    String expectedResultPath = "./src/test/resources/textoutput";
 
     @Before
     public void before() throws IOException {
-        testText = fileIOUtils.readFromFile(new File("./src/test/resources/textinput/textExamples.txt"));
-        fileIOUtils.writeToFile(testAllWordsFile, substringOutputUtil.getAllWords(testText));
-        substringOutputUtil.writeMatches(testFolderName, testMatchedFileName, testText, matcher);
+        String testText = fileIOUtils.readFromFile(new File("./src/test/resources/textinput/textExamples.txt"));
+        fileIOUtils.writeToFile(testWordsFile, substringOutputUtil.getAllWords(testText));
+        substringOutputUtil.writeMatches(testFolderName, "/matched.txt", testText, "[a-zA-Z]+@[a-zA-Z]+.[a-zA_Z]+");
     }
 
     @Test
     public void findMatchedTest() {
-        Assert.assertEquals(fileIOUtils.readFromFile(new File(testOutputPath + "/writematches/matched.txt")),
-                fileIOUtils.readFromFile(testMatchedFile));
+        Assert.assertEquals(fileIOUtils.readFromFile(new File(expectedResultPath + "/writematches/matched.txt")),
+                fileIOUtils.readFromFile(new File(testFolderName + "/matched.txt")));
     }
 
     @Test
     public void getAllWords() {
-        Assert.assertEquals(fileIOUtils.readFromFile(new File(testOutputPath + "/allwords.txt")),
-                fileIOUtils.readFromFile(testAllWordsFile));
+        Assert.assertEquals(fileIOUtils.readFromFile(new File(expectedResultPath + "/allwords.txt")),
+                fileIOUtils.readFromFile(testWordsFile));
     }
 
     @AfterClass
     public static void clean() {
         File dirOne = new File(testFolderName);
-        File dirTwo = new File(testAllWordsFileName);
+        File dirTwo = testWordsFile;
         for (File file : dirOne.listFiles()) {
             file.delete();
         }
