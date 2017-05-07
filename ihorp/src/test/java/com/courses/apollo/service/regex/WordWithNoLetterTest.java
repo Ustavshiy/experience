@@ -16,12 +16,12 @@ public class WordWithNoLetterTest {
     @Test
     public void changeFirstLetterTest() {
         String answerString = "the Boss's wife loves me but I Can't sleep with her :(";
-        Assert.assertTrue(answerString.equals(WordWithNonLetter.changeFirstLetter(testString)));
+        Assert.assertTrue(answerString.equals(WordWithNoAlphabetical.changeFirstLetter(testString)));
     }
 
     @Test
     public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor<WordWithNonLetter> constructor = WordWithNonLetter.class.getDeclaredConstructor();
+        Constructor<WordWithNoAlphabetical> constructor = WordWithNoAlphabetical.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         constructor.setAccessible(true);
         constructor.newInstance();

@@ -26,8 +26,7 @@ public final class CharMatches {
 
         for (String i : firstWordChars) {
             if (isHasChar(i, splitedStrings)) {
-                char[] chars = i.toCharArray();
-                result.add(chars[0]);
+                result.add(i.charAt(0));
             }
         }
         return result;
@@ -44,7 +43,7 @@ public final class CharMatches {
         for (String i : strings) {
             Matcher matcher = pattern.matcher(i.toLowerCase());
             if (!matcher.find()) {
-                result = false;
+                return false;
             }
         }
         return result;

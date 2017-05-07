@@ -1,8 +1,9 @@
 package com.courses.apollo.service.regex;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Stream;
+
 
 /**
  * Util class. AP-91 paragraph 2.
@@ -19,32 +20,10 @@ public final class NonLetterChain {
      * @return a biggest sequence of non letters
      */
     public static String nonLettersFinder(String string) {
-        Pattern pattern = Pattern.compile("[^a-z,A-Z]+");
-        Matcher matcher = pattern.matcher(string);
 
-        ArrayList<String> nonLetters = new ArrayList<>();
-        while (matcher.find()) {
-            nonLetters.add(matcher.group());
-        }
-        return theBiggestString(nonLetters);
-    }
-
-    /**
-     * Method finds a biggest string in list of strings.
-     *
-     * @param strings a list of a Strings.
-     * @return the biggest String.
-     */
-    public static String theBiggestString(ArrayList<String> strings) {
-        int max = strings.get(0).length();
-        int index = 0;
-
-        for (String i : strings) {
-            if (i.length() > max) {
-                max = i.length();
-                index = strings.indexOf(i);
-            }
-        }
-        return strings.get(index);
+        String[] nonLetters = string.split("[a-z,A-Z]+");
+        Stream<String> stringsStream = Arrays.stream(nonLetters);
+        Comparator<String> compare = (one, two) -> Integer.compare(one.length(), two.length());
+        return stringsStream.max(compare).get();
     }
 }

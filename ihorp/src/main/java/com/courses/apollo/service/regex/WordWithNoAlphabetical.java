@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 /**
  * Util class. AP-91 paragraph 4.
  */
-public final class WordWithNonLetter {
+public final class WordWithNoAlphabetical {
 
-    private WordWithNonLetter() {
+    private WordWithNoAlphabetical() {
     }
 
     /**

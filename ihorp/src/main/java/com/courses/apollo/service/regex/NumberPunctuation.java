@@ -19,7 +19,7 @@ public final class NumberPunctuation {
      */
     public static int numberOfPunctuation(String text) {
 
-        Pattern pattern = Pattern.compile("\\.{3}|\\!{3}|\\?\\!|\\,|\\.|\\!|\\?|\\;|\\(|\\)| \\- ");
+        Pattern pattern = Pattern.compile("[\\.\\!]{3}|\\?\\!| \\- |[\\?\\!\\,\\.\\;\\(\\)]");
         Matcher matcher = pattern.matcher(text);
 
         int result = 0;

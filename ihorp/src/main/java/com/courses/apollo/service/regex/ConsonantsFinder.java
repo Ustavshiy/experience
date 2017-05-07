@@ -27,8 +27,7 @@ public final class ConsonantsFinder {
 
         for (String i : consonants) {
             if (isRepetitionsChar(i, splitedText)) {
-                char[] tmp = i.toCharArray();
-                result.add(tmp[0]);
+                result.add(i.charAt(0));
             }
         }
         return result;
