@@ -14,7 +14,7 @@ public class TextService {
         int count = 0;
             while (m.find()) {
                 int number = new Integer(m.group());
-                count = count + number;
+                count += number;
             }
         return count;
     }
@@ -23,5 +23,19 @@ public class TextService {
         String replacement = "";
         String newText = Pattern.compile("/\\*|/").matcher(text).replaceAll(replacement);
         return newText;
+    }
+
+    public static int findSumEvenNumber(String text){
+        Pattern p = Pattern.compile("\\d");
+        Matcher m = p.matcher(text);
+        int count = 0;
+        while (m.find()) {
+            int number = new Integer(m.group());
+            int remainder = number % 2;
+            if (remainder == 0) {
+                count = count + number;
+            }
+        }
+        return count;
     }
 }
