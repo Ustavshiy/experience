@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class TextService {
 
     public int findSumNumber(String text){
-        Pattern p = Pattern.compile("-?\\d");
+        Pattern p = Pattern.compile("\\d");
         Matcher m = p.matcher(text);
         int count = 0;
             while (m.find()) {
