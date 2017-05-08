@@ -21,12 +21,12 @@ public final class CharMatches {
     public static ArrayList<Character> charMatches(String string) {
 
         ArrayList<Character> result = new ArrayList<>();
-        String[] splitedStrings = string.split("[^a-z,A-Z,\\']+");
+        String[] splitedStrings = string.split("[^a-zA-Z\']+");
         String[] firstWordChars = splitedStrings[0].split("");
 
-        for (String i : firstWordChars) {
-            if (isHasChar(i, splitedStrings)) {
-                result.add(i.charAt(0));
+        for (String str : firstWordChars) {
+            if (isHasChar(str, splitedStrings)) {
+                result.add(str.charAt(0));
             }
         }
         return result;
@@ -38,14 +38,12 @@ public final class CharMatches {
      * @return true if find, false if not find.
      */
     public static boolean isHasChar(String stringToFind, String[] strings) {
-        Pattern pattern = Pattern.compile(stringToFind.toLowerCase());
-        boolean result = true;
-        for (String i : strings) {
-            Matcher matcher = pattern.matcher(i.toLowerCase());
-            if (!matcher.find()) {
+
+        for (String str : strings) {
+            if ((str.indexOf(stringToFind)) < 0) {
                 return false;
             }
         }
-        return result;
+        return true;
     }
 }
