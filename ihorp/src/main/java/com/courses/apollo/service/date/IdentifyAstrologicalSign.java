@@ -19,13 +19,12 @@ public final class IdentifyAstrologicalSign {
     public static AstrologicalSign identifySign(LocalDate date) {
 
         int dayOfYear = date.getDayOfYear();
-        AstrologicalSign answer = null;
 
         for (AstrologicalSign sign : AstrologicalSign.values()) {
             if (dayOfYear >= sign.getStartDate().getDayOfYear() && dayOfYear <= sign.getEndDate().getDayOfYear()) {
-                answer = sign;
+                return sign;
             }
         }
-        return answer;
+        return null;
     }
 }
