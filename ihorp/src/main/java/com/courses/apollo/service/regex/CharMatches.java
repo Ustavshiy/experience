@@ -1,8 +1,6 @@
 package com.courses.apollo.service.regex;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Util class. AP-91 paragraph 1.
