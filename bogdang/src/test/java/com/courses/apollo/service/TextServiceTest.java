@@ -32,5 +32,4 @@ public class TextServiceTest {
         Assert.assertEquals(textTestData.expectedTextFive(),textService.removeSpace(textTestData.getTextFive()));
     }
 
-
 }

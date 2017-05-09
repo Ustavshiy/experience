@@ -21,7 +21,7 @@ public class TextService {
         return count;
     }
 
-    public static String noComments(String text){
+    public String noComments(String text){
         String replacement = "";
         String newText = Pattern.compile("/\\*|/").matcher(text).replaceAll(replacement);
         return newText;
