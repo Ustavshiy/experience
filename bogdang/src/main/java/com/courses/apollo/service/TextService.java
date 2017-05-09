@@ -1,5 +1,7 @@
 package com.courses.apollo.service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,16 +28,35 @@ public class TextService {
     }
 
     public static int findSumEvenNumber(String text){
-        Pattern p = Pattern.compile("\\d");
+        Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(text);
         int count = 0;
         while (m.find()) {
             int number = new Integer(m.group());
             int remainder = number % 2;
             if (remainder == 0) {
-                count = count + number;
+                count += number;
             }
         }
         return count;
+    }
+
+    public static String findOneWord(String text) {
+        List<String> words = Arrays.asList(text.split("\\W+"));
+        Integer quantity = words.size();
+        String wordResult = "No coincidence";
+        Integer result = 0;
+        for (String comparable : words) {
+            for (String word : words) {
+                if (!comparable.equalsIgnoreCase(word)){
+                    result += 1;
+                }
+            }
+            if (result == (quantity - 1)){
+                wordResult = comparable;
+            }
+            result = 0;
+        }
+        return wordResult;
     }
 }
