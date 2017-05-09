@@ -21,13 +21,13 @@ public class TextService {
         return count;
     }
 
-    public String noComments(String text){
+    public static String noComments(String text){
         String replacement = "";
         String newText = Pattern.compile("/\\*|/").matcher(text).replaceAll(replacement);
         return newText;
     }
 
-    public static String findOneWord(String text) {
+    public String findOneWord(String text) {
         List<String> words = Arrays.asList(text.split("\\W+"));
         Integer quantity = words.size();
         String wordResult = "No coincidence";
@@ -46,7 +46,7 @@ public class TextService {
         return wordResult;
     }
 
-    public static int findSumEvenNumber(String text){
+    public int findSumEvenNumeral(String text){
         Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(text);
         int count = 0;
@@ -61,10 +61,10 @@ public class TextService {
     }
 
 
-    public static String removeSpace(String text) {
+    public String removeSpace(String text) {
         String replacement = " ";
         text = Pattern.compile("\\s{2,}").matcher(text).replaceAll(replacement);
-        Pattern p = Pattern.compile("\\w+\\p{P}\\s+\\p{P}");
+        Pattern p = Pattern.compile("\\w+\\p{P}\\s+\\p{P}|\\w+\\s+\\p{P}");
         Matcher m = p.matcher(text);
         while (m.find()) {
             String tempOne = m.group();
