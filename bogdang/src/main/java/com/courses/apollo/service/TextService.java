@@ -27,20 +27,6 @@ public class TextService {
         return newText;
     }
 
-    public static int findSumEvenNumber(String text){
-        Pattern p = Pattern.compile("\\d+");
-        Matcher m = p.matcher(text);
-        int count = 0;
-        while (m.find()) {
-            int number = new Integer(m.group());
-            int remainder = number % 2;
-            if (remainder == 0) {
-                count += number;
-            }
-        }
-        return count;
-    }
-
     public static String findOneWord(String text) {
         List<String> words = Arrays.asList(text.split("\\W+"));
         Integer quantity = words.size();
@@ -58,5 +44,33 @@ public class TextService {
             result = 0;
         }
         return wordResult;
+    }
+
+    public static int findSumEvenNumber(String text){
+        Pattern p = Pattern.compile("\\d+");
+        Matcher m = p.matcher(text);
+        int count = 0;
+        while (m.find()) {
+            int number = new Integer(m.group());
+            int remainder = number % 2;
+            if (remainder == 0) {
+                count += number;
+            }
+        }
+        return count;
+    }
+
+
+    public static String removeSpace(String text) {
+        String replacement = " ";
+        text = Pattern.compile("\\s{2,}").matcher(text).replaceAll(replacement);
+        Pattern p = Pattern.compile("\\w+\\p{P}\\s+\\p{P}");
+        Matcher m = p.matcher(text);
+        while (m.find()) {
+            String tempOne = m.group();
+            String tempTwo = tempOne.replace(" ","");
+            text = text.replace(tempOne, tempTwo);
+        }
+        return text;
     }
 }
