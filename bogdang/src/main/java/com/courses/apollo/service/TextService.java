@@ -23,8 +23,8 @@ public class TextService {
 
     public String noComments(String text){
         String replacement = "";
-        String newText = Pattern.compile("/\\*|/").matcher(text).replaceAll(replacement);
-        return newText;
+        text = Pattern.compile("(/\\*.*\\*/)|(//.*/n)").matcher(text).replaceAll(replacement);
+        return text;
     }
 
     public String findOneWord(String text) {
@@ -63,8 +63,7 @@ public class TextService {
 
     public String removeSpace(String text) {
         String replacement = " ";
-        text = Pattern.compile("\\s{2,}").matcher(text).replaceAll(replacement);
-        Pattern p = Pattern.compile("\\w+\\p{P}\\s+\\p{P}|\\w+\\s+\\p{P}");
+          Pattern p = Pattern.compile("\\w+\\p{P}\\s+\\p{P}|\\w+\\s+\\p{P}");
         Matcher m = p.matcher(text);
         while (m.find()) {
             String tempOne = m.group();
