@@ -1,0 +1,8 @@
+Some text for testing the method for finding the maximum number
+digits in a row in a given text (1 task)
+wk23 34934r dflgbkl 4545343
+242
+456789i
+67676 6786786 dfgfd343532324e45er45354343
+1234567891011d 787867
+Expected result = 13;
