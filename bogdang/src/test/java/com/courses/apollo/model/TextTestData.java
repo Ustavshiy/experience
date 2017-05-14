@@ -8,6 +8,30 @@ public class TextTestData {
                 "voltage and power rating ranges (less than or equal to, nominally, 230 kV or 75 MVA)";
     }
 
+    public String getTextTwo(){
+        return "/**\n" +
+                "     * Find sum even numeral in text.\n" +
+                "     * @param text - input text.\n" +
+                "     * @return count sum even numeral.\n" +
+                "     */\n" +
+                "    public int findSumEvenNumeral(String text){\n" +
+                "        return count;\n" +
+                "    }\n" +
+                "// egegegegegeg\n" +
+                "\n" +
+                "/* egegeg*/";
+    }
+
+    public String expectedTextTwo() {
+        return  "\n" +
+                "    public int findSumEvenNumeral(String text){\n" +
+                "        return count;\n" +
+                "    }\n"+
+                "\n" +
+                "";
+    }
+
+
     public String getTextThree(){
         return "Apollo find resolution and resolution find apollo";
     }

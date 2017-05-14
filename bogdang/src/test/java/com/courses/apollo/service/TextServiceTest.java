@@ -8,13 +8,18 @@ public class TextServiceTest {
 
     private static TextService textService = new TextService();
     private static TextTestData textTestData = new TextTestData();
-    private static final int QUANTITY_NUMBER = 17;
+    private static final Integer QUANTITY_NUMBER = 17;
     private static final String word = "and";
-    private static final int QUANTITY_EVEN_NUMERAL = 140;
+    private static final Integer QUANTITY_EVEN_NUMERAL = 140;
 
     @Test
     public void testFindSumNumber(){
         Assert.assertEquals(QUANTITY_NUMBER, textService.findSumNumber(textTestData.getTextOne()));
+    }
+
+    @Test
+    public void testNoComments(){
+        Assert.assertEquals(textTestData.expectedTextTwo(),textService.noComments(textTestData.getTextTwo()));
     }
 
     @Test
