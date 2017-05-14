@@ -38,7 +38,7 @@ public class IOCountryUtilTest {
 
     @Test(expected = CountryIOException.class)
     public void saveCountryExceptionTest() throws CountryIOException {
-        countrySaverLoader.saveCountry(country, " ");
+        countrySaverLoader.saveCountry(country, "./src/main/resources/");
     }
 
     @AfterClass
