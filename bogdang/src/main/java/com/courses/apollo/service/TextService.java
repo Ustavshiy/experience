@@ -32,9 +32,8 @@ public class TextService {
      * @return text without comments.
      */
     public String noComments(String text) {
-        String replacement = "";
         text = Pattern.compile("((?s)\\/\\*(?:(?!param|\\*\\/).)*(?:\\*\\/K|.+?\\*\\/))|(\\/\\/.*\n)").matcher(text)
-                .replaceAll(replacement);
+                .replaceAll("");
         return text;
     }
 
@@ -87,8 +86,7 @@ public class TextService {
      * @return text without space.
      */
     public String removeSpace(String text) {
-        String replacement = " ";
-        text = Pattern.compile("\\s{2,}").matcher(text).replaceAll(replacement);
+        text = Pattern.compile("\\s{2,}").matcher(text).replaceAll(" ");
         Pattern pattern = Pattern.compile("\\w+\\p{P}\\s+\\p{P}|\\w+\\s+\\p{P}");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
