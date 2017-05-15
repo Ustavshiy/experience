@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.util.List;
 
 /**
- * Created by vladimirk on 13.05.17.
+ * Class for read and write from/to File.
  */
 public class RWFileServise {
     /**
