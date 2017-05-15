@@ -1,9 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.io.Serializable;
+
 /**
  * Class HDD.
  */
-public class HDD extends Memory {
+public class HDD extends Memory implements Serializable {
 
     /**
      * Constructor.

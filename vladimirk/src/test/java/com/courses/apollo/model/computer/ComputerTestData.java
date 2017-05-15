@@ -1,4 +1,4 @@
-package com.courses.apollo.model;
+package com.courses.apollo.model.computer;
 
 import com.courses.apollo.model.computer.*;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by vladimirk on 23.03.17.
+ * Class for computer test.
  */
 public class ComputerTestData {
 
@@ -28,14 +28,14 @@ public class ComputerTestData {
 
     public static Computer getComputer() {
         List<Memory> inMemory = getMemoriesArrayList();
-        CPU cpu = new CPU();
+        CPU cpu = new CPU(2.3);
         Computer computer = new Computer(inMemory, cpu, false, false);
         return computer;
     }
 
     public static Computer getOnnComputer() {
         List<Memory> inMemory = getMemoriesArrayList();
-        CPU cpu = new CPU();
+        CPU cpu = new CPU(2.3);
         Computer computer = new Computer(inMemory, cpu, true, true);
         return computer;
     }
