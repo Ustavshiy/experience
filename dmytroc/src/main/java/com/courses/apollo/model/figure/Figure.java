@@ -1,25 +1,29 @@
 package com.courses.apollo.model.figure;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by Dell on 15.05.2017.
+ * Class contains set of pixels in figure.
  */
 public class Figure {
-    private HashSet<Pixel> figureSet;
+    /**
+     * Set of Pixels in Figure.
+     */
+    private Set<Pixel> figureSet = new HashSet<>();
 
     public Figure() {
     }
 
-    public HashSet<Pixel> getFigureSet() {
+    public Set<Pixel> getFigureSet() {
         return figureSet;
     }
 
-    public void setFigureSet(HashSet<Pixel> figureSet) {
-        this.figureSet = figureSet;
-    }
-
-    public void addPixel (Pixel pixel){
+    /**
+     * Method add new Pixel to Figure.
+     * @param pixel pixel.
+     */
+    public void addPixel(Pixel pixel) {
         figureSet.add(pixel);
     }
 }
