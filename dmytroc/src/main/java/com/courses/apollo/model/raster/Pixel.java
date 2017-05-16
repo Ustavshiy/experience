@@ -1,4 +1,4 @@
-package com.courses.apollo.model.figure;
+package com.courses.apollo.model.raster;
 
 /**
  * Class contains coordinates of point.

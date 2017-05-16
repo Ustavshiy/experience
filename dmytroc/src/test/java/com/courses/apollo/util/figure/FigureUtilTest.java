@@ -1,4 +1,4 @@
-package com.courses.apollo.util.Figure;
+package com.courses.apollo.util.figure;
 
 import com.courses.apollo.util.figures.FigureUtil;
 import org.junit.Test;
@@ -14,10 +14,8 @@ public class FigureUtilTest {
     File inputFile = new File("./src/test/resources/PlainFigures.txt");
     File outputFolder = new File("./src/main/resources/");
 
-
-
     @Test
-    public void findUniqueFiguresInSheetTest() throws IOException{
-        figureUtil.findUniqueFiguresInSheet(inputFile,outputFolder);
+    public void findUniqueFiguresInSheetTest() {
+        figureUtil.findUniqueFiguresInSheet(inputFile, outputFolder);
     }
 }

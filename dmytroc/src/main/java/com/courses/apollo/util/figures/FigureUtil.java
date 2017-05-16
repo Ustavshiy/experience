@@ -1,7 +1,6 @@
 package com.courses.apollo.util.figures;
 
-import com.courses.apollo.model.figure.Figure;
-import com.courses.apollo.model.figure.Pixel;
+import com.courses.apollo.model.raster.Pixel;
 import com.courses.apollo.util.io.FileIOUtils;
 import com.courses.apollo.util.matrix.IntegerMatrixUtil;
 
@@ -19,9 +18,13 @@ public class FigureUtil {
      */
     private Integer[][] sheet;
     /**
+     * Multiplicity of Pixels that describes new figure.
+     */
+    private Set<Pixel> pixels = new HashSet<>();
+    /**
      * Set of unique figures found in sheet.
      */
-    private Set<Figure> figures = new HashSet<>();
+    private Set<int[][]> uniqueFigures = new HashSet<>();
 
     /**
      * 4 cycles to rotate figure for comparison.
@@ -33,78 +36,81 @@ public class FigureUtil {
      *
      * @param inputFile    input file.
      * @param outputFolder export figures folder.
-     * @throws IOException exception.
      */
-    public void findUniqueFiguresInSheet(File inputFile, File outputFolder) throws IOException {
+    public void findUniqueFiguresInSheet(File inputFile, File outputFolder) {
         IOFigures ioFigures = new IOFigures();
         FileIOUtils fileIOUtils = new FileIOUtils();
         sheet = ioFigures.sheetReader(inputFile);
         getUniqueFigures();
         int figureCounter = 1;
-        for (Figure figure : figures) {
-            int[][] matrix = figureToMatrix(figure);
+        for (int[][] figureArray : uniqueFigures) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int y = 0; y < matrix.length; y++) {
-                for (int x = 0; x < matrix[y].length; x++) {
-                    stringBuffer.append(matrix[y][x]);
+            for (int y = 0; y < figureArray.length; y++) {
+                for (int x = 0; x < figureArray[y].length; x++) {
+                    stringBuffer.append(figureArray[y][x]);
                 }
                 stringBuffer.append("\n");
             }
-            File file = new File(outputFolder + String.valueOf(figureCounter) + ".txt");
-            fileIOUtils.writeToFile(file, stringBuffer.toString());
+            File file = new File(outputFolder + "/figure" + String.valueOf(figureCounter) + ".txt");
+            try {
+                fileIOUtils.writeToFile(file, stringBuffer.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             figureCounter++;
         }
     }
 
     /**
-     * Metod finds unique figures in sheet and add them to figures set.
+     * Method finds unique figures in sheet and add them to figures set.
      */
-    public void getUniqueFigures() {
+    private void getUniqueFigures() {
         for (int y = 0; y < sheet.length; y++) {
             for (int x = 0; x < sheet[y].length; x++) {
                 if (sheet[y][x] == 1) {
-                    Figure figure = new Figure();
-                    getNeighbors(figure, y, x);
-                    simplifyFigure(figure);
-                    figureAdder(figure);
+                    pixels.clear();
+                    collectPixels(pixels, y, x);
+                    simplifyPixels(pixels);
+                    createFigureIfUnique(pixels);
                 }
             }
         }
     }
 
     /**
-     * Method finds shape of figure based on neighbour pixels.
+     * Method finds shape of figure based on neighbour pixels and add them to Set of pixels.
+     * added pixels in sheet paints "white" (0).
      *
-     * @param figure new figure.
+     * @param pixels new multiplicity of Pixels.
      * @param y      y coordinate of first pixel.
      * @param x      x coordinate of first pixel.
      */
-    public void getNeighbors(Figure figure, int y, int x) {
-        figure.addPixel(new Pixel(y, x));
+    private void collectPixels(Set<Pixel> pixels, int y, int x) {
+        pixels.add(new Pixel(y, x));
         sheet[y][x] = 0;
         if (y < sheet.length - 1 && sheet[y + 1][x] == 1) {
-            getNeighbors(figure, y + 1, x);
+            collectPixels(pixels, y + 1, x);
         }
         if (x < sheet[y].length - 1 && sheet[y][x + 1] == 1) {
-            getNeighbors(figure, y, x + 1);
+            collectPixels(pixels, y, x + 1);
         }
         if (y != 0 && sheet[y - 1][x] == 1) {
-            getNeighbors(figure, y - 1, x);
+            collectPixels(pixels, y - 1, x);
         }
         if (x != 0 && sheet[y][x - 1] == 1) {
-            getNeighbors(figure, y, x - 1);
+            collectPixels(pixels, y, x - 1);
         }
     }
 
     /**
-     * Method overrides X and Y coordinates of all pixels to move figure to beginning of coordinates.
+     * Method overrides X and Y coordinates of all pixels to move whole figure to beginning of coordinates.
      *
-     * @param figure input figure.
+     * @param pixels input pixels.
      */
-    public void simplifyFigure(Figure figure) {
+    private void simplifyPixels(Set<Pixel> pixels) {
         int minX = sheet[0].length;
         int minY = sheet.length;
-        for (Pixel pixel : figure.getFigureSet()) {
+        for (Pixel pixel : pixels) {
             if (pixel.getXValue() < minX) {
                 minX = pixel.getXValue();
             }
@@ -112,7 +118,7 @@ public class FigureUtil {
                 minY = pixel.getYValue();
             }
         }
-        for (Pixel pixel : figure.getFigureSet()) {
+        for (Pixel pixel : pixels) {
             pixel.setXValue(pixel.getXValue() - minX);
             pixel.setYValue(pixel.getYValue() - minY);
         }
@@ -121,13 +127,14 @@ public class FigureUtil {
     /**
      * Method add figure to set of figures if it is unique.
      *
-     * @param newFigure new figure.
+     * @param pixels new figure.
      */
-    public void figureAdder(Figure newFigure) {
-        if (figures.size() != 0) {
+    private void createFigureIfUnique(Set<Pixel> pixels) {
+        int[][] newFigure = pixelsToFigure(pixels);
+        if (uniqueFigures.size() != 0) {
             boolean flag = false;
-            for (Figure figure : figures) {
-                if (figureMatcher(figureToMatrix(figure), figureToMatrix(newFigure))) {
+            for (int[][] figure : uniqueFigures) {
+                if (figureMatcher(figure, newFigure)) {
                     flag = false;
                     break;
                 } else {
@@ -135,10 +142,10 @@ public class FigureUtil {
                 }
             }
             if (flag) {
-                figures.add(newFigure);
+                uniqueFigures.add(newFigure);
             }
         } else {
-            figures.add(newFigure);
+            uniqueFigures.add(newFigure);
         }
     }
 
@@ -146,10 +153,10 @@ public class FigureUtil {
      * Method check if new figure equals existing figure with rotation by 90 degrees.
      *
      * @param existFigure existing figure.
-     * @param newFigure new figure.
+     * @param newFigure   new figure.
      * @return true if equals.
      */
-    public boolean figureMatcher(int[][] existFigure, int[][] newFigure) {
+    private boolean figureMatcher(int[][] existFigure, int[][] newFigure) {
         IntegerMatrixUtil matrixUtil = new IntegerMatrixUtil();
         for (int i = 0; i < rotateCycles; i++) {
             if (figureCompare(existFigure, newFigure)) {
@@ -167,7 +174,7 @@ public class FigureUtil {
      * @param newFigure   new figure.
      * @return true if equals.
      */
-    public boolean figureCompare(int[][] existFigure, int[][] newFigure) {
+    private boolean figureCompare(int[][] existFigure, int[][] newFigure) {
         if (existFigure.length != newFigure.length || existFigure[0].length != newFigure[0].length) {
             return false;
         } else {
@@ -183,15 +190,16 @@ public class FigureUtil {
     }
 
     /**
-     * Method convert figure to int array[][] for rotate it and compare with other figures.
+     * Method convert pixels set to int array[][] to create figure for collect,
+     * rotate it and compare with other figures.
      *
-     * @param figure figure.
+     * @param pixels figure.
      * @return int[][].
      */
-    public int[][] figureToMatrix(Figure figure) {
+    private int[][] pixelsToFigure(Set<Pixel> pixels) {
         int maxX = 0;
         int maxY = 0;
-        for (Pixel pixel : figure.getFigureSet()) {
+        for (Pixel pixel : pixels) {
             if (pixel.getXValue() > maxX) {
                 maxX = pixel.getXValue();
             }
@@ -199,10 +207,10 @@ public class FigureUtil {
                 maxY = pixel.getYValue();
             }
         }
-        int[][] figureMatrix = new int[maxY + 1][maxX + 1];
-        for (Pixel pixel : figure.getFigureSet()) {
-            figureMatrix[pixel.getYValue()][pixel.getXValue()] = 1;
+        int[][] figure = new int[maxY + 1][maxX + 1];
+        for (Pixel pixel : pixels) {
+            figure[pixel.getYValue()][pixel.getXValue()] = 1;
         }
-        return figureMatrix;
+        return figure;
     }
 }
