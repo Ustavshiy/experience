@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Class CPU.
  */
-public class CPU implements Serializable{
+public class CPU implements Serializable {
 
     /**
      * @param frequency to indicate CPU frequency.
@@ -31,8 +31,12 @@ public class CPU implements Serializable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CPU)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CPU)) {
+            return false;
+        }
         CPU cpu = (CPU) o;
         return Double.compare(cpu.frequency, frequency) == 0;
     }

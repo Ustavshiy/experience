@@ -5,7 +5,6 @@ import com.courses.apollo.model.computer.*;
 import java.util.List;
 import java.util.ArrayList;
 
-
 /**
  * Class for computer test.
  */

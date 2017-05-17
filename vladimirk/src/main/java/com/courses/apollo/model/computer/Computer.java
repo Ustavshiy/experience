@@ -67,13 +67,17 @@ public class Computer implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Computer)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Computer)) {
+            return false;
+        }
         Computer computer = (Computer) o;
-        return isOn == computer.isOn &&
-                isChecked == computer.isChecked &&
-                Objects.equals(memories, computer.memories) &&
-                Objects.equals(cpu, computer.cpu);
+        return isOn == computer.isOn
+                && isChecked == computer.isChecked
+                && Objects.equals(memories, computer.memories)
+                && Objects.equals(cpu, computer.cpu);
     }
 
     @Override

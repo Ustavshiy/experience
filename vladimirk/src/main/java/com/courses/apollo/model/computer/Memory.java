@@ -27,8 +27,12 @@ public class Memory implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Memory)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Memory)) {
+            return false;
+        }
         Memory memory = (Memory) o;
         return size == memory.size;
     }
