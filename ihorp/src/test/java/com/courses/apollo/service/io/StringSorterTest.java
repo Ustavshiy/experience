@@ -6,14 +6,14 @@ import java.io.*;
 
 public class StringSorterTest {
 
-    String testTextFile = "src\\test\\resources\\TestText.txt";
-    String testText = "fifth fifth fifth fifth fifth fourth fourth fourth fourth third third third second second first";
-    String answerTextFile = "src\\test\\resources\\AnswerText.txt";
-    String answerText = "first second third fourth fifth ";
+    private static String testTextFile = "src\\test\\resources\\TestText.txt";
+    private static String testText = "fifth fifth fifth fifth fifth fourth fourth fourth fourth third third third second second first";
+    private static String answerTextFile = "src\\test\\resources\\AnswerText.txt";
+    private static String answerText = "first second third fourth fifth ";
 
 
     @BeforeClass
-    public void generateTestText(){
+    public static void generateTestText(){
         BufferedWriter writeText = null;
         BufferedWriter writeTextTwo = null;
         try {
@@ -43,7 +43,7 @@ public class StringSorterTest {
     }
 
     @AfterClass
-    public void deleteFiles() {
+    public static void deleteFiles() {
         File deleteFile = new File(testTextFile);
         File deleteFileTwo = new File(answerTextFile);
         deleteFile.delete();
