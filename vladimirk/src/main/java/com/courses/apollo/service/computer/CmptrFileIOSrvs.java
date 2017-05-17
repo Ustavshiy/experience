@@ -2,7 +2,6 @@ package com.courses.apollo.service.computer;
 
 import com.courses.apollo.model.computer.Computer;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,7 +20,7 @@ public class CmptrFileIOSrvs {
             throws ClassNotFoundException, IOException {
         Computer comp;
         try {
-            ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(sourseFilePath)));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(sourseFilePath));
             comp = (Computer) ois.readObject();
             ois.close();
         } catch (ClassNotFoundException b) {
