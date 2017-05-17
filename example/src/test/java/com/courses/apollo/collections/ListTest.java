@@ -62,10 +62,10 @@ public class ListTest {
         strings.add("B");
         strings.add("B");
         strings.remove();
-        strings.get(10);
+        strings.get(9);
     }
 
-    public class MyArrayList<E> extends AbstractList<E> {
+    public static class MyArrayList<E> extends AbstractList<E> {
 
         @Override
         public E get(int index) {

@@ -31,11 +31,11 @@ public class QueueTest {
     @Test
     public void testPriorityDeq() {
         PriorityQueue<Student> students = new PriorityQueue<>(Comparator.comparing(Student::getStudentId));
-        students.add(new Student(4));
-        students.add(new Student(1));
-        students.add(new Student(14));
-        students.add(new Student(12));
-        students.add(new Student(9));
+        students.add(new Student("Tolik", "Anatolenko", 10));
+        students.add(new Student("Valik", "Krivoruchko", 35));
+        students.add(new Student("Petya", "Krivozhopenko", 4));
+        students.add(new Student("Shura", "Shurupenko", 12));
+        students.add(new Student("Kesha", "Papuga", 2));
         System.out.println(students.peek());
     }
 }
