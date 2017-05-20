@@ -48,7 +48,7 @@ public class MemoryClassTest {
 
     @Test
     public void testIfVariablesReferToTheSameObject() {
-        Integer i = new Integer(10);
+        Integer i = 10;
         Integer b = i;
         i = 20;
         System.out.println(b);

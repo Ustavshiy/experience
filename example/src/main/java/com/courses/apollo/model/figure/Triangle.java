@@ -1,9 +1,12 @@
 package com.courses.apollo.model.figure;
 
+import java.io.Serializable;
+
 /**
  * Triangle representation.
  */
-public final class Triangle extends AngleShape {
+public final class Triangle extends AngleShape implements Comparable, Serializable {
+
     /**
      * Triangle sideB.
      */
@@ -61,4 +64,8 @@ public final class Triangle extends AngleShape {
         return getSideA() + getSideB() + getSideC();
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
