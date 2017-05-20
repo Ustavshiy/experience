@@ -1,11 +1,12 @@
 package com.courses.apollo.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Student cake.
  */
-public class Student {
+public class Student implements Serializable {
     /**
      * Student id.
      */
