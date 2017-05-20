@@ -1,9 +1,9 @@
 package com.courses.apollo.service.io;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -18,9 +18,7 @@ public class RWFileServise {
         StringBuilder builder = new StringBuilder();
         try {
             List<String> lines = Files.readAllLines(new File(inFilePath).toPath());
-            for (String line : lines) {
-                builder.append(line + "\n");
-            }
+            lines.forEach(line -> builder.append(line.concat("\n")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,9 +27,12 @@ public class RWFileServise {
 
     /**
      * Method that write string to file.
+     * @param string indicate string to be write to file.
+     * @param outFilePath indicate path to new file.
+     * @param isAdd indicate if we need to add text to file, not to write/rewrite.
      */
-    public void writeFile(String string, String outFilePath) {
-        try (PrintWriter writer = new PrintWriter(new File(outFilePath), Charset.defaultCharset().name())) {
+    public void writeFile(String string, String outFilePath, boolean isAdd) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(outFilePath, isAdd))) {
             writer.print(string);
         } catch (IOException e) {
             e.printStackTrace();

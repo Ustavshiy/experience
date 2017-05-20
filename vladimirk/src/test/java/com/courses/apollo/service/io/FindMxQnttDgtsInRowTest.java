@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.io.File;
 
 /**
- * Created by vladimirk on 07.05.17.
+ * Test Class for FindMxQnttDgtsInRow.
  */
 public class FindMxQnttDgtsInRowTest {
     FindMxQnttNmbrInRow findMxQnttNmbrInRow = new FindMxQnttNmbrInRow();
@@ -14,10 +14,11 @@ public class FindMxQnttDgtsInRowTest {
     private final static  String inFilePath = "./src/test/resourses/InTextForTest.txt";
     private final static  String outFilePath = "./src/main/resourses/Result.txt";
     private final static String expected = "13";
+    private final static boolean isAdd = false;
 
     @Test
     public void isFileCreatedTest() {
-        findMxQnttNmbrInRow.findMaxQnttNmbrInRow(inFilePath, outFilePath);
+        findMxQnttNmbrInRow.findMaxQnttNmbrInRow(inFilePath, outFilePath, isAdd);
         Assert.assertEquals(readWriteFile.readFile(outFilePath), expected);
     }
 

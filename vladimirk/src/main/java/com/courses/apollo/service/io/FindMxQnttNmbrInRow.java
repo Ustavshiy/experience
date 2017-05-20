@@ -17,7 +17,7 @@ public class FindMxQnttNmbrInRow {
     /**
      * Method to find maximal quantity of numbers in row in given text file.
      */
-    public void findMaxQnttNmbrInRow(String inFilePath, String outFilePath) {
+    public void findMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
         Collections.addAll(nmbrs, readWriteFile.readFile(inFilePath).split("\\D+"));
         Integer max = 0;
@@ -26,6 +26,6 @@ public class FindMxQnttNmbrInRow {
                 max = nmbr.length();
             }
         }
-        readWriteFile.writeFile(max.toString(), outFilePath);
+        readWriteFile.writeFile(max.toString(), outFilePath, isAdd);
     }
 }
