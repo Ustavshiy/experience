@@ -8,7 +8,6 @@ import java.time.LocalDate;
  * Util class.
  */
 public final class IdentifyAstrologicalSign {
-
     private IdentifyAstrologicalSign() {}
 
     /**
@@ -17,9 +16,7 @@ public final class IdentifyAstrologicalSign {
      * @return Astrological sign.
      */
     public static AstrologicalSign identifySign(LocalDate date) {
-
         int dayOfYear = date.getDayOfYear();
-
         for (AstrologicalSign sign : AstrologicalSign.values()) {
             if (dayOfYear >= sign.getStartDate().getDayOfYear() && dayOfYear <= sign.getEndDate().getDayOfYear()) {
                 return sign;
