@@ -3,7 +3,6 @@ package com.courses.apollo.util.state;
 import com.courses.apollo.CountryUtilTestData;
 import com.courses.apollo.model.state.City;
 import com.courses.apollo.model.state.Country;
-import com.courses.apollo.util.state.CountryUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
