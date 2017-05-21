@@ -1,119 +1,96 @@
 package com.courses.apollo.util.matrix;
 
 import com.courses.apollo.model.matrix.Matrix;
-import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.function.IntConsumer;
-import java.util.stream.Stream;
+import java.util.Stack;
 
 /**
- * Created by DIMA on 18.05.2017.
+ * Class for finding sub matrix in integer matrix.
  */
 public class SubmatrixUtil {
-
-    @Test
-    public void test() {
-        int[][] matrix = new int[][]{
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 1, 1, 1, 1, 0},
-                {0, 0, 1, 1, 1, 0, 0},
-                {0, 0, 0, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-        };
-        System.out.println(findBiggestSubmatrix(matrix).getArea());
-
-    }
-
+    /**
+     * Initial method to find a rectangular sub matrix in matrix that contains same integer.
+     * It simply iterates a matrix values and runs a method to find biggest.
+     *
+     * @param matrix incoming matrix.
+     * @return object Matrix.
+     */
     public Matrix findBiggestSubmatrix(int[][] matrix) {
-        Matrix biggestMatrix = new Matrix(0,0,0);
+        Matrix biggestMatrix = new Matrix(0, 0, 0);
         biggestMatrix.setArea(0);
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                biggestMatrix = find(matrix, new Matrix(j, i, matrix[i][j]), biggestMatrix, matrix.length, matrix[0].length);
+        for (int i = 0; i < matrix.length - 1; i++) {
+            for (int j = 0; j < matrix[i].length - 1; j++) {
+                biggestMatrix = findBiggerSubmatrix(matrix, new Matrix(j, i, matrix[i][j]), biggestMatrix);
             }
         }
-
-        return biggestMatrix;
-    }
-// && rowIndex.size() > 1 && columnIndex.size() > 1
-    public Matrix find(int[][] matrix, Matrix subMatrix, Matrix biggestMatrix, int rowSize, int columnSize) {
-
-        Stack<Integer> rowIndex = new Stack<>();
-        Stack<Integer> columnIndex = new Stack<>();
-
-        for (int i = subMatrix.getTopBorder(); i < rowSize-1; i++) {
-            boolean isSubMatrixFound = false;
-            rowIndex.clear();
-            for (int j = subMatrix.getLeftBirder(); j < columnSize-1; j++) {
-                if (subMatrix.getValue() != matrix[i + 1][j]&&rowIndex.size() > 1 && columnIndex.size() > 1) {
-                    isSubMatrixFound = true;
-                }
-
-                if (subMatrix.getValue() != matrix[i][j + 1]&& rowIndex.size() > 1 && columnIndex.size() > 1) {
-                    columnSize = rowIndex.peek()+1;
-                }
-                rowIndex.add(j);
-            }
-            if (isSubMatrixFound){
-                Matrix matrix1 = new Matrix(subMatrix.getLeftBirder(), subMatrix.getTopBorder(), subMatrix.getValue());
-                matrix1.setBottomBorder(columnIndex.peek());
-                matrix1.setRightBorder(rowIndex.peek());
-                if (matrix1.getArea() > biggestMatrix.getArea()) {
-                    biggestMatrix = matrix1;
-                }
-            }
-            columnIndex.add(i);
-        }
-
-
-        subMatrix.setRightBorder(rowIndex.peek());
-        subMatrix.setBottomBorder(columnIndex.peek());
-        subMatrix.setArea(rowIndex.size() * columnIndex.size());
-        if (biggestMatrix.getArea() < subMatrix.getArea()) {
-            biggestMatrix = subMatrix;
-        }
-
-//        for (int i = subMatrix.getTopBorder(); i < height; i++) {
-//            columnIndex.add(i);
-//            int counterLenght = 0;
-//            for (int j = subMatrix.getLeftBirder(); j < length; j++) {
-//                if (matrix[i][j] != subMatrix.getValue()) {
-//                    counterLenght++;
-//                    break;
-//                }
-//                rowIndex.add(j);
-//            }
-//            if (maxLength < rowIndex.size()) {
-//                maxLength = rowIndex.size();
-//            }
-//
-//            if (matrix[i - 1][rowIndex.peek()] != subMatrix.getValue()) {
-//
-//
-//                if (biggestMatrix.getArea() < counterLenght * (i - subMatrix.getTopBorder()) && biggestMatrix != null) {
-//                    Matrix subMatrix1 = new Matrix(subMatrix.getLeftBirder(), subMatrix.getTopBorder(), subMatrix.getValue());
-//                    subMatrix1.setRightBorder(rowIndex.peek());
-//                    subMatrix1.setBottomBorder(i);
-//                    biggestMatrix = subMatrix1;
-//                }
-//            }
-//            if (matrix[i - 1][subMatrix.getLeftBirder()] != subMatrix.getValue()) {
-//                maxHeight = i - subMatrix.getTopBorder();
-//                break;
-//            }
-//        }
-//
-//        subMatrix.setRightBorder(subMatrix.getLeftBirder() + maxLength);
-//        subMatrix.setBottomBorder(subMatrix.getTopBorder() + maxHeight);
-//        subMatrix.setArea(maxHeight * maxLength);
-//        if (biggestMatrix.getArea() < subMatrix.getArea()) {
-//            biggestMatrix = subMatrix;
-//        }
         return biggestMatrix;
     }
 
+    /**
+     * Method returns a rectangular sub matrix in matrix that contains same integer.
+     *
+     * @param matrix        int[][] matrix to find sub matrix.
+     * @param submatrix     Object in sub matrix that have initialized top left corner and value.
+     * @param biggestMatrix matrix with a biggest area at the time of running method.
+     * @return biggest rectangular matrix in this point if it bigger than previous.
+     */
+    public Matrix findBiggerSubmatrix(int[][] matrix, Matrix submatrix, Matrix biggestMatrix) {
+        Stack<Integer> rowStack = new Stack<>();
+        Stack<Integer> columnStack = new Stack<>();
+        boolean isExtendableDown = true;
+        boolean isIntermediateFound = false;
+        int rowSize = matrix.length;
+        int columnSize = matrix[0].length;
+        for (int i = submatrix.getTopBorder(); i < rowSize; i++) {
+            if (!isExtendableDown) {
+                break;
+            } else {
+                columnStack.add(i);
+            }
+            rowStack.clear();
+            for (int j = submatrix.getLeftBorder(); j < columnSize; j++) {
+                if (i < matrix.length - 1) {
+                    if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() > 0 && columnStack.size() > 0) {
+                        isIntermediateFound = true;
+                    } else if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() == 0) {
+                        isExtendableDown = false;
+                    }
+                }
+                rowStack.add(j);
+                if (j < matrix[0].length - 1) {
+                    if (submatrix.getValue() != matrix[i][j + 1] && rowStack.size() > 0 && columnStack.size() > 0) {
+                        columnSize = rowStack.peek() + 1;
+                    }
+                }
+            }
+            if (isIntermediateFound) {
+                Matrix interMatrix = new Matrix(submatrix.getLeftBorder(), submatrix.getTopBorder(),
+                        submatrix.getValue());
+                interMatrix.setRightBorder(rowStack.peek());
+                interMatrix.setBottomBorder(columnStack.peek());
+                biggestMatrix = compareArea(interMatrix, biggestMatrix);
+                isIntermediateFound = false;
+            }
+        }
+        if (isExtendableDown && columnStack.size() > 0 && rowStack.size() > 0) {
+            submatrix.setRightBorder(rowStack.peek());
+            submatrix.setBottomBorder(columnStack.peek());
+            biggestMatrix = compareArea(submatrix, biggestMatrix);
+        }
+        return biggestMatrix;
+    }
 
+    /**
+     * Method compares two matrix by area. And returns bigger.
+     *
+     * @param firstMatrix  matrix.
+     * @param secondMatrix matrix.
+     * @return matrix with bigger area.
+     */
+    public Matrix compareArea(Matrix firstMatrix, Matrix secondMatrix) {
+        if (firstMatrix.getArea() > secondMatrix.getArea()) {
+            return firstMatrix;
+        }
+        return secondMatrix;
+    }
 }
