@@ -20,13 +20,12 @@ public class WeekdaysService {
     public Integer findWeekdays(int year, List<Holiday> holidays) {
         LocalDate date = LocalDate.of(year, 1, 1);
         Integer weekdays = 0;
-        LocalDate dat = date;
         for (int i = 0; i < date.lengthOfYear(); i++) {
-            if (!findHolidays(dat, holidays) && dat.getDayOfWeek() != DayOfWeek.SATURDAY && dat.getDayOfWeek()
+            if (isNotHoliday(date, holidays) && date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek()
                         != DayOfWeek.SUNDAY) {
                         weekdays++;
                 }
-            dat = dat.plusDays(1);
+            date = date.plusDays(1);
         }
         return weekdays;
     }
@@ -37,12 +36,12 @@ public class WeekdaysService {
      * @param holidays List banking holidays in this year.
      * @return true or false.
      */
-    private static boolean findHolidays(LocalDate date, List<Holiday> holidays) {
+    private static boolean isNotHoliday(LocalDate date, List<Holiday> holidays) {
         for (Holiday holiday : holidays) {
             if (holiday.getDate().equals(date)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
