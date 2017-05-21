@@ -1,9 +1,10 @@
 package com.courses.apollo.service.io;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -32,8 +33,9 @@ public class RWFileServise {
      * @param isAdd indicate if we need to add text to file, not to write/rewrite.
      */
     public void writeFile(String string, String outFilePath, boolean isAdd) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(outFilePath, isAdd))) {
-            writer.print(string);
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(outFilePath, isAdd), "UTF8"))) {
+            bw.write(string);
         } catch (IOException e) {
             e.printStackTrace();
         }
