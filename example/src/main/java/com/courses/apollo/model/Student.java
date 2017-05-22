@@ -69,6 +69,10 @@ public class Student implements Serializable {
 
     }
 
+    public Student(Integer studentId) {
+        this.studentId = studentId;
+    }
+
     public UniversityInfo getUniversityInfo() {
         return universityInfo;
     }
