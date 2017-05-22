@@ -34,7 +34,7 @@ public class SubmatrixUtil {
      * @param biggestMatrix matrix with a biggest area at the time of running method.
      * @return biggest rectangular matrix in this point if it bigger than previous.
      */
-    public Matrix findBiggerSubmatrix(int[][] matrix, Matrix submatrix, Matrix biggestMatrix) {
+    private Matrix findBiggerSubmatrix(int[][] matrix, Matrix submatrix, Matrix biggestMatrix) {
         Stack<Integer> rowStack = new Stack<>();
         Stack<Integer> columnStack = new Stack<>();
         boolean isExtendableDown = true;
@@ -42,11 +42,7 @@ public class SubmatrixUtil {
         int rowSize = matrix.length;
         int columnSize = matrix[0].length;
         for (int i = submatrix.getTopBorder(); i < rowSize; i++) {
-            if (!isExtendableDown) {
-                break;
-            } else {
-                columnStack.add(i);
-            }
+            columnStack.add(i);
             rowStack.clear();
             for (int j = submatrix.getLeftBorder(); j < columnSize; j++) {
                 if (i < matrix.length - 1) {
@@ -57,7 +53,7 @@ public class SubmatrixUtil {
                     }
                 }
                 rowStack.add(j);
-                if (j < matrix[0].length - 1) {
+                if (j < columnSize) {
                     if (submatrix.getValue() != matrix[i][j + 1] && rowStack.size() > 0 && columnStack.size() > 0) {
                         columnSize = rowStack.peek() + 1;
                     }
@@ -70,6 +66,9 @@ public class SubmatrixUtil {
                 interMatrix.setBottomBorder(columnStack.peek());
                 biggestMatrix = compareArea(interMatrix, biggestMatrix);
                 isIntermediateFound = false;
+            }
+            if (!isExtendableDown) {
+                break;
             }
         }
         if (isExtendableDown && columnStack.size() > 0 && rowStack.size() > 0) {
@@ -87,7 +86,7 @@ public class SubmatrixUtil {
      * @param secondMatrix matrix.
      * @return matrix with bigger area.
      */
-    public Matrix compareArea(Matrix firstMatrix, Matrix secondMatrix) {
+    private Matrix compareArea(Matrix firstMatrix, Matrix secondMatrix) {
         if (firstMatrix.getArea() > secondMatrix.getArea()) {
             return firstMatrix;
         }
