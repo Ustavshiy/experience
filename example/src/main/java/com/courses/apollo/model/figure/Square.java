@@ -1,9 +1,11 @@
 package com.courses.apollo.model.figure;
 
+import java.io.Serializable;
+
 /**
  * Square representation.
  */
-public class Square extends AngleShape {
+public class Square extends AngleShape implements Serializable, Comparable, AutoCloseable {
 
     /**
      * Four sides in square.
@@ -25,6 +27,16 @@ public class Square extends AngleShape {
 
     @Override
     public double getArea() {
+        return 0;
+    }
+
+    @Override
+    public void close() throws Exception {
+
+    }
+
+    @Override
+    public int compareTo(Object o) {
         return 0;
     }
 }
