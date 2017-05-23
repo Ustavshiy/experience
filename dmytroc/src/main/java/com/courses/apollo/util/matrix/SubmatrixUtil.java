@@ -9,6 +9,23 @@ import java.util.Stack;
  */
 public class SubmatrixUtil {
     /**
+     * Stack for collect row indexes .
+     */
+    private Stack<Integer> rowStack = new Stack<>();
+    /**
+     * Stack for collect column indexes in submatrix.
+     */
+    private Stack<Integer> columnStack = new Stack<>();
+    /**
+     * Flag that bottom border of submatrix found.
+     */
+    private boolean isExtendableDown = true;
+    /**
+     * Flag that intermediate submatrix found. But can find more.
+     */
+    private boolean isIntermediateFound = false;
+
+    /**
      * Initial method to find a rectangular sub matrix in matrix that contains same integer.
      * It simply iterates a matrix values and runs a method to find biggest.
      *
@@ -16,11 +33,12 @@ public class SubmatrixUtil {
      * @return object Matrix.
      */
     public Matrix findBiggestSubmatrix(int[][] matrix) {
-        Matrix biggestMatrix = new Matrix(0, 0, 0);
+        Matrix biggestMatrix = new Matrix(0, 0, 0, 0, 0);
         biggestMatrix.setArea(0);
         for (int i = 0; i < matrix.length - 1; i++) {
             for (int j = 0; j < matrix[i].length - 1; j++) {
-                biggestMatrix = findBiggerSubmatrix(matrix, new Matrix(j, i, matrix[i][j]), biggestMatrix);
+                biggestMatrix = findBiggerSubmatrix(matrix, new Matrix(j, matrix[0].length, i,
+                        matrix.length, matrix[i][j]), biggestMatrix);
             }
         }
         return biggestMatrix;
@@ -35,35 +53,16 @@ public class SubmatrixUtil {
      * @return biggest rectangular matrix in this point if it bigger than previous.
      */
     private Matrix findBiggerSubmatrix(int[][] matrix, Matrix submatrix, Matrix biggestMatrix) {
-        Stack<Integer> rowStack = new Stack<>();
-        Stack<Integer> columnStack = new Stack<>();
-        boolean isExtendableDown = true;
-        boolean isIntermediateFound = false;
-        int rowSize = matrix.length;
-        int columnSize = matrix[0].length;
-        for (int i = submatrix.getTopBorder(); i < rowSize; i++) {
+        columnStack.clear();
+        isExtendableDown = true;
+        isIntermediateFound = false;
+        for (int i = submatrix.getTopBorder(); i < submatrix.getBottomBorder(); i++) {
             columnStack.add(i);
             rowStack.clear();
-            for (int j = submatrix.getLeftBorder(); j < columnSize; j++) {
-                if (i < matrix.length - 1) {
-                    if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() > 0 && columnStack.size() > 0) {
-                        isIntermediateFound = true;
-                    } else if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() == 0) {
-                        isExtendableDown = false;
-                    }
-                }
-                rowStack.add(j);
-                if (j < columnSize) {
-                    if (submatrix.getValue() != matrix[i][j + 1] && rowStack.size() > 0 && columnStack.size() > 0) {
-                        columnSize = rowStack.peek() + 1;
-                    }
-                }
-            }
+            rowOperator(matrix, submatrix, i);
             if (isIntermediateFound) {
-                Matrix interMatrix = new Matrix(submatrix.getLeftBorder(), submatrix.getTopBorder(),
-                        submatrix.getValue());
-                interMatrix.setRightBorder(rowStack.peek());
-                interMatrix.setBottomBorder(columnStack.peek());
+                Matrix interMatrix = new Matrix(submatrix.getLeftBorder(), rowStack.peek(),
+                        submatrix.getTopBorder(), columnStack.peek(), submatrix.getValue());
                 biggestMatrix = compareArea(interMatrix, biggestMatrix);
                 isIntermediateFound = false;
             }
@@ -91,5 +90,23 @@ public class SubmatrixUtil {
             return firstMatrix;
         }
         return secondMatrix;
+    }
+
+    private void rowOperator(int[][] matrix, Matrix submatrix, int i) {
+        for (int j = submatrix.getLeftBorder(); j < submatrix.getRightBorder(); j++) {
+            if (i < matrix.length - 1) {
+                if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() > 0 && columnStack.size() > 0) {
+                    isIntermediateFound = true;
+                } else if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() == 0) {
+                    isExtendableDown = false;
+                }
+            }
+            rowStack.add(j);
+            if (j < submatrix.getRightBorder() - 1
+                    && submatrix.getValue() != matrix[i][j + 1]
+                    && rowStack.size() > 0 && columnStack.size() > 0) {
+                submatrix.setRightBorder(rowStack.peek() + 1);
+            }
+        }
     }
 }

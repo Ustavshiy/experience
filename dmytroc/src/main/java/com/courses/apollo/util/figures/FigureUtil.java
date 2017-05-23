@@ -7,6 +7,7 @@ import com.courses.apollo.util.matrix.IntegerMatrixUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -24,7 +25,7 @@ public class FigureUtil {
     /**
      * Set of unique figures found in sheet.
      */
-    private Set<int[][]> uniqueFigures = new HashSet<>();
+    private Set<int[][]> uniqueFigures = new LinkedHashSet<>();
 
     /**
      * 4 cycles to rotate figure for comparison.

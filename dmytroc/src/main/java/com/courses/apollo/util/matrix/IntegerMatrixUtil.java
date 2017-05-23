@@ -1,10 +1,9 @@
 package com.courses.apollo.util.matrix;
 
 /**
- * Created by Dell on 15.05.2017.
+ * Class for Integer Matrix Util.
  */
 public class IntegerMatrixUtil {
-
 
     /**
      * Transpose matrix.

@@ -31,9 +31,11 @@ public class Matrix {
      */
     private int area;
 
-    public Matrix(int leftBirder, int topBorder, int value) {
-        this.leftBorder = leftBirder;
+    public Matrix(int leftBorder, int rightBorder, int topBorder, int bottomBorder, int value) {
+        this.leftBorder = leftBorder;
+        this.rightBorder = rightBorder;
         this.topBorder = topBorder;
+        this.bottomBorder = bottomBorder;
         this.value = value;
     }
 

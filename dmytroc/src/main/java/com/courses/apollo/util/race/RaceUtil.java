@@ -2,8 +2,8 @@ package com.courses.apollo.util.race;
 
 import com.courses.apollo.model.race.Bolid;
 
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -30,7 +30,9 @@ public class RaceUtil {
      * @param bolids set of bolids.
      */
     private void onStart(Set<Bolid> bolids) {
-        bolids.forEach(b -> b.setDistance(0.0 + startingGrigStep * (bolids.size() - b.getPosition())));
+        for (Bolid b : bolids) {
+            b.setDistance(0.0 + startingGrigStep * (bolids.size() - b.getPosition()));
+        }
     }
 
     /**
@@ -60,7 +62,11 @@ public class RaceUtil {
      */
     public String getOvertakesDetails(int overtakesCount) {
         StringBuffer overtakesStat = new StringBuffer();
-        overtakes.entrySet().stream().limit(overtakesCount).forEach(d -> overtakesStat.append(d.toString() + "\n"));
+        Set<Object> overtake = this.overtakes.entrySet();
+        Iterator iterator = overtake.iterator();
+        for (int i = 0; i < overtakesCount; i++) {
+            overtakesStat.append(iterator.next().toString() + "\n");
+        }
         return overtakesStat.toString();
     }
 
@@ -70,15 +76,16 @@ public class RaceUtil {
      * @param bolids set of bolids in race.
      */
     private void overtakingStat(Set<Bolid> bolids) {
-        bolids.forEach(overtakingCar -> {
-            bolids.stream().filter(overtakenCar -> overtakingCar.getSpeed() > overtakenCar.getSpeed())
-                    .filter(overtakenCar -> overtakingCar.getPosition() > overtakenCar.getPosition())
-                    .forEach(overtakenCar -> {
-                        double time = ((overtakenCar.getDistance() - overtakingCar.getDistance())
-                                / (overtakingCar.getSpeed() - overtakenCar.getSpeed())) * secondsInHour;
-                        overtakes.put(time, new Overtake(overtakingCar, overtakenCar, time));
-                    });
-        });
+        for (Bolid overtakingCar : bolids) {
+            for (Bolid overtakenCar : bolids) {
+                if (overtakingCar.getSpeed() > overtakenCar.getSpeed()
+                        && overtakingCar.getPosition() > overtakenCar.getPosition()) {
+                    double time = ((overtakenCar.getDistance() - overtakingCar.getDistance())
+                            / (overtakingCar.getSpeed() - overtakenCar.getSpeed())) * secondsInHour;
+                    overtakes.put(time, new Overtake(overtakingCar, overtakenCar, time));
+                }
+            }
+        }
     }
 
     /**
@@ -107,27 +114,8 @@ public class RaceUtil {
         @Override
         public String toString() {
             return "Number " + overtaking.getNumber()
-                    + ", overtaks number " + overtaken.getNumber()
+                    + ", overtakes number " + overtaken.getNumber()
                     + " at " + timeFromStart + " seconds";
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                return false;
-            }
-            Overtake that = (Overtake) o;
-            return Objects.equals(overtaking, that.overtaking)
-                    && Objects.equals(overtaken, that.overtaken)
-                    && Objects.equals(timeFromStart, that.timeFromStart);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(overtaking, overtaken, timeFromStart);
         }
     }
 }

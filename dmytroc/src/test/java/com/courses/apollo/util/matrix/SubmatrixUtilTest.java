@@ -18,7 +18,7 @@ public class SubmatrixUtilTest {
             {1, 5, 3, 3, 3, 2, 1},
             {1, 1, 1, 3, 1, 1, 1},
     };
-    Matrix expectedMatrix = new Matrix(2, 3, 3);
+    Matrix expectedMatrix = new Matrix(2,4, 3,4, 3);
 
     @Before
     public void before() {
