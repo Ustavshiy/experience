@@ -18,11 +18,12 @@ public class FigureUtilTest {
     IOFigures ioFigures = new IOFigures();
     FigureUtil figureUtil = new FigureUtil();
     File inputFile = new File("./src/test/resources/PlainFigures.txt");
-    File outputFolder = new File("./src/main/resources/");
+    File outputFolder = new File("./src/main/resources/figureoutput/");
     File testFolder = new File("./src/test/resources/figureoutput/");
 
     @Before
     public void before(){
+        outputFolder.mkdir();
         figureUtil.findUniqueFiguresInSheet(inputFile, outputFolder);
     }
 
@@ -36,9 +37,10 @@ public class FigureUtilTest {
 
     @AfterClass
     public static void clean() {
-        File outputDir = new File("./src/main/resources/");
+        File outputDir = new File("./src/main/resources/figureoutput/");
         for (File file : outputDir.listFiles()) {
             file.delete();
         }
+        outputDir.delete();
     }
 }
