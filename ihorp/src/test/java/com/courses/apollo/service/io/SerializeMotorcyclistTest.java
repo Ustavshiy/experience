@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class SerializeMotorcyclistTest {
 
-    private static String file = "src/test/resources/Computer.ser";
+    public static String file = "src/test/resources/Motorcyclist.ser";
     private Motorcyclist motorcyclist;
     private SerializeMotorcyclist serializeMotorcyclist = new SerializeMotorcyclist();
 
@@ -37,7 +37,7 @@ public class SerializeMotorcyclistTest {
     }
 
     @Test
-    public void testReestablishComputer() {
+    public void testReestablishMotorcyclist() {
         serializeMotorcyclist.writeMotorcyclist(motorcyclist, file);
         Motorcyclist testMotorcyclist = serializeMotorcyclist.reestablishMotorcyclist(file);
         Assert.assertEquals(motorcyclist, testMotorcyclist);
