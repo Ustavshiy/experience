@@ -59,13 +59,19 @@ public abstract class MotoEquipment extends Motorcyclist {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         MotoEquipment that = (MotoEquipment) o;
-        return Double.compare(that.weight, weight) == 0 &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(price, that.price);
+        return Double.compare(that.weight, weight) == 0
+                && Objects.equals(name, that.name)
+                && Objects.equals(price, that.price);
     }
 
     @Override

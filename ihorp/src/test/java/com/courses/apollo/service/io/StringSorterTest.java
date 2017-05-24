@@ -3,6 +3,9 @@ package com.courses.apollo.service.io;
 import org.junit.*;
 
 import java.io.*;
+import java.nio.file.Files;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class StringSorterTest {
 
@@ -13,19 +16,18 @@ public class StringSorterTest {
 
 
     @BeforeClass
-    public static void generateTestText(){
+    public static void generateTestText() {
         BufferedWriter writeText = null;
         BufferedWriter writeTextTwo = null;
         try {
-            writeText = new BufferedWriter(new FileWriter(new File(testTextFile)));
+            writeText = Files.newBufferedWriter(new File(testTextFile).toPath(), UTF_8);
             writeText.write(testText);
-            writeTextTwo = new BufferedWriter(new FileWriter(new File(answerTextFile)));
+            writeTextTwo = Files.newBufferedWriter(new File(answerTextFile).toPath(), UTF_8);
             writeTextTwo.write(answerText);
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 writeText.flush();
                 writeTextTwo.flush();
@@ -39,7 +41,7 @@ public class StringSorterTest {
 
     @Test
     public void testSortStringByNumberOfWords() {
-            Assert.assertEquals(StringSorter.sortStringByNumberOfWords(testText), answerText);
+        Assert.assertEquals(StringSorter.sortStringByNumberOfWords(testText), answerText);
     }
 
     @AfterClass

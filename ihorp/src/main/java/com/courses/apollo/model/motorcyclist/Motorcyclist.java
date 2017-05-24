@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Constructor class of object type Motorcyclist.
  */
-public class Motorcyclist implements Serializable{
+public class Motorcyclist implements Serializable {
 
     public Motorcyclist() {}
 
@@ -46,11 +46,15 @@ public class Motorcyclist implements Serializable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Motorcyclist that = (Motorcyclist) o;
-        return Objects.equals(name, that.name) &&
-                Objects.equals(motoEquipment, that.motoEquipment);
+        return Objects.equals(name, that.name)
+                && Objects.equals(motoEquipment, that.motoEquipment);
     }
 
     @Override
