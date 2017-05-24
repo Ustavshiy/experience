@@ -1,13 +1,13 @@
 package com.courses.apollo.util.figures;
 
 import com.courses.apollo.model.raster.Pixel;
+import com.courses.apollo.model.raster.PixelMatrix;
 import com.courses.apollo.util.io.FileIOUtils;
-import com.courses.apollo.util.matrix.IntegerMatrixUtil;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,41 +25,35 @@ public class FigureUtil {
     /**
      * Set of unique figures found in sheet.
      */
-    private Set<int[][]> uniqueFigures = new LinkedHashSet<>();
-
-    /**
-     * 4 cycles to rotate figure for comparison.
-     */
-    private final int rotateCycles = 4;
+    private Set<PixelMatrix> uniqueFigures = new LinkedHashSet<>();
 
     /**
      * Method find unique figures in sheet and write them to different files as 2 dimensional rectangle array.
      *
      * @param inputFile    input file.
-     * @param outputFolder export figures folder.
+     * @param outputFolder export figures to folder.
      */
     public void findUniqueFiguresInSheet(File inputFile, File outputFolder) {
-        IOFigures ioFigures = new IOFigures();
         FileIOUtils fileIOUtils = new FileIOUtils();
-        sheet = ioFigures.sheetReader(inputFile);
+        sheet = arrayFromSheet(fileIOUtils.multiLineReader(inputFile));
         getUniqueFigures();
-        int figureCounter = 1;
-        for (int[][] figureArray : uniqueFigures) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int y = 0; y < figureArray.length; y++) {
-                for (int x = 0; x < figureArray[y].length; x++) {
-                    stringBuffer.append(figureArray[y][x]);
-                }
-                stringBuffer.append("\n");
+        pixelMatrixWriter(outputFolder, uniqueFigures);
+    }
+
+    /**
+     * Method convert List of strings to int[][] array.
+     * @param lines list of lines.
+     * @return int[][] array.
+     */
+    public Integer[][] arrayFromSheet(List<String> lines) {
+        Integer[][] sheetArray = new Integer[lines.size()][lines.get(0).length()];
+        for (int i = 0; i < lines.size(); i++) {
+            String[] symbols = lines.get(i).split("");
+            for (int j = 0; j < symbols.length; j++) {
+                sheetArray[i][j] = Integer.valueOf(symbols[j]);
             }
-            File file = new File(outputFolder + "/figure" + String.valueOf(figureCounter) + ".txt");
-            try {
-                fileIOUtils.writeToFile(file, stringBuffer.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            figureCounter++;
         }
+        return sheetArray;
     }
 
     /**
@@ -126,16 +120,16 @@ public class FigureUtil {
     }
 
     /**
-     * Method add figure to set of figures if it is unique.
+     * Method add PixelFigure to set of figures if it is unique.
      *
      * @param pixels new figure.
      */
     private void createFigureIfUnique(Set<Pixel> pixels) {
-        int[][] newFigure = pixelsToFigure(pixels);
+        PixelMatrix newFigure = new PixelMatrix(pixels);
         if (uniqueFigures.size() != 0) {
             boolean flag = false;
-            for (int[][] figure : uniqueFigures) {
-                if (figureMatcher(figure, newFigure)) {
+            for (PixelMatrix existingFigure : uniqueFigures) {
+                if (existingFigure.equals(newFigure)) {
                     flag = false;
                     break;
                 } else {
@@ -151,67 +145,25 @@ public class FigureUtil {
     }
 
     /**
-     * Method check if new figure equals existing figure with rotation by 90 degrees.
-     *
-     * @param existFigure existing figure.
-     * @param newFigure   new figure.
-     * @return true if equals.
+     * Method writes set of PixelMatrix to files named by counter.
+     * @param outputFolder folder to save.
+     * @param uniqueFigures set of PixelMatrix.
      */
-    private boolean figureMatcher(int[][] existFigure, int[][] newFigure) {
-        IntegerMatrixUtil matrixUtil = new IntegerMatrixUtil();
-        for (int i = 0; i < rotateCycles; i++) {
-            if (figureCompare(existFigure, newFigure)) {
-                return true;
-            }
-            newFigure = matrixUtil.reverseColumn(matrixUtil.transpose(newFigure));
-        }
-        return false;
-    }
-
-    /**
-     * Method compare int[][] of new figure with int[][] of existing figure from set.
-     *
-     * @param existFigure existing figure.
-     * @param newFigure   new figure.
-     * @return true if equals.
-     */
-    private boolean figureCompare(int[][] existFigure, int[][] newFigure) {
-        if (existFigure.length != newFigure.length || existFigure[0].length != newFigure[0].length) {
-            return false;
-        } else {
-            for (int y = 0; y < existFigure.length; y++) {
-                for (int x = 0; x < existFigure[y].length; x++) {
-                    if (existFigure[y][x] != newFigure[y][x]) {
-                        return false;
-                    }
+    public void pixelMatrixWriter(File outputFolder, Set<PixelMatrix> uniqueFigures) {
+        FileIOUtils fileIOUtils = new FileIOUtils();
+        int figureCounter = 1;
+        for (PixelMatrix figure : uniqueFigures) {
+            int[][] figureArray = figure.getPixelMatrix();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int y = 0; y < figureArray.length; y++) {
+                for (int x = 0; x < figureArray[y].length; x++) {
+                    stringBuffer.append(figureArray[y][x]);
                 }
+                stringBuffer.append("\n");
             }
+            File file = new File(outputFolder + "/figure" + String.valueOf(figureCounter) + ".txt");
+            fileIOUtils.writeToFile(file, stringBuffer.toString());
+            figureCounter++;
         }
-        return true;
-    }
-
-    /**
-     * Method convert pixels set to int array[][] to create figure for collect,
-     * rotate it and compare with other figures.
-     *
-     * @param pixels figure.
-     * @return int[][].
-     */
-    private int[][] pixelsToFigure(Set<Pixel> pixels) {
-        int maxX = 0;
-        int maxY = 0;
-        for (Pixel pixel : pixels) {
-            if (pixel.getXValue() > maxX) {
-                maxX = pixel.getXValue();
-            }
-            if (pixel.getYValue() > maxY) {
-                maxY = pixel.getYValue();
-            }
-        }
-        int[][] figure = new int[maxY + 1][maxX + 1];
-        for (Pixel pixel : pixels) {
-            figure[pixel.getYValue()][pixel.getXValue()] = 1;
-        }
-        return figure;
     }
 }

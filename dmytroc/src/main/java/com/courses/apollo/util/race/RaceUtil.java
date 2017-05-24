@@ -62,7 +62,7 @@ public class RaceUtil {
      */
     public String getOvertakesDetails(int overtakesCount) {
         StringBuffer overtakesStat = new StringBuffer();
-        Set<Object> overtake = this.overtakes.entrySet();
+        Set<Overtake> overtake = this.overtakes.entrySet();
         Iterator iterator = overtake.iterator();
         for (int i = 0; i < overtakesCount; i++) {
             overtakesStat.append(iterator.next().toString() + "\n");
