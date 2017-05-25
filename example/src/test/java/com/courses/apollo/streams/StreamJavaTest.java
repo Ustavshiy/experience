@@ -174,8 +174,6 @@ public class StreamJavaTest {
                 }
             }
         }
-        Map<Integer , Integer> map = new HashMap<>();
-
         TreeMap<Integer, Student> res = universities.stream()
                 .flatMap(univer -> univer.getStudents().stream())
                 .collect(Collectors.toMap(Student::getStudentId, Function.identity(), (o, o2) -> o,
