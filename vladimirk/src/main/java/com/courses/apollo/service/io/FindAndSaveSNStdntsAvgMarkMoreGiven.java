@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Class that find and print to file students with average marks more than given mark.
  */
-public class FindStdntsAvgMarkMoreGiven {
+public class FindAndSaveSNStdntsAvgMarkMoreGiven {
 
     /**
      * Created object of the RWFileServise class.
@@ -26,7 +26,7 @@ public class FindStdntsAvgMarkMoreGiven {
         List<String> persMarks = Arrays.asList(journal.replaceFirst("\\D+", " ").split("[A-Za-z]+"));
         for (int i = 0; i < persMarks.size(); i++) {
             List<String> marks = Arrays.asList(persMarks.get(i).replaceFirst("\\D+", "").split("\\D+"));
-            Integer sum = 0;
+            int sum = 0;
             for (String mark : marks) {
                 sum = sum + Integer.parseInt(mark);
             }

@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Class to find maximal quantity of numbers in row in given text file.
+ * Class to find and save to file maximal quantity of numbers in row in given text file.
  */
-public class FindMxQnttNmbrInRow {
+public class FindSaveMxQnttNmbrInRow {
 
     /**
      * Created object of the RWFileServise class.
@@ -15,17 +15,17 @@ public class FindMxQnttNmbrInRow {
     private RWFileServise readWriteFile = new RWFileServise();
 
     /**
-     * Method to find maximal quantity of numbers in row in given text file.
+     * Method for finding and saving to new file (by path) the maximal quantity of numbers in a row in given text file.
      */
-    public void findMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
+    public void findAndSaveMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
         Collections.addAll(nmbrs, readWriteFile.readFile(inFilePath).split("\\D+"));
-        Integer max = 0;
+        int max = 0;
         for (String nmbr : nmbrs) {
             if (nmbr.length() > max) {
                 max = nmbr.length();
             }
         }
-        readWriteFile.writeFile(max.toString(), outFilePath, isAdd);
+        readWriteFile.writeFile(String.valueOf(max), outFilePath, isAdd);
     }
 }
