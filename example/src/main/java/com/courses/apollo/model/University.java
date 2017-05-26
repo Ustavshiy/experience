@@ -1,6 +1,7 @@
 package com.courses.apollo.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Student information model.
@@ -17,7 +18,7 @@ public class University {
     /**
      * Students list.
      */
-    private ArrayList<Student> students;
+    private List<Student> students;
 
     public String getUniversityName() {
         return universityName;
@@ -35,11 +36,11 @@ public class University {
         this.faculties = faculties;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 }
