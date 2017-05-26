@@ -2,7 +2,6 @@ package com.courses.apollo.util.race;
 
 import com.courses.apollo.model.race.Bolid;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -61,13 +60,14 @@ public class RaceUtil {
      * @return String statistics.
      */
     public String getOvertakesDetails(int overtakesCount) {
-        StringBuffer overtakesStat = new StringBuffer();
-        Set<Overtake> overtake = this.overtakes.entrySet();
-        Iterator iterator = overtake.iterator();
-        for (int i = 0; i < overtakesCount; i++) {
-            overtakesStat.append(iterator.next().toString() + "\n");
+        String overtakesStat = "";
+        Set<Map.Entry<Double, Overtake>> overtakesEntrySet = overtakes.entrySet();
+        for (Map.Entry<Double, Overtake> entry : overtakesEntrySet) {
+            if (overtakesCount-- > 0) {
+                overtakesStat += entry.getValue() + "\n";
+            }
         }
-        return overtakesStat.toString();
+        return overtakesStat;
     }
 
     /**

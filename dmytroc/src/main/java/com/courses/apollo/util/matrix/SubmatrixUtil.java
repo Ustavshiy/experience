@@ -34,7 +34,6 @@ public class SubmatrixUtil {
      */
     public Matrix findBiggestSubmatrix(int[][] matrix) {
         Matrix biggestMatrix = new Matrix(0, 0, 0, 0, 0);
-        biggestMatrix.setArea(0);
         for (int i = 0; i < matrix.length - 1; i++) {
             for (int j = 0; j < matrix[i].length - 1; j++) {
                 biggestMatrix = findBiggerSubmatrix(matrix, new Matrix(j, matrix[0].length, i,
@@ -59,11 +58,11 @@ public class SubmatrixUtil {
         for (int i = submatrix.getTopBorder(); i < submatrix.getBottomBorder(); i++) {
             columnStack.add(i);
             rowStack.clear();
-            rowOperator(matrix, submatrix, i);
+            passThroughRow(matrix, submatrix, i);
             if (isIntermediateFound) {
                 Matrix interMatrix = new Matrix(submatrix.getLeftBorder(), rowStack.peek(),
                         submatrix.getTopBorder(), columnStack.peek(), submatrix.getValue());
-                biggestMatrix = compareArea(interMatrix, biggestMatrix);
+                biggestMatrix = returnBiggestMatrix(interMatrix, biggestMatrix);
                 isIntermediateFound = false;
             }
             if (!isExtendableDown) {
@@ -73,7 +72,7 @@ public class SubmatrixUtil {
         if (isExtendableDown && columnStack.size() > 0 && rowStack.size() > 0) {
             submatrix.setRightBorder(rowStack.peek());
             submatrix.setBottomBorder(columnStack.peek());
-            biggestMatrix = compareArea(submatrix, biggestMatrix);
+            biggestMatrix = returnBiggestMatrix(submatrix, biggestMatrix);
         }
         return biggestMatrix;
     }
@@ -85,14 +84,14 @@ public class SubmatrixUtil {
      * @param secondMatrix matrix.
      * @return matrix with bigger area.
      */
-    private Matrix compareArea(Matrix firstMatrix, Matrix secondMatrix) {
+    private Matrix returnBiggestMatrix(Matrix firstMatrix, Matrix secondMatrix) {
         if (firstMatrix.getArea() > secondMatrix.getArea()) {
             return firstMatrix;
         }
         return secondMatrix;
     }
 
-    private void rowOperator(int[][] matrix, Matrix submatrix, int i) {
+    private void passThroughRow(int[][] matrix, Matrix submatrix, int i) {
         for (int j = submatrix.getLeftBorder(); j < submatrix.getRightBorder(); j++) {
             if (i < matrix.length - 1) {
                 if (submatrix.getValue() != matrix[i + 1][j] && rowStack.size() > 0 && columnStack.size() > 0) {

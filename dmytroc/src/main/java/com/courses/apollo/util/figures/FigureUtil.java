@@ -13,6 +13,7 @@ import java.util.Set;
 /**
  * Class for operation with figures located in 2 dimensional array by byte.
  */
+@SuppressWarnings("PMD.UnusedLocalVariable")
 public class FigureUtil {
     /**
      * Integer[][] is a input matrix with figures included.
@@ -42,16 +43,20 @@ public class FigureUtil {
 
     /**
      * Method convert List of strings to int[][] array.
+     *
      * @param lines list of lines.
      * @return int[][] array.
      */
     public Integer[][] arrayFromSheet(List<String> lines) {
         Integer[][] sheetArray = new Integer[lines.size()][lines.get(0).length()];
-        for (int i = 0; i < lines.size(); i++) {
-            String[] symbols = lines.get(i).split("");
-            for (int j = 0; j < symbols.length; j++) {
-                sheetArray[i][j] = Integer.valueOf(symbols[j]);
+        int rowIndex = 0;
+        for (Integer[] row : sheetArray) {
+            String[] symbols = lines.get(rowIndex).split("");
+            int columnIndex = 0;
+            for (String symbol : symbols) {
+                sheetArray[rowIndex][columnIndex] = Integer.valueOf(symbols[columnIndex++]);
             }
+            rowIndex++;
         }
         return sheetArray;
     }
@@ -60,15 +65,19 @@ public class FigureUtil {
      * Method finds unique figures in sheet and add them to figures set.
      */
     private void getUniqueFigures() {
-        for (int y = 0; y < sheet.length; y++) {
-            for (int x = 0; x < sheet[y].length; x++) {
-                if (sheet[y][x] == 1) {
+        int yValue = 0;
+        for (Integer[] integerList : sheet) {
+            int xValue = 0;
+            for (Integer integer : integerList) {
+                if (integer == 1) {
                     pixels.clear();
-                    collectPixels(pixels, y, x);
+                    collectPixels(pixels, yValue, xValue);
                     simplifyPixels(pixels);
                     createFigureIfUnique(pixels);
                 }
+                xValue++;
             }
+            yValue++;
         }
     }
 
@@ -146,7 +155,8 @@ public class FigureUtil {
 
     /**
      * Method writes set of PixelMatrix to files named by counter.
-     * @param outputFolder folder to save.
+     *
+     * @param outputFolder  folder to save.
      * @param uniqueFigures set of PixelMatrix.
      */
     public void pixelMatrixWriter(File outputFolder, Set<PixelMatrix> uniqueFigures) {
@@ -154,15 +164,15 @@ public class FigureUtil {
         int figureCounter = 1;
         for (PixelMatrix figure : uniqueFigures) {
             int[][] figureArray = figure.getPixelMatrix();
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int y = 0; y < figureArray.length; y++) {
-                for (int x = 0; x < figureArray[y].length; x++) {
-                    stringBuffer.append(figureArray[y][x]);
+            String stringMatrix = "";
+            for (int[] aFigureArray : figureArray) {
+                for (int anAFigureArray : aFigureArray) {
+                    stringMatrix += anAFigureArray;
                 }
-                stringBuffer.append("\n");
+                stringMatrix += "\n";
             }
             File file = new File(outputFolder + "/figure" + String.valueOf(figureCounter) + ".txt");
-            fileIOUtils.writeToFile(file, stringBuffer.toString());
+            fileIOUtils.writeToFile(file, stringMatrix);
             figureCounter++;
         }
     }

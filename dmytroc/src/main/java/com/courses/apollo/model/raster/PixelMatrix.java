@@ -55,7 +55,7 @@ public class PixelMatrix {
             if (Arrays.deepEquals(pixelMatrix, newMatrix)) {
                 return true;
             }
-            newMatrix = matrixUtil.reverseColumn(matrixUtil.transpose(newMatrix));
+            newMatrix = matrixUtil.reverseRow(matrixUtil.transpose(newMatrix));
         }
         return false;
     }

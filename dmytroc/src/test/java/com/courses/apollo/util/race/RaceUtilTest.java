@@ -14,11 +14,11 @@ import java.util.Set;
 public class RaceUtilTest {
     RaceUtil raceUtil = new RaceUtil();
     Set<Bolid> bolids = new HashSet<>();
-    String expectedReaultStat = "0.9729729729729731=Number 5, overtakes number 2 at 0.9729729729729731 seconds\n" +
-            "2.25=Number 4, overtakes number 3 at 2.25 seconds\n" +
-            "5.142857142857143=Number 4, overtakes number 1 at 5.142857142857143 seconds\n" +
-            "6.857142857142857=Number 4, overtakes number 2 at 6.857142857142857 seconds\n" +
-            "10.285714285714286=Number 1, overtakes number 2 at 10.285714285714286 seconds\n";
+    String expectedReaultStat = "Number 5, overtakes number 2 at 0.9729729729729731 seconds\n" +
+            "Number 4, overtakes number 3 at 2.25 seconds\n" +
+            "Number 4, overtakes number 1 at 5.142857142857143 seconds\n" +
+            "Number 4, overtakes number 2 at 6.857142857142857 seconds\n" +
+            "Number 1, overtakes number 2 at 10.285714285714286 seconds\n";
     Integer expectedResultCount = 6;
 
     @Before
