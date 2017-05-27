@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SerializeMotorcyclistTest {
@@ -37,7 +38,7 @@ public class SerializeMotorcyclistTest {
     }
 
     @Test
-    public void testReestablishMotorcyclist() {
+    public void testReestablishMotorcyclist() throws IOException, ClassNotFoundException {
         serializeMotorcyclist.writeMotorcyclist(motorcyclist, file);
         Motorcyclist testMotorcyclist = serializeMotorcyclist.reestablishMotorcyclist(file);
         Assert.assertEquals(motorcyclist, testMotorcyclist);
@@ -45,7 +46,6 @@ public class SerializeMotorcyclistTest {
 
     @AfterClass
     public static void deleteFile() {
-        File deleteFile = new File(file);
-        deleteFile.delete();
+        new File(file).delete();
     }
 }

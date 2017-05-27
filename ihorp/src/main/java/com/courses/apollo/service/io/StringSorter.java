@@ -1,15 +1,8 @@
 package com.courses.apollo.service.io;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Objects;
 
 /**
  * Util class.
@@ -24,27 +17,10 @@ public final class StringSorter {
      * @param input  way to file which need to sort.
      * @param output way to file with result.
      */
-    public static void sortStringInFile(String input, String output) {
-
-        BufferedWriter bufferedWriter = null;
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(new File(output), true));
-            bufferedReader = new BufferedReader(new FileReader(new File(input)));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                bufferedWriter.write(sortStringByNumberOfWords(line) + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public static void sortStringInFile(String input, String output) throws IOException {
+        String[] lines = IOFileString.readFromFile(input).split("\n");
+        for (String line : lines) {
+            IOFileString.writeToFile(output, sortStringByNumberOfWords(line) + "\n", true);
         }
     }
 
@@ -55,8 +31,9 @@ public final class StringSorter {
      * @return String - sorted text.
      */
     public static String sortStringByNumberOfWords(String text) {
-        String[] words = text.split("[^A-ZА-Яa-zа-яІіЇїЄє\\']\\s*\\n*");
+        String[] words = text.split("[^A-ZА-Яa-zа-яІіЇїЄє\\'\\-]\\s*\\n*");
         ArrayList<WordCounter> wordsWithCounter = new ArrayList<>();
+        // Create a ArrayList of WordCounter.
         for (String word : words) {
             boolean hasWord = false;
             for (WordCounter wordWithCounter : wordsWithCounter) {
@@ -68,6 +45,7 @@ public final class StringSorter {
                 wordsWithCounter.add(new WordCounter(word, 0));
             }
         }
+        // Sort a List of WordCounter by counter and add words to StringBuilder.
         StringBuilder answer = new StringBuilder();
         wordsWithCounter.stream()
                 .sorted(Comparator.comparing(WordCounter::getCounter))
@@ -115,24 +93,6 @@ public final class StringSorter {
 
         public String getWord() {
             return word;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                return false;
-            }
-            WordCounter that = (WordCounter) o;
-            return Objects.equals(word, that.word)
-                    && Objects.equals(counter, that.counter);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(word, counter);
         }
     }
 }

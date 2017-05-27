@@ -7,6 +7,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -20,15 +21,10 @@ public class SerializeMotorcyclist {
      * @param motorcyclist object to write.
      * @param file way to write.
      */
-    public void writeMotorcyclist(Motorcyclist motorcyclist, String file) {
-        ObjectOutputStream write = null;
-        try {
-            write = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+    public void writeMotorcyclist(Motorcyclist motorcyclist, String file) throws IOException {
+        ObjectOutputStream write  = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
             write.writeObject(motorcyclist);
             write.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -36,16 +32,12 @@ public class SerializeMotorcyclist {
      * @param file way to file.
      * @return object.
      */
-    public Motorcyclist reestablishMotorcyclist(String file) {
+    public Motorcyclist reestablishMotorcyclist(String file) throws IOException, ClassNotFoundException {
         ObjectInputStream read = null;
         Motorcyclist motorcyclist = new Motorcyclist();
-        try {
             read = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
             motorcyclist = (Motorcyclist) read.readObject();
             read.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         return motorcyclist;
     }
 }

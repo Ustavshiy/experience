@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.Assert.assertTrue;
 
 public class IdentifyDataTypeTest {
 
@@ -21,49 +21,19 @@ public class IdentifyDataTypeTest {
     private static String fileWithFloat = "src\\test\\resources\\FileWithFloat.txt";
     private static String fileWithChar = "src\\test\\resources\\FileWithChar.txt";
 
-    private String testedText = "123 word 12.34 4 c boolean 3.14 p";
+    private static String testedText = "123 word 12.34 4 c boolean 3.14 p";
+    private static String strInteger = "25";
+    private static String strString = "word";
+    private static String strFloat = "28.45";
+    private static String strChar = "c";
 
     @Before
-    public void before() {
-        BufferedWriter textBw = null;
-        BufferedWriter integerBw = null;
-        BufferedWriter stringBw = null;
-        BufferedWriter floatBw = null;
-        BufferedWriter charBw = null;
-        try {
-            textBw = Files.newBufferedWriter(Paths.get(fileWithText), UTF_8);
-            textBw.write(testedText);
-
-            integerBw = Files.newBufferedWriter(new File(fileWithInt).toPath(), UTF_8);
-            String checkInteger = "25";
-            integerBw.write(checkInteger);
-
-            stringBw = Files.newBufferedWriter(new File(fileWithString).toPath(), UTF_8);
-            String checkString = "word";
-            stringBw.write(checkString);
-
-            floatBw = Files.newBufferedWriter(new File(fileWithFloat).toPath(), UTF_8);
-            String checkFloat = "28.45";
-            floatBw.write(checkFloat);
-
-            charBw = Files.newBufferedWriter(new File(fileWithChar).toPath(), UTF_8);
-            String checkChar = "c";
-            floatBw.write(checkChar);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("error");
-        } finally {
-            try {
-                textBw.close();
-                integerBw.close();
-                stringBw.close();
-                floatBw.close();
-                charBw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
+    public void generateData() throws IOException {
+        IOFileString.writeToFile(fileWithText, testedText, false);
+        IOFileString.writeToFile(fileWithInt, strInteger, false);
+        IOFileString.writeToFile(fileWithString, strString, false);
+        IOFileString.writeToFile(fileWithFloat, strFloat, false);
+        IOFileString.writeToFile(fileWithChar, strChar,false);
     }
 
     @Test
@@ -73,13 +43,21 @@ public class IdentifyDataTypeTest {
     }
 
     @Test
-    public void readFromFileTest() throws IOException {
-        Assert.assertEquals(testedText, IdentifyDataType.readFromFile(fileWithText));
+    public void getDataTypeTestTwo() throws IOException {
+        String answerString = "word boolean ";
+        Assert.assertEquals(IdentifyDataType.getDataType(fileWithText, fileWithString), answerString);
     }
+
     @Test
-    public void getOnlyIntTest() {
-        String answerInteger = "123 4 ";
-        Assert.assertEquals(answerInteger, IdentifyDataType.getOnlyInt(testedText));
+    public void getDataTypeTestThree() throws IOException {
+        String answerCharacter = "c p ";
+        Assert.assertEquals(IdentifyDataType.getDataType(fileWithText, fileWithChar), answerCharacter);
+    }
+
+    @Test
+    public void getDataTypeTestFour() throws IOException {
+        String answerFloat = "12.34 3.14 ";
+        Assert.assertEquals(IdentifyDataType.getDataType(fileWithText, fileWithFloat), answerFloat);
     }
 
     @Test
@@ -98,6 +76,14 @@ public class IdentifyDataTypeTest {
     public void getOnlyChars() {
         String answerCharacter = "c p ";
         Assert.assertEquals(answerCharacter, IdentifyDataType.getOnlyChars(testedText));
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<IdentifyDataType> constructor = IdentifyDataType.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
     @AfterClass

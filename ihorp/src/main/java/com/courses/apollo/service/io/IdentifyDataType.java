@@ -1,7 +1,5 @@
 package com.courses.apollo.service.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
@@ -21,13 +19,11 @@ public final class IdentifyDataType {
      * @throws IOException exception.
      */
     public static String getDataType(String dataFile, String dataType) throws IOException {
-
-        String dataTypeString = readFromFile(dataType);
-        String text = readFromFile(dataFile);
-
+        String dataTypeString = IOFileString.readFromFile(dataType);
+        String text = IOFileString.readFromFile(dataFile);
         if (Pattern.matches("^\\d+$", dataTypeString)) {
             return getOnlyInt(text);
-        } else if (Pattern.matches("[0-9a-zA-Z([+-]?\\d*\\.+\\d*)]*", dataTypeString)) {
+        } else if (Pattern.matches("[a-zA-Z]{2,}[\\-\\']?[a-z]*", dataTypeString)) {
             return getOnlyString(text);
         } else if (Pattern.matches("^([+-]?\\d*\\.+\\d*)$", dataTypeString)) {
             return getOnlyFloats(text);
@@ -35,23 +31,6 @@ public final class IdentifyDataType {
             return getOnlyChars(text);
         }
         return null;
-    }
-
-    /**
-     * Method read string from file.
-     * @param filePlace is the path and name of file.
-     * @return string from file.
-     * @throws IOException exception.
-     */
-    public static String readFromFile(String filePlace) throws IOException {
-        BufferedReader dataFileReader = new BufferedReader(new FileReader(filePlace));
-        StringBuilder stringBuilder = new StringBuilder();
-        String thisLine;
-        while ((thisLine = dataFileReader.readLine()) != null) {
-            stringBuilder.append(thisLine);
-        }
-        dataFileReader.close();
-        return stringBuilder.toString();
     }
 
     /**
