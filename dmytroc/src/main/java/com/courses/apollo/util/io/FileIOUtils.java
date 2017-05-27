@@ -41,14 +41,37 @@ public class FileIOUtils {
      * @param string string to write.
      */
 
-    public void writeToFile(File file, String string) throws IOException {
+    public void writeToFile(File file, String string) {
         Writer writer = null;
         try {
             writer = Files.newBufferedWriter(Paths.get(file.toURI()), UTF_8);
             writer.write(string);
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
-            writer.flush();
-            writer.close();
+            try {
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+
+    /**
+     * Method returns List of strings from file.
+     *
+     * @param inputFile input file
+     * @return Integer[][]
+     */
+    public List<String> multiLineReader(File inputFile) {
+        List<String> sheet = null;
+        try {
+            sheet = Files.readAllLines(inputFile.toPath(), UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sheet;
     }
 }
