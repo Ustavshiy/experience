@@ -46,15 +46,19 @@ public final class IOFileString {
      * @return true if all is ok, false if have error.
      */
     public static boolean writeToFile(String filePlace, String text, boolean append) throws IOException {
-        BufferedWriter writeText = null;
+
+        String path = filePlace.replaceAll("[\\\\][^\\\\]+$", "");
+        if (!new File(path).exists()) {
+            new File(path).mkdirs();
+        }
         File file = new File(filePlace);
-            if (file.isFile() && !append) {
+        if (file.isFile() && !append) {
                 file.delete();
-            }
-            if (!file.isFile()) {
-                file.createNewFile();
-            }
-            writeText = Files.newBufferedWriter(file.toPath(), UTF_8, StandardOpenOption.APPEND);
+        }
+        if (!file.isFile()) {
+            file.createNewFile();
+        }
+        BufferedWriter writeText  = Files.newBufferedWriter(file.toPath(), UTF_8, StandardOpenOption.APPEND);
             writeText.write(text);
                 writeText.flush();
                 writeText.close();

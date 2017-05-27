@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -15,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class IOFileStringTest {
 
-    private static String fileWithText = "src\\test\\resources\\TestIO.txt";
+    private static String fileWithText = "src\\test\\resources\\IOFileStringTest\\NewFile";
     private static String testedText = "tested text";
 
     @Test
@@ -35,5 +34,6 @@ public class IOFileStringTest {
     @AfterClass
     public static void deleteFiles() {
         new File(fileWithText).delete();
+        new File(fileWithText.replaceAll("[\\\\][^\\\\]+$", "")).delete();
     }
 }

@@ -50,6 +50,7 @@ public class StringSorterTest {
         new File(testTextFile).delete();
         new File(answerTextFile).delete();
         new File(testOutputFile).delete();
+        new File(testTextFile.replaceAll("[\\\\][^\\\\]+$", "")).delete();
     }
 
 

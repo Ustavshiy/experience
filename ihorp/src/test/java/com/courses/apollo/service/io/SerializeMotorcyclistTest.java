@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class SerializeMotorcyclistTest {
 
-    public static String file = "src/test/resources/Motorcyclist.ser";
+    public static String file = "src\\test\\resources\\SerializeMotorcyclist\\Motorcyclist.ser";
     private Motorcyclist motorcyclist;
     private SerializeMotorcyclist serializeMotorcyclist = new SerializeMotorcyclist();
 
@@ -47,5 +47,6 @@ public class SerializeMotorcyclistTest {
     @AfterClass
     public static void deleteFile() {
         new File(file).delete();
+        new File(file.replaceAll("[\\\\][^\\\\]+$", "")).delete();
     }
 }
