@@ -18,7 +18,7 @@ public class IntegerMatrixUtil {
         for (int[] row : matrix) {
             int colIndex = 0;
             for (int value : row) {
-                row[rowIndex] = matrix[rowIndex][colIndex++];
+                transposedMatrix[colIndex][rowIndex] = matrix[rowIndex][colIndex++];
             }
             rowIndex++;
         }
@@ -36,7 +36,7 @@ public class IntegerMatrixUtil {
         int rowIndex = 0;
         for (int[] row : matrix) {
             reversedMatrix[rowIndex] = matrix[matrix.length - 1 - rowIndex];
-            reversedMatrix[matrix.length - 1 - rowIndex] = matrix[rowIndex++];
+            reversedMatrix[matrix.length - 1 - rowIndex++] = row;
         }
         return reversedMatrix;
     }

@@ -54,7 +54,7 @@ public class FigureUtil {
             String[] symbols = lines.get(rowIndex).split("");
             int columnIndex = 0;
             for (String symbol : symbols) {
-                sheetArray[rowIndex][columnIndex] = Integer.valueOf(symbols[columnIndex++]);
+                row[columnIndex] = Integer.valueOf(symbols[columnIndex++]);
             }
             rowIndex++;
         }
@@ -171,8 +171,7 @@ public class FigureUtil {
                 }
                 stringMatrix += "\n";
             }
-            File file = new File(outputFolder + "/figure" + String.valueOf(figureCounter) + ".txt");
-            fileIOUtils.writeToFile(file, stringMatrix);
+            fileIOUtils.writeToFile(new File(outputFolder + "/figure" + figureCounter + ".txt"), stringMatrix);
             figureCounter++;
         }
     }
