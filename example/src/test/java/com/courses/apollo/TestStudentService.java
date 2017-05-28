@@ -18,7 +18,7 @@ public class TestStudentService {
     @Test
     public void testStudentsInGroup() {
         final String courseToFind = "B";
-        ArrayList<University> universities = StudentTestData.getUniversities();
+        List<University> universities = StudentTestData.getUniversities();
         for (int i = 0; i < universities.size(); i++) {
             University university = universities.get(i);
             for (int j = 0; j < university.getStudents().size(); j++) {

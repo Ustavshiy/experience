@@ -1,11 +1,12 @@
 package com.courses.apollo.model.state;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Created by Dell on 16.03.2017.
  */
-public class AdministrativeUnit {
+public class AdministrativeUnit implements Serializable {
     /**
      * Name of Administrative unit.
      */
