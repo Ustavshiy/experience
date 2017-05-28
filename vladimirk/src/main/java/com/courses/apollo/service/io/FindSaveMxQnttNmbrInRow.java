@@ -20,12 +20,7 @@ public class FindSaveMxQnttNmbrInRow {
     public void findAndSaveMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
         Collections.addAll(nmbrs, readWriteFile.readFile(inFilePath).split("\\D+"));
-        int max = 0;
-        for (String nmbr : nmbrs) {
-            if (nmbr.length() > max) {
-                max = nmbr.length();
-            }
-        }
+        int max = nmbrs.stream().mapToInt(String::length).max().orElseGet(null);
         readWriteFile.writeFile(String.valueOf(max), outFilePath, isAdd);
     }
 }
