@@ -33,7 +33,7 @@ public class TextService {
      * @param text - input text.
      * @return text without comments.
      */
-    public String noComments(String text) {
+    public String removeComments(String text) {
         text = Pattern.compile("((?s)\\/\\*(?:(?!param|\\*\\/).)*(?:\\*\\/K|.+?\\*\\/))|(\\/\\/.*\n)").matcher(text)
                 .replaceAll("");
         return text;
@@ -48,7 +48,7 @@ public class TextService {
     public String findOneWord(String text) {
         List<String> words = Arrays.asList(text.split("\\W+"));
         Integer quantity = words.size();
-        String wordResult = "No coincidence";
+        String wordResult = "";
         int result = 0;
         for (String comparable : words) {
             for (String word : words) {

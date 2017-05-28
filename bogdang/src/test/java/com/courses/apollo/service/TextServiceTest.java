@@ -19,7 +19,7 @@ public class TextServiceTest {
 
     @Test
     public void testNoComments(){
-        Assert.assertEquals(textTestData.expectedTextTwo(),textService.noComments(textTestData.getTextTwo()));
+        Assert.assertEquals(textTestData.expectedTextTwo(),textService.removeComments(textTestData.getTextTwo()));
     }
 
     @Test
