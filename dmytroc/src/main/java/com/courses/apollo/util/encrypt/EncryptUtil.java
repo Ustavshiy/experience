@@ -31,6 +31,9 @@ public class EncryptUtil {
         int matrixSize = (int) Math.sqrt(decryptedText.length());
         char[][] matrix = new char[matrixSize][matrixSize];
         int counter = 0;
+        int left = decryptedText.length();
+        //Arrays.copyOfRange(Arrays.copyOfRange(decryptedText.chars(), counter, left));
+
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
                 matrix[i][j] = decryptedText.charAt(counter);
