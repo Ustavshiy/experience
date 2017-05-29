@@ -1,7 +1,7 @@
 package com.courses.apollo.service.io;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ public class FindSaveMxQnttNmbrInRowSrvs {
      */
     public void findAndSaveMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
-        Collections.addAll(nmbrs, readWriteFile.readFile(inFilePath).split("\\D+"));
+        nmbrs.addAll(Arrays.asList(readWriteFile.readFile(inFilePath).split("\\D+")));
         int max = 0;
         for (String nmbr:nmbrs) {
             if (nmbr.length() > max) {

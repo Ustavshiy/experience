@@ -23,15 +23,23 @@ public class FindSaveSNamesSrvs {
         String[] journal = rWFile.readFile(inFilePath).split("\\n");
         for (String personalJrnl : journal) {
             String[] marks = personalJrnl.replaceFirst("\\D+", "").split("\\D+");
-            int sum = 0;
-            for (String mark : marks) {
-                sum = sum + Integer.parseInt(mark);
-            }
+            int sum = summarizeArrayNmbrsInString(marks);
             if (marks.length != 0 && (double) sum / marks.length > givenAvgMark) {
                 secNames.add(personalJrnl.replaceAll("[^A-Za-z]", ""));
             }
         }
         return secNames;
+    }
+
+    /**
+     * Method to summarize an Array of numbers in String.
+     */
+    public int summarizeArrayNmbrsInString(String[] nmbrs) {
+        int sum = 0;
+        for (String nmbr : nmbrs) {
+            sum = sum + Integer.parseInt(nmbr);
+        }
+        return sum;
     }
 
     /**
