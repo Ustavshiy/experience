@@ -3,6 +3,7 @@ package com.courses.apollo.model.publishing;
 import com.courses.apollo.service.publishing.IPublish;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Any printed edition of the publishing house.
@@ -18,7 +19,7 @@ public abstract class Book implements IPublish {
     /**
      * List of book's authors.
      */
-    private ArrayList<String> author;
+    private List<String> author;
 
     /**
      * Name of a book.
@@ -61,11 +62,11 @@ public abstract class Book implements IPublish {
         this.isbn = isbn;
     }
 
-    public ArrayList<String> getAuthor() {
+    public List<String> getAuthor() {
         return author;
     }
 
-    public void setAuthor(ArrayList<String> author) {
+    public void setAuthor(List<String> author) {
         this.author = author;
     }
 

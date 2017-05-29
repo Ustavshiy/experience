@@ -1,6 +1,7 @@
 package com.courses.apollo.model.publishing;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Graphical fiction book.
@@ -10,7 +11,7 @@ public class ComicBook extends Book {
     /**
      * Painters of the comics.
      */
-    private ArrayList<String> painter;
+    private List<String> painter;
 
     /**
      * Colored or b&w.
@@ -27,11 +28,11 @@ public class ComicBook extends Book {
     public void textToPicture() {
     }
 
-    public ArrayList<String> getPainter() {
+    public List<String> getPainter() {
         return painter;
     }
 
-    public void setPainter(ArrayList<String> painter) {
+    public void setPainter(List<String> painter) {
         this.painter = painter;
     }
 
