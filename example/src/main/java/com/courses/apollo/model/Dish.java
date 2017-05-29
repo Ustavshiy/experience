@@ -2,10 +2,25 @@ package com.courses.apollo.model;
 
 import java.util.Objects;
 
+/**
+ * Dish class.
+ */
 public class Dish {
+    /**
+     * Name of Dish.
+     */
     private final String name;
+    /**
+     * Is dish vegetarian.
+     */
     private final boolean vegetarian;
+    /**
+     * How much calories contains.
+     */
     private final int calories;
+    /**
+     * Type of dish.
+     */
     private final Type type;
 
     public Dish(String name, boolean vegetarian, int calories, Type type) {
@@ -31,7 +46,23 @@ public class Dish {
         return type;
     }
 
-    public enum Type {MEAT, FISH, OTHER}
+    /**
+     * Enum of Dish Type.
+     */
+    public enum Type {
+        /**
+         * MEAT Type.
+         */
+        MEAT,
+        /**
+         * FISH Type.
+         */
+        FISH,
+        /**
+         * OTHER Type.
+         */
+        OTHER
+    }
 
     @Override
     public String toString() {
@@ -40,13 +71,17 @@ public class Dish {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Dish)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Dish)) {
+            return false;
+        }
         Dish dish = (Dish) o;
-        return vegetarian == dish.vegetarian &&
-                calories == dish.calories &&
-                Objects.equals(name, dish.name) &&
-                type == dish.type;
+        return vegetarian == dish.vegetarian
+                && calories == dish.calories
+                && Objects.equals(name, dish.name)
+                && type == dish.type;
     }
 
     @Override
