@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Class to find and save to file maximal quantity of numbers in row in given text file.
  */
-public class FindSaveMxQnttNmbrInRow {
+public class FindSaveMxQnttNmbrInRowSrvs {
 
     /**
      * Created object of the RWFileServise class.
@@ -20,7 +20,12 @@ public class FindSaveMxQnttNmbrInRow {
     public void findAndSaveMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
         Collections.addAll(nmbrs, readWriteFile.readFile(inFilePath).split("\\D+"));
-        int max = nmbrs.stream().mapToInt(String::length).max().orElseGet(null);
+        int max = 0;
+        for (String nmbr:nmbrs) {
+            if (nmbr.length() > max) {
+                max = nmbr.length();
+            }
+        }
         readWriteFile.writeFile(String.valueOf(max), outFilePath, isAdd);
     }
 }

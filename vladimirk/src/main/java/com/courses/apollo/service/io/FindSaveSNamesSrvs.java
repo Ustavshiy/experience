@@ -1,13 +1,12 @@
 package com.courses.apollo.service.io;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * Class that find and print to file students with average marks more than given mark.
+ * Class that find and print to file SN of students with average marks more than given mark.
  */
-public class FindSaveSNamesIfAvgMarkMoreGiven {
+public class FindSaveSNamesSrvs {
 
     /**
      * Created object of the RWFileServise class.
@@ -24,7 +23,10 @@ public class FindSaveSNamesIfAvgMarkMoreGiven {
         String[] journal = rWFile.readFile(inFilePath).split("\\n");
         for (String personalJrnl : journal) {
             String[] marks = personalJrnl.replaceFirst("\\D+", "").split("\\D+");
-            int sum = Arrays.stream(marks).mapToInt(Integer::parseInt).sum();
+            int sum = 0;
+            for (String mark : marks) {
+                sum = sum + Integer.parseInt(mark);
+            }
             if (marks.length != 0 && (double) sum / marks.length > givenAvgMark) {
                 secNames.add(personalJrnl.replaceAll("[^A-Za-z]", ""));
             }
@@ -38,7 +40,9 @@ public class FindSaveSNamesIfAvgMarkMoreGiven {
     public void copyJrnlAddSNames(String outFilePath, String inFilePath, double givenMark, boolean isAdd) {
         String journal = rWFile.readFile(inFilePath);
         rWFile.writeFile(journal, outFilePath, isAdd);
-        fndSNameIfAvgMarkMore(inFilePath, givenMark)
-                .forEach(sname -> rWFile.writeFile("\n" + sname.toUpperCase(), outFilePath, isAdd));
+        List<String> secNames = fndSNameIfAvgMarkMore(inFilePath, givenMark);
+        for (String sname : secNames) {
+            rWFile.writeFile("\n" + sname.toUpperCase(), outFilePath, isAdd);
+        }
     }
 }

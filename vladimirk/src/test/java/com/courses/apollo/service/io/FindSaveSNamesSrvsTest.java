@@ -8,12 +8,11 @@ import org.junit.Test;
 import java.io.File;
 
 /**
- * Test class for FindSaveSNamesIfAvgMarkMoreGiven.
+ * Test class for FindSaveSNamesSrvs.
  */
-public class FindSaveSNamesIfAvgMarkMoreGivenTest {
+public class FindSaveSNamesSrvsTest {
     private final static RWFileServise rwFileServise = new RWFileServise();
-    private final static FindSaveSNamesIfAvgMarkMoreGiven findSaveSNamesIfAvgMarkMoreGiven =
-            new FindSaveSNamesIfAvgMarkMoreGiven();
+    private final static FindSaveSNamesSrvs findSaveSNamesSrvs = new FindSaveSNamesSrvs();
     private final static  String inFilePath = "./src/test/resourses/InJournal.txt";
     private final static  String outFilePath = "./src/main/resourses/ResultJournal.txt";
     private final static double givenAvgMark = 7.0;
@@ -23,12 +22,12 @@ public class FindSaveSNamesIfAvgMarkMoreGivenTest {
     @Test
     public void fndSNameIfAvgMarkMoreTest() {
         Assert.assertEquals(expected,
-                findSaveSNamesIfAvgMarkMoreGiven.fndSNameIfAvgMarkMore(inFilePath, givenAvgMark).toString());
+                findSaveSNamesSrvs.fndSNameIfAvgMarkMore(inFilePath, givenAvgMark).toString());
     }
 
     @BeforeClass
     public static void before() {
-        findSaveSNamesIfAvgMarkMoreGiven.copyJrnlAddSNames(outFilePath, inFilePath, givenAvgMark, isAdd);
+        findSaveSNamesSrvs.copyJrnlAddSNames(outFilePath, inFilePath, givenAvgMark, isAdd);
     }
     @Test
     public void copyJrnlAddSNamesTest() {
