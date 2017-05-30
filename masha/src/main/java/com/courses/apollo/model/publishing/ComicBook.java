@@ -1,6 +1,5 @@
 package com.courses.apollo.model.publishing;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

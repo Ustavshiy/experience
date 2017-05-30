@@ -2,7 +2,6 @@ package com.courses.apollo.model.publishing;
 
 import com.courses.apollo.service.publishing.IPublish;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
