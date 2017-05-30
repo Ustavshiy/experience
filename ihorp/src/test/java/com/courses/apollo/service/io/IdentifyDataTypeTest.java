@@ -28,12 +28,12 @@ public class IdentifyDataTypeTest {
     private static String strChar = "c";
 
     @Before
-    public void generateData() throws IOException {
+    public void generateData() {
         IOFileString.writeToFile(fileWithText, testedText, false);
         IOFileString.writeToFile(fileWithInt, strInteger, false);
         IOFileString.writeToFile(fileWithString, strString, false);
         IOFileString.writeToFile(fileWithFloat, strFloat, false);
-        IOFileString.writeToFile(fileWithChar, strChar,false);
+        IOFileString.writeToFile(fileWithChar, strChar, false);
     }
 
     @Test

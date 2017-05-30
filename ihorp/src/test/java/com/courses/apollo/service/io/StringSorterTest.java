@@ -1,5 +1,6 @@
 package com.courses.apollo.service.io;
 
+import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm;
 import org.junit.*;
 
 import java.io.*;
@@ -7,6 +8,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertTrue;
@@ -33,8 +36,12 @@ public class StringSorterTest {
     }
 
     @Test
-    public void testSortStringByNumberOfWordsTest() {
-        Assert.assertEquals(StringSorter.sortStringByNumberOfWords(testText), answerText);
+    public void createListWordCounterTest() {
+        List<StringSorter.WordCounter> wordCounters = new ArrayList<>();
+        wordCounters.add(new StringSorter.WordCounter("word", 1));
+        String[] strings = {"word", "word"};
+
+        Assert.assertEquals(wordCounters, StringSorter.createListWordCounter(strings));
     }
 
     @Test

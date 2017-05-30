@@ -2,14 +2,18 @@ package com.courses.apollo.service.io;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Util class.
  */
 public final class StringSorter {
 
-    private StringSorter() {}
+    private StringSorter() {
+    }
 
     /**
      * Method find the repeatable words in each line and sort it by frequency of repetition.
@@ -18,22 +22,20 @@ public final class StringSorter {
      * @param output way to file with result.
      */
     public static void sortStringInFile(String input, String output) throws IOException {
-        String[] lines = IOFileString.readFromFile(input).split("\n");
-        for (String line : lines) {
-            IOFileString.writeToFile(output, sortStringByNumberOfWords(line) + "\n", true);
-        }
+        Arrays.stream(IOFileString.readFromFile(input).split("\n"))
+                .flatMap(o -> createListWordCounter(o.split("[^A-ZА-Яa-zа-яІіЇїЄє\\'\\-]\\s*\\n*")).stream())
+                .sorted(Comparator.comparing(WordCounter::getCounter))
+                .forEach((q) -> IOFileString.writeToFile(output, q.getWord() + " ", true));
     }
 
     /**
-     * Method get string and sort it by frequency of repetition each word in line.
+     * Method create a List of WordCounters from list of Strings.
      *
-     * @param text text to sort
-     * @return String - sorted text.
+     * @param words
+     * @return
      */
-    public static String sortStringByNumberOfWords(String text) {
-        String[] words = text.split("[^A-ZА-Яa-zа-яІіЇїЄє\\'\\-]\\s*\\n*");
-        ArrayList<WordCounter> wordsWithCounter = new ArrayList<>();
-        // Create a ArrayList of WordCounter.
+    public static List<WordCounter> createListWordCounter(String[] words) {
+        List<WordCounter> wordsWithCounter = new ArrayList<>();
         for (String word : words) {
             boolean hasWord = false;
             for (WordCounter wordWithCounter : wordsWithCounter) {
@@ -45,18 +47,13 @@ public final class StringSorter {
                 wordsWithCounter.add(new WordCounter(word, 0));
             }
         }
-        // Sort a List of WordCounter by counter and add words to StringBuilder.
-        StringBuilder answer = new StringBuilder();
-        wordsWithCounter.stream()
-                .sorted(Comparator.comparing(WordCounter::getCounter))
-                .forEach((p) -> answer.append(p.getWord()).append(" "));
-        return answer.toString();
+        return wordsWithCounter;
     }
 
     /**
      * Nested class in order to calculate quantity of words.
      */
-    private static class WordCounter {
+    public static class WordCounter {
 
         /**
          * Word.
@@ -66,9 +63,9 @@ public final class StringSorter {
         /**
          * Counter of word.
          */
-        private Integer counter;
+        private int counter;
 
-        WordCounter(String word, Integer counter) {
+        public WordCounter(String word, int counter) {
             this.word = word;
             this.counter = counter;
         }
@@ -87,12 +84,30 @@ public final class StringSorter {
             return false;
         }
 
-        public Integer getCounter() {
+        public int getCounter() {
             return counter;
         }
 
         public String getWord() {
             return word;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            WordCounter that = (WordCounter) o;
+            return counter == that.counter
+                    && Objects.equals(word, that.word);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(word, counter);
         }
     }
 }

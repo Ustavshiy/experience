@@ -44,6 +44,18 @@ public class SerializeMotorcyclistTest {
         Assert.assertEquals(motorcyclist, testMotorcyclist);
     }
 
+    @Test(expected = IOException.class)
+    public void reestablishMotorcyclistExceptionTest() throws IOException {
+        String file = "src\\test\\resources\\SerializeMotorcyclist";
+        Motorcyclist motorcyclist = serializeMotorcyclist.reestablishMotorcyclist(file);
+    }
+
+    @Test(expected = IOException.class)
+    public void writeMotorcyclistExceptionTest() throws IOException {
+        String file = "";
+        serializeMotorcyclist.writeMotorcyclist(motorcyclist, file);
+    }
+
     @AfterClass
     public static void deleteFile() {
         new File(file).delete();
