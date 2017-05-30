@@ -25,4 +25,16 @@ public class Holiday {
         this.name = name;
         this.date = date;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

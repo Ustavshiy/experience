@@ -52,7 +52,7 @@ public class Europe {
     /**
      * Class Country needed for create new country.
      */
-    public class Country {
+    public static class Country {
 
         /**
          * Name of the country.

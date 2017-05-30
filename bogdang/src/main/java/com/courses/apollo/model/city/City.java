@@ -1,9 +1,7 @@
 package com.courses.apollo.model.city;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created class city.
@@ -24,11 +22,6 @@ public class City {
      * Square of City.
      */
     private List<Square> squareList;
-
-    /**
-     * Name of city.
-     */
-    private String name;
 
     public City() {
         this.avenueList = new ArrayList<Avenue>();
@@ -55,7 +48,7 @@ public class City {
      */
     public void addStreet(String name) {
         Street street = new Street();
-        street.name =name;
+        street.name = name;
         streetList.add(street);
     }
 
@@ -73,7 +66,7 @@ public class City {
     /**
      * Class for avenue in city.
      */
-    private class Avenue {
+    private static class Avenue {
         /**
          * Name of Avenue.
          */
