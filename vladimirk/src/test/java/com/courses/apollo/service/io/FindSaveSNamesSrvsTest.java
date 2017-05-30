@@ -18,6 +18,17 @@ public class FindSaveSNamesSrvsTest {
     private final static double givenAvgMark = 7.0;
     private final static String expected = "[Sidorov, Pupkin, Lopatin]";
     private final static boolean isAdd = true;
+    private final static String journal = "Ivanov: 2, 8, 4, 3, 7, 5;\n" +
+            "Petrov: 7, 5, 6, 3, 5, 4, 8, 9;\n" +
+            "Sidorov: 12, 10, 11, 11, 11, 12;\n" +
+            "Pupkin: 12, 12, 11, 12, 9, 12, 10;\n" +
+            "Lopatin: 8, 9, 9, 8, 5, 8, 8, 6, 9, 7.";
+
+    @BeforeClass
+    public static void before() {
+        rwFileServise.writeFile(journal, inFilePath, false);
+        findSaveSNamesSrvs.copyJrnlAddSNames(outFilePath, inFilePath, givenAvgMark, isAdd);
+    }
 
     @Test
     public void fndSNameIfAvgMarkMoreTest() {
@@ -25,10 +36,6 @@ public class FindSaveSNamesSrvsTest {
                 findSaveSNamesSrvs.fndSNameIfAvgMarkMore(inFilePath, givenAvgMark).toString());
     }
 
-    @BeforeClass
-    public static void before() {
-        findSaveSNamesSrvs.copyJrnlAddSNames(outFilePath, inFilePath, givenAvgMark, isAdd);
-    }
     @Test
     public void copyJrnlAddSNamesTest() {
         Assert.assertEquals(rwFileServise.readFile(outFilePath),
@@ -37,5 +44,6 @@ public class FindSaveSNamesSrvsTest {
     @AfterClass
     public static void cleanUp() {
         new File(outFilePath).delete();
+        new File(inFilePath).delete();
     }
 }

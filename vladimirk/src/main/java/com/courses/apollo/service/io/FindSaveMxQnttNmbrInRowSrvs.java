@@ -20,12 +20,19 @@ public class FindSaveMxQnttNmbrInRowSrvs {
     public void findAndSaveMaxQnttNmbrInRow(String inFilePath, String outFilePath, boolean isAdd) {
         List<String> nmbrs = new ArrayList<>();
         nmbrs.addAll(Arrays.asList(readWriteFile.readFile(inFilePath).split("\\D+")));
+        readWriteFile.writeFile(String.valueOf(fndLongestStringInList(nmbrs)), outFilePath, isAdd);
+    }
+
+    /**
+     * Method for finding longest String in given List.
+     */
+    public int fndLongestStringInList(List<String> strings) {
         int max = 0;
-        for (String nmbr:nmbrs) {
-            if (nmbr.length() > max) {
-                max = nmbr.length();
+        for (String string : strings) {
+            if (string.length() > max) {
+                max = string.length();
             }
         }
-        readWriteFile.writeFile(String.valueOf(max), outFilePath, isAdd);
+    return max;
     }
 }
