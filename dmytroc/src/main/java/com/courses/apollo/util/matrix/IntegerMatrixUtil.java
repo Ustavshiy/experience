@@ -18,7 +18,7 @@ public class IntegerMatrixUtil {
         for (int[] row : matrix) {
             int colIndex = 0;
             for (int value : row) {
-                transposedMatrix[colIndex][rowIndex] = matrix[rowIndex][colIndex++];
+                row[rowIndex] = matrix[rowIndex][colIndex++];
             }
             rowIndex++;
         }

@@ -1,5 +1,7 @@
 package com.courses.apollo.util.encrypt;
 
+import static java.util.stream.IntStream.range;
+
 /**
  * Class for matrix logic.
  */
@@ -11,16 +13,17 @@ public class MatrixUtil {
      * @return swapped char[][].
      */
     public char[][] swapEvenAndOddColumns(char[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                if (j % 2 != 0) {
-                    char temp = matrix[i][j];
-                    matrix[i][j] = matrix[i][j - 1];
-                    matrix[i][j - 1] = temp;
-                }
-            }
-        }
-        return matrix;
+        return range(0, matrix.length)
+                .mapToObj(r -> range(0, matrix[r].length)
+                        .mapToObj(c -> {
+                            if (c % 2 == 0 && c == matrix[r].length - 1) {
+                                return matrix[r][c];
+                            } else if (c % 2 != 0) {
+                                return matrix[r][c - 1];
+                            } else return matrix[r][c + 1];
+                        })
+                        .toArray())
+                .toArray(char[][]::new);
     }
 
     /**
