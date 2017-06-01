@@ -168,9 +168,9 @@ public class FigureUtil {
         FileIOUtils fileIOUtils = new FileIOUtils();
         AtomicInteger counter = new AtomicInteger(0);
         uniqueFigures.stream().map(figure -> Arrays.stream(figure.getPixelMatrix())
-                .map(y -> Arrays.stream(y).mapToObj(String::valueOf).collect(Collectors.joining()))
-                .collect(Collectors.joining("\n"))).forEach(z -> {
-            fileIOUtils.writeToFile(new File(outputFolder + "/figure" + counter.incrementAndGet() + ".txt"), z);
-        });
+                .map(row -> Arrays.stream(row).mapToObj(String::valueOf).collect(Collectors.joining()))
+                .collect(Collectors.joining("\n")))
+                .forEach(string -> fileIOUtils
+                        .writeToFile(new File(outputFolder + "/figure" + counter.incrementAndGet() + ".txt"), string));
     }
 }
