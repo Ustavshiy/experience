@@ -5,10 +5,13 @@ import com.courses.apollo.model.raster.PixelMatrix;
 import com.courses.apollo.util.io.FileIOUtils;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Class for operation with figures located in 2 dimensional array by byte.
@@ -66,6 +69,16 @@ public class FigureUtil {
      */
     private void getUniqueFigures() {
         int yValue = 0;
+
+//        Stream.of(sheet).map(row -> range(0, sheet.length)
+//                .map(col -> range(0, sheet[0].length)
+//                        .filter(pix -> pix == 1).forEach(value -> {
+//                            pixels.clear();
+//                            collectPixels(pixels, row, col);
+//                            simplifyPixels(pixels);
+//                            createFigureIfUnique(pixels);
+//                        })));
+
         for (Integer[] integerList : sheet) {
             int xValue = 0;
             for (Integer integer : integerList) {
@@ -112,20 +125,12 @@ public class FigureUtil {
      * @param pixels input pixels.
      */
     private void simplifyPixels(Set<Pixel> pixels) {
-        int minX = sheet[0].length;
-        int minY = sheet.length;
-        for (Pixel pixel : pixels) {
-            if (pixel.getXValue() < minX) {
-                minX = pixel.getXValue();
-            }
-            if (pixel.getYValue() < minY) {
-                minY = pixel.getYValue();
-            }
-        }
-        for (Pixel pixel : pixels) {
-            pixel.setXValue(pixel.getXValue() - minX);
-            pixel.setYValue(pixel.getYValue() - minY);
-        }
+        final int minX = pixels.stream().mapToInt(Pixel::getXValue).min().getAsInt();
+        final int minY = pixels.stream().mapToInt(Pixel::getYValue).min().getAsInt();
+        pixels.stream().forEach(pix -> {
+            pix.setXValue(pix.getXValue() - minX);
+            pix.setYValue(pix.getYValue() - minY);
+        });
     }
 
     /**
@@ -161,18 +166,11 @@ public class FigureUtil {
      */
     public void pixelMatrixWriter(File outputFolder, Set<PixelMatrix> uniqueFigures) {
         FileIOUtils fileIOUtils = new FileIOUtils();
-        int figureCounter = 1;
-        for (PixelMatrix figure : uniqueFigures) {
-            int[][] figureArray = figure.getPixelMatrix();
-            String stringMatrix = "";
-            for (int[] aFigureArray : figureArray) {
-                for (int anAFigureArray : aFigureArray) {
-                    stringMatrix += anAFigureArray;
-                }
-                stringMatrix += "\n";
-            }
-            fileIOUtils.writeToFile(new File(outputFolder + "/figure" + figureCounter + ".txt"), stringMatrix);
-            figureCounter++;
-        }
+        AtomicInteger counter = new AtomicInteger(0);
+        uniqueFigures.stream().map(figure -> Arrays.stream(figure.getPixelMatrix())
+                .map(y -> Arrays.stream(y).mapToObj(String::valueOf).collect(Collectors.joining()))
+                .collect(Collectors.joining("\n"))).forEach(z -> {
+            fileIOUtils.writeToFile(new File(outputFolder + "/figure" + counter.incrementAndGet() + ".txt"), z);
+        });
     }
 }
