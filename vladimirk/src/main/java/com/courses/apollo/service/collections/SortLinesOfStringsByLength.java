@@ -19,12 +19,19 @@ public class SortLinesOfStringsByLength {
             List<String> lines = new ArrayList<>();
             lines.addAll(Arrays.asList(poem.split("\\n")));
             lines.sort(Comparator.comparingInt(String::length));
-            StringBuilder spoem = new StringBuilder();
-            for (String line : lines) {
-                 spoem.append(line.concat("\n"));
-            }
-            result.add(spoem.subSequence(0, spoem.length() - 1).toString());
+            result.add(convertLinesToPoem(lines));
         }
         return result;
+    }
+
+    /**
+     * Method to convert lines to poem.
+     */
+    private   String convertLinesToPoem(List<String> lines) {
+        StringBuilder poem = new StringBuilder();
+        for (String line : lines) {
+            poem.append(line.concat("\n"));
+        }
+        return poem.subSequence(0, poem.length() - 1).toString();
     }
 }
