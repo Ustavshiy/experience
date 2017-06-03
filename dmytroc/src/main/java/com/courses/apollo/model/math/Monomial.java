@@ -19,11 +19,7 @@ public class Monomial {
     }
 
     public Monomial(List<Double> variables) {
-        Double variablesMultiply = 0D;
-        for (Double variable : variables) {
-            variablesMultiply *= variable;
-        }
-        this.monomialResult = variablesMultiply;
+        this.monomialResult = variables.stream().reduce((a, b) -> a * b).get();
     }
 
     public Double getMonomialResult() {

@@ -14,13 +14,15 @@ public class MatrixUtil {
      */
     public Character[][] swapEvenAndOddColumns(Character[][] matrix) {
         return range(0, matrix.length)
-                .mapToObj(row -> range(0, matrix[row].length)
-                        .mapToObj(col -> {
-                            if (col % 2 == 0 && col == matrix[row].length - 1) {
-                                return matrix[row][col];
-                            } else if (col % 2 != 0) {
-                                return matrix[row][col - 1];
-                            } else return matrix[row][col + 1];
+                .mapToObj(r -> range(0, matrix[r].length)
+                        .mapToObj(c -> {
+                            if (c % 2 == 0 && c == matrix[r].length - 1) {
+                                return matrix[r][c];
+                            } else if (c % 2 != 0) {
+                                return matrix[r][c - 1];
+                            } else {
+                                return matrix[r][c + 1];
+                            }
                         })
                         .toArray(Character[]::new))
                 .toArray(Character[][]::new);
@@ -33,8 +35,8 @@ public class MatrixUtil {
      * @return transposed Character[][] array.
      */
     public Character[][] transpose(Character[][] matrix) {
-        return range(0, matrix[0].length).mapToObj(row -> range(0, matrix.length)
-                .mapToObj(col -> matrix[col][row]).toArray(Character[]::new)).toArray(Character[][]::new);
+        return range(0, matrix[0].length).mapToObj(r -> range(0, matrix.length)
+                .mapToObj(c -> matrix[c][r]).toArray(Character[]::new)).toArray(Character[][]::new);
     }
 
     /**
@@ -44,6 +46,6 @@ public class MatrixUtil {
      * @return reversed Character[][].
      */
     public Character[][] reverseColumn(Character[][] matrix) {
-        return range(0, matrix.length).mapToObj(row -> matrix[matrix.length - 1 - row]).toArray(Character[][]::new);
+        return range(0, matrix.length).mapToObj(r -> matrix[matrix.length - 1 - r]).toArray(Character[][]::new);
     }
 }

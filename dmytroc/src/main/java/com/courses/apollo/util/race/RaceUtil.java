@@ -5,6 +5,7 @@ import com.courses.apollo.model.race.Bolid;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 /**
  * Class for RaceUtil.
@@ -21,7 +22,7 @@ public class RaceUtil {
     /**
      * Overtakes in race ascending by time.
      */
-    private Map overtakes = new TreeMap<Double, Overtake>();
+    private Map<Double, Overtake> overtakes = new TreeMap<>();
 
     /**
      * Move bolid at theirs start positions according to qualification. Bolids places every 10 meters.
@@ -29,9 +30,7 @@ public class RaceUtil {
      * @param bolids set of bolids.
      */
     private void onStart(Set<Bolid> bolids) {
-        for (Bolid b : bolids) {
-            b.setDistance(0.0 + startingGrigStep * (bolids.size() - b.getPosition()));
-        }
+        bolids.forEach(b -> b.setDistance(0.0 + startingGrigStep * (bolids.size() - b.getPosition())));
     }
 
     /**
@@ -60,14 +59,8 @@ public class RaceUtil {
      * @return String statistics.
      */
     public String getOvertakesDetails(int overtakesCount) {
-        String overtakesStat = "";
-        Set<Map.Entry<Double, Overtake>> overtakesEntrySet = overtakes.entrySet();
-        for (Map.Entry<Double, Overtake> entry : overtakesEntrySet) {
-            if (overtakesCount-- > 0) {
-                overtakesStat += entry.getValue() + "\n";
-            }
-        }
-        return overtakesStat;
+        return overtakes.entrySet().stream().limit(overtakesCount).map(d -> d.getValue().toString())
+                .collect(Collectors.joining("\n"));
     }
 
     /**
@@ -76,16 +69,16 @@ public class RaceUtil {
      * @param bolids set of bolids in race.
      */
     private void overtakingStat(Set<Bolid> bolids) {
-        for (Bolid overtakingCar : bolids) {
-            for (Bolid overtakenCar : bolids) {
-                if (overtakingCar.getSpeed() > overtakenCar.getSpeed()
-                        && overtakingCar.getPosition() > overtakenCar.getPosition()) {
-                    double time = ((overtakenCar.getDistance() - overtakingCar.getDistance())
-                            / (overtakingCar.getSpeed() - overtakenCar.getSpeed())) * secondsInHour;
-                    overtakes.put(time, new Overtake(overtakingCar, overtakenCar, time));
-                }
-            }
-        }
+        bolids.stream().forEach(overtakingCar -> {
+            bolids.stream()
+                    .filter(overtakenCar -> overtakingCar.getSpeed() > overtakenCar.getSpeed())
+                    .filter(overtakenCar -> overtakingCar.getPosition() > overtakenCar.getPosition())
+                    .forEach(overtakenCar -> {
+                        double time = ((overtakenCar.getDistance() - overtakingCar.getDistance())
+                                / (overtakingCar.getSpeed() - overtakenCar.getSpeed())) * secondsInHour;
+                        overtakes.put(time, new Overtake(overtakingCar, overtakenCar, time));
+                    });
+        });
     }
 
     /**

@@ -2,6 +2,8 @@ package com.courses.apollo.util.math;
 
 import com.courses.apollo.model.math.Polynomial;
 
+import java.util.Arrays;
+
 /**
  * Class for RationalFraction logic.
  */
@@ -14,10 +16,6 @@ public class PolynomialUtils {
      * @return calculated sum.
      */
     public double polynomialSum(Polynomial[] polynomialArray) {
-        double result = 0;
-        for (Polynomial polynomial : polynomialArray) {
-            result += polynomial.getPolynomialResult();
-        }
-        return result;
+        return Arrays.stream(polynomialArray).mapToDouble(p -> p.getPolynomialResult()).sum();
     }
 }

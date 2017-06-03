@@ -34,12 +34,8 @@ public class Province extends AdministrativeUnit {
      * @param provinceCities input list of Cities.
      */
     public void setProvinceCities(List<City> provinceCities) {
-        for (City city : provinceCities) {
-            if (city.isProvinceCenter()) {
-                provinceCenter = city;
-                break;
-            }
-        }
+        provinceCenter = provinceCities.stream()
+                .filter(City::isProvinceCenter).findFirst().get();
         this.provinceCities = provinceCities;
     }
 

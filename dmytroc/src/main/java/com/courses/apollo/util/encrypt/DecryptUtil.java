@@ -1,6 +1,5 @@
 package com.courses.apollo.util.encrypt;
 
-
 import java.util.Arrays;
 
 /**
@@ -40,7 +39,7 @@ public class DecryptUtil {
     }
 
     private Character[][] matrixSpiralProcessing(Character[][] matrix, int matrixSize, int spiralEdge,
-                                            String encryptedText, int lastChar, int matrixLine, int matrixRow) {
+                                                 String encryptedText, int lastChar, int matrixLine, int matrixRow) {
         if ((matrixSize + 1) / 2 != matrixSize / 2) {
             matrix[matrixLine--][matrixRow--] = encryptedText.charAt(--lastChar);
             spiralEdge++;

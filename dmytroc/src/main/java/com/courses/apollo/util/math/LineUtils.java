@@ -3,8 +3,8 @@ package com.courses.apollo.util.math;
 import com.courses.apollo.model.math.Line;
 import com.courses.apollo.model.math.Point;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class for Straight Line logic.
@@ -69,13 +69,8 @@ public class LineUtils {
      */
     public List<Line> parallelFinder(Line line, List<Line> pretenders) {
         Double lineSlope = slopeFinder(line);
-        List<Line> parallelLines = new ArrayList<>();
-        for (Line pretender : pretenders) {
-            if (lineSlope.equals(slopeFinder(pretender))) {
-                parallelLines.add(pretender);
-            }
-        }
-        return parallelLines;
+        return pretenders.stream().filter(l -> lineSlope.equals(slopeFinder(l)))
+                .collect(Collectors.toList());
     }
 
     /**
