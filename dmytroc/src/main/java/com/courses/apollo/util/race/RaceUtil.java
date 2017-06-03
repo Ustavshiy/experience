@@ -59,7 +59,7 @@ public class RaceUtil {
      * @return String statistics.
      */
     public String getOvertakesDetails(int overtakesCount) {
-        return overtakes.entrySet().stream().limit(overtakesCount).map(d -> d.getValue().toString())
+        return overtakes.entrySet().stream().limit(overtakesCount).map(o -> o.getValue().toString())
                 .collect(Collectors.joining("\n"));
     }
 
@@ -69,14 +69,14 @@ public class RaceUtil {
      * @param bolids set of bolids in race.
      */
     private void overtakingStat(Set<Bolid> bolids) {
-        bolids.stream().forEach(overtakingCar -> {
+        bolids.stream().forEach(overtaking -> {
             bolids.stream()
-                    .filter(overtakenCar -> overtakingCar.getSpeed() > overtakenCar.getSpeed())
-                    .filter(overtakenCar -> overtakingCar.getPosition() > overtakenCar.getPosition())
-                    .forEach(overtakenCar -> {
-                        double time = ((overtakenCar.getDistance() - overtakingCar.getDistance())
-                                / (overtakingCar.getSpeed() - overtakenCar.getSpeed())) * secondsInHour;
-                        overtakes.put(time, new Overtake(overtakingCar, overtakenCar, time));
+                    .filter(overtaken -> overtaking.getSpeed() > overtaken.getSpeed())
+                    .filter(overtaken -> overtaking.getPosition() > overtaken.getPosition())
+                    .forEach(overtaken -> {
+                        double time = ((overtaken.getDistance() - overtaking.getDistance())
+                                / (overtaking.getSpeed() - overtaken.getSpeed())) * secondsInHour;
+                        overtakes.put(time, new Overtake(overtaking, overtaken, time));
                     });
         });
     }
