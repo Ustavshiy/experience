@@ -32,8 +32,8 @@ public class Country extends AdministrativeUnit {
     public void setProvinces(List<Province> provinces) {
         this.provinces = provinces;
         capital = provinces.stream()
-                .map(province -> province.getProvinceCenter()).filter(City::isCapital).findFirst().get();
-        setArea(provinces.stream().mapToInt(province -> province.getArea()).sum());
+                .map(Province::getProvinceCenter).filter(City::isCapital).findFirst().get();
+        setArea(provinces.stream().mapToInt(Province::getArea).sum());
     }
 
     public List<Province> getProvinces() {
