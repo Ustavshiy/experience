@@ -21,37 +21,36 @@ public class TextServiceTest {
 
     @BeforeClass
     public static void onlyOne(){
+        text.add(new String (textTestData.getTextOne()));
         text.add(new String (textTestData.expectedTextTwo()));
         text.add(new String (textTestData.getTextThree()));
+        text.add(new String (textTestData.getTextFour()));
         text.add(new String (textTestData.getTextFive()));
-        quantity.add(new Integer (textTestData.getTextOne()));
-        quantity.add(new Integer (textTestData.getTextFour()));
-
     }
 
     @Test
     public void testFindSumNumber(){
-        Assert.assertEquals(QUANTITY_NUMBER, quantity.get(0));
+        Assert.assertEquals(QUANTITY_NUMBER, textService.findSumNumber(text.get(0)));
     }
 
     @Test
-    public void testNoComments(){
-        Assert.assertEquals(textTestData.expectedTextTwo(), text.get(0));
+    public void testRemoveComments(){
+        Assert.assertEquals(textTestData.expectedTextTwo(), textService.removeComments(text.get(1)));
     }
 
     @Test
     public void testFindOneWord(){
-        Assert.assertEquals(word, text.get(1));
+        Assert.assertEquals(word, textService.findOneWord(text.get(2)));
     }
 
     @Test
     public void testFindSumEvenNumeral(){
-        Assert.assertEquals(QUANTITY_EVEN_NUMERAL, quantity.get(1));
+        Assert.assertEquals(QUANTITY_EVEN_NUMERAL, textService.findSumEvenNumeral(text.get(3)));
     }
 
     @Test
     public void textRemoveSpace(){
-        Assert.assertEquals(textTestData.expectedTextFive(), text.get(2));
+        Assert.assertEquals(textTestData.expectedTextFive(), textService.removeSpace(text.get(4)));
     }
 
 }
