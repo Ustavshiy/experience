@@ -40,7 +40,7 @@ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES
 -- SQL_tasks - task 11
 SELECT ename
 FROM emp
-WHERE ename LIKE '%LL%' AND (deptno = 30 OR mgr = 7782);
+WHERE ename LIKE '%L%L%' AND (deptno = 30 OR mgr = 7782);
 
 --  SQL_tasks -task 12
 SELECT ename, job, sal
