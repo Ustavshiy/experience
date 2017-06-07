@@ -1,12 +1,14 @@
 package com.courses.apollo.model.motorcyclist.motoequipment;
 
+import com.courses.apollo.model.motorcyclist.Motorcyclist;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
  * ALFA class of all of motorcyclist's equipment.
  */
-public abstract class MotoEquipment {
+public abstract class MotoEquipment extends Motorcyclist {
 
     public MotoEquipment() {}
 
@@ -60,7 +62,10 @@ public abstract class MotoEquipment {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof MotoEquipment)) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
             return false;
         }
         MotoEquipment that = (MotoEquipment) o;
@@ -71,6 +76,6 @@ public abstract class MotoEquipment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, weight);
+        return Objects.hash(super.hashCode(), name, price, weight);
     }
 }
