@@ -1,9 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.io.Serializable;
+
 /**
  * Class RAM.
  */
-public class RAM extends Memory {
+public class RAM extends Memory implements Serializable {
 
     /**
      * Constructor.

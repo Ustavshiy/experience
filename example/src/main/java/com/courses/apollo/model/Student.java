@@ -1,11 +1,13 @@
 package com.courses.apollo.model;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * Student cake.
  */
-public class Student {
+public class Student implements Serializable {
     /**
      * Student id.
      */
@@ -37,6 +39,11 @@ public class Student {
     private String address;
 
     /**
+     * Marks list.
+     */
+    private List<Integer> marks;
+
+    /**
      * String phone number.
      */
     private String phoneNumber;
@@ -66,6 +73,14 @@ public class Student {
 
     public Student() {
 
+    }
+
+    public Student(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public Student(String name) {
+        this.name = name;
     }
 
     public UniversityInfo getUniversityInfo() {
@@ -132,9 +147,26 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
+    public List<Integer> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(List<Integer> marks) {
+        this.marks = marks;
+    }
+
     @Override
     public String toString() {
-        return studentId + " " + name + " " + secondName + " " + phoneNumber;
+        return "Student{"
+                + "studentId=" + studentId
+                + ", secondName='" + secondName + '\''
+                + ", name='" + name + '\''
+                + ", patronymicName='" + patronymicName + '\''
+                + ", birthDay='" + birthDay + '\''
+                + ", address='" + address + '\''
+                + ", phoneNumber='" + phoneNumber + '\''
+                + ", universityInfo=" + universityInfo
+                + '}';
     }
 
     @Override
@@ -152,13 +184,14 @@ public class Student {
                 && Objects.equals(patronymicName, student.patronymicName)
                 && Objects.equals(birthDay, student.birthDay)
                 && Objects.equals(address, student.address)
+                && Objects.equals(marks, student.marks)
                 && Objects.equals(phoneNumber, student.phoneNumber)
                 && Objects.equals(universityInfo, student.universityInfo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId, secondName,
-                name, patronymicName, birthDay, address, phoneNumber, universityInfo);
+        return Objects.hash(studentId, secondName, name, patronymicName,
+                birthDay, address, marks, phoneNumber, universityInfo);
     }
 }

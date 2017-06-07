@@ -1,12 +1,14 @@
 package com.courses.apollo.model.computer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Class Computer.
  */
-public class Computer {
+public class Computer implements Serializable {
 
     /**
      * @param memories indicate list of hdd drives, odd drives and ram in Mb.
@@ -62,6 +64,24 @@ public class Computer {
         this.isOn = isOn;
         this.isChecked = isChecked;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Computer)) {
+            return false;
+        }
+        Computer computer = (Computer) o;
+        return isOn == computer.isOn
+                && isChecked == computer.isChecked
+                && Objects.equals(memories, computer.memories)
+                && Objects.equals(cpu, computer.cpu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memories, cpu, isOn, isChecked);
+    }
 }
-
-

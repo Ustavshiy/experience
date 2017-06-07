@@ -1,9 +1,11 @@
 package com.courses.apollo.model.computer;
 
+import java.io.Serializable;
+
 /**
  * Class ODD.
  */
-public class ODD extends Memory {
+public class ODD extends Memory implements Serializable {
 
     /**
      * Constructor.
