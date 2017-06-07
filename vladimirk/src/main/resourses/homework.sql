@@ -102,5 +102,6 @@ Tasks:
  a.empno AS "Emp#",
  b.ename AS "Manager",
  a.mgr AS "Mgr#"
- FROM  emp a, emp b
- WHERE b.empno = a.mgr;
+ FROM  emp a
+ JOIN emp b
+ ON b.empno = a.mgr;
