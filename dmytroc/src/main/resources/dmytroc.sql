@@ -50,7 +50,7 @@ WHERE ename LIKE '%L%L%' AND (deptno = 30 OR mgr = 7782);
 --  SQL_tasks -task 12
 SELECT ename, job, sal
 FROM emp
-WHERE job in ('CLERK','ANALYST') AND sal not in (1000,3000,5000);
+WHERE job IN ('CLERK','ANALYST') AND sal NOT IN (1000,3000,5000);
 
 -- SQL_tasks -task 13
 SELECT ename, sal, comm
@@ -66,5 +66,5 @@ ORDER BY d.dname;
 
 --SQL_JOIN_tasks-task 10
 SELECT a.ename, a.hiredate
-FROM emp as a
-join emp As b on a.hiredate > b.hiredate WHERE b.ename = 'BLAKE';
+FROM emp AS a
+JOIN emp AS b ON a.hiredate > b.hiredate WHERE b.ename = 'BLAKE';
