@@ -45,7 +45,7 @@ public class CmptrIOFileSrvsTest {
     @AfterClass
     public static void deleteAllFilesFolder() {
         for (File file : new File(resourseDirPath).listFiles()) {
-            if (!file.getName().equals(".gitkeep")) {
+            if (!file.getName().equals(".gitkeep") && !file.getName().equals("homework.sql")) {
                     file.delete();
             }
         }
