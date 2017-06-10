@@ -45,6 +45,16 @@ public class StringSorterTest {
     }
 
     @Test
+    public void hashCodeTest() {
+        new StringSorter.WordCounter("word", 1).hashCode();
+    }
+
+    @Test
+    public void equelsTest() {
+        new StringSorter.WordCounter("word", 1).equals(new StringSorter.WordCounter("word", 1));
+    }
+
+    @Test
     public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Constructor<StringSorter> constructor = StringSorter.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
@@ -59,6 +69,4 @@ public class StringSorterTest {
         new File(testOutputFile).delete();
         new File(testTextFile.replaceAll("[\\\\][^\\\\]+$", "")).delete();
     }
-
-
 }

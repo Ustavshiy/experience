@@ -5,10 +5,10 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 /**
@@ -30,7 +30,7 @@ public final class IOFileString {
         BufferedReader dataFileReader = null;
         StringBuilder stringBuilder = new StringBuilder();
         try {
-            dataFileReader = new BufferedReader(new FileReader(filePlace));
+            dataFileReader = Files.newBufferedReader(Paths.get(filePlace), UTF_8);
             String thisLine;
             while ((thisLine = dataFileReader.readLine()) != null) {
                 stringBuilder.append(thisLine);
@@ -43,7 +43,7 @@ public final class IOFileString {
                     dataFileReader.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new IOException();
             }
         }
         return stringBuilder.toString();
@@ -77,7 +77,7 @@ public final class IOFileString {
      * @param text is text to write
      * @return boolean.
      */
-    private static boolean writeToFileAssist(File file, String text) {
+    public static boolean writeToFileAssist(File file, String text) {
         BufferedWriter writeText = null;
         try {
             if (!file.isFile()) {
