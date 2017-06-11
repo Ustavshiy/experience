@@ -1,6 +1,7 @@
 package com.courses.apollo.service.collections;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Stack;
@@ -11,29 +12,38 @@ import java.util.Stack;
 public class SwapStacksContentTest {
     private final static SwapStacksContentTest swapStacksTest = new SwapStacksContentTest();
     private final static SwapStacksContent swapStacks = new SwapStacksContent();
-    private static Stack<Integer> stackOne = swapStacksTest.getStackOne();
-    private static Stack<Integer> stackTwo = swapStacksTest.getStackTwo();
+    private static Stack<Integer> stackOne;
+    private static Stack<Integer> stackTwo;
+    private static Stack<Integer> stackOneSwaped;
+    private static Stack<Integer> stackTwoSwaped;
 
-    private Stack<Integer> getStackOne() {
-        return new Stack<Integer>() {{
+    @BeforeClass
+    public static void addStacks() {
+        stackOne = new Stack<Integer>() {{
             push(1);
             push(2);
             push(3);
         }};
-    }
-
-    private Stack<Integer> getStackTwo() {
-        return new Stack<Integer>() {{
+        stackTwo = new Stack<Integer>() {{
             push(4);
             push(5);
             push(6);
         }};
+        stackOneSwaped = new Stack<Integer>() {{
+            push(4);
+            push(5);
+            push(6);
+        }};
+        stackTwoSwaped = new Stack<Integer>() {{
+            push(1);
+            push(2);
+            push(3);
+        }};
+        swapStacks.swapStacksContent(stackOne, stackTwo);
     }
 
     @Test
     public void swapStacksContentTest() {
-        swapStacks.swapStacksContent(stackOne, stackTwo);
-        Assert.assertTrue(stackOne.equals(swapStacksTest.getStackTwo())
-                && stackTwo.equals(swapStacksTest.getStackOne()));
+        Assert.assertTrue(stackOne.equals(stackOneSwaped) && stackTwo.equals(stackTwoSwaped));
     }
 }

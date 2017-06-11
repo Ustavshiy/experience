@@ -1,6 +1,7 @@
 package com.courses.apollo.service.collections;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,11 +13,12 @@ import java.util.List;
 public class SortLinesOfStringsByLengthTest {
     private final static SortLinesOfStringsByLengthTest sortLinesOfStringsTest = new SortLinesOfStringsByLengthTest();
     private final static SortLinesOfStringsByLength sortLinesOfStrings = new SortLinesOfStringsByLength();
-    private final static List<String> poemsForTest = sortLinesOfStringsTest.getPoemsForTest();
-    private final static List<String> exspectedSortedPoems = sortLinesOfStringsTest.getExcpectedListOfPoems();
+    private static List<String> poemsForTest;
+    private static List<String> exspectedSortedPoems;
 
-    public List<String> getPoemsForTest() {
-        return new ArrayList<String>() {{
+    @BeforeClass
+    public static void addPoemsLists() {
+        poemsForTest = new ArrayList<String>() {{
             add(new String("O Thou who burn'st in Heart for those who burn in Hell,\n" +
                     "whose fires thyself shall feed in turn,\n" +
                     "How long be crying, 'Mercy on them, God!'\n" +
@@ -26,10 +28,7 @@ public class SortLinesOfStringsByLengthTest {
                     "Of Heav'n Parwin and Mushtari they flung,\n"+
                     "In my predestined Plot of Dust and Soul."));
         }};
-    }
-
-    public List<String> getExcpectedListOfPoems() {
-        return new ArrayList<String>() {{
+        exspectedSortedPoems = new ArrayList<String>() {{
             add(new String("whose fires thyself shall feed in turn,\n" +
                     "How long be crying, 'Mercy on them, God!'\n" +
                     "Why, who art Thou to teach, and He to learn?\n" +
