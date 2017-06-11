@@ -30,7 +30,6 @@ public class FndResistncByLeastSqrsTest {
             add(0.9);
             add(1.0);
         }};
-
         voltage = new PriorityQueue<Double>() {{
             add(0.27);
             add(0.56);
