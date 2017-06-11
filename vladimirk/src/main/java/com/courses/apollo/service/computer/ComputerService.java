@@ -1,4 +1,4 @@
-package com.courses.apollo.service;
+package com.courses.apollo.service.computer;
 
 import com.courses.apollo.model.computer.Computer;
 import com.courses.apollo.model.computer.HDD;
@@ -7,7 +7,6 @@ import com.courses.apollo.model.computer.HDD;
  * Class for logic methods for computer.
  */
 public class ComputerService {
-
     /**
      * Method to turn on the computer.
      * @param computer is a model of computer;
