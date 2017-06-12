@@ -27,7 +27,7 @@ public class SortLinesOfStringsByLength {
     /**
      * Method to convert lines to poem.
      */
-    private   String convertLinesToPoem(List<String> lines) {
+    private String convertLinesToPoem(List<String> lines) {
         StringBuilder poem = new StringBuilder();
         for (String line : lines) {
             poem.append(line.concat("\n"));

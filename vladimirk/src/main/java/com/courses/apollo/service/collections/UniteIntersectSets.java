@@ -26,5 +26,4 @@ public class UniteIntersectSets {
         intersected.retainAll(two);
         return intersected;
     }
-
 }
