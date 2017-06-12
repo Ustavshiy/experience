@@ -3,8 +3,9 @@ package com.courses.apollo.util.foodutils;
 import com.courses.apollo.model.food.Salad;
 import com.courses.apollo.model.food.vegetable.Vegetable;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class made for mixing a Salad from list of Vegetables.
@@ -42,17 +43,14 @@ public class SaladUtils {
      * @param diapasonTo   maximum calories.
      * @return ArrayList of approved ingredients.
      */
-    public List<Vegetable> caloriesDiapazoneFinder(Salad salad, int diapasonFrom, int diapasonTo) {
-        List<Vegetable> caloriesDiapason = new ArrayList<>();
-        for (Vegetable vegetable : salad.getVegetables()) {
-            int calories = vegetable.getCharacteristics().getCalories();
-            int weight = vegetable.getWeight();
-            int totalCalories = calories * weight / TO_GRAMS;
-            if (diapasonFrom <= totalCalories && totalCalories <= diapasonTo) {
-                caloriesDiapason.add(vegetable);
-            }
-        }
-        return caloriesDiapason;
+    public List<Vegetable> caloriesDiapasonFinder(Salad salad, int diapasonFrom, int diapasonTo) {
+        return salad.getVegetables().stream()
+                .filter(vegetable -> diapasonFrom <= getTotalCalories(vegetable))
+                .filter(vegetable -> getTotalCalories(vegetable) <= diapasonTo).collect(Collectors.toList());
+    }
+
+    private int getTotalCalories(Vegetable vegetable) {
+        return vegetable.getCharacteristics().getCalories() * vegetable.getWeight() / TO_GRAMS;
     }
 
     /**
@@ -62,17 +60,7 @@ public class SaladUtils {
      * @return sorted ArrayList of vegetables.
      */
     public List<Vegetable> vegetablesWeightSorter(Salad salad) {
-        List<Vegetable> vegetables = salad.getVegetables();
-        for (int i = 0; i < vegetables.size(); i++) {
-            for (int j = 1; j < (vegetables.size() - i); j++) {
-                if (vegetables.get(j - 1).getWeight() > vegetables.get(j).getWeight()) {
-                    Vegetable temp = vegetables.get(j - 1);
-                    vegetables.set(j - 1, vegetables.get(j));
-                    vegetables.set(j, temp);
-                }
-
-            }
-        }
-        return vegetables;
+        salad.getVegetables().sort(Comparator.comparing(Vegetable::getWeight));
+        return salad.getVegetables();
     }
 }

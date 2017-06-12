@@ -1,5 +1,7 @@
 package com.courses.apollo.util;
 
+import java.util.stream.Stream;
+
 /**
  * Class for Integer Array logic.
  */
@@ -7,47 +9,16 @@ public class IntegerArrayUtils {
 
     /**
      * Method find number with minimum different digits in Array logic.
+     *
      * @param array input Array.
      * @return result integer.
      */
-    public int minDifferentDigitsFinder(int[] array) {
-        final int maxDigits = 11;
-        int countedDigits = maxDigits;
-        int integerWithMinimumDifferentDigits = 0;
-        int differentDigitsCounter = 1;
-
-        for (int i = 0; i < array.length; i++) {
-
-            String string = Integer.toString(array[i]);
-            char[] chars = string.toCharArray();
-            differentDigitsCounter = differentDigitsCount(chars);
-
-            if (differentDigitsCounter < countedDigits) {
-                countedDigits = differentDigitsCounter;
-                integerWithMinimumDifferentDigits = array[i];
+    public int minDifferentDigitsFinder(Integer[] array) {
+        return Stream.of(array).reduce((numOne, numTwo) -> {
+            if (numOne.toString().chars().distinct().count() > numTwo.toString().chars().distinct().count()) {
+                return numTwo;
             }
-        }
-        return integerWithMinimumDifferentDigits;
-    }
-
-    private static int differentDigitsCount(char[] chars) {
-        int differentDigitsCounter = 1;
-
-        boolean flag = false;
-
-        for (int j = 0; j < chars.length; j++) {
-            for (int k = j + 1; k < chars.length; k++) {
-                if (chars[j] == chars[k]) {
-                    flag = false;
-                    break;
-                }
-                flag = true;
-            }
-            if (flag) {
-                differentDigitsCounter++;
-            }
-            flag = false;
-        }
-        return differentDigitsCounter;
+            return numOne;
+        }).orElse(0);
     }
 }
