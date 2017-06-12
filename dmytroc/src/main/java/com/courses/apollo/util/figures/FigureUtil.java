@@ -1,14 +1,19 @@
 package com.courses.apollo.util.figures;
 
+import static java.util.stream.IntStream.range;
+
 import com.courses.apollo.model.raster.Pixel;
 import com.courses.apollo.model.raster.PixelMatrix;
 import com.courses.apollo.util.io.FileIOUtils;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Class for operation with figures located in 2 dimensional array by byte.
@@ -48,37 +53,22 @@ public class FigureUtil {
      * @return int[][] array.
      */
     public Integer[][] arrayFromSheet(List<String> lines) {
-        Integer[][] sheetArray = new Integer[lines.size()][lines.get(0).length()];
-        int rowIndex = 0;
-        for (Integer[] row : sheetArray) {
-            String[] symbols = lines.get(rowIndex).split("");
-            int columnIndex = 0;
-            for (String symbol : symbols) {
-                row[columnIndex] = Integer.valueOf(symbols[columnIndex++]);
-            }
-            rowIndex++;
-        }
-        return sheetArray;
+        return lines.stream().map(s -> Arrays.stream(s.split("")).map(Integer::valueOf)
+                .toArray(Integer[]::new)).toArray(Integer[][]::new);
     }
 
     /**
      * Method finds unique figures in sheet and add them to figures set.
      */
     private void getUniqueFigures() {
-        int yValue = 0;
-        for (Integer[] integerList : sheet) {
-            int xValue = 0;
-            for (Integer integer : integerList) {
-                if (integer == 1) {
-                    pixels.clear();
-                    collectPixels(pixels, yValue, xValue);
-                    simplifyPixels(pixels);
-                    createFigureIfUnique(pixels);
-                }
-                xValue++;
-            }
-            yValue++;
-        }
+        range(0, sheet.length)
+                .forEach(r -> range(0, sheet[0].length).filter(c -> sheet[r][c] == 1)
+                        .forEach(c -> {
+                            pixels.clear();
+                            collectPixels(pixels, r, c);
+                            simplifyPixels(pixels);
+                            createFigureIfUnique(pixels);
+                        }));
     }
 
     /**
@@ -89,6 +79,7 @@ public class FigureUtil {
      * @param y      y coordinate of first pixel.
      * @param x      x coordinate of first pixel.
      */
+
     private void collectPixels(Set<Pixel> pixels, int y, int x) {
         pixels.add(new Pixel(y, x));
         sheet[y][x] = 0;
@@ -111,21 +102,13 @@ public class FigureUtil {
      *
      * @param pixels input pixels.
      */
-    private void simplifyPixels(Set<Pixel> pixels) {
-        int minX = sheet[0].length;
-        int minY = sheet.length;
-        for (Pixel pixel : pixels) {
-            if (pixel.getXValue() < minX) {
-                minX = pixel.getXValue();
-            }
-            if (pixel.getYValue() < minY) {
-                minY = pixel.getYValue();
-            }
-        }
-        for (Pixel pixel : pixels) {
-            pixel.setXValue(pixel.getXValue() - minX);
-            pixel.setYValue(pixel.getYValue() - minY);
-        }
+    public void simplifyPixels(Set<Pixel> pixels) {
+        final int minX = pixels.stream().mapToInt(Pixel::getXValue).min().getAsInt();
+        final int minY = pixels.stream().mapToInt(Pixel::getYValue).min().getAsInt();
+        pixels.stream().forEach(pix -> {
+            pix.setXValue(pix.getXValue() - minX);
+            pix.setYValue(pix.getYValue() - minY);
+        });
     }
 
     /**
@@ -135,20 +118,7 @@ public class FigureUtil {
      */
     private void createFigureIfUnique(Set<Pixel> pixels) {
         PixelMatrix newFigure = new PixelMatrix(pixels);
-        if (uniqueFigures.size() != 0) {
-            boolean flag = false;
-            for (PixelMatrix existingFigure : uniqueFigures) {
-                if (existingFigure.equals(newFigure)) {
-                    flag = false;
-                    break;
-                } else {
-                    flag = true;
-                }
-            }
-            if (flag) {
-                uniqueFigures.add(newFigure);
-            }
-        } else {
+        if (uniqueFigures.stream().noneMatch(fig -> fig.equals(newFigure))) {
             uniqueFigures.add(newFigure);
         }
     }
@@ -161,18 +131,10 @@ public class FigureUtil {
      */
     public void pixelMatrixWriter(File outputFolder, Set<PixelMatrix> uniqueFigures) {
         FileIOUtils fileIOUtils = new FileIOUtils();
-        int figureCounter = 1;
-        for (PixelMatrix figure : uniqueFigures) {
-            int[][] figureArray = figure.getPixelMatrix();
-            String stringMatrix = "";
-            for (int[] aFigureArray : figureArray) {
-                for (int anAFigureArray : aFigureArray) {
-                    stringMatrix += anAFigureArray;
-                }
-                stringMatrix += "\n";
-            }
-            fileIOUtils.writeToFile(new File(outputFolder + "/figure" + figureCounter + ".txt"), stringMatrix);
-            figureCounter++;
-        }
+        AtomicInteger counter = new AtomicInteger(0);
+        uniqueFigures.stream().map(figure -> Arrays.stream(figure.getPixelMatrix())
+                .map(row -> Arrays.stream(row).mapToObj(String::valueOf).collect(Collectors.joining()))
+                .collect(Collectors.joining("\n"))).forEach(s -> fileIOUtils
+                .writeToFile(new File(outputFolder + "/figure" + counter.incrementAndGet() + ".txt"), s));
     }
 }

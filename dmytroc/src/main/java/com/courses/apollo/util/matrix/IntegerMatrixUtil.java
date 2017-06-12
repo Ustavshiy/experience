@@ -1,5 +1,7 @@
 package com.courses.apollo.util.matrix;
 
+import static java.util.stream.IntStream.range;
+
 /**
  * Class for Integer Matrix Util.
  */
@@ -13,16 +15,8 @@ public class IntegerMatrixUtil {
      * @return transposed Integer[][] array.
      */
     public int[][] transpose(int[][] matrix) {
-        int[][] transposedMatrix = new int[matrix[0].length][matrix.length];
-        int rowIndex = 0;
-        for (int[] row : matrix) {
-            int colIndex = 0;
-            for (int value : row) {
-                transposedMatrix[colIndex][rowIndex] = matrix[rowIndex][colIndex++];
-            }
-            rowIndex++;
-        }
-        return transposedMatrix;
+        return range(0, matrix[0].length)
+                .mapToObj(r -> range(0, matrix.length).map(c -> matrix[c][r]).toArray()).toArray(int[][]::new);
     }
 
     /**
@@ -32,13 +26,6 @@ public class IntegerMatrixUtil {
      * @return reversed Integer[][].
      */
     public int[][] reverseRow(int[][] matrix) {
-        int[][] reversedMatrix = new int[matrix.length][matrix[0].length];
-        int rowIndex = 0;
-        for (int[] row : matrix) {
-            reversedMatrix[rowIndex] = matrix[matrix.length - 1 - rowIndex];
-            reversedMatrix[matrix.length - 1 - rowIndex++] = row;
-        }
-        return reversedMatrix;
+        return range(0, matrix.length).mapToObj(r -> matrix[matrix.length - 1 - r]).toArray(int[][]::new);
     }
-
 }

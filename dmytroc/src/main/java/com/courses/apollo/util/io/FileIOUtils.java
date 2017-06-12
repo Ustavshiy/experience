@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -22,16 +23,13 @@ public class FileIOUtils {
      * @return string.
      */
     public String readFromFile(File testFile) {
-        StringBuffer stringBuffer = new StringBuffer();
+        String text = "";
         try {
-            List<String> lines = Files.readAllLines(testFile.toPath(), UTF_8);
-            for (String line : lines) {
-                stringBuffer.append(line + " ");
-            }
+            text = Files.readAllLines(testFile.toPath(), UTF_8).stream().collect(Collectors.joining(" "));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new String(stringBuffer);
+        return text;
     }
 
     /**

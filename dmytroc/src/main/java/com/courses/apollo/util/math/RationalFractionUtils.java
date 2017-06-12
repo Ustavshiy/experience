@@ -2,6 +2,9 @@ package com.courses.apollo.util.math;
 
 import com.courses.apollo.model.math.RationalFraction;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+
 /**
  * This class for RationalFraction logic.
  */
@@ -15,23 +18,24 @@ public class RationalFractionUtils {
      * @return calculated RationalFraction array.
      */
     public RationalFraction[] addOddIndexToEven(RationalFraction[] inputArray) {
-        int counter = 0;
+        AtomicInteger counter = new AtomicInteger(0);
         RationalFraction[] resultArray = new RationalFraction[(inputArray.length + 1) / 2];
-        for (int i = 0; i < inputArray.length; i++) {
-            if (i % 2 == 0 && i != inputArray.length - 1) {
-                resultArray[counter] = new RationalFraction();
-                resultArray[counter].setNumerator(inputArray[i].getNumerator()
-                        + inputArray[i + 1].getNumerator());
-                resultArray[counter].setDenominator(inputArray[i].getDenominator()
-                        + inputArray[i + 1].getDenominator());
-                counter++;
-            } else if (i == inputArray.length - 1) {
-                resultArray[counter] = new RationalFraction();
-                resultArray[counter].setNumerator(inputArray[i].getNumerator());
-                resultArray[counter].setDenominator(inputArray[i].getDenominator());
-                counter++;
+        IntStream.range(0, inputArray.length).filter(i -> {
+            if (i == inputArray.length - 1) {
+                resultArray[counter.get()] = new RationalFraction();
+                resultArray[counter.get()].setNumerator(inputArray[i].getNumerator());
+                resultArray[counter.getAndIncrement()].setDenominator(inputArray[i].getDenominator());
+                return false;
+            } else {
+                return true;
             }
-        }
+        }).filter(i -> i % 2 == 0).forEach(val -> {
+            resultArray[counter.get()] = new RationalFraction();
+            resultArray[counter.get()].setNumerator(inputArray[val].getNumerator()
+                    + inputArray[val + 1].getNumerator());
+            resultArray[counter.getAndIncrement()].setDenominator(inputArray[val].getDenominator()
+                    + inputArray[val + 1].getDenominator());
+        });
         return resultArray;
     }
 

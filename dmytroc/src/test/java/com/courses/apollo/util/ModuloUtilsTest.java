@@ -10,8 +10,8 @@ public class ModuloUtilsTest {
     private int[] arrayWithOnlyFiveIsTrue = {12, 3, 15, 22, 87, 75, 57, 106, 109};
     private int[] arrayWithOnlySevenIsTrue = {12, 3, 14, 22, 21, 75, 57, 49, 109};
 
-    private int[] expectedResultWithBothTrue = {140, 35, 35, 70, 105};
-    private int[] expectedResultWithFalse = {};
+    private Integer[] expectedResultWithBothTrue = {140, 35, 70, 105};
+    private Integer[] expectedResultWithFalse = {};
 
     private int moduloOne = 5;
     private int moduloTwo = 7;

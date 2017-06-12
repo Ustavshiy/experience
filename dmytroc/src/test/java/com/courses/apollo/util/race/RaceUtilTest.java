@@ -18,7 +18,7 @@ public class RaceUtilTest {
             "Number 4, overtakes number 3 at 2.25 seconds\n" +
             "Number 4, overtakes number 1 at 5.142857142857143 seconds\n" +
             "Number 4, overtakes number 2 at 6.857142857142857 seconds\n" +
-            "Number 1, overtakes number 2 at 10.285714285714286 seconds\n";
+            "Number 1, overtakes number 2 at 10.285714285714286 seconds";
     Integer expectedResultCount = 6;
 
     @Before

@@ -26,18 +26,14 @@ public class Country extends AdministrativeUnit {
 
     /**
      * Get provinces in country. Set provinces, calculate area of country, set capital.
+     *
      * @param provinces input list of Provinces.
      */
     public void setProvinces(List<Province> provinces) {
         this.provinces = provinces;
-        Integer countryArea = 0;
-        for (Province province : provinces) {
-            countryArea += province.getArea();
-            if (province.getProvinceCenter().isCapital()) {
-                capital = province.getProvinceCenter();
-            }
-        }
-        setArea(countryArea);
+        capital = provinces.stream()
+                .map(Province::getProvinceCenter).filter(City::isCapital).findFirst().get();
+        setArea(provinces.stream().mapToInt(Province::getArea).sum());
     }
 
     public List<Province> getProvinces() {

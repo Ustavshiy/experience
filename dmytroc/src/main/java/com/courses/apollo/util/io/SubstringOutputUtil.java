@@ -1,8 +1,10 @@
 package com.courses.apollo.util.io;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Class to save to file matched substrings in file.
@@ -26,11 +28,7 @@ public class SubstringOutputUtil {
      */
     public String getAllWords(String text) {
         String[] words = text.split(wordsSplitRegex);
-        StringBuffer stringBuffer = new StringBuffer();
-        for (String word : words) {
-            stringBuffer.append(word + " ");
-        }
-        return stringBuffer.toString();
+        return Arrays.stream(words).collect(Collectors.joining(" "));
     }
 
     /**

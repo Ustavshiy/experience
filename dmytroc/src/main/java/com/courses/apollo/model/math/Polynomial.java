@@ -24,11 +24,8 @@ public class Polynomial {
     }
 
     public Polynomial(List<Monomial> monomials) {
-        Double monomialsSum = 0D;
-        for (Monomial monomial : monomials) {
-            monomialsSum += monomial.getMonomialResult();
-        }
-        this.polynomialResult = monomialsSum;
+        this.polynomialResult = monomials.stream().mapToDouble(m -> m.getMonomialResult())
+                .reduce((a, b) -> a + b).getAsDouble();
     }
 
     public double getPolynomialResult() {
