@@ -11,5 +11,12 @@
 
     <artifactId>example</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.courses.apollo</groupId>
+            <artifactId>dmytroc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

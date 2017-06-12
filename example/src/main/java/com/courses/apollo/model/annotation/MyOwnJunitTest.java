@@ -11,4 +11,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface MyOwnJunitTest {
+    /**
+     * Some string.
+     *
+     * @return some string
+     */
+    String s();
+
 }

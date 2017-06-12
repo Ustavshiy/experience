@@ -45,17 +45,16 @@ public class IntStreamTest {
                 });
     }
 
-    @MyOwnJunitTest
+    @MyOwnJunitTest(s = "test")
     public void myOwnJunitTest() {
         System.out.println("Hello Bogdan!");
     }
 
-    @MyOwnJunitTest
+    @MyOwnJunitTest(s = "test")
     public void myOwnJunitTestTwo() {
         System.out.println("Hello Dmytro!");
     }
 
-    @Test
     public void testImperativeFibonacci() {
         int prev = 0;
         int next = 1;
