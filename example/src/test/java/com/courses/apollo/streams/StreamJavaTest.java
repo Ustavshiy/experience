@@ -92,7 +92,7 @@ public class StreamJavaTest {
         Stream<String> secondStream = Stream.of("A", "B", "C");
         String[] array = {"a1", "a2", "a3"};
         Stream<String> streamFromArrays = Arrays.stream(array);
-        Stream<String> streamFromFiles = Files.lines(Paths.get("src\\main\\resources\\testTwo.txt"));
+//        Stream<String> streamFromFiles = Files.lines(Paths.get("src\\main\\resources\\testTwo.txt"));
         IntStream streamFromString = "123".chars();
         Stream<Object> fourthStream = Stream.builder().add("a1").add("a2").add("a3").build();
         Stream<Integer> streamFromIterate = Stream.iterate(1, n -> n + 1).limit(10);

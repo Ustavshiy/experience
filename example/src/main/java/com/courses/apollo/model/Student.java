@@ -39,9 +39,9 @@ public class Student implements Serializable {
     private String address;
 
     /**
-     * Marks list
+     * Marks list.
      */
-    List<Integer> marks;
+    private List<Integer> marks;
 
     /**
      * String phone number.
@@ -157,36 +157,41 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentId=" + studentId +
-                ", secondName='" + secondName + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymicName='" + patronymicName + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", universityInfo=" + universityInfo +
-                '}';
+        return "Student{"
+                + "studentId=" + studentId
+                + ", secondName='" + secondName + '\''
+                + ", name='" + name + '\''
+                + ", patronymicName='" + patronymicName + '\''
+                + ", birthDay='" + birthDay + '\''
+                + ", address='" + address + '\''
+                + ", phoneNumber='" + phoneNumber + '\''
+                + ", universityInfo=" + universityInfo
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Student)) {
+            return false;
+        }
         Student student = (Student) o;
-        return Objects.equals(studentId, student.studentId) &&
-                Objects.equals(secondName, student.secondName) &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(patronymicName, student.patronymicName) &&
-                Objects.equals(birthDay, student.birthDay) &&
-                Objects.equals(address, student.address) &&
-                Objects.equals(marks, student.marks) &&
-                Objects.equals(phoneNumber, student.phoneNumber) &&
-                Objects.equals(universityInfo, student.universityInfo);
+        return Objects.equals(studentId, student.studentId)
+                && Objects.equals(secondName, student.secondName)
+                && Objects.equals(name, student.name)
+                && Objects.equals(patronymicName, student.patronymicName)
+                && Objects.equals(birthDay, student.birthDay)
+                && Objects.equals(address, student.address)
+                && Objects.equals(marks, student.marks)
+                && Objects.equals(phoneNumber, student.phoneNumber)
+                && Objects.equals(universityInfo, student.universityInfo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId, secondName, name, patronymicName, birthDay, address, marks, phoneNumber, universityInfo);
+        return Objects.hash(studentId, secondName, name, patronymicName,
+                birthDay, address, marks, phoneNumber, universityInfo);
     }
 }

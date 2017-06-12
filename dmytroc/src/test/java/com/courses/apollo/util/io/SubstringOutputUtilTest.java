@@ -45,7 +45,7 @@ public class SubstringOutputUtilTest {
         for (File file : dirOne.listFiles()) {
             file.delete();
         }
-        dirTwo.delete();
+        dirOne.delete();
         dirTwo.delete();
     }
 }

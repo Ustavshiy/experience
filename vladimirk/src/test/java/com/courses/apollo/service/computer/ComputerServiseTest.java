@@ -1,13 +1,14 @@
-package com.courses.apollo.service;
+package com.courses.apollo.service.computer;
 
-import com.courses.apollo.model.ComputerTestData;
+import com.courses.apollo.model.computer.ComputerTestData;
 import com.courses.apollo.model.computer.Computer;
 
+import com.courses.apollo.service.computer.ComputerService;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by vladimirk on 23.03.17.
+ * Test class for ComputerService Class.
  */
 public class ComputerServiseTest {
 
