@@ -10,9 +10,9 @@ public class SwapStacksContent {
     /**
      * Method for swaping content of two stacks.
      */
-    public void swapStacksContent(Stack stackOne, Stack stackTwo) {
-        Stack bufferOne = new Stack();
-        Stack bufferTwo = new Stack();
+    public <T> void swapStacksContent(Stack<T> stackOne, Stack<T> stackTwo) {
+        Stack<T> bufferOne = new Stack<>();
+        Stack<T> bufferTwo = new Stack<>();
         reverseSwapContent(stackOne, bufferOne);
         reverseSwapContent(stackTwo, bufferTwo);
         reverseSwapContent(bufferTwo, stackOne);
@@ -22,7 +22,7 @@ public class SwapStacksContent {
     /**
      * Method for reverse swaping content of two stacks.
      */
-    private void reverseSwapContent(Stack source, Stack dest) {
+    private <T> void reverseSwapContent(Stack<T> source, Stack<T> dest) {
         while (!source.empty()) {
             dest.push(source.pop());
         }
