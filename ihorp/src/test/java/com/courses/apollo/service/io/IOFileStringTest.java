@@ -18,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class IOFileStringTest {
 
-    private static String fileWithText = "src/test/resources/NewFile.txt";
+    private static String fileWithText = "src/test/resources/IOTestFile.txt";
     private static String testedText = "tested text";
 
     @Test
