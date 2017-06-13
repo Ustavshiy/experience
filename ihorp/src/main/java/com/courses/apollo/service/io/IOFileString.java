@@ -43,7 +43,7 @@ public final class IOFileString {
                     dataFileReader.close();
                 }
             } catch (IOException e) {
-                throw new IOException();
+                e.printStackTrace();
             }
         }
         return stringBuilder.toString();

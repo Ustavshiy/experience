@@ -57,11 +57,9 @@ public class SerializeMotorcyclist {
             read = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
             motorcyclist = (Motorcyclist) read.readObject();
 
-        } catch (IOException e) {
+        } catch (ClassNotFoundException | IOException e) {
             throw new IOException();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
+        }  finally {
             try {
                 if (read != null) {
                     read.close();

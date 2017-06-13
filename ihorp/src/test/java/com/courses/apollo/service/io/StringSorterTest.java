@@ -55,6 +55,19 @@ public class StringSorterTest {
     }
 
     @Test
+    public void equalsTest() {
+        StringSorter.WordCounter wc1 = new StringSorter.WordCounter("word", 1);
+        StringSorter.WordCounter wc2 = new StringSorter.WordCounter("word", 1);
+        StringSorter.WordCounter wc3 = wc1;
+        StringSorter.WordCounter wc4 = null;
+
+        Assert.assertTrue(wc1.equals(wc2) && wc2.equals(wc1));
+        Assert.assertTrue(wc1.equals(wc3));
+        Assert.assertFalse(wc1.equals(wc4));
+    }
+
+
+    @Test
     public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Constructor<StringSorter> constructor = StringSorter.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));

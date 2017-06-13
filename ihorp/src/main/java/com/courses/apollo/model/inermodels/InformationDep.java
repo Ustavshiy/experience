@@ -25,7 +25,7 @@ public class InformationDep {
     /**
      * Inner class of train routes.
      */
-    private class TrainRoute {
+    private static class TrainRoute {
 
         /**
          * Index id of route.

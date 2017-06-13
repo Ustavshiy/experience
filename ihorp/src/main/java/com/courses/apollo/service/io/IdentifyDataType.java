@@ -24,14 +24,13 @@ public final class IdentifyDataType {
         String text = IOFileString.readFromFile(dataFile);
         if (Pattern.matches("^\\d+$", dataTypeString)) {
             return getOnlyInt(text);
-        } else if (Pattern.matches("[a-zA-Z]{2,}[\\-\\']?[a-z]*", dataTypeString)) {
-            return getOnlyString(text);
-        } else if (Pattern.matches("^([+-]?\\d*\\.+\\d*)$", dataTypeString)) {
+        }  else if (Pattern.matches("^([+-]?\\d*\\.+\\d*)$", dataTypeString)) {
             return getOnlyFloats(text);
         } else if (Pattern.matches("[\\D\\W]", dataTypeString)) {
             return getOnlyChars(text);
+        } else {
+            return getOnlyString(text);
         }
-        return null;
     }
 
     /**
