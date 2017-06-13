@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class SerializeMotorcyclistTest {
 
-    public static String file = "src\\test\\resources\\SerializeMotorcyclist\\Motorcyclist.ser";
+    public static String file = "src/test/resources/SerializeMotorcyclist/Motorcyclist.ser";
     private Motorcyclist motorcyclist;
     private SerializeMotorcyclist serializeMotorcyclist = new SerializeMotorcyclist();
 
@@ -46,7 +46,7 @@ public class SerializeMotorcyclistTest {
 
     @Test(expected = IOException.class)
     public void reestablishMotorcyclistExceptionTest() throws IOException {
-        String file = "src\\test\\resources\\SerializeMotorcyclist";
+        String file = "src/test/resources/SerializeMotorcyclist";
         Motorcyclist motorcyclist = serializeMotorcyclist.reestablishMotorcyclist(file);
     }
 
@@ -59,6 +59,6 @@ public class SerializeMotorcyclistTest {
     @AfterClass
     public static void deleteFile() {
         new File(file).delete();
-        new File(file.replaceAll("[\\\\][^\\\\]+$", "")).delete();
+        new File(file.replaceAll("[/][^/]+$", "")).delete();
     }
 }

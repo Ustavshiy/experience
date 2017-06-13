@@ -23,7 +23,7 @@ public class SerializeMotorcyclist {
      * @param file         way to write.
      */
     public void writeMotorcyclist(Motorcyclist motorcyclist, String file) throws IOException {
-        String path = file.replaceAll("[\\\\][^\\\\]+$", "");
+        String path = file.replaceAll("[/][^/]+$", "");
         if (!new File(path).exists()) {
             new File(path).mkdirs();
         }

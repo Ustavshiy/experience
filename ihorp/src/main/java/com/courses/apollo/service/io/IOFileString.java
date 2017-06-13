@@ -60,7 +60,7 @@ public final class IOFileString {
     public static boolean writeToFile(String filePlace, String text, boolean append) {
 
         File file = new File(filePlace);
-        File pathFile = new File(filePlace.replaceAll("[\\\\][^\\\\]+$", ""));
+        File pathFile = new File(filePlace.replaceAll("[/][^/]+$", ""));
         if (!pathFile.exists()) {
             pathFile.mkdirs();
         }
