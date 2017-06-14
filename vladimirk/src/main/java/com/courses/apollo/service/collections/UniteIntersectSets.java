@@ -10,9 +10,8 @@ public class UniteIntersectSets {
     /**
      * Method to unite two sets.
      */
-    public HashSet<Integer> uniteSets(HashSet<Integer> one, HashSet<Integer> two) {
-        HashSet<Integer> united = new HashSet<>();
-        united.addAll(one);
+    public <T> HashSet<T> uniteSets(HashSet<T> one, HashSet<T> two) {
+        HashSet<T> united = new HashSet<>(one);
         united.addAll(two);
         return united;
     }
@@ -20,9 +19,8 @@ public class UniteIntersectSets {
     /**
      * Method to intersect two sets.
      */
-    public HashSet<Integer> intersectSets(HashSet<Integer> one, HashSet<Integer> two) {
-        HashSet<Integer> intersected = new HashSet<>();
-        intersected.addAll(one);
+    public <T> HashSet<T> intersectSets(HashSet<T> one, HashSet<T> two) {
+        HashSet<T> intersected = new HashSet<>(one);
         intersected.retainAll(two);
         return intersected;
     }
