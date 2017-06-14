@@ -3,7 +3,6 @@ package com.courses.apollo.util.foodutils;
 import com.courses.apollo.SaladUtilsTestData;
 import com.courses.apollo.model.food.Salad;
 import com.courses.apollo.model.food.vegetable.Vegetable;
-import com.courses.apollo.util.foodutils.SaladUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
@@ -31,7 +30,7 @@ public class SaladUtilsTest {
 
     @Test
     public void caloriesDiapasonFinderTest() {
-        List<Vegetable> sortedVegetablesTest = saladUtils.caloriesDiapazoneFinder(testSalad, 16, 22);
+        List<Vegetable> sortedVegetablesTest = saladUtils.caloriesDiapasonFinder(testSalad, 16, 22);
         List<Vegetable> expectedresult = SaladUtilsTestData.getCaloriesDiapasonFinderVegetables();
         Assert.assertEquals(expectedresult, sortedVegetablesTest);
     }

@@ -1,10 +1,12 @@
 package com.courses.apollo.util.io;
 
 import java.io.File;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Writes to file statistics of words and letters in text file.
@@ -55,13 +57,9 @@ public class TextStatisticsUtils {
      * @return string.
      */
     private String repeatsCounter(String text, Set<String> substringList) {
-        StringBuffer stringBuffer = new StringBuffer();
-        int counter = 1;
-        for (String substring : substringList) {
-            stringBuffer.append(counter++ + " " + substring + " repeats "
-                    + countSameSubstring(text, substring) + " times,\n");
-        }
-        return stringBuffer.toString();
+        AtomicInteger counter = new AtomicInteger(1);
+        return substringList.stream().map(str -> counter.getAndIncrement() + " " + str + " repeats "
+                + countSameSubstring(text, str) + " times,\n").collect(Collectors.joining());
     }
 
     /**
@@ -89,13 +87,7 @@ public class TextStatisticsUtils {
      * @return Set of substrings.
      */
     public Set<String> splitToUniqueSubstring(String text, String regex) {
-        String[] substrings = text.split(regex);
-        Set<String> substringSet = new HashSet();
-        for (String substring : substrings) {
-            if (!substring.equals("")) {
-                substringSet.add(substring.toLowerCase());
-            }
-        }
-        return substringSet;
+        return Arrays.stream(text.split(regex))
+                .map(String::toLowerCase).filter(s -> !s.equals("")).collect(Collectors.toSet());
     }
 }

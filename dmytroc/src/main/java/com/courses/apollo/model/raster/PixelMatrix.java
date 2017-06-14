@@ -19,20 +19,10 @@ public class PixelMatrix {
     private int[][] pixelMatrix;
 
     public PixelMatrix(Set<Pixel> pixels) {
-        int maxX = 0;
-        int maxY = 0;
-        for (Pixel pixel : pixels) {
-            if (pixel.getXValue() > maxX) {
-                maxX = pixel.getXValue();
-            }
-            if (pixel.getYValue() > maxY) {
-                maxY = pixel.getYValue();
-            }
-        }
+        final int maxX = pixels.stream().mapToInt(Pixel::getXValue).max().getAsInt();
+        final int maxY = pixels.stream().mapToInt(Pixel::getYValue).max().getAsInt();
         int[][] figure = new int[maxY + 1][maxX + 1];
-        for (Pixel pixel : pixels) {
-            figure[pixel.getYValue()][pixel.getXValue()] = 1;
-        }
+        pixels.forEach(pixel -> figure[pixel.getYValue()][pixel.getXValue()] = 1);
         pixelMatrix = figure;
     }
 

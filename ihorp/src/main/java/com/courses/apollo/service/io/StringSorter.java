@@ -31,8 +31,8 @@ public final class StringSorter {
     /**
      * Method create a List of WordCounters from list of Strings.
      *
-     * @param words
-     * @return
+     * @param words is array of words.
+     * @return List of objects WordCounter type.
      */
     public static List<WordCounter> createListWordCounter(String[] words) {
         List<WordCounter> wordsWithCounter = new ArrayList<>();

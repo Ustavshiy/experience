@@ -22,12 +22,18 @@ public class IOFileStringTest {
     private static String testedText = "tested text";
 
     @Test
-    public void writeToFileTest() throws IOException{
+    public void writeToFileTest() throws IOException {
         IOFileString.writeToFile(fileWithText, testedText, false);
         Assert.assertEquals(testedText, IOFileString.readFromFile(fileWithText));
     }
 
-    @Test(expected = IOException.class)
+    @Test
+    public void writeToFileAssistTest() throws IOException {
+        File notExistFile = new File("\\src\\test\\resources\\FileNotExists");
+        Assert.assertEquals(IOFileString.writeToFileAssist(notExistFile, testedText), true);
+    }
+
+    @Test
     public void testReadFromIOException() throws IOException {
         String notExistFile = "\\src\\test\\resources\\FileNotExists";
         IOFileString.readFromFile(notExistFile);

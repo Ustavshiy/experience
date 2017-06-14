@@ -1,8 +1,13 @@
 package com.courses.apollo.util.stringutils;
 
+import static java.util.stream.IntStream.range;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Class for String utils.
@@ -17,19 +22,21 @@ public class StringUtils {
      */
     public String maxSubstringDelete(String string) {
         StringBuilder stringBuilder = new StringBuilder(string);
-        int maxSubstring = 0;
-        int substringStart = 0;
-        int substringEnd = 0;
-        for (int i = 0; i < stringBuilder.length(); i++) {
-            for (int j = i; j < stringBuilder.length(); j++) {
-                if (stringBuilder.charAt(i) == stringBuilder.charAt(j) && j - i > maxSubstring) {
-                    maxSubstring = j - i;
-                    substringStart = i;
-                    substringEnd = j + 1;
-                }
-            }
-        }
-        stringBuilder = stringBuilder.delete(substringStart, substringEnd);
+        AtomicInteger substringStart = new AtomicInteger(0);
+        AtomicInteger substringEnd = new AtomicInteger(0);
+        AtomicInteger maxSubstring = new AtomicInteger(0);
+        string.chars()
+                .forEach(c -> {
+                    range(0, string.length()).forEach(i -> range(0, string.length())
+                            .forEach(j -> {
+                                if (string.charAt(i) == string.charAt(j) && j - i > maxSubstring.get()) {
+                                    maxSubstring.set(j - i);
+                                    substringStart.set(i);
+                                    substringEnd.set(j + 1);
+                                }
+                            }));
+                });
+        stringBuilder = stringBuilder.delete(substringStart.get(), substringEnd.get());
         return stringBuilder.toString();
     }
 
@@ -43,16 +50,14 @@ public class StringUtils {
         List<String> origSentences = new ArrayList<>(Arrays.asList(textToEdit.split("\\.")));
         textToEdit = textToEdit.toLowerCase();
         List<String> checkSentences = new ArrayList<>(Arrays.asList(textToEdit.split("\\. ")));
-        for (int j = checkSentences.size() - 1; j >= 0; j--) {
-            if (!isWordRepeats(checkSentences.get(j), j, checkSentences)) {
-                origSentences.remove(j);
-            }
-        }
-        StringBuilder editedText = new StringBuilder();
-        for (int i = 0; i < origSentences.size(); i++) {
-            editedText.append(origSentences.get(i) + ".");
-        }
-        return editedText.toString();
+        range(0, origSentences.size())
+                .forEach(s -> {
+                    if (!isWordRepeats(checkSentences.get(s), s, checkSentences)) {
+                        origSentences.remove(s);
+                    }
+                });
+
+        return origSentences.stream().collect(Collectors.joining(".")) + ".";
     }
 
     /**
@@ -65,13 +70,13 @@ public class StringUtils {
      */
     public boolean isWordRepeats(String checkSentence, int checkSentenceNumber, List<String> sentences) {
         String[] words = checkSentence.split(" ");
-        for (int j = 0; j < words.length; j++) {
-            for (int i = 0; i < sentences.size(); i++) {
-                if (i != checkSentenceNumber && sentences.get(i).toLowerCase().contains(words[j])) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        AtomicBoolean flag = new AtomicBoolean(false);
+        Arrays.stream(words).forEach(w -> sentences.stream().flatMapToInt(s -> range(0, sentences.size()))
+                .forEach(sNum -> {
+                    if (sNum != checkSentenceNumber && sentences.get(sNum).toLowerCase().contains(w)) {
+                        flag.set(true);
+                    }
+                }));
+        return flag.get();
     }
 }
