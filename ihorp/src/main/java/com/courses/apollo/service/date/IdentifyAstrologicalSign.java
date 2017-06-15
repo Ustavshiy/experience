@@ -17,11 +17,13 @@ public final class IdentifyAstrologicalSign {
      */
     public static AstrologicalSign identifySign(LocalDate date) {
         int dayOfYear = date.getDayOfYear();
-        for (AstrologicalSign sign : AstrologicalSign.values()) {
-            if (dayOfYear >= sign.getStartDate().getDayOfYear() && dayOfYear <= sign.getEndDate().getDayOfYear()) {
-                return sign;
+        AstrologicalSign sign = null;
+        for (AstrologicalSign signTmp : AstrologicalSign.values()) {
+            if (dayOfYear >= signTmp.getStartDate().getDayOfYear()
+                    && dayOfYear <= signTmp.getEndDate().getDayOfYear()) {
+                sign = signTmp;
             }
         }
-        return null;
+        return sign;
     }
 }

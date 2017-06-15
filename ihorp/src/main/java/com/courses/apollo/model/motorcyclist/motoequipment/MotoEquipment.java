@@ -33,14 +33,6 @@ public abstract class MotoEquipment extends Motorcyclist {
         this.weight = weight;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }

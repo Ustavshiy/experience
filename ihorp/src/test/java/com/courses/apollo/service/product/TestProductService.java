@@ -1,13 +1,19 @@
 package com.courses.apollo.service.product;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import com.courses.apollo.service.computer.ComputerService;
 import com.courses.apollo.service.product.FindProductService;
 import org.junit.Test;
 
 import com.courses.apollo.model.product.Product;
 import com.courses.apollo.data.ProductTestData;
+
+import static org.junit.Assert.assertTrue;
 
 public class TestProductService {
 
@@ -43,5 +49,13 @@ public class TestProductService {
         answerList.add(ProductTestData.getProducts().get(9));
 
         answerList.equals(FindProductService.findByShelfLife(ProductTestData.getProducts(), shelfLifeFind));
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<FindProductService> constructor = FindProductService.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

@@ -18,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class IOFileStringTest {
 
-    private static String fileWithText = "src\\test\\resources\\IOFileStringTest\\NewFile.txt";
+    private static String fileWithText = "src/test/resources/IOTestFile.txt";
     private static String testedText = "tested text";
 
     @Test
@@ -29,13 +29,13 @@ public class IOFileStringTest {
 
     @Test
     public void writeToFileAssistTest() throws IOException {
-        File notExistFile = new File("\\src\\test\\resources\\FileNotExists");
-        Assert.assertEquals(IOFileString.writeToFileAssist(notExistFile, testedText), true);
+        File writeToFileAssist = new File(fileWithText);
+        Assert.assertEquals(IOFileString.writeToFileAssist(writeToFileAssist, testedText), true);
     }
 
-    @Test
+    @Test (expected = IOException.class)
     public void testReadFromIOException() throws IOException {
-        String notExistFile = "\\src\\test\\resources\\FileNotExists";
+        String notExistFile = "src/test/resources/FileNotExists";
         IOFileString.readFromFile(notExistFile);
     }
 
@@ -50,6 +50,6 @@ public class IOFileStringTest {
     @AfterClass
     public static void deleteFiles() {
         new File(fileWithText).delete();
-        new File(fileWithText.replaceAll("[\\\\][^\\\\]+$", "")).delete();
+        new File(fileWithText.replaceAll("[/][^/]+$", "")).delete();
     }
 }

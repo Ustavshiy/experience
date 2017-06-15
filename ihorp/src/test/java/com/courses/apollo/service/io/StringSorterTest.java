@@ -1,26 +1,23 @@
 package com.courses.apollo.service.io;
 
-import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm;
 import org.junit.*;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertTrue;
 
 public class StringSorterTest {
 
-    private static String testTextFile = "src\\test\\resources\\TestText.txt";
+    private static String testTextFile = "src/test/resources/TestText.txt";
     private static String testText = "fifth fifth fifth fifth fifth fourth fourth fourth fourth third third third second second first";
-    private static String answerTextFile = "src\\test\\resources\\AnswerText.txt";
+    private static String answerTextFile = "src/test/resources/AnswerText.txt";
     private static String answerText = "first second third fourth fifth ";
-    private static String testOutputFile = "src\\test\\resources\\TestOutput.txt";
+    private static String testOutputFile = "src/test/resources/TestOutput.txt";
 
 
     @BeforeClass
@@ -55,6 +52,19 @@ public class StringSorterTest {
     }
 
     @Test
+    public void equalsTest() {
+        StringSorter.WordCounter wc1 = new StringSorter.WordCounter("word", 1);
+        StringSorter.WordCounter wc2 = new StringSorter.WordCounter("word", 1);
+        StringSorter.WordCounter wc3 = wc1;
+        StringSorter.WordCounter wc4 = null;
+
+        Assert.assertTrue(wc1.equals(wc2) && wc2.equals(wc1));
+        Assert.assertTrue(wc1.equals(wc3));
+        Assert.assertFalse(wc1.equals(wc4));
+    }
+
+
+    @Test
     public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Constructor<StringSorter> constructor = StringSorter.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
@@ -67,6 +77,6 @@ public class StringSorterTest {
         new File(testTextFile).delete();
         new File(answerTextFile).delete();
         new File(testOutputFile).delete();
-        new File(testTextFile.replaceAll("[\\\\][^\\\\]+$", "")).delete();
+        new File(testTextFile.replaceAll("[/][^/]+$", "")).delete();
     }
 }

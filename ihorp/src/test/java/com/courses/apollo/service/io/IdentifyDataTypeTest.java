@@ -15,11 +15,11 @@ import static org.junit.Assert.assertTrue;
 
 public class IdentifyDataTypeTest {
 
-    private static String fileWithText = "src\\test\\resources\\IdentifyDataType\\FileWithText.txt";
-    private static String fileWithInt = "src\\test\\resources\\IdentifyDataType\\FileWithInt.txt";
-    private static String fileWithString = "src\\test\\resources\\IdentifyDataType\\FileWithString.txt";
-    private static String fileWithFloat = "src\\test\\resources\\IdentifyDataType\\FileWithFloat.txt";
-    private static String fileWithChar = "src\\test\\resources\\IdentifyDataType\\FileWithChar.txt";
+    private static String fileWithText = "src/test/resources/IdentifyDataType/FileWithText.txt";
+    private static String fileWithInt = "src/test/resources/IdentifyDataType/FileWithInt.txt";
+    private static String fileWithString = "src/test/resources/IdentifyDataType/FileWithString.txt";
+    private static String fileWithFloat = "src/test/resources/IdentifyDataType/FileWithFloat.txt";
+    private static String fileWithChar = "src/test/resources/IdentifyDataType/FileWithChar.txt";
 
     private static String testedText = "123 word 12.34 4 c boolean 3.14 p";
     private static String strInteger = "25";
@@ -93,6 +93,6 @@ public class IdentifyDataTypeTest {
         new File(fileWithString).delete();
         new File(fileWithFloat).delete();
         new File(fileWithChar).delete();
-        new File(fileWithText.replaceAll("[\\\\][^\\\\]+$", "")).delete();
+        new File(fileWithText.replaceAll("[/][^/]+$", "")).delete();
     }
 }

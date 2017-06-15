@@ -8,12 +8,18 @@ import com.courses.apollo.model.motorcyclist.motoequipment.motoarmor.Helmet;
 import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Balaclava;
 import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Bandana;
 import com.courses.apollo.model.motorcyclist.motoequipment.motoclothing.Underpant;
+import com.courses.apollo.service.product.FindProductService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
 
 public class MotoServiceTest {
 
@@ -79,5 +85,13 @@ public class MotoServiceTest {
          Assert.assertEquals(motoEquipmentFiltered,
                  MotorcycleService.findEquipmentByPriceRange(motoEquipment,
                          new BigDecimal(10), new BigDecimal(200)));
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<MotorcycleService> constructor = MotorcycleService.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

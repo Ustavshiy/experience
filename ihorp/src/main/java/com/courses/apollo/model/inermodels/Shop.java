@@ -25,7 +25,7 @@ public class Shop {
     /**
      * inner class.
      */
-    private final class ShopOffice {
+    private static final class ShopOffice {
 
         /**
          * List of departments.

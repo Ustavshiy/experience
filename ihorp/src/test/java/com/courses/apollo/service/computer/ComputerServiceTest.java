@@ -2,8 +2,15 @@ package com.courses.apollo.service.computer;
 
 import com.courses.apollo.data.ComputerDataTest;
 import com.courses.apollo.model.computer.Computer;
+import com.courses.apollo.service.regex.CharMatches;
 import org.junit.Test;
 import org.junit.Assert;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+
+import static org.junit.Assert.assertTrue;
 
 public class ComputerServiceTest {
 
@@ -71,6 +78,14 @@ public class ComputerServiceTest {
         testComputer.getHardDiskDrives().get(1).setHasViruses(true);
 
         Assert.assertEquals(ComputerService.virusesDetected(testComputer), isVirus);
+    }
+
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<ComputerService> constructor = ComputerService.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
     @Test
